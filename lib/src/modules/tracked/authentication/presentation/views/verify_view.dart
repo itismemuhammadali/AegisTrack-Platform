@@ -1,6 +1,7 @@
 import 'dart:async';
 
-import '../../../../../components/custom_textfield.dart';
+import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+
 import '../../../../../core/utils/app_exports.dart';
 import '../../../../onboarding/presentation/widgets/onboarding_page_scaffold.dart';
 import '../widgets/sign_in_primary_button.dart';
@@ -22,13 +23,8 @@ class VerifyView extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controllers = useMemoized(
-      () => List.generate(_codeLength, (_) => TextEditingController()),
-    );
-    final focusNodes = useMemoized(
-      () => List.generate(_codeLength, (_) => FocusNode()),
-    );
     final secondsLeft = useState(_resendSeconds);
+    final otpControllers = useRef<List<TextEditingController?>>([]);
 
     useEffect(() {
       final timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -42,36 +38,16 @@ class VerifyView extends HookConsumerWidget {
       return timer.cancel;
     }, const []);
 
-    useEffect(() {
-      return () {
-        for (final controller in controllers) {
-          controller.dispose();
-        }
-        for (final focusNode in focusNodes) {
-          focusNode.dispose();
-        }
-      };
-    }, const []);
-
     final fieldFillColor = AppColors.primaryWhite.withValues(alpha: 0.05);
     final fieldBorderColor = AppColors.primaryWhite.withValues(alpha: 0.1);
     final focusedFieldBorderColor = const Color(
       0xFF70699F,
     ).withValues(alpha: 0.25);
 
-    void onDigitChanged(int index, String value) {
-      if (value.isNotEmpty && index < _codeLength - 1) {
-        focusNodes[index + 1].requestFocus();
-      } else if (value.isEmpty && index > 0) {
-        focusNodes[index - 1].requestFocus();
-      }
-      if (controllers.every((controller) => controller.text.isNotEmpty)) {
-        FocusScope.of(context).unfocus();
-      }
-    }
-
     void submit() {
-      final code = controllers.map((controller) => controller.text).join();
+      final code = otpControllers.value
+          .map((controller) => controller?.text ?? '')
+          .join();
       onVerify?.call(code);
     }
 
@@ -134,37 +110,31 @@ class VerifyView extends HookConsumerWidget {
                           ),
                         ),
                         24.ph,
-                        Row(
+                        OtpTextField(
+                          numberOfFields: _codeLength,
+                          fieldWidth: 48.w,
+                          fieldHeight: 56.h,
+                          margin: EdgeInsets.zero,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: List.generate(_codeLength, (index) {
-                            return SizedBox(
-                              width: 48.w,
-                              height: 56.h,
-                              child: CustomTextField(
-                                controller: controllers[index],
-                                focusNode: focusNodes[index],
-                                textInputType: TextInputType.number,
-                                textAlign: TextAlign.center,
-                                maxLength: 1,
-                                fieldBorderRadius: 16,
-                                borderWidth: 1.085,
-                                contentPadding: EdgeInsets.zero,
-                                fillColor: fieldFillColor,
-                                enableBorderColor: fieldBorderColor,
-                                focusedBorderColor: focusedFieldBorderColor,
-                                isLast: index == _codeLength - 1,
-                                textStyle: context.headlineSmallStyle
-                                    ?.copyWith(
-                                      color: AppColors.primaryWhite,
-                                      fontSize: 20.sp,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                onChanged: (value) =>
-                                    onDigitChanged(index, value),
-                                onFieldSubmitted: (_) => submit(),
-                              ),
-                            );
-                          }),
+                          keyboardType: TextInputType.number,
+                          showFieldAsBox: true,
+                          filled: true,
+                          fillColor: fieldFillColor,
+                          borderWidth: 1.085,
+                          borderRadius: BorderRadius.circular(16),
+                          borderColor: fieldBorderColor,
+                          enabledBorderColor: fieldBorderColor,
+                          focusedBorderColor: focusedFieldBorderColor,
+                          disabledBorderColor: fieldBorderColor,
+                          contentPadding: EdgeInsets.zero,
+                          textStyle: context.headlineSmallStyle?.copyWith(
+                            color: AppColors.primaryWhite,
+                            fontSize: 20.sp,
+                            fontWeight: FontWeight.w600,
+                          ),
+                          handleControllers: (controllers) =>
+                              otpControllers.value = controllers,
+                          onSubmit: (_) => submit(),
                         ),
                         24.ph,
                         GestureDetector(
