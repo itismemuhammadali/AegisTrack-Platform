@@ -57,24 +57,26 @@ class OnboardingPageBackground extends StatelessWidget {
         );
 }
 
-/// Shared visual frame for an onboarding page: [OnboardingPageBackground],
-/// an optional full-bleed foreground layer (drawn above the scrim, e.g. the
-/// photo collage), an optional hero graphic, then the title/subtitle
-/// stacked above it.
+/// Shared visual frame for an onboarding page: an optional full-bleed
+/// foreground layer (drawn above the scrim, e.g. the photo collage), an
+/// optional hero graphic, then the title/subtitle stacked above it.
+///
+/// The page's own background is painted once by [OnboardingView]'s full-bleed
+/// underlay (see that file's doc comment) rather than repainted here — this
+/// widget only fills the `PageView`'s bounds, which are shorter than the full
+/// screen, so a second copy of the same image scaled to that smaller box
+/// doesn't line up with the underlay and shows as a visible seam.
 class OnboardingPageScaffold extends StatelessWidget {
   const OnboardingPageScaffold({
     super.key,
     required this.title,
     required this.subtitle,
-    this.backgroundAsset,
     this.foreground,
     this.hero,
-    this.bottomFade = false,
   });
 
   final String title;
   final String subtitle;
-  final String? backgroundAsset;
 
   /// Full-bleed layer painted above the scrim and behind the text, e.g.
   /// [OnboardingPhotoCollage] which bleeds above the frame's own top edge
@@ -82,20 +84,11 @@ class OnboardingPageScaffold extends StatelessWidget {
   final Widget? foreground;
   final Widget? hero;
 
-  /// Figma treats the last ("Stay Synced Anywhere") page with a simple
-  /// top-to-bottom fade instead of the diagonal vignette + flat wash used on
-  /// the other two pages.
-  final bool bottomFade;
-
   @override
   Widget build(BuildContext context) {
     return Stack(
       fit: StackFit.expand,
       children: [
-        OnboardingPageBackground(
-          backgroundAsset: backgroundAsset,
-          bottomFade: bottomFade,
-        ),
         if (foreground != null) foreground!,
         SafeArea(
           bottom: false,
@@ -105,7 +98,7 @@ class OnboardingPageScaffold extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                if (hero != null) ...[hero!, 10.ph],
+                if (hero != null) ...[hero!, 160.ph],
                 Text(
                   title,
                   textAlign: TextAlign.center,

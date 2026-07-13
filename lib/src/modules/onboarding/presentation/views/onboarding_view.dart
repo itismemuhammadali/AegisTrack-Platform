@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import '../../../../core/utils/app_exports.dart';
 import '../controller/onboarding_controller.dart';
 import '../widgets/onboarding_next_button.dart';
@@ -53,7 +55,17 @@ class OnboardingView extends HookConsumerWidget {
               ),
               24.ph,
               Padding(
-                padding: AppInsets.symmetric(horizontal: 24),
+                padding: EdgeInsets.fromLTRB(
+                  24.w,
+                  0,
+                  24.w,
+                  // Figma pins the button 32px above the physical bottom
+                  // edge; take the larger of that and the device's safe-area
+                  // inset so it still clears the home indicator without
+                  // adding both amounts (which pushed the button noticeably
+                  // higher than the design on notched devices).
+                  math.max(32.h, MediaQuery.paddingOf(context).bottom),
+                ),
                 child: OnboardingNextButton(
                   text: isLastPage ? AppStrings.getStarted : AppStrings.next,
                   onTap: () {
@@ -68,7 +80,6 @@ class OnboardingView extends HookConsumerWidget {
                   },
                 ),
               ),
-              SafeArea(top: false, child: SizedBox(height: 32.h)),
             ],
           ),
         ],

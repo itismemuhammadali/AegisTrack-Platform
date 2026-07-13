@@ -1,6 +1,7 @@
 import '../../../../core/utils/app_exports.dart';
 import '../widgets/onboarding_page_scaffold.dart';
 import '../widgets/onboarding_photo_collage.dart';
+import '../widgets/onboarding_track_location_hero.dart';
 
 class OnboardingController extends ChangeNotifier with Buffers {
   int currentPage = 0;
@@ -17,26 +18,18 @@ class OnboardingController extends ChangeNotifier with Buffers {
 
   List<Widget> get pages => [
     OnboardingPageScaffold(
-      backgroundAsset: AppAssetsPng.onboardingTrackLocationBg,
       title: AppStrings.onboardingTrackLocationTitle,
       subtitle: AppStrings.onboardingTrackLocationSubtitle,
-      // Figma's hero graphic (the glowing pin, "Layer 2") renders at
-      // 211x248 including its glow bleed — this SVG was exported at that
-      // same size, so its height must match or the whole hero visibly
-      // shrinks and throws off its position above the title.
-      hero: SvgPicture.asset(AppAssetsSvg.onboardingTrackLocationHero, height: 247.h),
+      hero: const OnboardingTrackLocationHero(),
     ),
     OnboardingPageScaffold(
-      backgroundAsset: AppAssetsPng.onboardingAddProofBg,
       title: AppStrings.onboardingAddProofTitle,
       subtitle: AppStrings.onboardingAddProofSubtitle,
       foreground: const OnboardingPhotoCollage(),
     ),
     OnboardingPageScaffold(
-      backgroundAsset: AppAssetsPng.onboardingStaySyncedBg,
       title: AppStrings.onboardingStaySyncedTitle,
       subtitle: AppStrings.onboardingStaySyncedSubtitle,
-      bottomFade: true,
     ),
   ];
 

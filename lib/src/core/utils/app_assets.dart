@@ -38,6 +38,6 @@ class AppAssetsSvg {
   /// Onboarding - Joshua R Hughes (location tracking)
   static const String onboardingNextArrow =
       'assets/icons/svg/onboarding_next_arrow.svg';
-  static const String onboardingTrackLocationHero =
-      'assets/icons/svg/Layer_2.svg';
+  static const String onboardingTrackLocationBlob =
+      'assets/icons/svg/onboarding_track_location_blob.svg';
 }
