@@ -21,4 +21,16 @@ class AppStrings {
   static const String camera = 'Camera';
   static const String chooseFromGallery = 'Choose from Gallery';
   static const String cancel = 'Cancel';
+
+  // Sign in - Joshua R Hughes (location tracking)
+  static const String welcomeBack = 'Welcome Back';
+  static const String signInSubtitle = 'Sign in to continue tracking';
+  static const String email = 'Email';
+  static const String signIn = 'Sign in';
+  static const String or = 'Or';
+  static const String continueWithGoogle = 'Continue with Google';
+  static const String continueWithApple = 'Continue with Apple';
+  static const String continueWithFacebook = 'Continue with Facebook';
+  static const String dontHaveAccount = "Don't have an account? ";
+  static const String contactWithSupports = 'Contact with supports';
 }

@@ -42,4 +42,13 @@ class AppAssetsSvg {
       'assets/icons/svg/onboarding_next_arrow.svg';
   static const String onboardingTrackLocationBlob =
       'assets/icons/svg/onboarding_track_location_blob.svg';
+
+  /// Sign in - Joshua R Hughes (location tracking)
+  static const String signInEmailIcon = 'assets/icons/svg/sign_in_email.svg';
+  static const String signInPasswordIcon =
+      'assets/icons/svg/sign_in_password.svg';
+  static const String signInGoogleIcon = 'assets/icons/svg/sign_in_google.svg';
+  static const String signInAppleIcon = 'assets/icons/svg/sign_in_apple.svg';
+  static const String signInFacebookIcon =
+      'assets/icons/svg/sign_in_facebook.svg';
 }
