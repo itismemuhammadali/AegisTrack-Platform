@@ -4,6 +4,7 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 import '../../../../../core/utils/app_exports.dart';
 import '../../../../onboarding/presentation/widgets/onboarding_page_scaffold.dart';
+import '../controller/auth_controller.dart';
 import '../widgets/sign_in_primary_button.dart';
 
 class VerifyView extends HookConsumerWidget {
@@ -23,6 +24,7 @@ class VerifyView extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final authController = ref.watch(authControllerProvider);
     final secondsLeft = useState(_resendSeconds);
     final otpControllers = useRef<List<TextEditingController?>>([]);
 
@@ -48,12 +50,17 @@ class VerifyView extends HookConsumerWidget {
       final code = otpControllers.value
           .map((controller) => controller?.text ?? '')
           .join();
-      onVerify?.call(code);
+      authController.verifyOtp(
+        email: email,
+        code: code,
+        onSuccess: () => onVerify?.call(code),
+      );
     }
 
     void resend() {
       if (secondsLeft.value != 0) return;
       secondsLeft.value = _resendSeconds;
+      authController.resendOtp(email: email);
       onResend?.call();
     }
 
@@ -168,6 +175,7 @@ class VerifyView extends HookConsumerWidget {
                         SignInPrimaryButton(
                           text: AppStrings.verifyCode,
                           onTap: submit,
+                          isLoading: authController.isVerifying,
                         ),
                       ],
                     ),

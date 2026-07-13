@@ -3,6 +3,7 @@ import 'dart:math' as math;
 import '../../../../../components/custom_textfield.dart';
 import '../../../../../core/utils/app_exports.dart';
 import '../../../../onboarding/presentation/widgets/onboarding_page_scaffold.dart';
+import '../controller/auth_controller.dart';
 import '../widgets/sign_in_primary_button.dart';
 import '../widgets/sign_in_social_button.dart';
 
@@ -24,16 +25,24 @@ class SignInView extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final authController = ref.watch(authControllerProvider);
     final formKey = useMemoized(() => GlobalKey<FormState>());
     final emailController = useTextEditingController();
     final passwordController = useTextEditingController();
+    final obscurePassword = useState(true);
 
     final fieldFillColor = AppColors.primaryWhite.withValues(alpha: 0.05);
     final fieldBorderColor = AppColors.primaryWhite.withValues(alpha: 0.1);
 
     void submit() {
       if (formKey.currentState?.validate() ?? false) {
-        onSignIn?.call(emailController.text, passwordController.text);
+        final email = emailController.text;
+        final password = passwordController.text;
+        authController.signIn(
+          email: email,
+          password: password,
+          onSuccess: () => onSignIn?.call(email, password),
+        );
       }
     }
 
@@ -101,13 +110,25 @@ class SignInView extends HookConsumerWidget {
                           CustomTextField(
                             controller: passwordController,
                             hintText: AppStrings.password,
-                            isObscure: true,
+                            isObscure: obscurePassword.value,
                             isLast: true,
                             isPrefix: true,
                             prefixWidget: SvgPicture.asset(
                               AppAssetsSvg.signInPasswordIcon,
                               width: 20.sp,
                               height: 20.sp,
+                            ),
+                            suffixbutton: IconButton(
+                              splashRadius: 20.r,
+                              onPressed: () => obscurePassword.value =
+                                  !obscurePassword.value,
+                              icon: Icon(
+                                obscurePassword.value
+                                    ? Icons.visibility_off_outlined
+                                    : Icons.visibility_outlined,
+                                color: AppColors.signInDarkSubtitle,
+                                size: 20.sp,
+                              ),
                             ),
                             fillColor: fieldFillColor,
                             enableBorderColor: fieldBorderColor,
@@ -120,6 +141,7 @@ class SignInView extends HookConsumerWidget {
                           SignInPrimaryButton(
                             text: AppStrings.signIn,
                             onTap: submit,
+                            isLoading: authController.isSigningIn,
                           ),
                           24.ph,
                           Row(

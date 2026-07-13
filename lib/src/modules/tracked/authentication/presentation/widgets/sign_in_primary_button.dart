@@ -4,15 +4,21 @@ import '../../../../../core/utils/app_exports.dart';
 /// tokens the onboarding "Get Started" button uses (per Figma), just without
 /// its trailing arrow and with a centered label instead.
 class SignInPrimaryButton extends StatelessWidget {
-  const SignInPrimaryButton({super.key, required this.text, required this.onTap});
+  const SignInPrimaryButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+    this.isLoading = false,
+  });
 
   final String text;
   final VoidCallback onTap;
+  final bool isLoading;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: isLoading ? null : onTap,
       child: Container(
         width: double.infinity,
         padding: AppInsets.symmetric(vertical: 20),
@@ -40,14 +46,23 @@ class SignInPrimaryButton extends StatelessWidget {
             ),
           ],
         ),
-        child: Text(
-          text,
-          style: context.bodyLargeStyle?.copyWith(
-            color: AppColors.primaryWhite,
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w500,
-          ),
-        ),
+        child: isLoading
+            ? SizedBox(
+                width: 20.sp,
+                height: 20.sp,
+                child: const CircularProgressIndicator(
+                  strokeWidth: 2,
+                  color: AppColors.primaryWhite,
+                ),
+              )
+            : Text(
+                text,
+                style: context.bodyLargeStyle?.copyWith(
+                  color: AppColors.primaryWhite,
+                  fontSize: 16.sp,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
       ),
     );
   }
