@@ -39,7 +39,7 @@ class JoshuaRHughes extends ConsumerWidget with AppSize, AppTheme {
         final appThemeController = ref.watch(appThemeControllerProvider);
         return MaterialApp.router(
           routerConfig: AppRouterGo.appRouter,
-          title: AppStrings.nextNLine,
+          title: AppStrings.joshuaRHughes,
           theme: lightTheme,
           darkTheme: darkTheme,
           themeMode: appThemeController.themeMode,

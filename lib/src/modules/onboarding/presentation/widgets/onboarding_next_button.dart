@@ -1,0 +1,61 @@
+import '../../../../core/utils/app_exports.dart';
+
+class OnboardingNextButton extends StatelessWidget {
+  const OnboardingNextButton({
+    super.key,
+    required this.text,
+    required this.onTap,
+  });
+
+  final String text;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        width: double.infinity,
+        padding: AppInsets.symmetric(vertical: 20),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: 16.circular,
+          gradient: const LinearGradient(
+            colors: [
+              AppColors.onboardingPurpleGradientStart,
+              AppColors.onboardingPurpleGradientEnd,
+            ],
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: AppColors.onboardingPurpleGradientStart.withValues(
+                alpha: 0.3,
+              ),
+              blurRadius: 10,
+              offset: Offset(0, 4.h),
+            ),
+          ],
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              text,
+              style: context.bodyLargeStyle?.copyWith(
+                color: AppColors.primaryWhite,
+                fontSize: 16.sp,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            8.pw,
+            Icon(
+              Icons.arrow_forward_rounded,
+              color: AppColors.primaryWhite,
+              size: 20.sp,
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}

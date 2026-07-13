@@ -1,0 +1,96 @@
+import '../../../../core/utils/app_exports.dart';
+
+/// Shared visual frame for an onboarding page: full-bleed background image
+/// (or a flat navy fallback), a dark scrim so white text stays readable, an
+/// optional hero graphic, then the title/subtitle stacked above it.
+class OnboardingPageScaffold extends StatelessWidget {
+  const OnboardingPageScaffold({
+    super.key,
+    required this.title,
+    required this.subtitle,
+    this.backgroundAsset,
+    this.hero,
+    this.bottomFade = false,
+  });
+
+  final String title;
+  final String subtitle;
+  final String? backgroundAsset;
+  final Widget? hero;
+
+  /// Figma treats the last ("Stay Synced Anywhere") page with a simple
+  /// top-to-bottom fade instead of the diagonal vignette + flat wash used on
+  /// the other two pages.
+  final bool bottomFade;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      fit: StackFit.expand,
+      children: [
+        if (backgroundAsset != null)
+          Image.asset(backgroundAsset!, fit: BoxFit.cover)
+        else
+          Container(color: AppColors.onboardingScrimNavy),
+        DecoratedBox(
+          decoration: BoxDecoration(gradient: _overlayGradient),
+        ),
+        if (!bottomFade) Container(color: AppColors.onboardingScrimWash),
+        SafeArea(
+          bottom: false,
+          child: Padding(
+            padding: AppInsets.only(left: 24, right: 24, bottom: 32),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                if (hero != null) ...[hero!, 24.ph],
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: context.headlineMediumStyle?.copyWith(
+                    color: AppColors.primaryWhite,
+                    fontSize: 32.sp,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+                10.ph,
+                Text(
+                  subtitle,
+                  textAlign: TextAlign.center,
+                  style: context.bodyLargeStyle?.copyWith(
+                    color: AppColors.signInDarkSubtitle,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeight.w400,
+                    height: 26 / 16,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Gradient get _overlayGradient => bottomFade
+      ? LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            AppColors.onboardingScrimNavy.withValues(alpha: 0.4),
+            AppColors.onboardingScrimNavy.withValues(alpha: 0.4),
+            AppColors.onboardingScrimNavy,
+          ],
+          stops: const [0, 0.62, 1],
+        )
+      : LinearGradient(
+          begin: const Alignment(-0.85, -0.45),
+          end: const Alignment(0.85, 0.45),
+          colors: [
+            AppColors.onboardingScrimNavy.withValues(alpha: 0.4),
+            AppColors.onboardingScrimNavy.withValues(alpha: 0.9),
+            AppColors.onboardingScrimNavy.withValues(alpha: 0.4),
+          ],
+        );
+}

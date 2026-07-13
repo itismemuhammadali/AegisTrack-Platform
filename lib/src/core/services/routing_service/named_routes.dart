@@ -2,6 +2,7 @@
 
 // This is also known as declerative routing
 
+import '../../../modules/onboarding/presentation/views/onboarding_view.dart';
 import '../../utils/app_exports.dart';
 
 class AppRouterGo {
@@ -10,14 +11,13 @@ class AppRouterGo {
 
   static final appRouter = GoRouter(
     routes: [
-      // GoRoute(
-      //   path: onboardingView,
-      //   pageBuilder: (context, state) => NoTransitionPage(
-      //     key: state.pageKey,
-      //     child: const OnboardingView(),
-      //   ),
-      // ),
-   
+      GoRoute(
+        path: onboardingView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const OnboardingView(),
+        ),
+      ),
     ],
   );
 

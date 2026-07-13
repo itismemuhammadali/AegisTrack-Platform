@@ -200,6 +200,12 @@ class AppColors {
   static const Color onboardingGradientEnd = Color(0xFF121821);
   static const Color onboardingDotInactive = Color(0x33FFFFFF);
 
+  // Onboarding - Joshua R Hughes (location tracking)
+  static const Color onboardingPurpleGradientStart = Color(0xFF2F1D63);
+  static const Color onboardingPurpleGradientEnd = Color(0xFF4A2D8F);
+  static const Color onboardingScrimNavy = Color(0xFF0C1227);
+  static const Color onboardingScrimWash = Color(0x99000414);
+
   // Sign in - dark mode
   static const Color signInDarkBackground = Color(0xFF0B0B0D);
   static const Color signInDarkSurface = Color(0xFF151516);
