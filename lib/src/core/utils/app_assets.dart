@@ -11,6 +11,8 @@ class AppAssetsPng {
       'assets/images/png/onboarding_track_location_icon.png';
   static const String onboardingStaySyncedBg =
       'assets/images/png/onboarding_stay_synced_bg.jpg';
+  static const String onboardingAddProofBg =
+      'assets/images/png/onboarding_add_proof_bg.jpg';
   static const String onboardingAddProofTile1 =
       'assets/images/png/onboarding_add_proof_tile_1.jpg';
   static const String onboardingAddProofTile2 =

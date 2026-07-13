@@ -11,7 +11,7 @@ class OnboardingController extends ChangeNotifier with Buffers {
   // scaffold (see OnboardingPageBackground doc comment for why).
   List<({String? backgroundAsset, bool bottomFade})> get pageBackgrounds => [
     (backgroundAsset: AppAssetsPng.onboardingTrackLocationBg, bottomFade: false),
-    (backgroundAsset: null, bottomFade: false),
+    (backgroundAsset: AppAssetsPng.onboardingAddProofBg, bottomFade: false),
     (backgroundAsset: AppAssetsPng.onboardingStaySyncedBg, bottomFade: true),
   ];
 
@@ -20,12 +20,17 @@ class OnboardingController extends ChangeNotifier with Buffers {
       backgroundAsset: AppAssetsPng.onboardingTrackLocationBg,
       title: AppStrings.onboardingTrackLocationTitle,
       subtitle: AppStrings.onboardingTrackLocationSubtitle,
-      hero: Image.asset(AppAssetsPng.onboardingTrackLocationIcon, height: 180.h),
+      // Figma's hero graphic (the glowing pin) renders at 210x247 including
+      // its glow bleed — this asset was captured at that same size, so its
+      // height must match or the whole hero visibly shrinks and throws off
+      // its position above the title.
+      hero: Image.asset(AppAssetsPng.onboardingTrackLocationIcon, height: 247.h),
     ),
-    const OnboardingPageScaffold(
+    OnboardingPageScaffold(
+      backgroundAsset: AppAssetsPng.onboardingAddProofBg,
       title: AppStrings.onboardingAddProofTitle,
       subtitle: AppStrings.onboardingAddProofSubtitle,
-      foreground: OnboardingPhotoCollage(),
+      foreground: const OnboardingPhotoCollage(),
     ),
     OnboardingPageScaffold(
       backgroundAsset: AppAssetsPng.onboardingStaySyncedBg,
