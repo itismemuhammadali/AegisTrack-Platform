@@ -70,11 +70,7 @@ class AppColors {
     0xFF009639,
   ); // Green accent (used in logo)
 
-  //Colors For ZIM Sports
-  static const primaryTextColor = Color(0xff101828);
-  static const splashBackground = Color(0xFFF2ECE0);
   static const Color inactiveGray = Color(0xFF999999);
-  static const Color purple = Color(0xFFA36CF7);
 
   static const Color primaryWhite = Colors.white;
   static const Color primaryblack = Colors.black;
@@ -166,26 +162,7 @@ class AppColors {
   static const Color maleDialogBg = Color(0xFFF8F3EC);
   static const Color femaleDialogBg = Color(0xFFFAEBE1);
   static const Color rhino = Color(0xff32407B);
-  static const Color listenerActiveTab = Color(0xFFFFD426);
-  static const Color listenerDashboardBg = Color(0xFF0D121B);
-  static const Color artistHomeAppBarBg = Color(0xFF020C14);
-  static const Color listenerNavBorder = Color(0xFF1E2532);
-  static const Color listenerGradientTop = Color(0xFF1A2639);
-  static const Color listenerYellow = Color(0xFFFFD13B);
-  static const Color listenerChipBg = Color(0xFF121821);
-  static const Color listenerPopupMenuBg = Color(0xFF1C2535);
-  static const Color listenerPastBadgeBg = Color(0xFF1E2530);
-  static const Color listenerPendingBlue = Color(0xFF2B7FFF);
   static const Color deleteRed = Color(0xFFFF3B30);
-  static const Color listenerChipBorder = Color(0xFF2C3140);
-  static const Color listenerAvatarBg = Color(0xFF1A2233);
-  static const Color artistStatItemBg = Color(0xFF1F2937);
-  static const Color listenerDislikeRed = Color(0xFFE8445A);
-  static const Color listenerLiveRed = Color(0xFFE7000B);
-  static const Color artistLiveBadgeRed = Color(0xFFFB2C36);
-  static const Color artistEndSessionRed = Color(0xFFEF4444);
-  static const Color listenerBackButtonBorder = Color(0xFF1F2937);
-  static const Color listenerCursorDark = Color(0xFF202020);
   static const Color black50 = Color(0x80000000);
   static const Color shimmerBase = Color(0xFFEBEBF4);
   static const Color shimmerContainer = Color(0xFFF4F4F4);
