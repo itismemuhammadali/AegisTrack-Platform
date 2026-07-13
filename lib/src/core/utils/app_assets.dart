@@ -7,8 +7,6 @@ class AppAssetsPng {
   /// Onboarding - Joshua R Hughes (location tracking)
   static const String onboardingTrackLocationBg =
       'assets/images/png/onboarding_track_location_bg.jpg';
-  static const String onboardingTrackLocationIcon =
-      'assets/images/png/onboarding_track_location_icon.png';
   static const String onboardingStaySyncedBg =
       'assets/images/png/onboarding_stay_synced_bg.jpg';
   static const String onboardingAddProofBg =
@@ -40,4 +38,6 @@ class AppAssetsSvg {
   /// Onboarding - Joshua R Hughes (location tracking)
   static const String onboardingNextArrow =
       'assets/icons/svg/onboarding_next_arrow.svg';
+  static const String onboardingTrackLocationHero =
+      'assets/icons/svg/Layer_2.svg';
 }

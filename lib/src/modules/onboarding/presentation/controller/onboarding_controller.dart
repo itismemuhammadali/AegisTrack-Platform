@@ -20,11 +20,11 @@ class OnboardingController extends ChangeNotifier with Buffers {
       backgroundAsset: AppAssetsPng.onboardingTrackLocationBg,
       title: AppStrings.onboardingTrackLocationTitle,
       subtitle: AppStrings.onboardingTrackLocationSubtitle,
-      // Figma's hero graphic (the glowing pin) renders at 210x247 including
-      // its glow bleed — this asset was captured at that same size, so its
-      // height must match or the whole hero visibly shrinks and throws off
-      // its position above the title.
-      hero: Image.asset(AppAssetsPng.onboardingTrackLocationIcon, height: 247.h),
+      // Figma's hero graphic (the glowing pin, "Layer 2") renders at
+      // 211x248 including its glow bleed — this SVG was exported at that
+      // same size, so its height must match or the whole hero visibly
+      // shrinks and throws off its position above the title.
+      hero: SvgPicture.asset(AppAssetsSvg.onboardingTrackLocationHero, height: 247.h),
     ),
     OnboardingPageScaffold(
       backgroundAsset: AppAssetsPng.onboardingAddProofBg,
