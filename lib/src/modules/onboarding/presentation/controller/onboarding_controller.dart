@@ -15,7 +15,7 @@ class OnboardingController extends ChangeNotifier with Buffers {
     const OnboardingPageScaffold(
       title: AppStrings.onboardingAddProofTitle,
       subtitle: AppStrings.onboardingAddProofSubtitle,
-      hero: SizedBox(height: 320, child: OnboardingPhotoCollage()),
+      foreground: OnboardingPhotoCollage(),
     ),
     OnboardingPageScaffold(
       backgroundAsset: AppAssetsPng.onboardingStaySyncedBg,

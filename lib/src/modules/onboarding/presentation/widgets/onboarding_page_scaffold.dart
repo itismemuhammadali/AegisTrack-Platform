@@ -2,13 +2,16 @@ import '../../../../core/utils/app_exports.dart';
 
 /// Shared visual frame for an onboarding page: full-bleed background image
 /// (or a flat navy fallback), a dark scrim so white text stays readable, an
-/// optional hero graphic, then the title/subtitle stacked above it.
+/// optional full-bleed foreground layer (drawn above the scrim, e.g. the
+/// photo collage), an optional hero graphic, then the title/subtitle
+/// stacked above it.
 class OnboardingPageScaffold extends StatelessWidget {
   const OnboardingPageScaffold({
     super.key,
     required this.title,
     required this.subtitle,
     this.backgroundAsset,
+    this.foreground,
     this.hero,
     this.bottomFade = false,
   });
@@ -16,6 +19,11 @@ class OnboardingPageScaffold extends StatelessWidget {
   final String title;
   final String subtitle;
   final String? backgroundAsset;
+
+  /// Full-bleed layer painted above the scrim and behind the text, e.g.
+  /// [OnboardingPhotoCollage] which bleeds above the frame's own top edge
+  /// per the Figma layout (it is not confined to the text-column bounds).
+  final Widget? foreground;
   final Widget? hero;
 
   /// Figma treats the last ("Stay Synced Anywhere") page with a simple
@@ -36,6 +44,7 @@ class OnboardingPageScaffold extends StatelessWidget {
           decoration: BoxDecoration(gradient: _overlayGradient),
         ),
         if (!bottomFade) Container(color: AppColors.onboardingScrimWash),
+        if (foreground != null) foreground!,
         SafeArea(
           bottom: false,
           child: Padding(
@@ -44,7 +53,7 @@ class OnboardingPageScaffold extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                if (hero != null) ...[hero!, 24.ph],
+                if (hero != null) ...[hero!, 10.ph],
                 Text(
                   title,
                   textAlign: TextAlign.center,
