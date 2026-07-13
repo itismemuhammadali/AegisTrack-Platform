@@ -33,4 +33,11 @@ class AppStrings {
   static const String continueWithFacebook = 'Continue with Facebook';
   static const String dontHaveAccount = "Don't have an account? ";
   static const String contactWithSupports = 'Contact with supports';
+
+  // Verify - Joshua R Hughes (location tracking)
+  static const String verificationTitle = 'Verification';
+  static const String verificationSubtitle = 'Enter the 6-digit code sent to';
+  static const String resendCodeIn = 'Resend code in ';
+  static const String resendCode = 'Resend code';
+  static const String verifyCode = 'Verify Code';
 }

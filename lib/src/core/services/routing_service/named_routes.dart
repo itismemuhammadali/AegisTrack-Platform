@@ -4,6 +4,7 @@
 
 import '../../../modules/onboarding/presentation/views/onboarding_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/sign_in_view.dart';
+import '../../../modules/tracked/authentication/presentation/views/verify_view.dart';
 import '../../utils/app_exports.dart';
 
 class AppRouterGo {
@@ -25,7 +26,17 @@ class AppRouterGo {
         path: signInView,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child: const SignInView(),
+          child: SignInView(
+            onSignIn: (email, password) =>
+                AppRouterGo.push(verifyView, extra: email),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: verifyView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: VerifyView(email: (state.extra as String?) ?? ''),
         ),
       ),
     ],
