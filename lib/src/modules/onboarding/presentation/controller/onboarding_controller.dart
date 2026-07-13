@@ -5,6 +5,16 @@ import '../widgets/onboarding_photo_collage.dart';
 class OnboardingController extends ChangeNotifier with Buffers {
   int currentPage = 0;
 
+  // Background metadata mirrors each entry in [pages] below. [OnboardingView]
+  // uses this to paint a full-bleed underlay for the current page behind the
+  // shared page-indicator/button strip, which sits outside each page's own
+  // scaffold (see OnboardingPageBackground doc comment for why).
+  List<({String? backgroundAsset, bool bottomFade})> get pageBackgrounds => [
+    (backgroundAsset: AppAssetsPng.onboardingTrackLocationBg, bottomFade: false),
+    (backgroundAsset: null, bottomFade: false),
+    (backgroundAsset: AppAssetsPng.onboardingStaySyncedBg, bottomFade: true),
+  ];
+
   List<Widget> get pages => [
     OnboardingPageScaffold(
       backgroundAsset: AppAssetsPng.onboardingTrackLocationBg,
