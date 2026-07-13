@@ -27,10 +27,8 @@ class OnboardingPageIndicator extends StatelessWidget {
               color: isActive ? null : AppColors.onboardingDotInactive,
               gradient: isActive
                   ? const LinearGradient(
-                      colors: [
-                        AppColors.onboardingPurpleGradientStart,
-                        AppColors.onboardingPurpleGradientEnd,
-                      ],
+                      colors: AppColors.onboardingIndicatorGradientColors,
+                      stops: AppColors.onboardingIndicatorGradientStops,
                     )
                   : null,
             ),

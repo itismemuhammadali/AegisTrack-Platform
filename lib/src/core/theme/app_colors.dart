@@ -206,6 +206,60 @@ class AppColors {
   static const Color onboardingScrimNavy = Color(0xFF0C1227);
   static const Color onboardingScrimWash = Color(0x99000414);
 
+  // Onboarding - Next button gradient (11 stops, per Figma)
+  static const List<Color> onboardingButtonGradientColors = [
+    Color(0xFF2F1D63),
+    Color(0xFF321F67),
+    Color(0xFF34206C),
+    Color(0xFF372270),
+    Color(0xFF3A2374),
+    Color(0xFF3C2579),
+    Color(0xFF3F267D),
+    Color(0xFF422882),
+    Color(0xFF442A86),
+    Color(0xFF472B8A),
+    Color(0xFF4A2D8F),
+  ];
+  static const List<double> onboardingButtonGradientStops = [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0,
+  ];
+
+  // Onboarding - Active page indicator gradient (10 stops, per Figma)
+  static const List<Color> onboardingIndicatorGradientColors = [
+    Color(0xFF2F1D63),
+    Color(0xFF321F68),
+    Color(0xFF35206D),
+    Color(0xFF382271),
+    Color(0xFF3B2476),
+    Color(0xFF3E267B),
+    Color(0xFF412880),
+    Color(0xFF442985),
+    Color(0xFF472B8A),
+    Color(0xFF4A2D8F),
+  ];
+  static const List<double> onboardingIndicatorGradientStops = [
+    0.0,
+    0.11111,
+    0.22222,
+    0.33333,
+    0.44444,
+    0.55556,
+    0.66667,
+    0.77778,
+    0.88889,
+    1.0,
+  ];
+
   // Sign in - dark mode
   static const Color signInDarkBackground = Color(0xFF0B0B0D);
   static const Color signInDarkSurface = Color(0xFF151516);

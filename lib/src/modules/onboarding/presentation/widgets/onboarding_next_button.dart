@@ -21,10 +21,8 @@ class OnboardingNextButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: 16.circular,
           gradient: const LinearGradient(
-            colors: [
-              AppColors.onboardingPurpleGradientStart,
-              AppColors.onboardingPurpleGradientEnd,
-            ],
+            colors: AppColors.onboardingButtonGradientColors,
+            stops: AppColors.onboardingButtonGradientStops,
           ),
           boxShadow: [
             BoxShadow(
