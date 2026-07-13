@@ -31,3 +31,11 @@ class AppAssetsPng {
       'assets/images/png/onboarding_add_proof_tile_9.jpg';
 
 }
+
+class AppAssetsSvg {
+  AppAssetsSvg._();
+
+  /// Onboarding - Joshua R Hughes (location tracking)
+  static const String onboardingNextArrow =
+      'assets/icons/svg/onboarding_next_arrow.svg';
+}

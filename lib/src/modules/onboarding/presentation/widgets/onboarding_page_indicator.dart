@@ -20,8 +20,8 @@ class OnboardingPageIndicator extends StatelessWidget {
           padding: EdgeInsets.symmetric(horizontal: 4.w),
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 250),
-            height: 8.h,
-            width: isActive ? 32.w : 8.w,
+            height: isActive ? 8.h : 10.h,
+            width: isActive ? 32.w : 10.w,
             decoration: BoxDecoration(
               borderRadius: 100.circular,
               color: isActive ? null : AppColors.onboardingDotInactive,

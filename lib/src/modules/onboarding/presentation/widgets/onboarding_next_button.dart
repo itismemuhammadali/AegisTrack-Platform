@@ -48,10 +48,10 @@ class OnboardingNextButton extends StatelessWidget {
               ),
             ),
             8.pw,
-            Icon(
-              Icons.arrow_forward_rounded,
-              color: AppColors.primaryWhite,
-              size: 20.sp,
+            SvgPicture.asset(
+              AppAssetsSvg.onboardingNextArrow,
+              width: 20.sp,
+              height: 20.sp,
             ),
           ],
         ),
