@@ -114,7 +114,7 @@ class OnboardingPageScaffold extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: context.bodyLargeStyle?.copyWith(
                     color: AppColors.signInDarkSubtitle,
-                    fontSize: 16.sp,
+                    fontSize: 15.5.sp,
                     fontWeight: FontWeight.w400,
                     height: 26 / 16,
                   ),

@@ -29,6 +29,8 @@ class AppAssetsPng {
       'assets/images/png/onboarding_add_proof_tile_8.jpg';
   static const String onboardingAddProofTile9 =
       'assets/images/png/onboarding_add_proof_tile_9.jpg';
+  static const String onboardingTrackLocationBlobBlur =
+      'assets/images/png/onboarding_track_location_blob_blur.png';
 
 }
 

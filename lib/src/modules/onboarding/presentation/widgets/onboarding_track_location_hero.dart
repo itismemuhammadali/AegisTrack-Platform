@@ -1,16 +1,14 @@
-import 'dart:ui';
-
 import '../../../../core/utils/app_exports.dart';
 
 /// "Track Your Location Securely" hero graphic: a frosted-glass circle over
-/// the purple location blob. Figma's export relies on a masked pattern fill
-/// plus SVG filters for the glass — `flutter_svg` (vector_graphics_compiler)
-/// doesn't support `<mask>`+`<pattern>` combined with `<filter>`, so that
-/// circle rendered as a flat gray disc with a stray artifact above it
-/// instead of showing the blob through frosted glass. Rebuilt natively: the
-/// blob renders from its own (working) SVG, and a real [BackdropFilter]
-/// blurs it — and whatever's behind the page — through a [ClipOval], which
-/// reproduces the glass effect more faithfully than a static export could.
+/// the purple location blob. Figma bakes the blurred blob as a raster image
+/// masked into the circle (`<mask>`+`<pattern>`) — `flutter_svg`
+/// (vector_graphics_compiler) doesn't support that combination, so it was
+/// dropped from [AppAssetsSvg.onboardingTrackLocationBlob] (which now only
+/// keeps the small accent-drop paths that render correctly) and rebuilt
+/// here: the same blurred-blob raster the export embedded, clipped to the
+/// circle, with the glass sheen/rim gradient — matching Figma's
+/// `paint4`/`paint5` — layered on top.
 class OnboardingTrackLocationHero extends StatelessWidget {
   const OnboardingTrackLocationHero({super.key});
 
@@ -30,29 +28,41 @@ class OnboardingTrackLocationHero extends StatelessWidget {
             width: 180.22.w,
             height: 180.22.h,
             child: ClipOval(
-              child: BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-                child: DecoratedBox(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    gradient: LinearGradient(
-                      begin: Alignment.centerRight,
-                      end: Alignment.centerLeft,
-                      colors: [
-                        Colors.white.withValues(alpha: 0),
-                        Colors.white.withValues(alpha: 0.06),
-                        Colors.white.withValues(alpha: 0.14),
-                        Colors.white.withValues(alpha: 0.25),
-                        Colors.white.withValues(alpha: 0.4),
-                      ],
-                      stops: const [0, 0.33, 0.5, 0.66, 0.84],
-                    ),
-                    border: Border.all(
-                      color: Colors.white.withValues(alpha: 0.45),
-                      width: 1.2,
+              child: Stack(
+                fit: StackFit.expand,
+                children: [
+                  Positioned(
+                    left: -8.4.w,
+                    top: 31.22.h,
+                    width: 222.w,
+                    height: 223.h,
+                    child: Image.asset(
+                      AppAssetsPng.onboardingTrackLocationBlobBlur,
+                      fit: BoxFit.fill,
                     ),
                   ),
-                ),
+                  DecoratedBox(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      gradient: LinearGradient(
+                        begin: Alignment.centerRight,
+                        end: Alignment.centerLeft,
+                        colors: [
+                          Colors.white.withValues(alpha: 0),
+                          Colors.white.withValues(alpha: 0.06),
+                          Colors.white.withValues(alpha: 0.14),
+                          Colors.white.withValues(alpha: 0.25),
+                          Colors.white.withValues(alpha: 0.4),
+                        ],
+                        stops: const [0, 0.33, 0.5, 0.66, 0.84],
+                      ),
+                      border: Border.all(
+                        color: Colors.white.withValues(alpha: 0.45),
+                        width: 1.2,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
