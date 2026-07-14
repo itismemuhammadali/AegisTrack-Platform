@@ -7,6 +7,7 @@ import '../../../modules/tracked/authentication/presentation/views/enable_locati
 import '../../../modules/tracked/authentication/presentation/views/sign_in_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/two_factor_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/verify_view.dart';
+import '../../../modules/tracked/dashboard/presentation/views/tracked_dashboard_view.dart';
 import '../../utils/app_exports.dart';
 
 class AppRouterGo {
@@ -57,7 +58,17 @@ class AppRouterGo {
         path: enableLocationAccessView,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child: const EnableLocationAccessView(),
+          child: EnableLocationAccessView(
+            onAllow: () => AppRouterGo.pushRemoveUntil(trackedDashboardView),
+            onNotNow: () => AppRouterGo.pushRemoveUntil(trackedDashboardView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: trackedDashboardView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedDashboardView(),
         ),
       ),
     ],

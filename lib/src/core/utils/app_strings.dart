@@ -57,4 +57,22 @@ class AppStrings {
       'securely. Your data is encrypted and protected.';
   static const String allowLocation = 'Allow Location';
   static const String notNow = 'Not Now';
+
+  // Tracked dashboard - bottom navigation
+  static const String trackedNavHome = 'Home';
+  static const String trackedNavLogs = 'Logs';
+  static const String trackedNavSettings = 'Settings';
+
+  // Tracked home - Joshua R Hughes (location tracking)
+  static const String trackingActive = 'Tracking Active';
+  static const String liveLocationStatus = 'Live Location Status';
+  static const String locationLogged = 'Location Logged';
+  static const String lastUpdated = 'Last updated: 2 minutes ago';
+  static const String liveMap = 'Live Map';
+  static const String viewFullMap = 'View Full Map';
+  static const String mapPreview = 'Map Preview';
+  static const String quickActions = 'Quick Actions';
+  static const String logNow = 'Log Now';
+  static const String addNote = 'Add Note';
+  static const String capture = 'Capture';
 }

@@ -32,6 +32,10 @@ class AppAssetsPng {
   static const String onboardingTrackLocationBlobBlur =
       'assets/images/png/onboarding_track_location_blob_blur.png';
 
+  /// Tracked home - Joshua R Hughes (location tracking)
+  static const String trackedHomeMapPreviewBg =
+      'assets/images/png/tracked_home_map_preview_bg.png';
+
 }
 
 class AppAssetsSvg {
@@ -61,4 +65,28 @@ class AppAssetsSvg {
   /// Enable location access - Joshua R Hughes (location tracking)
   static const String locationPermissionShieldIcon =
       'assets/icons/svg/location_permission_shield.svg';
+
+  /// Tracked dashboard - bottom navigation
+  static const String trackedNavHomeIcon =
+      'assets/icons/svg/tracked_dashboard_nav_home.svg';
+  static const String trackedNavLogsIcon =
+      'assets/icons/svg/tracked_dashboard_nav_logs.svg';
+  static const String trackedNavSettingsIcon =
+      'assets/icons/svg/tracked_dashboard_nav_settings.svg';
+
+  /// Tracked home - Joshua R Hughes (location tracking)
+  static const String trackedHomeLocationStatusIcon =
+      'assets/icons/svg/tracked_home_location_status_icon.svg';
+  static const String trackedHomeViewFullMapIcon =
+      'assets/icons/svg/tracked_home_view_full_map_icon.svg';
+  static const String trackedHomeMapMarkerPin =
+      'assets/icons/svg/tracked_home_map_marker_pin.svg';
+  static const String trackedHomeMapMarkerDot =
+      'assets/icons/svg/tracked_home_map_marker_dot.svg';
+  static const String trackedHomeQuickActionLogNow =
+      'assets/icons/svg/tracked_home_quick_action_log_now.svg';
+  static const String trackedHomeQuickActionAddNote =
+      'assets/icons/svg/tracked_home_quick_action_add_note.svg';
+  static const String trackedHomeQuickActionCapture =
+      'assets/icons/svg/tracked_home_quick_action_capture.svg';
 }

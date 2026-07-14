@@ -327,4 +327,9 @@ class AppColors {
 
   // Two-factor authentication
   static const Color twoFactorAccentPurple = Color(0xFF34206C);
+
+  // Tracked dashboard - home
+  static const Color trackedDashboardBackground = Color(0xFF2B2F3F);
+  static const Color trackedTrackingActiveGreen = Color(0xFF00F300);
+  static const Color trackedMapPreviewOverlay = Color(0x3312182E);
 }
