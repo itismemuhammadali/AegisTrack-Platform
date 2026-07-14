@@ -7,10 +7,12 @@ import '../../domain/entities/tracked_tab_item_entity.dart';
 class TrackedDashboardController extends ChangeNotifier with Buffers {
   int selectedIndex = 0;
 
-  final List<Widget> screens = const [
-    TrackedHomeView(),
-    TrackedLogsView(),
-    TrackedSettingsView(),
+  final List<Widget> screens = [
+    TrackedHomeView(
+      onLogNow: () => AppRouterGo.push(trackedLogCaptureView),
+    ),
+    const TrackedLogsView(),
+    const TrackedSettingsView(),
   ];
 
   final List<TrackedTabItemEntity> tabs = const [

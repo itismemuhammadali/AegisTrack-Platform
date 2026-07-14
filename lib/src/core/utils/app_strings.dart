@@ -101,6 +101,11 @@ class AppStrings {
       'Followed up with verification team.';
   static const String trackedLogDetailsFollowUpTime = '10 minutes after log';
 
+  // Tracked log capture - Joshua R Hughes (location tracking)
+  static const String trackedLogCaptureTitle = 'Log Location';
+  static const String trackedLogCaptureCurrentLocation = 'Current Location';
+  static const String trackedLogCaptureButton = 'Capture Location Log';
+
   // Tracked settings - Joshua R Hughes (location tracking)
   static const String trackedSettingsTitle = 'Settings';
   static const String trackedSettingsProfileSection = 'Profile';
