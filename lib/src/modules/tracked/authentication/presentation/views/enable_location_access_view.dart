@@ -2,7 +2,6 @@ import 'package:permission_handler/permission_handler.dart';
 
 import '../../../../../core/utils/app_exports.dart';
 import '../../../../onboarding/presentation/widgets/onboarding_page_scaffold.dart';
-import '../widgets/sign_in_primary_button.dart';
 
 class EnableLocationAccessView extends StatelessWidget {
   const EnableLocationAccessView({super.key, this.onAllow, this.onNotNow});
@@ -73,7 +72,7 @@ class EnableLocationAccessView extends StatelessWidget {
                     ),
                   ),
                   24.ph,
-                  SignInPrimaryButton(
+                  PrimaryAppButton(
                     text: AppStrings.allowLocation,
                     onTap: () async {
                       await Permission.locationWhenInUse.request();

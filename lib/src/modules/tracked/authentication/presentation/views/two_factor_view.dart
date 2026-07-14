@@ -3,7 +3,6 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import '../../../../../core/utils/app_exports.dart';
 import '../../../../onboarding/presentation/widgets/onboarding_page_scaffold.dart';
 import '../controller/auth_controller.dart';
-import '../widgets/sign_in_primary_button.dart';
 import '../widgets/trust_device_toggle.dart';
 
 class TwoFactorView extends HookConsumerWidget {
@@ -174,7 +173,7 @@ class TwoFactorView extends HookConsumerWidget {
                           ),
                         ),
                         24.ph,
-                        SignInPrimaryButton(
+                        PrimaryAppButton(
                           text: AppStrings.verifyAndContinue,
                           onTap: () => authController.submitTwoFactor(
                             onSuccess: onVerify,

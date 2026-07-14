@@ -3,7 +3,6 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import '../../../../../core/utils/app_exports.dart';
 import '../../../../onboarding/presentation/widgets/onboarding_page_scaffold.dart';
 import '../controller/auth_controller.dart';
-import '../widgets/sign_in_primary_button.dart';
 
 class VerifyView extends HookConsumerWidget {
   const VerifyView({
@@ -144,7 +143,7 @@ class VerifyView extends HookConsumerWidget {
                           ),
                         ),
                         56.ph,
-                        SignInPrimaryButton(
+                        PrimaryAppButton(
                           text: AppStrings.verifyCode,
                           onTap: () => authController.submitVerification(
                             email: email,

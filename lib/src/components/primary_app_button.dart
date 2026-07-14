@@ -1,10 +1,8 @@
-import '../../../../../core/utils/app_exports.dart';
+import '../core/utils/app_exports.dart';
 
-/// Gradient "Sign in" button — shares the exact gradient, shadow and radius
-/// tokens the onboarding "Get Started" button uses (per Figma), just without
-/// its trailing arrow and with a centered label instead.
-class SignInPrimaryButton extends StatelessWidget {
-  const SignInPrimaryButton({
+/// The app's primary gradient action button.
+class PrimaryAppButton extends StatelessWidget {
+  const PrimaryAppButton({
     super.key,
     required this.text,
     required this.onTap,

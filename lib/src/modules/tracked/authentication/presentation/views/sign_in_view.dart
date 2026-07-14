@@ -4,7 +4,6 @@ import '../../../../../components/custom_textfield.dart';
 import '../../../../../core/utils/app_exports.dart';
 import '../../../../onboarding/presentation/widgets/onboarding_page_scaffold.dart';
 import '../controller/auth_controller.dart';
-import '../widgets/sign_in_primary_button.dart';
 import '../widgets/sign_in_social_button.dart';
 
 class SignInView extends HookConsumerWidget {
@@ -124,7 +123,7 @@ class SignInView extends HookConsumerWidget {
                             ),
                           ),
                           24.ph,
-                          SignInPrimaryButton(
+                          PrimaryAppButton(
                             text: AppStrings.signIn,
                             onTap: () => authController.submitSignIn(
                               onSuccess: onSignIn,
