@@ -1,7 +1,9 @@
 import '../../../../../core/utils/app_exports.dart';
 import '../controller/tracked_sync_status_controller.dart';
+import '../widgets/tracked_sync_status_log_card.dart';
 import '../widgets/tracked_sync_status_log_row.dart';
 import '../widgets/tracked_sync_status_retry_button.dart';
+import '../widgets/tracked_sync_status_section_heading.dart';
 import '../widgets/tracked_sync_status_stat_card.dart';
 
 class TrackedSyncStatusView extends ConsumerWidget {
@@ -57,7 +59,8 @@ class TrackedSyncStatusView extends ConsumerWidget {
                           color: AppColors.primaryWhite.withValues(alpha: 0.05),
                           borderRadius: 18.circular,
                           border: Border.all(
-                            color: AppColors.primaryWhite.withValues(alpha: 0.1),
+                            color:
+                                AppColors.primaryWhite.withValues(alpha: 0.1),
                           ),
                         ),
                         child: SvgPicture.asset(
@@ -100,14 +103,14 @@ class TrackedSyncStatusView extends ConsumerWidget {
                       ),
                       if (controller.pendingEntries.isNotEmpty) ...[
                         24.ph,
-                        _SectionHeading(
+                        TrackedSyncStatusSectionHeading(
                           icon: AppAssetsSvg.trackedLogsStatusPendingIcon,
                           label: AppStrings.trackedSyncStatusPendingLogs,
                           color: AppColors.trackedLogPendingAmber,
                         ),
                         12.ph,
                         for (final entry in controller.pendingEntries) ...[
-                          _LogCard(
+                          TrackedSyncStatusLogCard(
                             borderColor:
                                 AppColors.primaryWhite.withValues(alpha: 0.1),
                             child: TrackedSyncStatusLogRow(entry: entry),
@@ -117,15 +120,15 @@ class TrackedSyncStatusView extends ConsumerWidget {
                       ],
                       if (controller.failedEntries.isNotEmpty) ...[
                         24.ph,
-                        _SectionHeading(
+                        TrackedSyncStatusSectionHeading(
                           icon: AppAssetsSvg.trackedLogsStatusFailedIcon,
                           label: AppStrings.trackedSyncStatusFailedLogs,
                           color: AppColors.trackedLogFailedRed,
                         ),
                         12.ph,
-                        _LogCard(
-                          borderColor:
-                              AppColors.trackedLogFailedRed.withValues(alpha: 0.2),
+                        TrackedSyncStatusLogCard(
+                          borderColor: AppColors.trackedLogFailedRed
+                              .withValues(alpha: 0.2),
                           child: Column(
                             children: [
                               for (final entry in controller.failedEntries) ...[
@@ -143,14 +146,14 @@ class TrackedSyncStatusView extends ConsumerWidget {
                       ],
                       if (controller.syncedEntries.isNotEmpty) ...[
                         24.ph,
-                        _SectionHeading(
+                        TrackedSyncStatusSectionHeading(
                           icon: AppAssetsSvg.trackedLogsStatusSyncedIcon,
                           label: AppStrings.trackedSyncStatusSyncedLogs,
                           color: AppColors.trackedLogSyncedGreen,
                         ),
                         12.ph,
                         for (final entry in controller.syncedEntries) ...[
-                          _LogCard(
+                          TrackedSyncStatusLogCard(
                             borderColor:
                                 AppColors.primaryWhite.withValues(alpha: 0.1),
                             child: TrackedSyncStatusLogRow(entry: entry),
@@ -166,62 +169,6 @@ class TrackedSyncStatusView extends ConsumerWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _SectionHeading extends StatelessWidget {
-  const _SectionHeading({
-    required this.icon,
-    required this.label,
-    required this.color,
-  });
-
-  final String icon;
-  final String label;
-  final Color color;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        SvgPicture.asset(
-          icon,
-          width: 16.sp,
-          height: 16.sp,
-          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
-        ),
-        8.pw,
-        Text(
-          label,
-          style: context.bodyLargeStyle?.copyWith(
-            fontSize: 18.sp,
-            fontWeight: FontWeight.w500,
-            color: AppColors.primaryWhite,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _LogCard extends StatelessWidget {
-  const _LogCard({required this.child, required this.borderColor});
-
-  final Widget child;
-  final Color borderColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      padding: AppInsets.all(17),
-      decoration: BoxDecoration(
-        color: AppColors.primaryWhite.withValues(alpha: 0.05),
-        borderRadius: 16.circular,
-        border: Border.all(color: borderColor),
-      ),
-      child: child,
     );
   }
 }

@@ -3,6 +3,8 @@ import '../controller/tracked_settings_controller.dart';
 import '../widgets/tracked_settings_logout_button.dart';
 import '../widgets/tracked_settings_nav_row.dart';
 import '../widgets/tracked_settings_profile_card.dart';
+import '../widgets/tracked_settings_section_label.dart';
+import '../widgets/tracked_settings_settings_card.dart';
 import '../widgets/tracked_settings_toggle_row.dart';
 
 class TrackedSettingsView extends ConsumerWidget {
@@ -30,13 +32,17 @@ class TrackedSettingsView extends ConsumerWidget {
             child: ListView(
               padding: AppInsets.only(bottom: 112),
               children: [
-                _SectionLabel(AppStrings.trackedSettingsProfileSection),
+                TrackedSettingsSectionLabel(
+                  AppStrings.trackedSettingsProfileSection,
+                ),
                 10.ph,
                 const TrackedSettingsProfileCard(),
                 24.ph,
-                _SectionLabel(AppStrings.trackedSettingsTrackingSection),
+                TrackedSettingsSectionLabel(
+                  AppStrings.trackedSettingsTrackingSection,
+                ),
                 10.ph,
-                _SettingsCard(
+                TrackedSettingsSettingsCard(
                   children: [
                     TrackedSettingsToggleRow(
                       icon: AppAssetsSvg.trackedSettingsBackgroundTrackingIcon,
@@ -56,9 +62,11 @@ class TrackedSettingsView extends ConsumerWidget {
                   ],
                 ),
                 24.ph,
-                _SectionLabel(AppStrings.trackedSettingsDataSection),
+                TrackedSettingsSectionLabel(
+                  AppStrings.trackedSettingsDataSection,
+                ),
                 12.ph,
-                _SettingsCard(
+                TrackedSettingsSettingsCard(
                   children: [
                     TrackedSettingsNavRow(
                       icon: AppAssetsSvg.trackedSettingsSyncStatusIcon,
@@ -78,55 +86,6 @@ class TrackedSettingsView extends ConsumerWidget {
               ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class _SectionLabel extends StatelessWidget {
-  const _SectionLabel(this.label);
-
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      label,
-      style: context.bodyMediumStyle?.copyWith(
-        fontSize: 14.sp,
-        fontWeight: FontWeight.w500,
-        color: AppColors.primaryWhite,
-      ),
-    );
-  }
-}
-
-class _SettingsCard extends StatelessWidget {
-  const _SettingsCard({required this.children});
-
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.primaryWhite.withValues(alpha: 0.05),
-        borderRadius: 16.circular,
-        border: Border.all(color: AppColors.trackedSettingsCardBorder),
-      ),
-      clipBehavior: Clip.antiAlias,
-      child: Column(
-        children: [
-          for (final child in children) ...[
-            child,
-            if (child != children.last)
-              Divider(
-                height: 1,
-                thickness: 1,
-                color: AppColors.trackedSettingsCardBorder,
-              ),
-          ],
         ],
       ),
     );
