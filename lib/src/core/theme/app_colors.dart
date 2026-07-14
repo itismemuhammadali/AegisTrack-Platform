@@ -343,6 +343,7 @@ class AppColors {
   static const Color trackedLogDetailsCardBackground = Color(0x0DFFFFFF);
   static const Color trackedLogDetailsCardBorder = Color(0x1AFFFFFF);
   static const Color trackedLogDetailsIconBackground = Color(0x4D34206C);
+  static const Color trackedLogDetailsVerifiedBackground = Color(0x3334206C);
   static const Color trackedLogDetailsAccent = Color(0xFF8B5CF6);
 
   // Tracked settings - Joshua R Hughes (location tracking)

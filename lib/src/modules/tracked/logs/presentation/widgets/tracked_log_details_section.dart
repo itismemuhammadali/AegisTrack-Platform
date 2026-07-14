@@ -30,10 +30,11 @@ class TrackedLogDetailsSection extends StatelessWidget {
 
 class TrackedLogDetailsGlassCard extends StatelessWidget {
   const TrackedLogDetailsGlassCard(
-      {super.key, required this.child, this.padding});
+      {super.key, required this.child, this.padding, this.borderWidth = 1});
 
   final Widget child;
   final EdgeInsets? padding;
+  final double borderWidth;
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +44,10 @@ class TrackedLogDetailsGlassCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: AppColors.trackedLogDetailsCardBackground,
         borderRadius: 16.circular,
-        border: Border.all(color: AppColors.trackedLogDetailsCardBorder),
+        border: Border.all(
+          color: AppColors.trackedLogDetailsCardBorder,
+          width: borderWidth,
+        ),
       ),
       child: child,
     );

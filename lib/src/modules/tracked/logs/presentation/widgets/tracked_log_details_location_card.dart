@@ -9,7 +9,8 @@ class TrackedLogDetailsLocationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TrackedLogDetailsGlassCard(
-      padding: AppInsets.all(20),
+      padding: AppInsets.all(21.085),
+      borderWidth: 1.085.w,
       child: Column(
         children: [
           SizedBox(
@@ -18,7 +19,7 @@ class TrackedLogDetailsLocationCard extends StatelessWidget {
               clipBehavior: Clip.none,
               children: [
                 Positioned.fill(
-                  right: 66.w,
+                  right: 66.24.w,
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -50,7 +51,7 @@ class TrackedLogDetailsLocationCard extends StatelessWidget {
                                   maxLines: 1,
                                   overflow: TextOverflow.clip,
                                   style: TextStyle(
-                                    fontFamily: 'Consolas',
+                                    fontFamily: 'monospace',
                                     color: AppColors.trackedLogDetailsMutedText,
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w400,
@@ -66,12 +67,14 @@ class TrackedLogDetailsLocationCard extends StatelessWidget {
                     ],
                   ),
                 ),
-                const Positioned(
-                  top: -5,
-                  right: 24,
-                  child: _RoundIcon(
+                Positioned(
+                  top: -5.095.h,
+                  right: 24.w,
+                  child: const _RoundIcon(
                     asset: AppAssetsSvg.trackedLogDetailsVerified,
                     size: 32,
+                    backgroundColor:
+                        AppColors.trackedLogDetailsVerifiedBackground,
                   ),
                 ),
               ],
@@ -91,18 +94,25 @@ class TrackedLogDetailsLocationCard extends StatelessWidget {
 }
 
 class _RoundIcon extends StatelessWidget {
-  const _RoundIcon({required this.asset, required this.size});
+  const _RoundIcon({
+    required this.asset,
+    required this.size,
+    this.backgroundColor = AppColors.trackedLogDetailsIconBackground,
+  });
+
   final String asset;
   final double size;
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) => Container(
         width: size.w,
         height: size.w,
         alignment: Alignment.center,
-        decoration: const BoxDecoration(
-            color: AppColors.trackedLogDetailsIconBackground,
-            shape: BoxShape.circle),
+        decoration: BoxDecoration(
+          color: backgroundColor,
+          shape: BoxShape.circle,
+        ),
         child:
             SvgPicture.asset(asset, width: (size / 2).w, height: (size / 2).w),
       );
