@@ -18,8 +18,8 @@ class TrackedSyncStatusSectionHeading extends StatelessWidget {
       children: [
         SvgPicture.asset(
           icon,
-          width: 16.sp,
-          height: 16.sp,
+          width: 20.sp,
+          height: 20.sp,
           colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
         ),
         8.pw,

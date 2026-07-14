@@ -1,5 +1,5 @@
 import '../../../../../core/utils/app_exports.dart';
-import '../controller/tracked_sync_status_controller.dart';
+import '../controller/tracked_settings_controller.dart';
 import '../widgets/tracked_sync_status_log_card.dart';
 import '../widgets/tracked_sync_status_log_row.dart';
 import '../widgets/tracked_sync_status_retry_button.dart';
@@ -11,7 +11,7 @@ class TrackedSyncStatusView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.watch(trackedSyncStatusControllerProvider);
+    final controller = ref.watch(trackedSettingsControllerProvider);
 
     return Scaffold(
       backgroundColor: AppColors.trackedDashboardBackground,

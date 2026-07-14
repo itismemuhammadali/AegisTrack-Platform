@@ -1,8 +1,62 @@
 import '../../../../../core/utils/app_exports.dart';
+import '../../domain/entities/tracked_sync_log_entry_entity.dart';
 
 class TrackedSettingsController extends ChangeNotifier with Buffers {
   bool backgroundTrackingEnabled = true;
   bool autoSyncEnabled = true;
+
+  List<TrackedSyncLogEntryEntity> _syncLogEntries = const [
+    TrackedSyncLogEntryEntity(
+      coordinates: '37.7749° N, 122.4194° W',
+      timestamp: '2 min ago',
+      status: TrackedSyncLogStatus.pending,
+    ),
+    TrackedSyncLogEntryEntity(
+      coordinates: '37.7750° N, 122.4195° W',
+      timestamp: '5 min ago',
+      status: TrackedSyncLogStatus.pending,
+    ),
+    TrackedSyncLogEntryEntity(
+      coordinates: '37.7748° N, 122.4193° W',
+      timestamp: '8 min ago',
+      status: TrackedSyncLogStatus.pending,
+    ),
+    TrackedSyncLogEntryEntity(
+      coordinates: '37.7751° N, 122.4196° W',
+      timestamp: '15 min ago',
+      status: TrackedSyncLogStatus.failed,
+      failureReason: 'Network timeout',
+    ),
+    TrackedSyncLogEntryEntity(
+      coordinates: '37.7752° N, 122.4197° W',
+      timestamp: '1 hour ago',
+      status: TrackedSyncLogStatus.synced,
+    ),
+    TrackedSyncLogEntryEntity(
+      coordinates: '37.7753° N, 122.4198° W',
+      timestamp: '2 hours ago',
+      status: TrackedSyncLogStatus.synced,
+    ),
+    TrackedSyncLogEntryEntity(
+      coordinates: '37.7754° N, 122.4199° W',
+      timestamp: '3 hours ago',
+      status: TrackedSyncLogStatus.synced,
+    ),
+  ];
+
+  List<TrackedSyncLogEntryEntity> get syncLogEntries => _syncLogEntries;
+
+  List<TrackedSyncLogEntryEntity> get pendingEntries => _syncLogEntries
+      .where((entry) => entry.status == TrackedSyncLogStatus.pending)
+      .toList();
+
+  List<TrackedSyncLogEntryEntity> get failedEntries => _syncLogEntries
+      .where((entry) => entry.status == TrackedSyncLogStatus.failed)
+      .toList();
+
+  List<TrackedSyncLogEntryEntity> get syncedEntries => _syncLogEntries
+      .where((entry) => entry.status == TrackedSyncLogStatus.synced)
+      .toList();
 
   void setBackgroundTracking(bool value) {
     if (backgroundTrackingEnabled == value) return;
@@ -13,6 +67,39 @@ class TrackedSettingsController extends ChangeNotifier with Buffers {
   void setAutoSync(bool value) {
     if (autoSyncEnabled == value) return;
     autoSyncEnabled = value;
+    notifyListeners();
+  }
+
+  void retrySync(TrackedSyncLogEntryEntity entry) {
+    final index = _syncLogEntries.indexOf(entry);
+    if (index == -1) return;
+
+    _syncLogEntries = [
+      for (var i = 0; i < _syncLogEntries.length; i++)
+        if (i == index)
+          TrackedSyncLogEntryEntity(
+            coordinates: entry.coordinates,
+            timestamp: entry.timestamp,
+            status: TrackedSyncLogStatus.synced,
+          )
+        else
+          _syncLogEntries[i],
+    ];
+    notifyListeners();
+  }
+
+  void syncNow() {
+    _syncLogEntries = [
+      for (final entry in _syncLogEntries)
+        if (entry.status == TrackedSyncLogStatus.pending)
+          TrackedSyncLogEntryEntity(
+            coordinates: entry.coordinates,
+            timestamp: entry.timestamp,
+            status: TrackedSyncLogStatus.synced,
+          )
+        else
+          entry,
+    ];
     notifyListeners();
   }
 }
