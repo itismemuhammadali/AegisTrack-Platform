@@ -332,4 +332,5 @@ class AppColors {
   static const Color trackedDashboardBackground = Color(0xFF2B2F3F);
   static const Color trackedTrackingActiveGreen = Color(0xFF00F300);
   static const Color trackedMapPreviewOverlay = Color(0x3312182E);
+  static const Color trackedBottomBarArc = Color(0xFF080C1C);
 }
