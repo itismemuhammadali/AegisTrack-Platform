@@ -3,6 +3,7 @@
 // This is also known as declerative routing
 
 import '../../../modules/onboarding/presentation/views/onboarding_view.dart';
+import '../../../modules/tracked/authentication/presentation/views/enable_location_access_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/sign_in_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/two_factor_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/verify_view.dart';
@@ -47,7 +48,16 @@ class AppRouterGo {
         path: twoFactorView,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child: const TwoFactorView(),
+          child: TwoFactorView(
+            onVerify: (code) => AppRouterGo.push(enableLocationAccessView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: enableLocationAccessView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const EnableLocationAccessView(),
         ),
       ),
     ],

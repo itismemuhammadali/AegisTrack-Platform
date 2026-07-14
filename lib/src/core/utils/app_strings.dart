@@ -49,4 +49,12 @@ class AppStrings {
   static const String trustThisDeviceSubtitle =
       "Don't ask for 2FA on this device for 30 days";
   static const String verifyAndContinue = 'Verify & Continue';
+
+  // Enable location access - Joshua R Hughes (location tracking)
+  static const String enableLocationAccessTitle = 'Enable Location Access';
+  static const String enableLocationAccessSubtitle =
+      'This app requires continuous location access to log your activity '
+      'securely. Your data is encrypted and protected.';
+  static const String allowLocation = 'Allow Location';
+  static const String notNow = 'Not Now';
 }

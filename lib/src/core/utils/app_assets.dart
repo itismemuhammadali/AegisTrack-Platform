@@ -57,4 +57,8 @@ class AppAssetsSvg {
       'assets/icons/svg/two_factor_shield.svg';
   static const String twoFactorDeviceIcon =
       'assets/icons/svg/two_factor_device.svg';
+
+  /// Enable location access - Joshua R Hughes (location tracking)
+  static const String locationPermissionShieldIcon =
+      'assets/icons/svg/location_permission_shield.svg';
 }
