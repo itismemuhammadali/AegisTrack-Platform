@@ -78,6 +78,7 @@ class TrackedSettingsView extends ConsumerWidget {
                       icon: AppAssetsSvg.trackedSettingsExportCenterIcon,
                       title: AppStrings.trackedSettingsExportCenter,
                       subtitle: AppStrings.trackedSettingsExportCenterSubtitle,
+                      onTap: () => AppRouterGo.push(trackedExportCenterView),
                     ),
                   ],
                 ),

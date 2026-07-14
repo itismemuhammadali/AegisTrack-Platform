@@ -351,4 +351,17 @@ class AppColors {
   static const Color trackedSettingsMutedText = Color(0xFFA0A7B8);
   static const Color trackedSettingsIconBg = Color(0x4D34206C);
   static const Color trackedSettingsLogoutRed = Color(0xFFEF4444);
+
+  // Tracked export center - Joshua R Hughes (location tracking)
+  static const Color trackedExportCenterCardBackground = Color(0x0DFFFFFF);
+  static const Color trackedExportCenterCardBorder = Color(0x1AFFFFFF);
+  static const Color trackedExportCenterMutedText = Color(0xFFA0A7B8);
+  static const Color trackedExportCenterPdfAccent = Color(0xFF34206C);
+  static const Color trackedExportCenterPdfIconBackground = Color(0x3334206C);
+  static const Color trackedExportCenterSpreadsheetAccent = Color(0xFF10B981);
+  static const Color trackedExportCenterSpreadsheetIconBackground =
+      Color(0x3310B981);
+  static const Color trackedExportCenterEmailAccent = Color(0xFFF59E0B);
+  static const Color trackedExportCenterEmailIconBackground =
+      Color(0x33F59E0B);
 }

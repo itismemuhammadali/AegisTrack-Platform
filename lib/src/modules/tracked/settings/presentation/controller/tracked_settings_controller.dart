@@ -5,6 +5,9 @@ class TrackedSettingsController extends ChangeNotifier with Buffers {
   bool backgroundTrackingEnabled = true;
   bool autoSyncEnabled = true;
 
+  final int exportReadyLogsCount = 15;
+  final List<TrackedExportFormat> exportFormats = TrackedExportFormat.values;
+
   List<TrackedSyncLogEntryEntity> _syncLogEntries = const [
     TrackedSyncLogEntryEntity(
       coordinates: '37.7749° N, 122.4194° W',
@@ -102,6 +105,20 @@ class TrackedSettingsController extends ChangeNotifier with Buffers {
     ];
     notifyListeners();
   }
+
+  void exportFormat(TrackedExportFormat format) {
+    Prompts.showToast(_exportConfirmationMessage(format));
+  }
+
+  String _exportConfirmationMessage(TrackedExportFormat format) =>
+      switch (format) {
+        TrackedExportFormat.encryptedPdf =>
+          AppStrings.trackedExportCenterPdfConfirmation,
+        TrackedExportFormat.spreadsheet =>
+          AppStrings.trackedExportCenterSpreadsheetConfirmation,
+        TrackedExportFormat.email =>
+          AppStrings.trackedExportCenterEmailConfirmation,
+      };
 }
 
 final trackedSettingsControllerProvider =

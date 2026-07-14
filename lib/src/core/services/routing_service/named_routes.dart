@@ -10,6 +10,7 @@ import '../../../modules/tracked/authentication/presentation/views/verify_view.d
 import '../../../modules/tracked/dashboard/presentation/views/tracked_dashboard_view.dart';
 import '../../../modules/tracked/logs/domain/entities/tracked_log_entry_entity.dart';
 import '../../../modules/tracked/logs/presentation/views/tracked_log_details_view.dart';
+import '../../../modules/tracked/settings/presentation/views/tracked_export_center_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_sync_status_view.dart';
 import '../../utils/app_exports.dart';
 
@@ -88,6 +89,13 @@ class AppRouterGo {
           child: TrackedLogDetailsView(
             entry: state.extra as TrackedLogEntryEntity?,
           ),
+        ),
+      ),
+      GoRoute(
+        path: trackedExportCenterView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedExportCenterView(),
         ),
       ),
     ],

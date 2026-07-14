@@ -148,4 +148,14 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_settings_export_center_icon.svg';
   static const String trackedSettingsLogoutIcon =
       'assets/icons/svg/tracked_settings_logout_icon.svg';
+
+  /// Tracked export center - Joshua R Hughes (location tracking)
+  static const String trackedExportCenterPdfIcon =
+      'assets/icons/svg/tracked_export_center_pdf_icon.svg';
+  static const String trackedExportCenterLockIcon =
+      'assets/icons/svg/tracked_export_center_lock_icon.svg';
+  static const String trackedExportCenterSpreadsheetIcon =
+      'assets/icons/svg/tracked_export_center_spreadsheet_icon.svg';
+  static const String trackedExportCenterEmailIcon =
+      'assets/icons/svg/tracked_export_center_email_icon.svg';
 }

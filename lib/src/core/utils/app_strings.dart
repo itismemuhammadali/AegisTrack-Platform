@@ -126,4 +126,31 @@ class AppStrings {
   static const String trackedSyncStatusSyncedLogs = 'Synced Logs';
   static const String trackedSyncStatusRetrySync = 'Retry Sync';
   static const String trackedSyncStatusFailureReasonPrefix = 'Reason: ';
+
+  // Tracked export center - Joshua R Hughes (location tracking)
+  static const String trackedExportCenterReadyToExport = 'Ready to export';
+  static const String trackedExportCenterLogsLabel = 'Logs';
+  static const String trackedExportCenterChooseFormat = 'Choose Export Format';
+  static const String trackedExportCenterPdfTitle = 'Encrypted PDF Export';
+  static const String trackedExportCenterPdfDescription =
+      'Generate a password-protected PDF report with all log details';
+  static const String trackedExportCenterTagSecure = 'Secure';
+  static const String trackedExportCenterTagPrintable = 'Printable';
+  static const String trackedExportCenterSpreadsheetTitle =
+      'Spreadsheet Export';
+  static const String trackedExportCenterSpreadsheetDescription =
+      'Export logs as CSV for analysis in Excel, Google Sheets, etc.';
+  static const String trackedExportCenterTagCsvFormat = 'CSV Format';
+  static const String trackedExportCenterTagEditable = 'Editable';
+  static const String trackedExportCenterEmailTitle = 'Email Export';
+  static const String trackedExportCenterEmailDescription =
+      'Send log report directly to your registered email address';
+  static const String trackedExportCenterTagPdfAttached = 'PDF Attached';
+  static const String trackedExportCenterTagInstant = 'Instant';
+  static const String trackedExportCenterPdfConfirmation =
+      'Preparing your encrypted PDF export...';
+  static const String trackedExportCenterSpreadsheetConfirmation =
+      'Preparing your spreadsheet export...';
+  static const String trackedExportCenterEmailConfirmation =
+      'Sending report to your registered email...';
 }
