@@ -104,6 +104,12 @@ class AppAssetsSvg {
   static const String trackedLogsStatusFailedIcon =
       'assets/icons/svg/tracked_logs_status_failed_icon.svg';
 
+  /// Tracked sync status - Joshua R Hughes (location tracking)
+  static const String trackedSyncStatusFailedBadgeIcon =
+      'assets/icons/svg/tracked_sync_status_failed_badge_icon.svg';
+  static const String trackedSyncStatusSyncedBadgeIcon =
+      'assets/icons/svg/tracked_sync_status_synced_badge_icon.svg';
+
   /// Tracked settings - Joshua R Hughes (location tracking)
   static const String trackedSettingsChevronIcon =
       'assets/icons/svg/tracked_settings_chevron_icon.svg';

@@ -74,7 +74,7 @@ class TrackedSyncStatusLogRow extends StatelessWidget {
           Padding(
             padding: AppInsets.only(top: 2),
             child: SvgPicture.asset(
-              AppAssetsSvg.trackedLogsStatusSyncedIcon,
+              AppAssetsSvg.trackedSyncStatusSyncedBadgeIcon,
               width: 20.sp,
               height: 20.sp,
               colorFilter: ColorFilter.mode(_color, BlendMode.srcIn),

@@ -87,14 +87,14 @@ class TrackedSyncStatusView extends ConsumerWidget {
                           ),
                           12.pw,
                           TrackedSyncStatusStatCard(
-                            icon: AppAssetsSvg.trackedLogsStatusFailedIcon,
+                            icon: AppAssetsSvg.trackedSyncStatusFailedBadgeIcon,
                             label: AppStrings.logStatusFailed,
                             count: controller.failedEntries.length,
                             color: AppColors.trackedLogFailedRed,
                           ),
                           12.pw,
                           TrackedSyncStatusStatCard(
-                            icon: AppAssetsSvg.trackedLogsStatusSyncedIcon,
+                            icon: AppAssetsSvg.trackedSyncStatusSyncedBadgeIcon,
                             label: AppStrings.logStatusSynced,
                             count: controller.syncedEntries.length,
                             color: AppColors.trackedLogSyncedGreen,
@@ -121,7 +121,7 @@ class TrackedSyncStatusView extends ConsumerWidget {
                       if (controller.failedEntries.isNotEmpty) ...[
                         24.ph,
                         TrackedSyncStatusSectionHeading(
-                          icon: AppAssetsSvg.trackedLogsStatusFailedIcon,
+                          icon: AppAssetsSvg.trackedSyncStatusFailedBadgeIcon,
                           label: AppStrings.trackedSyncStatusFailedLogs,
                           color: AppColors.trackedLogFailedRed,
                         ),
@@ -147,7 +147,7 @@ class TrackedSyncStatusView extends ConsumerWidget {
                       if (controller.syncedEntries.isNotEmpty) ...[
                         24.ph,
                         TrackedSyncStatusSectionHeading(
-                          icon: AppAssetsSvg.trackedLogsStatusSyncedIcon,
+                          icon: AppAssetsSvg.trackedSyncStatusSyncedBadgeIcon,
                           label: AppStrings.trackedSyncStatusSyncedLogs,
                           color: AppColors.trackedLogSyncedGreen,
                         ),
