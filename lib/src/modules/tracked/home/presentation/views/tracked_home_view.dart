@@ -21,7 +21,7 @@ class TrackedHomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: AppInsets.symmetric(horizontal: 24, vertical: 16),
+      padding: AppInsets.only(top: 16, bottom: 16 + 112, left: 24, right: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

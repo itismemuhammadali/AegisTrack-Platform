@@ -25,6 +25,7 @@ class TrackedLogsView extends ConsumerWidget {
           24.ph,
           Expanded(
             child: ListView.separated(
+              padding: AppInsets.only(bottom: 112),
               itemCount: controller.entries.length,
               separatorBuilder: (context, index) => 16.ph,
               itemBuilder: (context, index) =>

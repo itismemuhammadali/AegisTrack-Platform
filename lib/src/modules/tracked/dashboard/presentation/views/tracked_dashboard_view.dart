@@ -26,15 +26,20 @@ class TrackedDashboardView extends ConsumerWidget {
         ),
         child: SafeArea(
           bottom: false,
-          child: Column(
+          child: Stack(
             children: [
-              Expanded(
+              Positioned.fill(
                 child: IndexedStack(
                   index: controller.selectedIndex,
                   children: controller.screens,
                 ),
               ),
-              TrackedBottomBar(controller: controller),
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: TrackedBottomBar(controller: controller),
+              ),
             ],
           ),
         ),
