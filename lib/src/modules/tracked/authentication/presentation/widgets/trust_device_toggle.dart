@@ -3,7 +3,8 @@ import '../../../../../core/utils/app_exports.dart';
 /// Pill-shaped on/off switch used by the "Trust this device" row on the
 /// two-factor screen — translucent track, white thumb, per Figma.
 class TrustDeviceToggle extends StatelessWidget {
-  const TrustDeviceToggle({super.key, required this.value, required this.onChanged});
+  const TrustDeviceToggle(
+      {super.key, required this.value, required this.onChanged});
 
   final bool value;
   final ValueChanged<bool> onChanged;
@@ -31,7 +32,11 @@ class TrustDeviceToggle extends StatelessWidget {
             color: AppColors.primaryWhite,
             shape: BoxShape.circle,
             boxShadow: [
-              BoxShadow(color: Color(0x1A000000), blurRadius: 6, offset: Offset(0, 4)),
+              BoxShadow(
+                color: AppColors.authToggleShadow,
+                blurRadius: 6,
+                offset: Offset(0, 4),
+              ),
             ],
           ),
         ),

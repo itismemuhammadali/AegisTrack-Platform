@@ -42,9 +42,7 @@ class VerifyView extends HookConsumerWidget {
 
     final fieldFillColor = AppColors.primaryWhite.withValues(alpha: 0.05);
     final fieldBorderColor = AppColors.primaryWhite.withValues(alpha: 0.1);
-    final focusedFieldBorderColor = const Color(
-      0xFF70699F,
-    ).withValues(alpha: 0.25);
+    const focusedFieldBorderColor = AppColors.authFocusedFieldBorder;
 
     void submit() {
       final code = otpControllers.value

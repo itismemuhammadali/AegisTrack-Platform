@@ -243,6 +243,8 @@ class AppColors {
   static const Color signInDarkBorder = Color(0x1AFFFFFF);
   static const Color signInDarkSubtitle = Color(0xFFA0A7B8);
   static const Color signInDarkDivider = Color(0xFF1F2937);
+  static const Color authFocusedFieldBorder = Color(0x4070699F);
+  static const Color authToggleShadow = Color(0x1A000000);
 
   // Sign in - light mode
   static const Color signInLightBackground = Color(0xFFF8F8F8);

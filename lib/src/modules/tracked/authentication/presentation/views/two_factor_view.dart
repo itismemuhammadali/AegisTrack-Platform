@@ -21,9 +21,7 @@ class TwoFactorView extends HookConsumerWidget {
 
     final fieldFillColor = AppColors.primaryWhite.withValues(alpha: 0.05);
     final fieldBorderColor = AppColors.primaryWhite.withValues(alpha: 0.1);
-    final focusedFieldBorderColor = const Color(
-      0xFF70699F,
-    ).withValues(alpha: 0.25);
+    const focusedFieldBorderColor = AppColors.authFocusedFieldBorder;
 
     void submit() {
       final code = otpControllers.value
@@ -145,14 +143,12 @@ class TwoFactorView extends HookConsumerWidget {
                             children: [
                               TrustDeviceToggle(
                                 value: trustDevice.value,
-                                onChanged: (value) =>
-                                    trustDevice.value = value,
+                                onChanged: (value) => trustDevice.value = value,
                               ),
                               12.pw,
                               Expanded(
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Row(
                                       children: [
@@ -164,13 +160,13 @@ class TwoFactorView extends HookConsumerWidget {
                                         8.pw,
                                         Text(
                                           AppStrings.trustThisDevice,
-                                          style: context.bodyMediumStyle
-                                              ?.copyWith(
-                                                color: AppColors.primaryWhite,
-                                                fontSize: 14.sp,
-                                                fontWeight: FontWeight.w500,
-                                                height: 20 / 14,
-                                              ),
+                                          style:
+                                              context.bodyMediumStyle?.copyWith(
+                                            color: AppColors.primaryWhite,
+                                            fontSize: 14.sp,
+                                            fontWeight: FontWeight.w500,
+                                            height: 20 / 14,
+                                          ),
                                         ),
                                       ],
                                     ),
