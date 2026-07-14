@@ -28,8 +28,13 @@ class TrackedLogsView extends ConsumerWidget {
               padding: AppInsets.only(bottom: 112),
               itemCount: controller.entries.length,
               separatorBuilder: (context, index) => 16.ph,
-              itemBuilder: (context, index) =>
-                  TrackedLogEntryCard(entry: controller.entries[index]),
+              itemBuilder: (context, index) => TrackedLogEntryCard(
+                entry: controller.entries[index],
+                onTap: () => AppRouterGo.push(
+                  trackedLogDetailsView,
+                  extra: controller.entries[index],
+                ),
+              ),
             ),
           ),
         ],

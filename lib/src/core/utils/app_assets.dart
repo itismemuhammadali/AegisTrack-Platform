@@ -2,8 +2,6 @@
 class AppAssetsPng {
   AppAssetsPng._();
 
-
-
   /// Onboarding - Joshua R Hughes (location tracking)
   static const String onboardingTrackLocationBg =
       'assets/images/png/onboarding_track_location_bg.jpg';
@@ -39,7 +37,6 @@ class AppAssetsPng {
   /// Tracked settings - Joshua R Hughes (location tracking)
   static const String trackedSettingsProfileAvatar =
       'assets/images/png/tracked_settings_profile_avatar.png';
-
 }
 
 class AppAssetsSvg {
@@ -103,6 +100,30 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_logs_status_pending_icon.svg';
   static const String trackedLogsStatusFailedIcon =
       'assets/icons/svg/tracked_logs_status_failed_icon.svg';
+  static const String trackedLogDetailsMap =
+      'assets/images/png/tracked_log_details_map.png';
+  static const String trackedLogDetailsPhoto =
+      'assets/images/png/tracked_log_details_photo.png';
+  static const String trackedLogDetailsMapPin =
+      'assets/icons/svg/tracked_log_details_map_pin.svg';
+  static const String trackedLogDetailsLocation =
+      'assets/icons/svg/tracked_log_details_location.svg';
+  static const String trackedLogDetailsCalendar =
+      'assets/icons/svg/tracked_log_details_calendar.svg';
+  static const String trackedLogDetailsLock =
+      'assets/icons/svg/tracked_log_details_lock.svg';
+  static const String trackedLogDetailsVerified =
+      'assets/icons/svg/tracked_log_details_verified.svg';
+  static const String trackedLogDetailsPhotoIcon =
+      'assets/icons/svg/tracked_log_details_photo.svg';
+  static const String trackedLogDetailsBattery =
+      'assets/icons/svg/tracked_log_details_battery.svg';
+  static const String trackedLogDetailsNetwork =
+      'assets/icons/svg/tracked_log_details_network.svg';
+  static const String trackedLogDetailsNotes =
+      'assets/icons/svg/tracked_log_details_notes.svg';
+  static const String trackedLogDetailsAdd =
+      'assets/icons/svg/tracked_log_details_add.svg';
 
   /// Tracked sync status - Joshua R Hughes (location tracking)
   static const String trackedSyncStatusFailedBadgeIcon =

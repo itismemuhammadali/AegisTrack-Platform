@@ -83,14 +83,30 @@ class AppStrings {
   static const String logStatusFailed = 'Failed';
   static const String logTagNote = 'Note';
   static const String logTagPhoto = 'Photo';
+  static const String trackedLogDetailsTitle = 'Log Details';
+  static const String trackedLogDetailsDefaultLocation = 'San Francisco, CA';
+  static const String trackedLogDetailsCoordinates = '37.7749° N, 122.4194° W';
+  static const String trackedLogDetailsTimestamp = 'April 15, 2026 at 10:30 AM';
+  static const String trackedLogDetailsLocked =
+      'Original location and timestamp are locked';
+  static const String trackedLogDetailsNote =
+      'Meeting location checkpoint. All participants verified and logged.';
+  static const String trackedLogDetailsMetadata = 'Metadata';
+  static const String trackedLogDetailsBattery = 'Battery';
+  static const String trackedLogDetailsBatteryValue = '78%';
+  static const String trackedLogDetailsNetwork = 'Network';
+  static const String trackedLogDetailsNetworkValue = 'WiFi';
+  static const String trackedLogDetailsAdditionalNotes = 'Additional Notes';
+  static const String trackedLogDetailsFollowUp =
+      'Followed up with verification team.';
+  static const String trackedLogDetailsFollowUpTime = '10 minutes after log';
 
   // Tracked settings - Joshua R Hughes (location tracking)
   static const String trackedSettingsTitle = 'Settings';
   static const String trackedSettingsProfileSection = 'Profile';
   static const String trackedSettingsProfileName = 'Joshua R Hughe';
   static const String trackedSettingsTrackingSection = 'Tracking';
-  static const String trackedSettingsBackgroundTracking =
-      'Background Tracking';
+  static const String trackedSettingsBackgroundTracking = 'Background Tracking';
   static const String trackedSettingsBackgroundTrackingSubtitle =
       'Enable continuous location logging';
   static const String trackedSettingsAutoSync = 'Auto Sync';
