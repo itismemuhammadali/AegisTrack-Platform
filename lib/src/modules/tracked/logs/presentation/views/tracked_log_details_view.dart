@@ -48,15 +48,17 @@ class TrackedLogDetailsView extends StatelessWidget {
                             AppStrings.trackedLogDetailsDefaultLocation,
                       ),
                       24.ph,
-                      const TrackedLogDetailsSection(
+                      TrackedLogDetailsSection(
                         title: AppStrings.logTagNote,
                         child: TrackedLogDetailsGlassCard(
                           child: Text(
                             AppStrings.trackedLogDetailsNote,
                             style: TextStyle(
                               color: AppColors.trackedLogDetailsMutedText,
-                              fontSize: 14,
-                              height: 1.62,
+                              fontSize: 14.sp,
+                              fontWeight: FontWeight.w400,
+                              letterSpacing: 0,
+                              height: 22.75 / 14,
                             ),
                           ),
                         ),

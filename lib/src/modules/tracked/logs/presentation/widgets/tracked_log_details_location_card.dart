@@ -12,33 +12,70 @@ class TrackedLogDetailsLocationCard extends StatelessWidget {
       padding: AppInsets.all(20),
       child: Column(
         children: [
-          Row(
-            children: [
-              const _RoundIcon(
-                  asset: AppAssetsSvg.trackedLogDetailsLocation, size: 40),
-              12.pw,
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(location,
-                        style: context.titleMediumStyle?.copyWith(
-                            color: AppColors.primaryWhite,
-                            fontSize: 18.sp,
-                            fontWeight: FontWeight.w600)),
-                    2.ph,
-                    Text(AppStrings.trackedLogDetailsCoordinates,
-                        style: TextStyle(
-                            fontFamily: 'Consolas',
-                            color: AppColors.trackedLogDetailsMutedText,
-                            fontSize: 14.sp,
-                            height: 20 / 14)),
-                  ],
+          SizedBox(
+            height: 52.h,
+            child: Stack(
+              clipBehavior: Clip.none,
+              children: [
+                Positioned.fill(
+                  right: 66.w,
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const _RoundIcon(
+                        asset: AppAssetsSvg.trackedLogDetailsLocation,
+                        size: 40,
+                      ),
+                      12.pw,
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              location,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: context.titleMediumStyle?.copyWith(
+                                color: AppColors.primaryWhite,
+                                fontSize: 18.sp,
+                                fontWeight: FontWeight.w600,
+                                height: 28 / 18,
+                              ),
+                            ),
+                            Expanded(
+                              child: Align(
+                                alignment: Alignment.bottomLeft,
+                                child: Text(
+                                  AppStrings.trackedLogDetailsCoordinates,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.clip,
+                                  style: TextStyle(
+                                    fontFamily: 'Consolas',
+                                    color: AppColors.trackedLogDetailsMutedText,
+                                    fontSize: 14.sp,
+                                    fontWeight: FontWeight.w400,
+                                    letterSpacing: 0,
+                                    height: 20 / 14,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
-              ),
-              const _RoundIcon(
-                  asset: AppAssetsSvg.trackedLogDetailsVerified, size: 32),
-            ],
+                const Positioned(
+                  top: -5,
+                  right: 24,
+                  child: _RoundIcon(
+                    asset: AppAssetsSvg.trackedLogDetailsVerified,
+                    size: 32,
+                  ),
+                ),
+              ],
+            ),
           ),
           16.ph,
           const _IconText(AppAssetsSvg.trackedLogDetailsCalendar,
@@ -89,7 +126,10 @@ class _IconText extends StatelessWidget {
                       color: small
                           ? AppColors.trackedLogTagText
                           : AppColors.trackedLogDetailsMutedText,
-                      fontSize: (small ? 12 : 14).sp))),
+                      fontSize: (small ? 12 : 14).sp,
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 0,
+                      height: small ? 16 / 12 : 20 / 14))),
         ],
       );
 }
