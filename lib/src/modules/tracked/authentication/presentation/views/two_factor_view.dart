@@ -16,23 +16,9 @@ class TwoFactorView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authController = ref.watch(authControllerProvider);
-    final trustDevice = useState(false);
-    final otpControllers = useRef<List<TextEditingController?>>([]);
-
     final fieldFillColor = AppColors.primaryWhite.withValues(alpha: 0.05);
     final fieldBorderColor = AppColors.primaryWhite.withValues(alpha: 0.1);
     const focusedFieldBorderColor = AppColors.authFocusedFieldBorder;
-
-    void submit() {
-      final code = otpControllers.value
-          .map((controller) => controller?.text ?? '')
-          .join();
-      authController.verifyTwoFactorCode(
-        code: code,
-        trustDevice: trustDevice.value,
-        onSuccess: () => onVerify?.call(code),
-      );
-    }
 
     return Scaffold(
       backgroundColor: AppColors.onboardingScrimNavy,
@@ -127,9 +113,11 @@ class TwoFactorView extends HookConsumerWidget {
                             fontSize: 20.sp,
                             fontWeight: FontWeight.w600,
                           ),
-                          handleControllers: (controllers) =>
-                              otpControllers.value = controllers,
-                          onSubmit: (_) => submit(),
+                          handleControllers:
+                              authController.setTwoFactorOtpControllers,
+                          onSubmit: (_) => authController.submitTwoFactor(
+                            onSuccess: onVerify,
+                          ),
                         ),
                         24.ph,
                         Container(
@@ -142,8 +130,8 @@ class TwoFactorView extends HookConsumerWidget {
                           child: Row(
                             children: [
                               TrustDeviceToggle(
-                                value: trustDevice.value,
-                                onChanged: (value) => trustDevice.value = value,
+                                value: authController.trustDevice,
+                                onChanged: authController.setTrustDevice,
                               ),
                               12.pw,
                               Expanded(
@@ -188,7 +176,9 @@ class TwoFactorView extends HookConsumerWidget {
                         24.ph,
                         SignInPrimaryButton(
                           text: AppStrings.verifyAndContinue,
-                          onTap: submit,
+                          onTap: () => authController.submitTwoFactor(
+                            onSuccess: onVerify,
+                          ),
                           isLoading: authController.isVerifyingTwoFactor,
                         ),
                       ],

@@ -26,25 +26,8 @@ class SignInView extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authController = ref.watch(authControllerProvider);
-    final formKey = useMemoized(() => GlobalKey<FormState>());
-    final emailController = useTextEditingController();
-    final passwordController = useTextEditingController();
-    final obscurePassword = useState(true);
-
     final fieldFillColor = AppColors.primaryWhite.withValues(alpha: 0.05);
     final fieldBorderColor = AppColors.primaryWhite.withValues(alpha: 0.1);
-
-    void submit() {
-      if (formKey.currentState?.validate() ?? false) {
-        final email = emailController.text;
-        final password = passwordController.text;
-        authController.signIn(
-          email: email,
-          password: password,
-          onSuccess: () => onSignIn?.call(email, password),
-        );
-      }
-    }
 
     return Scaffold(
       backgroundColor: AppColors.onboardingScrimNavy,
@@ -54,7 +37,7 @@ class SignInView extends HookConsumerWidget {
           SafeArea(
             bottom: false,
             child: Form(
-              key: formKey,
+              key: authController.signInFormKey,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -92,7 +75,7 @@ class SignInView extends HookConsumerWidget {
                       child: Column(
                         children: [
                           CustomTextField(
-                            controller: emailController,
+                            controller: authController.emailController,
                             hintText: AppStrings.email,
                             textInputType: TextInputType.emailAddress,
                             isPrefix: true,
@@ -108,9 +91,9 @@ class SignInView extends HookConsumerWidget {
                           ),
                           16.ph,
                           CustomTextField(
-                            controller: passwordController,
+                            controller: authController.passwordController,
                             hintText: AppStrings.password,
-                            isObscure: obscurePassword.value,
+                            isObscure: authController.obscurePassword,
                             isLast: true,
                             isPrefix: true,
                             prefixWidget: SvgPicture.asset(
@@ -120,10 +103,10 @@ class SignInView extends HookConsumerWidget {
                             ),
                             suffixbutton: IconButton(
                               splashRadius: 20.r,
-                              onPressed: () => obscurePassword.value =
-                                  !obscurePassword.value,
+                              onPressed:
+                                  authController.togglePasswordVisibility,
                               icon: Icon(
-                                obscurePassword.value
+                                authController.obscurePassword
                                     ? Icons.visibility_off_outlined
                                     : Icons.visibility_outlined,
                                 color: AppColors.signInDarkSubtitle,
@@ -135,12 +118,17 @@ class SignInView extends HookConsumerWidget {
                             focusedBorderColor: fieldBorderColor,
                             validator: (value) =>
                                 AppValidators.validatePass(value),
-                            onFieldSubmitted: (_) => submit(),
+                            onFieldSubmitted: (_) =>
+                                authController.submitSignIn(
+                              onSuccess: onSignIn,
+                            ),
                           ),
                           24.ph,
                           SignInPrimaryButton(
                             text: AppStrings.signIn,
-                            onTap: submit,
+                            onTap: () => authController.submitSignIn(
+                              onSuccess: onSignIn,
+                            ),
                             isLoading: authController.isSigningIn,
                           ),
                           24.ph,

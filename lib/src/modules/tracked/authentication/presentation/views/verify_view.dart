@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 
 import '../../../../../core/utils/app_exports.dart';
@@ -20,47 +18,17 @@ class VerifyView extends HookConsumerWidget {
   final VoidCallback? onResend;
 
   static const _codeLength = 6;
-  static const _resendSeconds = 58;
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final authController = ref.watch(authControllerProvider);
-    final secondsLeft = useState(_resendSeconds);
-    final otpControllers = useRef<List<TextEditingController?>>([]);
-
     useEffect(() {
-      final timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-        if (secondsLeft.value <= 1) {
-          timer.cancel();
-          secondsLeft.value = 0;
-        } else {
-          secondsLeft.value -= 1;
-        }
-      });
-      return timer.cancel;
+      authController.startResendTimer();
+      return null;
     }, const []);
 
     final fieldFillColor = AppColors.primaryWhite.withValues(alpha: 0.05);
     final fieldBorderColor = AppColors.primaryWhite.withValues(alpha: 0.1);
     const focusedFieldBorderColor = AppColors.authFocusedFieldBorder;
-
-    void submit() {
-      final code = otpControllers.value
-          .map((controller) => controller?.text ?? '')
-          .join();
-      authController.verifyOtp(
-        email: email,
-        code: code,
-        onSuccess: () => onVerify?.call(code),
-      );
-    }
-
-    void resend() {
-      if (secondsLeft.value != 0) return;
-      secondsLeft.value = _resendSeconds;
-      authController.resendOtp(email: email);
-      onResend?.call();
-    }
 
     return Scaffold(
       backgroundColor: AppColors.onboardingScrimNavy,
@@ -137,13 +105,19 @@ class VerifyView extends HookConsumerWidget {
                             fontSize: 20.sp,
                             fontWeight: FontWeight.w600,
                           ),
-                          handleControllers: (controllers) =>
-                              otpControllers.value = controllers,
-                          onSubmit: (_) => submit(),
+                          handleControllers:
+                              authController.setVerificationOtpControllers,
+                          onSubmit: (_) => authController.submitVerification(
+                            email: email,
+                            onSuccess: onVerify,
+                          ),
                         ),
                         24.ph,
                         GestureDetector(
-                          onTap: resend,
+                          onTap: () => authController.resendOtp(
+                            email: email,
+                            onResend: onResend,
+                          ),
                           child: Center(
                             child: Text.rich(
                               TextSpan(
@@ -155,8 +129,8 @@ class VerifyView extends HookConsumerWidget {
                                 ),
                                 children: [
                                   TextSpan(
-                                    text: secondsLeft.value > 0
-                                        ? '${secondsLeft.value}s'
+                                    text: authController.secondsUntilResend > 0
+                                        ? '${authController.secondsUntilResend}s'
                                         : AppStrings.resendCode,
                                     style: context.bodySmallStyle?.copyWith(
                                       color: AppColors.primaryWhite,
@@ -172,7 +146,10 @@ class VerifyView extends HookConsumerWidget {
                         56.ph,
                         SignInPrimaryButton(
                           text: AppStrings.verifyCode,
-                          onTap: submit,
+                          onTap: () => authController.submitVerification(
+                            email: email,
+                            onSuccess: onVerify,
+                          ),
                           isLoading: authController.isVerifying,
                         ),
                       ],
