@@ -36,6 +36,10 @@ class AppAssetsPng {
   static const String trackedHomeMapPreviewBg =
       'assets/images/png/tracked_home_map_preview_bg.png';
 
+  /// Tracked settings - Joshua R Hughes (location tracking)
+  static const String trackedSettingsProfileAvatar =
+      'assets/images/png/tracked_settings_profile_avatar.png';
+
 }
 
 class AppAssetsSvg {
@@ -99,4 +103,20 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_logs_status_pending_icon.svg';
   static const String trackedLogsStatusFailedIcon =
       'assets/icons/svg/tracked_logs_status_failed_icon.svg';
+
+  /// Tracked settings - Joshua R Hughes (location tracking)
+  static const String trackedSettingsChevronIcon =
+      'assets/icons/svg/tracked_settings_chevron_icon.svg';
+  static const String trackedSettingsChevronMutedIcon =
+      'assets/icons/svg/tracked_settings_chevron_muted_icon.svg';
+  static const String trackedSettingsBackgroundTrackingIcon =
+      'assets/icons/svg/tracked_settings_background_tracking_icon.svg';
+  static const String trackedSettingsAutoSyncIcon =
+      'assets/icons/svg/tracked_settings_auto_sync_icon.svg';
+  static const String trackedSettingsSyncStatusIcon =
+      'assets/icons/svg/tracked_settings_sync_status_icon.svg';
+  static const String trackedSettingsExportCenterIcon =
+      'assets/icons/svg/tracked_settings_export_center_icon.svg';
+  static const String trackedSettingsLogoutIcon =
+      'assets/icons/svg/tracked_settings_logout_icon.svg';
 }

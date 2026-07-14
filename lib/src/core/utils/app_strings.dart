@@ -83,4 +83,24 @@ class AppStrings {
   static const String logStatusFailed = 'Failed';
   static const String logTagNote = 'Note';
   static const String logTagPhoto = 'Photo';
+
+  // Tracked settings - Joshua R Hughes (location tracking)
+  static const String trackedSettingsTitle = 'Settings';
+  static const String trackedSettingsProfileSection = 'Profile';
+  static const String trackedSettingsProfileName = 'Joshua R Hughe';
+  static const String trackedSettingsTrackingSection = 'Tracking';
+  static const String trackedSettingsBackgroundTracking =
+      'Background Tracking';
+  static const String trackedSettingsBackgroundTrackingSubtitle =
+      'Enable continuous location logging';
+  static const String trackedSettingsAutoSync = 'Auto Sync';
+  static const String trackedSettingsAutoSyncSubtitle = 'Sync logs when online';
+  static const String trackedSettingsDataSection = 'Data & Reports';
+  static const String trackedSettingsSyncStatus = 'Sync Status';
+  static const String trackedSettingsSyncStatusSubtitle =
+      'View pending and synced logs';
+  static const String trackedSettingsExportCenter = 'Export Center';
+  static const String trackedSettingsExportCenterSubtitle =
+      'Download reports and spreadsheets';
+  static const String trackedSettingsLogout = 'Logout';
 }
