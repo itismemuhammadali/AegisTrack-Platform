@@ -5,15 +5,15 @@ class TrackedLogDetailsMetadataCard extends StatelessWidget {
   const TrackedLogDetailsMetadataCard({super.key});
 
   @override
-  Widget build(BuildContext context) => const TrackedLogDetailsGlassCard(
+  Widget build(BuildContext context) => TrackedLogDetailsGlassCard(
         child: Column(
           children: [
-            _MetadataRow(
+            const _MetadataRow(
                 AppAssetsSvg.trackedLogDetailsBattery,
                 AppStrings.trackedLogDetailsBattery,
                 AppStrings.trackedLogDetailsBatteryValue),
-            SizedBox(height: 12),
-            _MetadataRow(
+            12.ph,
+            const _MetadataRow(
                 AppAssetsSvg.trackedLogDetailsNetwork,
                 AppStrings.trackedLogDetailsNetwork,
                 AppStrings.trackedLogDetailsNetworkValue),
