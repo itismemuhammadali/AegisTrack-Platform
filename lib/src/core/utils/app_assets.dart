@@ -89,4 +89,14 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_home_quick_action_add_note.svg';
   static const String trackedHomeQuickActionCapture =
       'assets/icons/svg/tracked_home_quick_action_capture.svg';
+
+  /// Tracked logs - Joshua R Hughes (location tracking)
+  static const String trackedLogsLocationPinIcon =
+      'assets/icons/svg/tracked_logs_location_pin_icon.svg';
+  static const String trackedLogsStatusSyncedIcon =
+      'assets/icons/svg/tracked_logs_status_synced_icon.svg';
+  static const String trackedLogsStatusPendingIcon =
+      'assets/icons/svg/tracked_logs_status_pending_icon.svg';
+  static const String trackedLogsStatusFailedIcon =
+      'assets/icons/svg/tracked_logs_status_failed_icon.svg';
 }

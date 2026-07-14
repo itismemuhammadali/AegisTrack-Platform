@@ -75,4 +75,12 @@ class AppStrings {
   static const String logNow = 'Log Now';
   static const String addNote = 'Add Note';
   static const String capture = 'Capture';
+
+  // Tracked logs - Joshua R Hughes (location tracking)
+  static const String logHistory = 'Log History';
+  static const String logStatusSynced = 'Synced';
+  static const String logStatusPending = 'Pending';
+  static const String logStatusFailed = 'Failed';
+  static const String logTagNote = 'Note';
+  static const String logTagPhoto = 'Photo';
 }

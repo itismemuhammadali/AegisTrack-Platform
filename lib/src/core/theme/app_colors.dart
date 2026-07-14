@@ -333,4 +333,10 @@ class AppColors {
   static const Color trackedTrackingActiveGreen = Color(0xFF00F300);
   static const Color trackedMapPreviewOverlay = Color(0x3312182E);
   static const Color trackedBottomBarArc = Color(0xFF080C1C);
+
+  // Tracked logs - history list
+  static const Color trackedLogSyncedGreen = Color(0xFF10B981);
+  static const Color trackedLogPendingAmber = Color(0xFFF59E0B);
+  static const Color trackedLogFailedRed = Color(0xFFEF4444);
+  static const Color trackedLogTagText = Color(0xFF6B7280);
 }
