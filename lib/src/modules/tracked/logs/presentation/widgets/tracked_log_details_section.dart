@@ -18,6 +18,7 @@ class TrackedLogDetailsSection extends StatelessWidget {
             color: AppColors.primaryWhite,
             fontSize: 14.sp,
             fontWeight: FontWeight.w500,
+            height: 20 / 14,
           ),
         ),
         10.ph,

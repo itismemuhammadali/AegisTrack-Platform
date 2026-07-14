@@ -1,36 +1,4 @@
 <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="70" height="70" fill="#BFBFBF"/>
-<g id="Joshua R Hughes_Tracked">
-<path d="M-6292.23 -303.221C-6292.23 -358.45 -6247.45 -403.221 -6192.23 -403.221H2321.77C2377 -403.221 2421.77 -358.45 2421.77 -303.221V934.779C2421.77 990.007 2377 1034.78 2321.77 1034.78H-6192.23C-6247.45 1034.78 -6292.23 990.007 -6292.23 934.779V-303.221Z" fill="#5D5D5D"/>
-<g id="Log Details">
-<g clip-path="url(#clip0_0_1)">
-<rect x="-185.226" y="-217.221" width="440" height="1251.67" rx="40" fill="#2B2F3F"/>
-<rect x="-185.226" y="-217.221" width="440" height="1251.67" rx="40" fill="url(#paint0_linear_0_1)"/>
-<g id="Frame 2">
-<g id="Container">
-<rect x="-161.226" y="-69.2352" width="392" height="240" rx="24"/>
-<rect x="-161.226" y="-69.2352" width="392" height="240" rx="24" fill="#12182E" fill-opacity="0.2"/>
-<g id="Container_2">
-<g id="Container_3">
-<g id="Icon">
-<path id="Vector" d="M57.942 28.971C57.942 43.4362 41.895 58.5011 36.5063 63.1539C36.0043 63.5314 35.3933 63.7355 34.7652 63.7355C34.1371 63.7355 33.526 63.5314 33.024 63.1539C27.6354 58.5011 11.5884 43.4362 11.5884 28.971C11.5884 22.8241 14.0302 16.929 18.3767 12.5825C22.7232 8.23603 28.6183 5.7942 34.7652 5.7942C40.9121 5.7942 46.8072 8.23603 51.1537 12.5825C55.5002 16.929 57.942 22.8241 57.942 28.971Z" fill="white" fill-opacity="0.2" stroke="white" stroke-opacity="0.4" stroke-width="4.34565" stroke-linecap="round" stroke-linejoin="round"/>
-<path id="Vector_2" d="M34.765 37.6623C39.5651 37.6623 43.4563 33.7711 43.4563 28.971C43.4563 24.1709 39.5651 20.2797 34.765 20.2797C29.965 20.2797 26.0737 24.1709 26.0737 28.971C26.0737 33.7711 29.965 37.6623 34.765 37.6623Z" fill="white" fill-opacity="0.2" stroke="white" stroke-opacity="0.4" stroke-width="4.34565" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-</g>
-</g>
-</g>
-</g>
-</g>
-</g>
-</g>
-<defs>
-<linearGradient id="paint0_linear_0_1" x1="-185.226" y1="-217.221" x2="597.989" y2="58.1022" gradientUnits="userSpaceOnUse">
-<stop stop-color="#0C1227" stop-opacity="0.4"/>
-<stop offset="0.5" stop-color="#0C1227" stop-opacity="0.9"/>
-<stop offset="1" stop-color="#0C1227" stop-opacity="0.4"/>
-</linearGradient>
-<clipPath id="clip0_0_1">
-<rect x="-185.226" y="-217.221" width="440" height="1251.67" rx="40" fill="white"/>
-</clipPath>
-</defs>
+  <path d="M58.1768 28.971C58.1768 43.4362 42.1298 58.5011 36.7412 63.1539C36.2392 63.5314 35.6281 63.7355 35 63.7355C34.3719 63.7355 33.7609 63.5314 33.2589 63.1539C27.8703 58.5011 11.8232 43.4362 11.8232 28.971C11.8232 22.8241 14.2651 16.929 18.6116 12.5825C22.9581 8.23603 28.8531 5.7942 35 5.7942C41.1469 5.7942 47.042 8.23603 51.3885 12.5825C55.735 16.929 58.1768 22.8241 58.1768 28.971Z" fill="white" fill-opacity="0.2" stroke="white" stroke-opacity="0.4" stroke-width="4.34565" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="35" cy="28.971" r="8.6913" fill="white" fill-opacity="0.2" stroke="white" stroke-opacity="0.4" stroke-width="4.34565"/>
 </svg>

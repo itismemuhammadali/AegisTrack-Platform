@@ -22,7 +22,7 @@ class TrackedLogDetailsAdditionalNotes extends StatelessWidget {
               4.pw,
               Text(AppStrings.addNote,
                   style: TextStyle(
-                      color: AppColors.trackedLogDetailsAccent,
+                      color: AppColors.primaryWhite,
                       fontSize: 14.sp,
                       fontWeight: FontWeight.w500)),
             ],
@@ -34,10 +34,10 @@ class TrackedLogDetailsAdditionalNotes extends StatelessWidget {
               children: [
                 Text(AppStrings.trackedLogDetailsFollowUp,
                     style: TextStyle(
-                        color: AppColors.trackedLogDetailsMutedText,
+                        color: AppColors.primaryWhite,
                         fontSize: 14.sp,
-                        height: 1.6)),
-                8.ph,
+                        height: 1.625)),
+                10.ph,
                 Text(AppStrings.trackedLogDetailsFollowUpTime,
                     style: TextStyle(
                         color: AppColors.trackedLogTagText, fontSize: 12.sp)),

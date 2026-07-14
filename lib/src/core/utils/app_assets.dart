@@ -106,6 +106,8 @@ class AppAssetsSvg {
       'assets/images/png/tracked_log_details_photo.png';
   static const String trackedLogDetailsMapPin =
       'assets/icons/svg/tracked_log_details_map_pin.svg';
+  static const String trackedLogDetailsBack =
+      'assets/icons/svg/tracked_log_details_back.svg';
   static const String trackedLogDetailsLocation =
       'assets/icons/svg/tracked_log_details_location.svg';
   static const String trackedLogDetailsCalendar =

@@ -36,12 +36,14 @@ class _MetadataRow extends StatelessWidget {
           Text(label,
               style: TextStyle(
                   color: AppColors.trackedLogDetailsMutedText,
-                  fontSize: 14.sp)),
+                  fontSize: 14.sp,
+                  height: 20 / 14)),
           const Spacer(),
           Text(value,
               style: TextStyle(
                   color: AppColors.primaryWhite,
                   fontSize: 14.sp,
+                  height: 20 / 14,
                   fontWeight: FontWeight.w500)),
         ],
       );

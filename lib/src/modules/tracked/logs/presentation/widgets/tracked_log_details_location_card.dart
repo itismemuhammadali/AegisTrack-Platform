@@ -29,9 +29,10 @@ class TrackedLogDetailsLocationCard extends StatelessWidget {
                     2.ph,
                     Text(AppStrings.trackedLogDetailsCoordinates,
                         style: TextStyle(
-                            fontFamily: 'monospace',
+                            fontFamily: 'Consolas',
                             color: AppColors.trackedLogDetailsMutedText,
-                            fontSize: 14.sp)),
+                            fontSize: 14.sp,
+                            height: 20 / 14)),
                   ],
                 ),
               ),

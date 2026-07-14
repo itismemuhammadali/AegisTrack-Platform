@@ -10,7 +10,29 @@ class TrackedLogDetailsHeader extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          const Align(alignment: Alignment.centerLeft, child: AppBackButton()),
+          Align(
+            alignment: Alignment.centerLeft,
+            child: GestureDetector(
+              onTap: AppRouterGo.back,
+              child: Container(
+                width: 40.w,
+                height: 40.w,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: AppColors.primaryWhite.withValues(alpha: 0.05),
+                  borderRadius: 18.circular,
+                  border: Border.all(
+                    color: AppColors.primaryWhite.withValues(alpha: 0.1),
+                  ),
+                ),
+                child: SvgPicture.asset(
+                  AppAssetsSvg.trackedLogDetailsBack,
+                  width: 20.w,
+                  height: 20.w,
+                ),
+              ),
+            ),
+          ),
           Text(
             AppStrings.trackedLogDetailsTitle,
             style: context.titleLargeStyle?.copyWith(
