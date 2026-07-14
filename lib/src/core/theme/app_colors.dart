@@ -322,4 +322,7 @@ class AppColors {
   static const Color forgotPasswordDarkButtonBg = Color(0x4D2A2A2D);
   static const Color forgotPasswordLightButtonBg = Color(0x4D151516);
   static const Color forgotPasswordLightBorder = Color(0x1A151516);
+
+  // Two-factor authentication
+  static const Color twoFactorAccentPurple = Color(0xFF34206C);
 }

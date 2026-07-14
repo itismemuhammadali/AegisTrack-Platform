@@ -4,6 +4,7 @@ class AuthController extends ChangeNotifier {
   bool isSigningIn = false;
   bool isVerifying = false;
   bool isResending = false;
+  bool isVerifyingTwoFactor = false;
 
   void signIn({
     required String email,
@@ -37,6 +38,19 @@ class AuthController extends ChangeNotifier {
 
     isResending = false;
     notifyListeners();
+  }
+
+  void verifyTwoFactorCode({
+    required String code,
+    required bool trustDevice,
+    VoidCallback? onSuccess,
+  }) {
+    isVerifyingTwoFactor = true;
+    notifyListeners();
+
+    isVerifyingTwoFactor = false;
+    notifyListeners();
+    onSuccess?.call();
   }
 }
 

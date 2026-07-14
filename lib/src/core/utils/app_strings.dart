@@ -40,4 +40,13 @@ class AppStrings {
   static const String resendCodeIn = 'Resend code in ';
   static const String resendCode = 'Resend code';
   static const String verifyCode = 'Verify Code';
+
+  // Two-factor authentication - Joshua R Hughes (location tracking)
+  static const String twoFactorTitle = 'Two-Factor Authentication';
+  static const String twoFactorSubtitle =
+      'Enter the 6-digit verification code from your authenticator app';
+  static const String trustThisDevice = 'Trust this device';
+  static const String trustThisDeviceSubtitle =
+      "Don't ask for 2FA on this device for 30 days";
+  static const String verifyAndContinue = 'Verify & Continue';
 }
