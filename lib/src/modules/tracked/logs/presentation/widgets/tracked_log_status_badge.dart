@@ -1,5 +1,4 @@
 import '../../../../../core/utils/app_exports.dart';
-import '../../domain/entities/tracked_log_entry_entity.dart';
 
 class TrackedLogStatusBadge extends StatelessWidget {
   const TrackedLogStatusBadge({super.key, required this.status});

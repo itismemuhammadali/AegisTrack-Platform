@@ -103,4 +103,11 @@ class AppStrings {
   static const String trackedSettingsExportCenterSubtitle =
       'Download reports and spreadsheets';
   static const String trackedSettingsLogout = 'Logout';
+
+  // Tracked sync status - Joshua R Hughes (location tracking)
+  static const String trackedSyncStatusPendingLogs = 'Pending Logs';
+  static const String trackedSyncStatusFailedLogs = 'Failed Logs';
+  static const String trackedSyncStatusSyncedLogs = 'Synced Logs';
+  static const String trackedSyncStatusRetrySync = 'Retry Sync';
+  static const String trackedSyncStatusFailureReasonPrefix = 'Reason: ';
 }

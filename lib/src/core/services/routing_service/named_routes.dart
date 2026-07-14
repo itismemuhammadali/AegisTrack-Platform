@@ -8,6 +8,7 @@ import '../../../modules/tracked/authentication/presentation/views/sign_in_view.
 import '../../../modules/tracked/authentication/presentation/views/two_factor_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/verify_view.dart';
 import '../../../modules/tracked/dashboard/presentation/views/tracked_dashboard_view.dart';
+import '../../../modules/tracked/settings/presentation/views/tracked_sync_status_view.dart';
 import '../../utils/app_exports.dart';
 
 class AppRouterGo {
@@ -69,6 +70,13 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: const TrackedDashboardView(),
+        ),
+      ),
+      GoRoute(
+        path: trackedSyncStatusView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedSyncStatusView(),
         ),
       ),
     ],

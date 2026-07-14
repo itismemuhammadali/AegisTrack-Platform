@@ -1,4 +1,4 @@
-enum TrackedLogStatus { synced, pending, failed }
+import '../../../../../core/utils/app_enums.dart';
 
 class TrackedLogEntryEntity {
   const TrackedLogEntryEntity({

@@ -64,6 +64,7 @@ class TrackedSettingsView extends ConsumerWidget {
                       icon: AppAssetsSvg.trackedSettingsSyncStatusIcon,
                       title: AppStrings.trackedSettingsSyncStatus,
                       subtitle: AppStrings.trackedSettingsSyncStatusSubtitle,
+                      onTap: () => AppRouterGo.push(trackedSyncStatusView),
                     ),
                     TrackedSettingsNavRow(
                       icon: AppAssetsSvg.trackedSettingsExportCenterIcon,
