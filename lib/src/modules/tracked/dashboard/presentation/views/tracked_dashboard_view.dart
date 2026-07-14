@@ -25,6 +25,7 @@ class TrackedDashboardView extends ConsumerWidget {
           ),
         ),
         child: SafeArea(
+          bottom: false,
           child: Column(
             children: [
               Expanded(
