@@ -9,3 +9,4 @@ const String trackedExportCenterView = '/tracked-export-center';
 const String trackedLogDetailsView = '/tracked-log-details';
 const String trackedLogCaptureView = '/tracked-log-capture';
 const String trackedAddNoteView = '/tracked-add-note';
+const String trackedEditProfileView = '/tracked-edit-profile';

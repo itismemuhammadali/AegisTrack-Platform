@@ -12,6 +12,7 @@ import '../../../modules/tracked/logs/domain/entities/tracked_log_entry_entity.d
 import '../../../modules/tracked/home/presentation/views/tracked_add_note_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_log_capture_view.dart';
 import '../../../modules/tracked/logs/presentation/views/tracked_log_details_view.dart';
+import '../../../modules/tracked/settings/presentation/views/tracked_edit_profile_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_export_center_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_sync_status_view.dart';
 import '../../utils/app_exports.dart';
@@ -112,6 +113,13 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: const TrackedExportCenterView(),
+        ),
+      ),
+      GoRoute(
+        path: trackedEditProfileView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedEditProfileView(),
         ),
       ),
     ],

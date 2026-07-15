@@ -2,8 +2,23 @@ import '../../../../../core/utils/app_exports.dart';
 import '../../domain/entities/tracked_sync_log_entry_entity.dart';
 
 class TrackedSettingsController extends ChangeNotifier with Buffers {
+  TrackedSettingsController()
+      : nameController =
+            TextEditingController(text: AppStrings.trackedSettingsProfileName),
+        emailController =
+            TextEditingController(text: AppStrings.trackedEditProfileEmailHint),
+        phoneController =
+            TextEditingController(text: AppStrings.trackedEditProfilePhoneHint);
+
   bool backgroundTrackingEnabled = true;
   bool autoSyncEnabled = true;
+
+  // Edit profile - Joshua R Hughes (location tracking)
+  final TextEditingController nameController;
+  final TextEditingController emailController;
+  final TextEditingController phoneController;
+  File? avatarPhoto;
+  bool isSavingProfile = false;
 
   final int exportReadyLogsCount = 15;
   final List<TrackedExportFormat> exportFormats = TrackedExportFormat.values;
@@ -119,6 +134,29 @@ class TrackedSettingsController extends ChangeNotifier with Buffers {
         TrackedExportFormat.email =>
           AppStrings.trackedExportCenterEmailConfirmation,
       };
+
+  void setAvatarPhoto(File? file) {
+    avatarPhoto = file;
+    notifyListeners();
+  }
+
+  Future<void> saveProfile({VoidCallback? onSaved}) async {
+    if (isSavingProfile) return;
+    isSavingProfile = true;
+    notifyListeners();
+    await Future.delayed(const Duration(milliseconds: 600));
+    isSavingProfile = false;
+    notifyListeners();
+    onSaved?.call();
+  }
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    phoneController.dispose();
+    super.dispose();
+  }
 }
 
 final trackedSettingsControllerProvider =

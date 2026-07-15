@@ -36,7 +36,9 @@ class TrackedSettingsView extends ConsumerWidget {
                   AppStrings.trackedSettingsProfileSection,
                 ),
                 10.ph,
-                const TrackedSettingsProfileCard(),
+                TrackedSettingsProfileCard(
+                  onTap: () => AppRouterGo.push(trackedEditProfileView),
+                ),
                 24.ph,
                 TrackedSettingsSectionLabel(
                   AppStrings.trackedSettingsTrackingSection,

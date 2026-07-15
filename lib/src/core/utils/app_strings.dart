@@ -133,6 +133,15 @@ class AppStrings {
       'Download reports and spreadsheets';
   static const String trackedSettingsLogout = 'Logout';
 
+  // Tracked edit profile - Joshua R Hughes (location tracking)
+  static const String trackedEditProfileTitle = 'Edit Profile';
+  static const String trackedEditProfileFullNameLabel = 'Full Name';
+  static const String trackedEditProfileEmailLabel = 'Email';
+  static const String trackedEditProfilePhoneLabel = 'Phone Number';
+  static const String trackedEditProfileEmailHint = 'user@email.com';
+  static const String trackedEditProfilePhoneHint = '+1 (555) 123-4567';
+  static const String trackedEditProfileSaveButton = 'Save Changes';
+
   // Tracked sync status - Joshua R Hughes (location tracking)
   static const String trackedSyncStatusPendingLogs = 'Pending Logs';
   static const String trackedSyncStatusFailedLogs = 'Failed Logs';
