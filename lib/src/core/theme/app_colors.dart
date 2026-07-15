@@ -334,6 +334,9 @@ class AppColors {
   static const Color trackedMapPreviewOverlay = Color(0x3312182E);
   static const Color trackedBottomBarArc = Color(0xFF080C1C);
 
+  // Tracked log capture - Joshua R Hughes (location tracking)
+  static const Color trackedLogCaptureHeaderBackdrop = Color(0xFF000414);
+
   // Tracked logs - history list
   static const Color trackedLogSyncedGreen = Color(0xFF10B981);
   static const Color trackedLogPendingAmber = Color(0xFFF59E0B);

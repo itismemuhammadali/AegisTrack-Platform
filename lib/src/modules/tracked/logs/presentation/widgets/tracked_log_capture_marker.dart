@@ -9,10 +9,9 @@ class TrackedLogCaptureMarker extends StatelessWidget {
       width: 100.w,
       height: 100.w,
       alignment: Alignment.center,
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         shape: BoxShape.circle,
         color: AppColors.trackedLogDetailsCardBackground,
-        border: Border.all(color: AppColors.trackedLogDetailsCardBorder),
       ),
       child: SvgPicture.asset(
         AppAssetsSvg.trackedLogDetailsLocation,

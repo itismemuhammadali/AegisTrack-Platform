@@ -18,28 +18,29 @@ class TrackedLogCaptureView extends StatelessWidget {
         children: [
           Image.asset(AppAssetsPng.trackedHomeMapPreviewBg, fit: BoxFit.cover),
           const ColoredBox(color: AppColors.trackedMapPreviewOverlay),
-          const Center(child: TrackedLogCaptureMarker()),
           SafeArea(
             bottom: false,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const TrackedLogCaptureHeader(),
-                Padding(
-                  padding: AppInsets.only(top: 24, left: 24, right: 24),
-                  child: TrackedLogCaptureLocationCard(
-                    location: AppStrings.trackedLogDetailsDefaultLocation,
+                Expanded(
+                  child: Padding(
+                    padding: AppInsets.only(top: 24, left: 24, right: 24),
+                    child: Column(
+                      children: [
+                        TrackedLogCaptureLocationCard(
+                          location: AppStrings.trackedLogDetailsDefaultLocation,
+                        ),
+                        304.ph,
+                        const TrackedLogCaptureMarker(),
+                      ],
+                    ),
                   ),
                 ),
+                TrackedLogCaptureActionBar(
+                  onCapture: onCapture ?? AppRouterGo.back,
+                ),
               ],
-            ),
-          ),
-          Positioned(
-            left: 0,
-            right: 0,
-            bottom: 0,
-            child: TrackedLogCaptureActionBar(
-              onCapture: onCapture ?? AppRouterGo.back,
             ),
           ),
         ],

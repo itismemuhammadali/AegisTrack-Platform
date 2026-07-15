@@ -31,11 +31,16 @@ class TrackedLogCaptureActionBar extends StatelessWidget {
             ),
             Positioned(
               top: 35.h,
-              left: 24.w,
-              right: 24.w,
-              child: PrimaryAppButton(
-                text: AppStrings.trackedLogCaptureButton,
-                onTap: onCapture,
+              left: 0,
+              right: 0,
+              child: Center(
+                child: SizedBox(
+                  width: 320.w,
+                  child: PrimaryAppButton(
+                    text: AppStrings.trackedLogCaptureButton,
+                    onTap: onCapture,
+                  ),
+                ),
               ),
             ),
           ],
