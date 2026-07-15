@@ -47,11 +47,11 @@ class TrackedEditProfileField extends StatelessWidget {
                   width: 20.sp,
                   height: 20.sp,
                   colorFilter: const ColorFilter.mode(
-                    AppColors.primaryWhite,
+                    AppColors.hintGray,
                     BlendMode.srcIn,
                   ),
                 )
-              : Icon(icon, size: 20.sp, color: AppColors.primaryWhite),
+              : Icon(icon, size: 20.sp, color: AppColors.hintGray),
           textStyle: context.bodyLargeStyle?.copyWith(
             color: AppColors.primaryWhite,
             fontSize: 16.sp,

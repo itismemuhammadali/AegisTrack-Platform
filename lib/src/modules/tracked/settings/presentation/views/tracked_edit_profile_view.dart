@@ -42,7 +42,12 @@ class TrackedEditProfileView extends ConsumerWidget {
                 const TrackedEditProfileHeader(),
                 Expanded(
                   child: SingleChildScrollView(
-                    padding: AppInsets.only(left: 24, right: 24, bottom: 24),
+                    padding: AppInsets.only(
+                      left: 24,
+                      right: 24,
+                      top: 24,
+                      bottom: 24,
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
