@@ -9,10 +9,13 @@ class TrackedEditProfileHeader extends StatelessWidget {
       bottom: false,
       child: Padding(
         padding: AppInsets.only(left: 24, right: 24, top: 12, bottom: 16),
-        child: Row(
+        child: Stack(
+          alignment: Alignment.center,
           children: [
-            const AppBackButton(),
-            60.pw,
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: AppBackButton(),
+            ),
             Text(
               AppStrings.trackedEditProfileTitle,
               style: context.titleLargeStyle?.copyWith(
