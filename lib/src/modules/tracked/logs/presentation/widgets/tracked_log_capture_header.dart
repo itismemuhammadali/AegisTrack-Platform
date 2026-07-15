@@ -26,24 +26,27 @@ class TrackedLogCaptureHeader extends StatelessWidget {
             ),
           ),
         ),
-        Padding(
-          padding: AppInsets.only(left: 24, right: 24, top: 12, bottom: 16),
-          child: Stack(
-            alignment: Alignment.center,
-            children: [
-              const Align(
-                alignment: Alignment.centerLeft,
-                child: AppBackButton(),
-              ),
-              Text(
-                AppStrings.trackedLogCaptureTitle,
-                style: context.titleLargeStyle?.copyWith(
-                  color: AppColors.primaryWhite,
-                  fontSize: 24.sp,
-                  fontWeight: FontWeight.bold,
+        SafeArea(
+          bottom: false,
+          child: Padding(
+            padding: AppInsets.only(left: 24, right: 24, top: 12, bottom: 16),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                const Align(
+                  alignment: Alignment.centerLeft,
+                  child: AppBackButton(),
                 ),
-              ),
-            ],
+                Text(
+                  AppStrings.trackedLogCaptureTitle,
+                  style: context.titleLargeStyle?.copyWith(
+                    color: AppColors.primaryWhite,
+                    fontSize: 24.sp,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ],

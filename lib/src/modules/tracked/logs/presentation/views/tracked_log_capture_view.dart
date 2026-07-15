@@ -19,6 +19,7 @@ class TrackedLogCaptureView extends StatelessWidget {
           Image.asset(AppAssetsPng.trackedHomeMapPreviewBg, fit: BoxFit.cover),
           const ColoredBox(color: AppColors.trackedMapPreviewOverlay),
           SafeArea(
+            top: false,
             bottom: false,
             child: Column(
               children: [
