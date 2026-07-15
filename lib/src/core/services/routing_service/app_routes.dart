@@ -8,3 +8,4 @@ const String trackedSyncStatusView = '/tracked-sync-status';
 const String trackedExportCenterView = '/tracked-export-center';
 const String trackedLogDetailsView = '/tracked-log-details';
 const String trackedLogCaptureView = '/tracked-log-capture';
+const String trackedAddNoteView = '/tracked-add-note';

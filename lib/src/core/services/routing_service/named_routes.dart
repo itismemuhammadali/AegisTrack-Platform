@@ -9,7 +9,8 @@ import '../../../modules/tracked/authentication/presentation/views/two_factor_vi
 import '../../../modules/tracked/authentication/presentation/views/verify_view.dart';
 import '../../../modules/tracked/dashboard/presentation/views/tracked_dashboard_view.dart';
 import '../../../modules/tracked/logs/domain/entities/tracked_log_entry_entity.dart';
-import '../../../modules/tracked/logs/presentation/views/tracked_log_capture_view.dart';
+import '../../../modules/tracked/home/presentation/views/tracked_add_note_view.dart';
+import '../../../modules/tracked/home/presentation/views/tracked_log_capture_view.dart';
 import '../../../modules/tracked/logs/presentation/views/tracked_log_details_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_export_center_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_sync_status_view.dart';
@@ -97,6 +98,13 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: const TrackedLogCaptureView(),
+        ),
+      ),
+      GoRoute(
+        path: trackedAddNoteView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedAddNoteView(),
         ),
       ),
       GoRoute(

@@ -106,6 +106,14 @@ class AppStrings {
   static const String trackedLogCaptureCurrentLocation = 'Current Location';
   static const String trackedLogCaptureButton = 'Capture Location Log';
 
+  // Tracked add note - Joshua R Hughes (location tracking)
+  static const String trackedAddNoteTitle = 'Add Note & Photo';
+  static const String trackedAddNoteNoteLabel = 'Note';
+  static const String trackedAddNoteHint = 'Add note...';
+  static const String trackedAddNotePhotoLabel = 'Photo';
+  static const String trackedAddNoteCapturePhoto = 'Capture Photo';
+  static const String trackedAddNoteSaveButton = 'Save Log';
+
   // Tracked settings - Joshua R Hughes (location tracking)
   static const String trackedSettingsTitle = 'Settings';
   static const String trackedSettingsProfileSection = 'Profile';
