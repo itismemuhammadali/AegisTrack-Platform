@@ -5,18 +5,48 @@ class TrackedLogCaptureMarker extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 100.w,
-      height: 100.w,
-      alignment: Alignment.center,
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle,
-        color: AppColors.trackedLogDetailsCardBackground,
-      ),
-      child: SvgPicture.asset(
-        AppAssetsSvg.trackedLogDetailsLocation,
-        width: 60.sp,
-        height: 60.sp,
+    return ClipOval(
+      child: SizedBox(
+        width: 100.w,
+        height: 100.w,
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            const Positioned.fill(
+              child: ColoredBox(
+                color: AppColors.trackedLogDetailsCardBackground,
+              ),
+            ),
+            Positioned.fill(
+              child: ColoredBox(
+                color: AppColors.trackedLogCaptureHeaderBackdrop.withValues(
+                  alpha: 0.4,
+                ),
+              ),
+            ),
+            Positioned.fill(
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    stops: const [0, 0.5, 1],
+                    colors: [
+                      AppColors.onboardingScrimNavy.withValues(alpha: 0.08),
+                      AppColors.onboardingScrimNavy.withValues(alpha: 0.18),
+                      AppColors.onboardingScrimNavy.withValues(alpha: 0.08),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            SvgPicture.asset(
+              AppAssetsSvg.trackedLogDetailsLocation,
+              width: 60.sp,
+              height: 60.sp,
+            ),
+          ],
+        ),
       ),
     );
   }
