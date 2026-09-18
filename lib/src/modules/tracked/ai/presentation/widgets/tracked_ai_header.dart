@@ -1,11 +1,14 @@
 import '../../../../../core/utils/app_exports.dart';
 
 class TrackedAiHeader extends StatelessWidget {
-  const TrackedAiHeader({super.key});
+  const TrackedAiHeader({super.key, this.onBack});
+
+  /// Shown only while searching / showing results (Figma).
+  final VoidCallback? onBack;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    final content = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
@@ -46,6 +49,15 @@ class TrackedAiHeader extends StatelessWidget {
             color: AppColors.signInDarkSubtitle,
           ),
         ),
+      ],
+    );
+
+    if (onBack == null) return content;
+    return Row(
+      children: [
+        AppBackButton(onTap: onBack),
+        16.pw,
+        Expanded(child: content),
       ],
     );
   }

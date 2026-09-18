@@ -5,10 +5,12 @@ class TrackedAiSearchBar extends StatelessWidget {
     super.key,
     required this.controller,
     required this.onSubmit,
+    this.isActive = false,
   });
 
   final TextEditingController controller;
   final VoidCallback onSubmit;
+  final bool isActive;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +35,9 @@ class TrackedAiSearchBar extends StatelessWidget {
             child: Row(
               children: [
                 SvgPicture.asset(
-                  AppAssetsSvg.trackedAiSearchIcon,
+                  isActive
+                      ? AppAssetsSvg.trackedAiSearchIconActive
+                      : AppAssetsSvg.trackedAiSearchIcon,
                   width: 16.w,
                   height: 16.w,
                 ),

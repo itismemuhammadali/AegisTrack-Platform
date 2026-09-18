@@ -98,6 +98,8 @@ class AppStrings {
   static const String trackedAiSummarySubtitle =
       'System-generated overview of recent activity';
   static const String trackedAiSuggestedQueries = 'Suggested Queries';
+  static const String trackedAiAnalyzing = 'Analyzing your activity...';
+  static const String trackedAiResultsFor = 'Results for';
   static const List<String> trackedAiSuggestions = [
     'Show logs near office last Monday',
     'Show missed check-ins this week',

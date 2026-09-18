@@ -116,6 +116,16 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_ai_chevron.svg';
   static const String trackedAiQuerySparkle =
       'assets/icons/svg/tracked_ai_query_sparkle.svg';
+  static const String trackedAiSearchIconActive =
+      'assets/icons/svg/tracked_ai_search_icon_active.svg';
+  static const String trackedAiResultLocation =
+      'assets/icons/svg/tracked_ai_result_location.svg';
+  static const String trackedAiResultCheckIn =
+      'assets/icons/svg/tracked_ai_result_check_in.svg';
+  static const String trackedAiResultZone =
+      'assets/icons/svg/tracked_ai_result_zone.svg';
+  static const String trackedAiResultCalendar =
+      'assets/icons/svg/tracked_ai_result_calendar.svg';
 
   /// Tracked home - Joshua R Hughes (location tracking)
   static const String trackedHomeViewFullMapIcon =
