@@ -7,8 +7,13 @@ class AuthController extends ChangeNotifier {
   static const resendDuration = 58;
 
   final signInFormKey = GlobalKey<FormState>();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  // Prefilled in debug builds only to speed up testing.
+  final emailController = TextEditingController(
+    text: kDebugMode ? 'test@example.com' : null,
+  );
+  final passwordController = TextEditingController(
+    text: kDebugMode ? 'Test@1234' : null,
+  );
 
   List<TextEditingController?> _verificationOtpControllers = [];
   List<TextEditingController?> _twoFactorOtpControllers = [];
