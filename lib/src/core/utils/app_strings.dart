@@ -78,6 +78,17 @@ class AppStrings {
   static const String sos = 'SOS';
   static const String sosEmergency = 'SOS Emergency';
   static const String zoneStatusTitle = 'Zone Status';
+  static const String checkInsTitle = 'Scheduled Check-ins';
+  static const String checkInsSubtitle = 'Daily · Next in Now';
+  static const String checkInsDueNow = 'Check-in Due Now';
+  static const String checkInsDueSchedule = 'Scheduled 10:30 AM · Daily';
+  static const String checkInsStart = 'Start';
+  static const String checkInsUpcoming = 'Upcoming';
+  static const String checkInsHistory = 'History';
+  static const String checkInsCompleted = 'Completed';
+  static const String checkInsMissed = 'Missed';
+  static const String checkInsThisWeek = 'This Week';
+  static const String checkInsRate = 'Rate';
   static const String zoneStatusSubtitle = 'Current geofence zone';
   static const String zoneStatusName = 'Work Site Alpha';
   static const String zoneStatusLabel = 'Status';

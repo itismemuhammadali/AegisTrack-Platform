@@ -336,6 +336,7 @@ class AppColors {
   static const Color trackedSosRed = Color(0xFFEF4444);
   static const Color trackedZoneAllowedGreen = Color(0xFF10B981);
   static const Color trackedCheckInAmber = Color(0xFFF59E0B);
+  static const Color trackedCheckInStartText = Color(0xFF001A27);
   static const Color trackedQuickActionShadow = Color(0x3334206C);
   static const Color trackedAskAiBorder = Color(0x4D34206C);
   static const Color trackedMembershipSheetBackground = Color(0xFF0A1824);

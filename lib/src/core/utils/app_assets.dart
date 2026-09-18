@@ -142,6 +142,16 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_home_quick_action_capture.svg';
   static const String trackedHomeQuickActionCheckIn =
       'assets/icons/svg/tracked_home_quick_action_check_in.svg';
+  static const String trackedCheckInDue =
+      'assets/icons/svg/tracked_check_in_due.svg';
+  static const String trackedCheckInUpcoming =
+      'assets/icons/svg/tracked_check_in_upcoming.svg';
+  static const String trackedCheckInCompleted =
+      'assets/icons/svg/tracked_check_in_completed.svg';
+  static const String trackedCheckInMissed =
+      'assets/icons/svg/tracked_check_in_missed.svg';
+  static const String trackedCheckInCalendar =
+      'assets/icons/svg/tracked_check_in_calendar.svg';
   static const String trackedZoneShield =
       'assets/icons/svg/tracked_zone_shield.svg';
   static const String trackedZoneStatus =

@@ -11,6 +11,7 @@ import '../../../modules/tracked/dashboard/presentation/views/tracked_dashboard_
 import '../../../modules/tracked/logs/domain/entities/tracked_log_entry_entity.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_add_note_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_log_capture_view.dart';
+import '../../../modules/tracked/home/presentation/views/tracked_check_ins_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_sos_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_zone_status_view.dart';
 import '../../../modules/tracked/logs/presentation/views/tracked_log_details_view.dart';
@@ -141,6 +142,13 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: TrackedSosView(onActivated: AppRouterGo.back),
+        ),
+      ),
+      GoRoute(
+        path: trackedCheckInsView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedCheckInsView(),
         ),
       ),
       GoRoute(
