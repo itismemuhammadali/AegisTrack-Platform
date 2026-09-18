@@ -163,10 +163,9 @@ class _SosCancelBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final bottomInset = MediaQuery.paddingOf(context).bottom;
-
     return SizedBox(
-      height: 112.h + bottomInset,
+      // Figma's 112px strip already includes the home-indicator area.
+      height: 112.h,
       width: double.infinity,
       child: ClipRect(
         child: Stack(
