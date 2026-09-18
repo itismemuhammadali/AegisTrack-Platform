@@ -347,6 +347,22 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_membership_delete.svg';
   static const String trackedSettingsAntiSpoofingIcon =
       'assets/icons/svg/tracked_settings_anti_spoofing_icon.svg';
+  static const String trackedAntiSpoofInfo =
+      'assets/icons/svg/tracked_anti_spoof_info.svg';
+  static const String trackedAntiSpoofAnalysis =
+      'assets/icons/svg/tracked_anti_spoof_analysis.svg';
+  static const String trackedAntiSpoofReplay =
+      'assets/icons/svg/tracked_anti_spoof_replay.svg';
+  static const String trackedAntiSpoofPassed =
+      'assets/icons/svg/tracked_anti_spoof_passed.svg';
+  static const String trackedAntiSpoofGeometry =
+      'assets/icons/svg/tracked_anti_spoof_geometry.svg';
+  static const String trackedAntiSpoofBehavioral =
+      'assets/icons/svg/tracked_anti_spoof_behavioral.svg';
+  static const String trackedAntiSpoofEnvironment =
+      'assets/icons/svg/tracked_anti_spoof_environment.svg';
+  static const String trackedAntiSpoofAuthentic =
+      'assets/icons/svg/tracked_anti_spoof_authentic.svg';
   static const String trackedSettingsLogoutIcon =
       'assets/icons/svg/tracked_settings_logout_icon.svg';
 

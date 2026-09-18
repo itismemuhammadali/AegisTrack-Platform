@@ -21,6 +21,7 @@ import '../../../modules/tracked/home/presentation/views/tracked_selfie_capture_
 import '../../../modules/tracked/home/presentation/views/tracked_sos_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_zone_status_view.dart';
 import '../../../modules/tracked/logs/presentation/views/tracked_log_details_view.dart';
+import '../../../modules/tracked/settings/presentation/views/tracked_anti_spoofing_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_edit_profile_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_export_center_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_membership_view.dart';
@@ -223,6 +224,13 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: const TrackedExportCenterView(),
+        ),
+      ),
+      GoRoute(
+        path: trackedAntiSpoofingView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedAntiSpoofingView(),
         ),
       ),
       GoRoute(

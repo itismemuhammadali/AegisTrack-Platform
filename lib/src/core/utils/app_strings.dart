@@ -248,6 +248,25 @@ class AppStrings {
       'Upgrade, downgrade or manage payment methods';
   static const String trackedSettingsAntiSpoofing = 'Anti-Spoofing';
   static const String trackedMembershipTitle = 'Membership';
+  static const String antiSpoofSubtitle = 'Authenticity scoring';
+  static const String antiSpoofScanningFace = 'Scanning face…';
+  static const String antiSpoofDepthSensor = 'Depth Sensor';
+  static const String antiSpoofIrCamera = 'IR Camera';
+  static const String antiSpoofMotionDetect = 'Motion Detect';
+  static const String antiSpoofTextureMap = 'Texture Map';
+  static const String antiSpoofScanningPrefix = 'Scanning (';
+  static const String antiSpoofRunning = 'Running security analysis';
+  static const String antiSpoofRunningSubtitle =
+      '5 anti-spoofing checks in progress…';
+  static const String antiSpoofAnalyzing = 'Analyzing…';
+  static const String antiSpoofAnalyzingChecks = 'Analyzing security checks…';
+  static const String antiSpoofAuthentic = 'AUTHENTIC';
+  static const String antiSpoofAuthenticSubtitle =
+      'Identity verified — no threats detected';
+  static const String antiSpoofScore = 'Authenticity Score';
+  static const String antiSpoofScoreSubtitle = 'Composite of 5 security checks';
+  static const String antiSpoofScoreMax = '/ 100';
+  static const String antiSpoofCheckResults = 'Check Results';
   static const String trackedMembershipSubtitle =
       'Manage your plan and billing';
   static const String trackedMembershipCurrentPlan = 'Current Plan';

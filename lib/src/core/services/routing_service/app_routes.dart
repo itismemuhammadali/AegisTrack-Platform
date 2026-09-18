@@ -21,5 +21,6 @@ const String trackedCheckInCompleteView = '/tracked-check-in-complete';
 const String trackedEditProfileView = '/tracked-edit-profile';
 const String trackedChoosePlanView = '/tracked-choose-plan';
 const String trackedMembershipView = '/tracked-membership';
+const String trackedAntiSpoofingView = '/tracked-anti-spoofing';
 const String trackedConfirmSubscriptionView = '/tracked-confirm-subscription';
 const String trackedSubscriptionActiveView = '/tracked-subscription-active';

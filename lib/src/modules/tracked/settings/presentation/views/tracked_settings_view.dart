@@ -85,7 +85,8 @@ class TrackedSettingsView extends ConsumerWidget {
                       icon: AppAssetsSvg.trackedSettingsAntiSpoofingIcon,
                       title: AppStrings.trackedSettingsAntiSpoofing,
                       subtitle: AppStrings.trackedSettingsAntiSpoofingSubtitle,
-                      onTap: onAntiSpoofing,
+                      onTap: onAntiSpoofing ??
+                          () => AppRouterGo.push(trackedAntiSpoofingView),
                     ),
                   ],
                 ),

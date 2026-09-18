@@ -1,7 +1,12 @@
+import 'dart:async';
+
 import '../../../../../core/utils/app_exports.dart';
 import '../../../authentication/domain/entities/tracked_subscription_plan_entity.dart';
+import '../../domain/entities/tracked_anti_spoof_check_entity.dart';
 import '../../domain/entities/tracked_payment_card_entity.dart';
 import '../../domain/entities/tracked_sync_log_entry_entity.dart';
+
+enum TrackedAntiSpoofPhase { scanning, analyzing, result }
 
 class TrackedSettingsController extends ChangeNotifier with Buffers {
   TrackedSettingsController()
@@ -152,8 +157,87 @@ class TrackedSettingsController extends ChangeNotifier with Buffers {
     onSaved?.call();
   }
 
+  // Anti-spoofing - timed demo: face scan → security checks → result.
+  static const _scanTick = Duration(milliseconds: 60);
+  static const _checkStep = Duration(milliseconds: 900);
+
+  final List<TrackedAntiSpoofCheckEntity> antiSpoofChecks = const [
+    TrackedAntiSpoofCheckEntity(
+      title: 'Liveness Detection',
+      description: 'Blink and head movement confirmed',
+      icon: AppAssetsSvg.trackedAntiSpoofPassed,
+      score: 100,
+    ),
+    TrackedAntiSpoofCheckEntity(
+      title: 'Replay Attack Check',
+      description: 'No screen glare or print texture detected',
+      icon: AppAssetsSvg.trackedAntiSpoofReplay,
+      score: 97,
+    ),
+    TrackedAntiSpoofCheckEntity(
+      title: 'Face Geometry Validation',
+      description: '3D facial structure analysis',
+      icon: AppAssetsSvg.trackedAntiSpoofGeometry,
+      score: 94,
+    ),
+    TrackedAntiSpoofCheckEntity(
+      title: 'Behavioral Biometrics',
+      description: 'Micro-expression & blink pattern',
+      icon: AppAssetsSvg.trackedAntiSpoofBehavioral,
+      score: 91,
+    ),
+    TrackedAntiSpoofCheckEntity(
+      title: 'Environmental Integrity',
+      description: 'No spoofing device detected nearby',
+      icon: AppAssetsSvg.trackedAntiSpoofEnvironment,
+      score: 88,
+    ),
+  ];
+
+  TrackedAntiSpoofPhase antiSpoofPhase = TrackedAntiSpoofPhase.scanning;
+  double antiSpoofScanProgress = 0;
+  int antiSpoofChecksDone = 0;
+  Timer? _antiSpoofTimer;
+
+  int get antiSpoofScore =>
+      (antiSpoofChecks.fold<int>(0, (sum, c) => sum + c.score) /
+              antiSpoofChecks.length)
+          .round();
+
+  // TODO: replace the timed demo with the real authenticity scoring API.
+  void startAntiSpoofing() {
+    _antiSpoofTimer?.cancel();
+    antiSpoofPhase = TrackedAntiSpoofPhase.scanning;
+    antiSpoofScanProgress = 0;
+    antiSpoofChecksDone = 0;
+    notifyListeners();
+    _antiSpoofTimer = Timer.periodic(_scanTick, (timer) {
+      antiSpoofScanProgress = (antiSpoofScanProgress + 0.02).clamp(0, 1);
+      if (antiSpoofScanProgress >= 1) {
+        timer.cancel();
+        _runAntiSpoofChecks();
+      }
+      notifyListeners();
+    });
+  }
+
+  void _runAntiSpoofChecks() {
+    antiSpoofPhase = TrackedAntiSpoofPhase.analyzing;
+    _antiSpoofTimer = Timer.periodic(_checkStep, (timer) {
+      antiSpoofChecksDone++;
+      if (antiSpoofChecksDone >= antiSpoofChecks.length) {
+        timer.cancel();
+        antiSpoofPhase = TrackedAntiSpoofPhase.result;
+      }
+      notifyListeners();
+    });
+  }
+
+  void stopAntiSpoofing() => _antiSpoofTimer?.cancel();
+
   @override
   void dispose() {
+    _antiSpoofTimer?.cancel();
     nameController.dispose();
     emailController.dispose();
     phoneController.dispose();
