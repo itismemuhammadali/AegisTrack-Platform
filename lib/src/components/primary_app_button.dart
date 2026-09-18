@@ -7,11 +7,16 @@ class PrimaryAppButton extends StatelessWidget {
     required this.text,
     required this.onTap,
     this.isLoading = false,
+    this.leading,
   });
 
   final String text;
   final VoidCallback onTap;
   final bool isLoading;
+
+  /// Optional icon shown before [text], e.g. the shield on
+  /// "Confirm Subscription".
+  final Widget? leading;
 
   @override
   Widget build(BuildContext context) {
@@ -53,13 +58,19 @@ class PrimaryAppButton extends StatelessWidget {
                   color: AppColors.primaryWhite,
                 ),
               )
-            : Text(
-                text,
-                style: context.bodyLargeStyle?.copyWith(
-                  color: AppColors.primaryWhite,
-                  fontSize: 16.sp,
-                  fontWeight: FontWeight.w500,
-                ),
+            : Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (leading != null) ...[leading!, 10.pw],
+                  Text(
+                    text,
+                    style: context.bodyLargeStyle?.copyWith(
+                      color: AppColors.primaryWhite,
+                      fontSize: 16.sp,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                ],
               ),
       ),
     );

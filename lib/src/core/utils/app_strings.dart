@@ -175,4 +175,57 @@ class AppStrings {
       'Preparing your spreadsheet export...';
   static const String trackedExportCenterEmailConfirmation =
       'Sending report to your registered email...';
+
+  // Tracked subscription - Joshua R Hughes (location tracking)
+  static const String trackedChoosePlanTitle = 'Choose Your Plan';
+  static const String trackedChoosePlanSubtitle = 'Select a plan to continue';
+  static const String trackedPlanFreeName = 'Free';
+  static const String trackedPlanFreeTagline = 'Basic location logging';
+  static const String trackedPlanFreePrice = '\$0';
+  static const String trackedPlanFreePeriod = 'Forever';
+  static const String trackedPlanBasicName = 'Basic';
+  static const String trackedPlanBasicTagline = 'For individuals';
+  static const String trackedPlanBasicPrice = '\$9.99';
+  static const String trackedPlanProfessionalName = 'Professional';
+  static const String trackedPlanProfessionalTagline = 'Most popular';
+  static const String trackedPlanProfessionalPrice = '\$19.99';
+  static const String trackedPlanExpertName = 'Expert';
+  static const String trackedPlanExpertTagline = 'Full access';
+  static const String trackedPlanExpertPrice = '\$39.99';
+  static const String trackedPlanPerMonth = 'per month';
+  static const String trackedPlanPopularBadge = 'Popular';
+  static const String trackedPlanFeatureUnlimitedLogs =
+      'Unlimited location logs';
+  static const String trackedPlanFeatureHistory = '30-day history';
+  static const String trackedPlanFeatureEncryptedSync = 'Encrypted sync';
+  static const String trackedPlanFeatureAntiSpoofing =
+      'Anti-spoofing validation';
+  static const String trackedPlanFeatureAiSearch = 'AI search & summary';
+  static const String trackedPlanFeatureGeofencing = 'Geofencing alerts';
+  static const String trackedPlanFeatureCheckIns = 'Scheduled check-ins';
+  static const String trackedPlanFeatureLiveTracking = 'Live tracking';
+  static const String trackedPlanFeatureSecureSharing = 'Secure sharing';
+  static const String trackedChoosePlanContinuePrefix = 'Continue with ';
+  static const String trackedChoosePlanFootnote =
+      'Cancel anytime. Billed securely.';
+  static const String trackedConfirmSubscriptionTitle = 'Confirm Subscription';
+  static const String trackedConfirmSubscriptionSubtitle =
+      'Review your plan details';
+  static const String trackedConfirmSelectedPlan = 'Selected Plan';
+  static const String trackedConfirmAddCard = 'Add Card';
+  static const String trackedConfirmPaymentMethod = 'Payment Method';
+  static const String trackedConfirmCardTitle = 'Visa ending in 4242';
+  static const String trackedConfirmCardExpiry = 'Expires 12/27';
+  static const String trackedConfirmBillingSummary = 'Billing Summary';
+  static const String trackedConfirmPlanSuffix = ' Plan';
+  static const String trackedConfirmTax = 'Tax';
+  static const String trackedConfirmTaxAmount = '\$0.00';
+  static const String trackedConfirmTotalToday = 'Total Today';
+  static const String trackedConfirmStripeNotice =
+      'Payments are encrypted and secured by Stripe';
+  static const String trackedSubscriptionActiveTitle = 'Subscription Active';
+  static const String trackedSubscriptionActivePlanSuffix = ' plan enabled';
+  static const String trackedSubscriptionActiveSubtitle =
+      'Your account has been upgraded successfully';
+  static const String trackedSubscriptionGetStarted = 'Get Started';
 }

@@ -10,3 +10,6 @@ const String trackedLogDetailsView = '/tracked-log-details';
 const String trackedLogCaptureView = '/tracked-log-capture';
 const String trackedAddNoteView = '/tracked-add-note';
 const String trackedEditProfileView = '/tracked-edit-profile';
+const String trackedChoosePlanView = '/tracked-choose-plan';
+const String trackedConfirmSubscriptionView = '/tracked-confirm-subscription';
+const String trackedSubscriptionActiveView = '/tracked-subscription-active';

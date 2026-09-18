@@ -365,6 +365,14 @@ class AppColors {
   static const Color trackedExportCenterSpreadsheetIconBackground =
       Color(0x3310B981);
   static const Color trackedExportCenterEmailAccent = Color(0xFFF59E0B);
-  static const Color trackedExportCenterEmailIconBackground =
-      Color(0x33F59E0B);
+  static const Color trackedExportCenterEmailIconBackground = Color(0x33F59E0B);
+
+  // Tracked subscription - Joshua R Hughes (location tracking)
+  static const Color trackedPlanFreeAccent = Color(0xFF6B7280);
+  static const Color trackedPlanBasicAccent = Color(0xFF3B82F6);
+  static const Color trackedPlanExpertAccent = Color(0xFFF59E0B);
+  static const Color trackedPlanSelectedAccent = Color(0xFF34206C);
+  static const Color trackedPlanFeatureIncluded = Color(0xFF10B981);
+  static const Color trackedPlanMutedText = Color(0xFFA0A7B8);
+  static const Color trackedPlanFaintText = Color(0xFF6B7280);
 }

@@ -15,6 +15,9 @@ import '../../../modules/tracked/logs/presentation/views/tracked_log_details_vie
 import '../../../modules/tracked/settings/presentation/views/tracked_edit_profile_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_export_center_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_sync_status_view.dart';
+import '../../../modules/tracked/authentication/presentation/views/tracked_choose_plan_view.dart';
+import '../../../modules/tracked/authentication/presentation/views/tracked_confirm_subscription_view.dart';
+import '../../../modules/tracked/authentication/presentation/views/tracked_subscription_active_view.dart';
 import '../../utils/app_exports.dart';
 
 class AppRouterGo {
@@ -57,7 +60,36 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: TwoFactorView(
-            onVerify: (code) => AppRouterGo.push(enableLocationAccessView),
+            onVerify: (code) => AppRouterGo.push(trackedChoosePlanView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: trackedChoosePlanView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: TrackedChoosePlanView(
+            onContinue: () => AppRouterGo.push(trackedConfirmSubscriptionView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: trackedConfirmSubscriptionView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: TrackedConfirmSubscriptionView(
+            onConfirmed: () =>
+                AppRouterGo.pushReplacement(trackedSubscriptionActiveView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: trackedSubscriptionActiveView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: TrackedSubscriptionActiveView(
+            onGetStarted: () =>
+                AppRouterGo.pushRemoveUntil(enableLocationAccessView),
           ),
         ),
       ),

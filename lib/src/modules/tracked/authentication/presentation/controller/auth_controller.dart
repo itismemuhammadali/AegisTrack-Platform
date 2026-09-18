@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import '../../../../../core/utils/app_exports.dart';
+import '../../domain/entities/tracked_subscription_plan_entity.dart';
 
 class AuthController extends ChangeNotifier {
   static const resendDuration = 58;
@@ -20,6 +21,8 @@ class AuthController extends ChangeNotifier {
   bool obscurePassword = true;
   bool trustDevice = false;
   int secondsUntilResend = resendDuration;
+  TrackedSubscriptionPlan selectedPlan = TrackedSubscriptionPlan.basic;
+  bool isConfirmingSubscription = false;
 
   void togglePasswordVisibility() {
     obscurePassword = !obscurePassword;
@@ -138,6 +141,21 @@ class AuthController extends ChangeNotifier {
     notifyListeners();
 
     isVerifyingTwoFactor = false;
+    notifyListeners();
+    onSuccess?.call();
+  }
+
+  void selectPlan(TrackedSubscriptionPlan plan) {
+    if (selectedPlan == plan) return;
+    selectedPlan = plan;
+    notifyListeners();
+  }
+
+  void confirmSubscription({VoidCallback? onSuccess}) {
+    isConfirmingSubscription = true;
+    notifyListeners();
+
+    isConfirmingSubscription = false;
     notifyListeners();
     onSuccess?.call();
   }

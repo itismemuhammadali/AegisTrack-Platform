@@ -63,6 +63,28 @@ class AppAssetsSvg {
   static const String twoFactorDeviceIcon =
       'assets/icons/svg/two_factor_device.svg';
 
+  /// Tracked subscription - Joshua R Hughes (location tracking)
+  static const String trackedPlanFreeIcon =
+      'assets/icons/svg/tracked_plan_free_icon.svg';
+  static const String trackedPlanBasicIcon =
+      'assets/icons/svg/tracked_plan_basic_icon.svg';
+  static const String trackedPlanProfessionalIcon =
+      'assets/icons/svg/tracked_plan_professional_icon.svg';
+  static const String trackedPlanExpertIcon =
+      'assets/icons/svg/tracked_plan_expert_icon.svg';
+  static const String trackedPlanSelectedCheck =
+      'assets/icons/svg/tracked_plan_selected_check.svg';
+  static const String trackedPlanFeatureCheck =
+      'assets/icons/svg/tracked_plan_feature_check.svg';
+  static const String trackedSubscriptionCardIcon =
+      'assets/icons/svg/tracked_subscription_card_icon.svg';
+  static const String trackedSubscriptionLockIcon =
+      'assets/icons/svg/tracked_subscription_lock_icon.svg';
+  static const String trackedSubscriptionShieldIcon =
+      'assets/icons/svg/tracked_subscription_shield_icon.svg';
+  static const String trackedSubscriptionActiveIcon =
+      'assets/icons/svg/tracked_subscription_active_icon.svg';
+
   /// Enable location access - Joshua R Hughes (location tracking)
   static const String locationPermissionShieldIcon =
       'assets/icons/svg/location_permission_shield.svg';
