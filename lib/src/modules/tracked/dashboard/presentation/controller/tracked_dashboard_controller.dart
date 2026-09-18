@@ -15,6 +15,7 @@ class TrackedDashboardController extends ChangeNotifier with Buffers {
       onCapture: () => AppRouterGo.push(trackedAddNoteView),
       onSos: () => AppRouterGo.push(trackedSosView),
       onZone: () => AppRouterGo.push(trackedZoneStatusView),
+      onViewFullMap: () => AppRouterGo.push(trackedLiveMapView),
       onCheckIn: () => AppRouterGo.push(trackedCheckInsView),
     ),
     const TrackedLogsView(),

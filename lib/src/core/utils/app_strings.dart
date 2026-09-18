@@ -78,6 +78,12 @@ class AppStrings {
   static const String sos = 'SOS';
   static const String sosEmergency = 'SOS Emergency';
   static const String zoneStatusTitle = 'Zone Status';
+  static const String liveMapUpcoming = 'Upcoming';
+  static const String liveMapCurrentLocation = 'Current Location';
+  static const String liveMapCoordinates = '37.7749° N, 122.4194° W';
+  static const String liveMapAccuracy = 'Accuracy';
+  static const String liveMapAccuracyValue = '±12m';
+  static const String liveMapUpdated = 'Updated';
   static const String checkInsTitle = 'Scheduled Check-ins';
   static const String checkInsSubtitle = 'Daily · Next in Now';
   static const String checkInsDueNow = 'Check-in Due Now';

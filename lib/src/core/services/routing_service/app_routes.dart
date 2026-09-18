@@ -11,6 +11,7 @@ const String trackedLogCaptureView = '/tracked-log-capture';
 const String trackedAddNoteView = '/tracked-add-note';
 const String trackedSosView = '/tracked-sos';
 const String trackedZoneStatusView = '/tracked-zone-status';
+const String trackedLiveMapView = '/tracked-live-map';
 const String trackedCheckInsView = '/tracked-check-ins';
 const String trackedCheckInVerifyView = '/tracked-check-in-verify';
 const String trackedSelfieCaptureView = '/tracked-selfie-capture';

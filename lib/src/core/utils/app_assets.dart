@@ -31,6 +31,8 @@ class AppAssetsPng {
       'assets/images/png/onboarding_track_location_blob_blur.png';
 
   /// Tracked home - Joshua R Hughes (location tracking)
+  static const String trackedLiveMapBg =
+      'assets/images/png/tracked_live_map_bg.png';
   static const String trackedHomeMapPreviewBg =
       'assets/images/png/tracked_home_map_preview_bg.png';
 
@@ -188,6 +190,18 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_check_in_missed.svg';
   static const String trackedCheckInCalendar =
       'assets/icons/svg/tracked_check_in_calendar.svg';
+  static const String trackedLiveMapBack =
+      'assets/icons/svg/tracked_live_map_back.svg';
+  static const String trackedLiveMapRefresh =
+      'assets/icons/svg/tracked_live_map_refresh.svg';
+  static const String trackedLiveMapPin =
+      'assets/icons/svg/tracked_live_map_pin.svg';
+  static const String trackedLiveMapNavigation =
+      'assets/icons/svg/tracked_live_map_navigation.svg';
+  static const String trackedLiveMapAccuracy =
+      'assets/icons/svg/tracked_live_map_accuracy.svg';
+  static const String trackedLiveMapUpdated =
+      'assets/icons/svg/tracked_live_map_updated.svg';
   static const String trackedZoneShield =
       'assets/icons/svg/tracked_zone_shield.svg';
   static const String trackedZoneStatus =

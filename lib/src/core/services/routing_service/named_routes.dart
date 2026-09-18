@@ -10,6 +10,7 @@ import '../../../modules/tracked/authentication/presentation/views/verify_view.d
 import '../../../modules/tracked/dashboard/presentation/views/tracked_dashboard_view.dart';
 import '../../../modules/tracked/logs/domain/entities/tracked_log_entry_entity.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_add_note_view.dart';
+import '../../../modules/tracked/home/presentation/views/tracked_live_map_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_log_capture_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_check_in_complete_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_check_in_verify_view.dart';
@@ -175,6 +176,16 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: const TrackedCheckInCompleteView(),
+        ),
+      ),
+      GoRoute(
+        path: trackedLiveMapView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: TrackedLiveMapView(
+            onLogNow: () => AppRouterGo.push(trackedLogCaptureView),
+            onCapture: () => AppRouterGo.push(trackedAddNoteView),
+          ),
         ),
       ),
       GoRoute(
