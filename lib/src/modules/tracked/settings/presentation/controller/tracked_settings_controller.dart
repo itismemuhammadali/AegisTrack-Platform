@@ -157,6 +157,11 @@ class TrackedSettingsController extends ChangeNotifier with Buffers {
     phoneController.dispose();
     super.dispose();
   }
+
+  Future<void> logout() async {
+    await AuthHandler.ref.logout();
+    AppRouterGo.pushRemoveUntil(signInView);
+  }
 }
 
 final trackedSettingsControllerProvider =

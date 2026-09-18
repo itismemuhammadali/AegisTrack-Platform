@@ -46,8 +46,16 @@ class TrackedAiSearchBar extends StatelessWidget {
                     cursorColor: AppColors.primaryWhite,
                     style: textStyle,
                     decoration: InputDecoration(
+                      // Override the app theme's filled/outlined field so
+                      // the glass container shows through (Figma).
                       isDense: true,
+                      filled: false,
                       border: InputBorder.none,
+                      enabledBorder: InputBorder.none,
+                      focusedBorder: InputBorder.none,
+                      errorBorder: InputBorder.none,
+                      disabledBorder: InputBorder.none,
+                      focusedErrorBorder: InputBorder.none,
                       contentPadding: AppInsets.symmetric(vertical: 16),
                       hintText: AppStrings.trackedAiSearchHint,
                       hintStyle: textStyle?.copyWith(color: AppColors.hintGray),

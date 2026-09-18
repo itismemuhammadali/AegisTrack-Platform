@@ -111,7 +111,7 @@ class TrackedSettingsView extends ConsumerWidget {
                   ],
                 ),
                 24.ph,
-                const TrackedSettingsLogoutButton(),
+                TrackedSettingsLogoutButton(onTap: controller.logout),
               ],
             ),
           ),
