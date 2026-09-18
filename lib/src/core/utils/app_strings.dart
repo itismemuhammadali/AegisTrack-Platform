@@ -76,6 +76,21 @@ class AppStrings {
   static const String capture = 'Capture';
   static const String checkIn = 'Check-in';
   static const String sos = 'SOS';
+  static const String sosEmergency = 'SOS Emergency';
+  static const String sosHoldToActivate = 'Hold to activate';
+  static const String sosWhenActivated = 'When SOS is activated:';
+  static const String sosStepLocation =
+      'Your current location will be captured and logged';
+  static const String sosStepViewer =
+      'Your authorized viewer will be immediately notified';
+  static const String sosStepLog =
+      'A high-priority emergency log will be created';
+  static const String sosStepOffline =
+      'If offline, the SOS will sync automatically when reconnected';
+  static const String sosHold = 'Hold';
+  static const String sosHoldHint = 'Hold to send emergency alert';
+  static const String sosCancelSafe = 'Cancel — I am safe';
+  static const String sosAlertSent = 'Emergency alert sent';
   static const String gpsStatus = 'GPS Status';
   static const String gpsStatusActive = 'Active';
   static const String lastSynced = 'Last Synced';

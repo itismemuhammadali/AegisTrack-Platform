@@ -142,6 +142,19 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_home_quick_action_capture.svg';
   static const String trackedHomeQuickActionCheckIn =
       'assets/icons/svg/tracked_home_quick_action_check_in.svg';
+  static const String trackedSosHeaderAlert =
+      'assets/icons/svg/tracked_sos_header_alert.svg';
+  static const String trackedSosClose =
+      'assets/icons/svg/tracked_sos_close.svg';
+  static const String trackedSosLocation =
+      'assets/icons/svg/tracked_sos_location.svg';
+  static const String trackedSosBell = 'assets/icons/svg/tracked_sos_bell.svg';
+  static const String trackedSosAlert =
+      'assets/icons/svg/tracked_sos_alert.svg';
+  static const String trackedSosWifi = 'assets/icons/svg/tracked_sos_wifi.svg';
+  static const String trackedSosRing = 'assets/icons/svg/tracked_sos_ring.svg';
+  static const String trackedSosBottomArc =
+      'assets/icons/svg/tracked_sos_bottom_arc.svg';
   static const String trackedHomeSosRing =
       'assets/icons/svg/tracked_home_sos_ring.svg';
   static const String trackedHomeStatGps =

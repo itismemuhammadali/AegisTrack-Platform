@@ -13,6 +13,7 @@ class TrackedDashboardController extends ChangeNotifier with Buffers {
       onLogNow: () => AppRouterGo.push(trackedLogCaptureView),
       onAddNote: () => AppRouterGo.push(trackedAddNoteView),
       onCapture: () => AppRouterGo.push(trackedAddNoteView),
+      onSos: () => AppRouterGo.push(trackedSosView),
     ),
     const TrackedLogsView(),
     const TrackedAiView(),
