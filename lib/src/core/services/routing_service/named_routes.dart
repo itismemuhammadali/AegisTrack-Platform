@@ -11,7 +11,10 @@ import '../../../modules/tracked/dashboard/presentation/views/tracked_dashboard_
 import '../../../modules/tracked/logs/domain/entities/tracked_log_entry_entity.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_add_note_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_log_capture_view.dart';
+import '../../../modules/tracked/home/presentation/views/tracked_check_in_complete_view.dart';
+import '../../../modules/tracked/home/presentation/views/tracked_check_in_verify_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_check_ins_view.dart';
+import '../../../modules/tracked/home/presentation/views/tracked_selfie_capture_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_sos_view.dart';
 import '../../../modules/tracked/home/presentation/views/tracked_zone_status_view.dart';
 import '../../../modules/tracked/logs/presentation/views/tracked_log_details_view.dart';
@@ -148,7 +151,30 @@ class AppRouterGo {
         path: trackedCheckInsView,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child: const TrackedCheckInsView(),
+          child: TrackedCheckInsView(
+            onStart: () => AppRouterGo.push(trackedCheckInVerifyView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: trackedCheckInVerifyView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedCheckInVerifyView(),
+        ),
+      ),
+      GoRoute(
+        path: trackedSelfieCaptureView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedSelfieCaptureView(),
+        ),
+      ),
+      GoRoute(
+        path: trackedCheckInCompleteView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedCheckInCompleteView(),
         ),
       ),
       GoRoute(

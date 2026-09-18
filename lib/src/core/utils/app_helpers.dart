@@ -15,12 +15,16 @@ class AppImagePicker {
     return xFile != null ? File(xFile.path) : null;
   }
 
-  static Future<File?> fromCamera() async {
-    final status = await Permission.camera.request();
-    if (status.isDenied || status.isPermanentlyDenied) return null;
+  /// image_picker requests camera permission itself on iOS and Android.
+  /// (permission_handler isn't configured for camera in the iOS Podfile, so
+  /// pre-requesting through it always reported "denied".) Throws
+  /// [PlatformException] when no camera is available, e.g. iOS Simulator.
+  static Future<File?> fromCamera({bool preferFront = false}) async {
     final xFile = await _picker.pickImage(
       source: ImageSource.camera,
       imageQuality: 80,
+      preferredCameraDevice:
+          preferFront ? CameraDevice.front : CameraDevice.rear,
     );
     return xFile != null ? File(xFile.path) : null;
   }

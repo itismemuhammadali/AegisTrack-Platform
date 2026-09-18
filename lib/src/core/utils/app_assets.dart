@@ -142,6 +142,42 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_home_quick_action_capture.svg';
   static const String trackedHomeQuickActionCheckIn =
       'assets/icons/svg/tracked_home_quick_action_check_in.svg';
+  static const String trackedCheckInScheduled =
+      'assets/icons/svg/tracked_check_in_scheduled.svg';
+  static const String trackedVerifyFaceActive =
+      'assets/icons/svg/tracked_verify_face_active.svg';
+  static const String trackedVerifyFace =
+      'assets/icons/svg/tracked_verify_face.svg';
+  static const String trackedVerifyTouch =
+      'assets/icons/svg/tracked_verify_touch.svg';
+  static const String trackedVerifyTouchActive =
+      'assets/icons/svg/tracked_verify_touch_active.svg';
+  static const String trackedVerifyAndroid =
+      'assets/icons/svg/tracked_verify_android.svg';
+  static const String trackedVerifyFingerprintLarge =
+      'assets/icons/svg/tracked_verify_fingerprint_large.svg';
+  static const String trackedSelfieLight =
+      'assets/icons/svg/tracked_selfie_light.svg';
+  static const String trackedSelfieShutter =
+      'assets/icons/svg/tracked_selfie_shutter.svg';
+  static const String trackedSelfieCapturedCheck =
+      'assets/icons/svg/tracked_selfie_captured_check.svg';
+  static const String trackedSelfieRetake =
+      'assets/icons/svg/tracked_selfie_retake.svg';
+  static const String trackedSelfieConfirm =
+      'assets/icons/svg/tracked_selfie_confirm.svg';
+  static const String trackedCheckInComplete =
+      'assets/icons/svg/tracked_check_in_complete.svg';
+  static const String trackedCompleteBiometric =
+      'assets/icons/svg/tracked_complete_biometric.svg';
+  static const String trackedCompleteSelfie =
+      'assets/icons/svg/tracked_complete_selfie.svg';
+  static const String trackedCompleteLocation =
+      'assets/icons/svg/tracked_complete_location.svg';
+  static const String trackedCompleteTimestamp =
+      'assets/icons/svg/tracked_complete_timestamp.svg';
+  static const String trackedCompleteSynced =
+      'assets/icons/svg/tracked_complete_synced.svg';
   static const String trackedCheckInDue =
       'assets/icons/svg/tracked_check_in_due.svg';
   static const String trackedCheckInUpcoming =

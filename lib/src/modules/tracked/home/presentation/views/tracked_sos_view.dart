@@ -1,4 +1,5 @@
 import '../../../../../core/utils/app_exports.dart';
+import '../widgets/tracked_arc_action_bar.dart';
 import '../widgets/tracked_sos_hold_button.dart';
 import '../widgets/tracked_sos_info_card.dart';
 
@@ -156,63 +157,38 @@ class _SosHeader extends StatelessWidget {
   }
 }
 
-/// Figma: 112px strip with the top of a 1192px navy ellipse and a centred
-/// 320px "Cancel — I am safe" button 42px from the top.
 class _SosCancelBar extends StatelessWidget {
   const _SosCancelBar();
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      // Figma's 112px strip already includes the home-indicator area.
-      height: 112.h,
-      width: double.infinity,
-      child: ClipRect(
-        child: Stack(
-          children: [
-            OverflowBox(
-              alignment: Alignment.topCenter,
-              minWidth: 0,
-              maxWidth: double.infinity,
-              maxHeight: double.infinity,
-              child: SvgPicture.asset(
-                AppAssetsSvg.trackedSosBottomArc,
-                width: 1192.w,
-                height: 596.w,
+    return TrackedArcActionBar(
+      child: Center(
+        child: SizedBox(
+          width: 320.w,
+          child: GestureDetector(
+            onTap: AppRouterGo.back,
+            child: Container(
+              padding: AppInsets.symmetric(vertical: 14),
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                color: AppColors.primaryWhite.withValues(alpha: 0.05),
+                borderRadius: 16.circular,
+                border: Border.all(
+                  color: AppColors.primaryWhite.withValues(alpha: 0.1),
+                ),
               ),
-            ),
-            Positioned(
-              top: 42.h,
-              left: 0,
-              right: 0,
-              child: Center(
-                child: GestureDetector(
-                  onTap: AppRouterGo.back,
-                  child: Container(
-                    width: 320.w,
-                    padding: AppInsets.symmetric(vertical: 14),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: AppColors.primaryWhite.withValues(alpha: 0.05),
-                      borderRadius: 16.circular,
-                      border: Border.all(
-                        color: AppColors.primaryWhite.withValues(alpha: 0.1),
-                      ),
-                    ),
-                    child: Text(
-                      AppStrings.sosCancelSafe,
-                      style: context.bodyMediumStyle?.copyWith(
-                        fontSize: 14.sp,
-                        fontWeight: FontWeight.w500,
-                        height: 20 / 14,
-                        color: AppColors.primaryWhite,
-                      ),
-                    ),
-                  ),
+              child: Text(
+                AppStrings.sosCancelSafe,
+                style: context.bodyMediumStyle?.copyWith(
+                  fontSize: 14.sp,
+                  fontWeight: FontWeight.w500,
+                  height: 20 / 14,
+                  color: AppColors.primaryWhite,
                 ),
               ),
             ),
-          ],
+          ),
         ),
       ),
     );
