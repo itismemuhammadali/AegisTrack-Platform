@@ -3,6 +3,7 @@ import '../../../home/presentation/views/tracked_home_view.dart';
 import '../../../logs/presentation/views/tracked_logs_view.dart';
 import '../../../settings/presentation/views/tracked_settings_view.dart';
 import '../../domain/entities/tracked_tab_item_entity.dart';
+import '../views/tracked_ai_view.dart';
 
 class TrackedDashboardController extends ChangeNotifier with Buffers {
   int selectedIndex = 0;
@@ -14,6 +15,7 @@ class TrackedDashboardController extends ChangeNotifier with Buffers {
       onCapture: () => AppRouterGo.push(trackedAddNoteView),
     ),
     const TrackedLogsView(),
+    const TrackedAiView(),
     const TrackedSettingsView(),
   ];
 
@@ -25,6 +27,10 @@ class TrackedDashboardController extends ChangeNotifier with Buffers {
     TrackedTabItemEntity(
       icon: AppAssetsSvg.trackedNavLogsIcon,
       label: AppStrings.trackedNavLogs,
+    ),
+    TrackedTabItemEntity(
+      icon: AppAssetsSvg.trackedNavAiIcon,
+      label: AppStrings.trackedNavAi,
     ),
     TrackedTabItemEntity(
       icon: AppAssetsSvg.trackedNavSettingsIcon,

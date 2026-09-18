@@ -63,12 +63,10 @@ class AppStrings {
   static const String trackedNavHome = 'Home';
   static const String trackedNavLogs = 'Logs';
   static const String trackedNavSettings = 'Settings';
+  static const String trackedNavAi = 'Ai';
 
   // Tracked home - Joshua R Hughes (location tracking)
   static const String trackingActive = 'Tracking Active';
-  static const String liveLocationStatus = 'Live Location Status';
-  static const String locationLogged = 'Location Logged';
-  static const String lastUpdated = 'Last updated: 2 minutes ago';
   static const String liveMap = 'Live Map';
   static const String viewFullMap = 'View Full Map';
   static const String mapPreview = 'Map Preview';
@@ -76,6 +74,21 @@ class AppStrings {
   static const String logNow = 'Log Now';
   static const String addNote = 'Add Note';
   static const String capture = 'Capture';
+  static const String checkIn = 'Check-in';
+  static const String sos = 'SOS';
+  static const String gpsStatus = 'GPS Status';
+  static const String gpsStatusActive = 'Active';
+  static const String lastSynced = 'Last Synced';
+  static const String lastSyncedValue = '2 minutes ago';
+  static const String pending = 'Pending';
+  static const String failed = 'Failed';
+  static const String zone = 'Zone';
+  static const String zoneName = 'Work Site A';
+  static const String zoneAllowedArea = 'Allowed Area';
+  static const String checkInDueNow = 'Due Now';
+  static const String checkInTime = '10:30 AM';
+  static const String askAiPlaceholder = 'Ask AI about your activity...';
+  static const String trackedAiComingSoon = 'AI assistant coming soon';
 
   // Tracked logs - Joshua R Hughes (location tracking)
   static const String logHistory = 'Log History';

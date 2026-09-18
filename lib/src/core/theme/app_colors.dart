@@ -333,6 +333,28 @@ class AppColors {
   static const Color trackedTrackingActiveGreen = Color(0xFF00F300);
   static const Color trackedMapPreviewOverlay = Color(0x3312182E);
   static const Color trackedBottomBarArc = Color(0xFF080C1C);
+  static const Color trackedSosRed = Color(0xFFEF4444);
+  static const Color trackedZoneAllowedGreen = Color(0xFF10B981);
+  static const Color trackedCheckInAmber = Color(0xFFF59E0B);
+  static const Color trackedQuickActionShadow = Color(0x3334206C);
+  static const Color trackedAskAiBorder = Color(0x4D34206C);
+
+  // Tracked home - quick action primary gradient (13 stops, per Figma)
+  static const List<Color> trackedQuickActionGradientColors = [
+    Color(0xFF34206C),
+    Color(0xFF372270),
+    Color(0xFF3A2374),
+    Color(0xFF3D2578),
+    Color(0xFF40277D),
+    Color(0xFF432981),
+    Color(0xFF472A85),
+    Color(0xFF4A2C89),
+    Color(0xFF4D2E8E),
+    Color(0xFF503092),
+    Color(0xFF533196),
+    Color(0xFF57339B),
+    Color(0xFF5A359F),
+  ];
 
   // Tracked log capture - Joshua R Hughes (location tracking)
   static const Color trackedLogCaptureHeaderBackdrop = Color(0xFF000414);

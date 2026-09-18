@@ -47,7 +47,8 @@ class LiveMapCard extends StatelessWidget {
           ],
         ),
         16.ph,
-        Expanded(
+        SizedBox(
+          height: 200.h,
           child: ClipRRect(
             borderRadius: 24.circular,
             child: Stack(

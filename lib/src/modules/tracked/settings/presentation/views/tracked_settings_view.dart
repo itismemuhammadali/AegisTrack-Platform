@@ -30,7 +30,7 @@ class TrackedSettingsView extends ConsumerWidget {
           24.ph,
           Expanded(
             child: ListView(
-              padding: AppInsets.only(bottom: 112),
+              padding: AppInsets.only(bottom: 24),
               children: [
                 TrackedSettingsSectionLabel(
                   AppStrings.trackedSettingsProfileSection,

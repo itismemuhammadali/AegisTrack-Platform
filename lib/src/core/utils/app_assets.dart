@@ -96,10 +96,10 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_dashboard_nav_logs.svg';
   static const String trackedNavSettingsIcon =
       'assets/icons/svg/tracked_dashboard_nav_settings.svg';
+  static const String trackedNavAiIcon =
+      'assets/icons/svg/tracked_dashboard_nav_ai.svg';
 
   /// Tracked home - Joshua R Hughes (location tracking)
-  static const String trackedHomeLocationStatusIcon =
-      'assets/icons/svg/tracked_home_location_status_icon.svg';
   static const String trackedHomeViewFullMapIcon =
       'assets/icons/svg/tracked_home_view_full_map_icon.svg';
   static const String trackedHomeMapMarkerPin =
@@ -112,6 +112,22 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_home_quick_action_add_note.svg';
   static const String trackedHomeQuickActionCapture =
       'assets/icons/svg/tracked_home_quick_action_capture.svg';
+  static const String trackedHomeQuickActionCheckIn =
+      'assets/icons/svg/tracked_home_quick_action_check_in.svg';
+  static const String trackedHomeSosRing =
+      'assets/icons/svg/tracked_home_sos_ring.svg';
+  static const String trackedHomeStatGps =
+      'assets/icons/svg/tracked_home_stat_gps.svg';
+  static const String trackedHomeStatSynced =
+      'assets/icons/svg/tracked_home_stat_synced.svg';
+  static const String trackedHomeStatPending =
+      'assets/icons/svg/tracked_home_stat_pending.svg';
+  static const String trackedHomeStatFailed =
+      'assets/icons/svg/tracked_home_stat_failed.svg';
+  static const String trackedHomeStatZone =
+      'assets/icons/svg/tracked_home_stat_zone.svg';
+  static const String trackedHomeAskAi =
+      'assets/icons/svg/tracked_home_ask_ai.svg';
 
   /// Tracked logs - Joshua R Hughes (location tracking)
   static const String trackedLogsLocationPinIcon =

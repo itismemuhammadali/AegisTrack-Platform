@@ -7,11 +7,13 @@ class QuickActionsSection extends StatelessWidget {
     this.onLogNow,
     this.onAddNote,
     this.onCapture,
+    this.onCheckIn,
   });
 
   final VoidCallback? onLogNow;
   final VoidCallback? onAddNote;
   final VoidCallback? onCapture;
+  final VoidCallback? onCheckIn;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +28,7 @@ class QuickActionsSection extends StatelessWidget {
             color: AppColors.primaryWhite,
           ),
         ),
-        16.ph,
+        10.ph,
         Row(
           children: [
             Expanded(
@@ -37,7 +39,7 @@ class QuickActionsSection extends StatelessWidget {
                 onTap: onLogNow,
               ),
             ),
-            12.pw,
+            10.pw,
             Expanded(
               child: QuickActionButton(
                 icon: AppAssetsSvg.trackedHomeQuickActionAddNote,
@@ -45,12 +47,20 @@ class QuickActionsSection extends StatelessWidget {
                 onTap: onAddNote,
               ),
             ),
-            12.pw,
+            10.pw,
             Expanded(
               child: QuickActionButton(
                 icon: AppAssetsSvg.trackedHomeQuickActionCapture,
                 label: AppStrings.capture,
                 onTap: onCapture,
+              ),
+            ),
+            10.pw,
+            Expanded(
+              child: QuickActionButton(
+                icon: AppAssetsSvg.trackedHomeQuickActionCheckIn,
+                label: AppStrings.checkIn,
+                onTap: onCheckIn,
               ),
             ),
           ],

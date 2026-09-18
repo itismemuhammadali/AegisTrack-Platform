@@ -1,8 +1,9 @@
 import '../../../../../core/utils/app_exports.dart';
-import '../widgets/live_location_status_card.dart';
 import '../widgets/live_map_card.dart';
 import '../widgets/quick_actions_section.dart';
+import '../widgets/tracked_ask_ai_bar.dart';
 import '../widgets/tracked_home_header.dart';
+import '../widgets/tracked_home_stats_grid.dart';
 
 class TrackedHomeView extends StatelessWidget {
   const TrackedHomeView({
@@ -11,31 +12,40 @@ class TrackedHomeView extends StatelessWidget {
     this.onLogNow,
     this.onAddNote,
     this.onCapture,
+    this.onCheckIn,
+    this.onSos,
+    this.onAskAi,
   });
 
   final VoidCallback? onViewFullMap;
   final VoidCallback? onLogNow;
   final VoidCallback? onAddNote;
   final VoidCallback? onCapture;
+  final VoidCallback? onCheckIn;
+  final VoidCallback? onSos;
+  final VoidCallback? onAskAi;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: AppInsets.only(top: 16, bottom: 16 + 112, left: 24, right: 24),
+    return SingleChildScrollView(
+      padding: AppInsets.only(top: 24, bottom: 24, left: 24, right: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const TrackedHomeHeader(),
+          TrackedHomeHeader(onSos: onSos),
           24.ph,
-          const LiveLocationStatusCard(),
+          TrackedHomeStatsGrid(onCheckIn: onCheckIn),
           24.ph,
-          Expanded(child: LiveMapCard(onViewFullMap: onViewFullMap)),
+          LiveMapCard(onViewFullMap: onViewFullMap),
           24.ph,
           QuickActionsSection(
             onLogNow: onLogNow,
             onAddNote: onAddNote,
             onCapture: onCapture,
+            onCheckIn: onCheckIn,
           ),
+          24.ph,
+          TrackedAskAiBar(onTap: onAskAi),
         ],
       ),
     );
