@@ -6,7 +6,7 @@ class TrackedLogDetailsHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: AppInsets.symmetric(horizontal: 24, vertical: 12),
+      padding: AppInsets.only(left: 24, right: 24, top: 24, bottom: 24),
       child: Stack(
         alignment: Alignment.center,
         children: [
@@ -39,6 +39,7 @@ class TrackedLogDetailsHeader extends StatelessWidget {
               color: AppColors.primaryWhite,
               fontSize: 20.sp,
               fontWeight: FontWeight.w600,
+              height: 28 / 20,
             ),
           ),
         ],

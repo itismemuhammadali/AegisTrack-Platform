@@ -40,7 +40,9 @@ class TrackedLogDetailsAdditionalNotes extends StatelessWidget {
                 10.ph,
                 Text(AppStrings.trackedLogDetailsFollowUpTime,
                     style: TextStyle(
-                        color: AppColors.trackedLogTagText, fontSize: 12.sp)),
+                        color: AppColors.trackedLogTagText,
+                        fontSize: 12.sp,
+                        height: 16 / 12)),
               ],
             ),
           ),

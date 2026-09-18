@@ -14,7 +14,7 @@ class TrackedLogDetailsLocationCard extends StatelessWidget {
       child: Column(
         children: [
           SizedBox(
-            height: 52.h,
+            height: 52.w,
             child: Stack(
               clipBehavior: Clip.none,
               children: [
@@ -68,13 +68,21 @@ class TrackedLogDetailsLocationCard extends StatelessWidget {
                   ),
                 ),
                 Positioned(
-                  top: -5.095.h,
-                  right: 24.w,
-                  child: const _RoundIcon(
-                    asset: AppAssetsSvg.trackedLogDetailsVerified,
-                    size: 32,
-                    backgroundColor:
-                        AppColors.trackedLogDetailsVerifiedBackground,
+                  top: -5.w,
+                  right: -3.w,
+                  child: Container(
+                    width: 32.w,
+                    height: 32.w,
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                      color: AppColors.primaryWhite.withValues(alpha: 0.1),
+                      borderRadius: 14.circular,
+                    ),
+                    child: SvgPicture.asset(
+                      AppAssetsSvg.trackedLogDetailsVerified,
+                      width: 16.w,
+                      height: 16.w,
+                    ),
                   ),
                 ),
               ],
@@ -97,12 +105,10 @@ class _RoundIcon extends StatelessWidget {
   const _RoundIcon({
     required this.asset,
     required this.size,
-    this.backgroundColor = AppColors.trackedLogDetailsIconBackground,
   });
 
   final String asset;
   final double size;
-  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -110,7 +116,7 @@ class _RoundIcon extends StatelessWidget {
         height: size.w,
         alignment: Alignment.center,
         decoration: BoxDecoration(
-          color: backgroundColor,
+          color: AppColors.primaryWhite.withValues(alpha: 0.1),
           shape: BoxShape.circle,
         ),
         child:

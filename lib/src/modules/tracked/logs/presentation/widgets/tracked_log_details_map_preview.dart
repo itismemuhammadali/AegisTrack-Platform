@@ -20,13 +20,14 @@ class TrackedLogDetailsMapPreview extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SvgPicture.asset(AppAssetsSvg.trackedLogDetailsMapPin,
-                      width: 70.w, height: 70.w),
-                  6.ph,
+                      width: 69.5.w, height: 69.5.w),
+                  9.ph,
                   Text(
                     AppStrings.mapPreview,
                     style: context.bodySmallStyle?.copyWith(
                       color: AppColors.trackedLogDetailsMutedText,
                       fontSize: 14.sp,
+                      height: 20 / 14,
                     ),
                   ),
                 ],
