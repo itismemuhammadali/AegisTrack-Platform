@@ -55,7 +55,7 @@ class TrackedSettingsView extends ConsumerWidget {
                           AppStrings.trackedSettingsManageMembershipSubtitle,
                       titleWeight: FontWeight.w600,
                       gap: 16,
-                      onTap: () => AppRouterGo.push(trackedChoosePlanView),
+                      onTap: () => AppRouterGo.push(trackedMembershipView),
                     ),
                   ],
                 ),

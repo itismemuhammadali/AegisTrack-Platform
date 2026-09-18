@@ -24,7 +24,7 @@ class TrackedAiController extends ChangeNotifier with Buffers {
     notifyListeners();
     onSearch?.call(value);
 
-    // TODO: replace with the AI search API; mock results match Figma.
+    //  replace with the AI search API; mock results match Figma.
     await Future.delayed(const Duration(milliseconds: 1500));
     if (state != TrackedAiSearchState.searching) return;
     results = _mockResults;

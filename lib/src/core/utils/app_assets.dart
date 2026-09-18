@@ -235,6 +235,26 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_settings_sync_status_icon.svg';
   static const String trackedSettingsExportCenterIcon =
       'assets/icons/svg/tracked_settings_export_center_icon.svg';
+  static const String trackedMembershipCurrentStar =
+      'assets/icons/svg/tracked_membership_current_star.svg';
+  static const String trackedMembershipFreeIcon =
+      'assets/icons/svg/tracked_membership_free_icon.svg';
+  static const String trackedMembershipDowngradeChevron =
+      'assets/icons/svg/tracked_membership_downgrade_chevron.svg';
+  static const String trackedMembershipCurrentCheck =
+      'assets/icons/svg/tracked_membership_current_check.svg';
+  static const String trackedMembershipUpgradeChevron =
+      'assets/icons/svg/tracked_membership_upgrade_chevron.svg';
+  static const String trackedMembershipAdd =
+      'assets/icons/svg/tracked_membership_add.svg';
+  static const String trackedMembershipDowngradeAlert =
+      'assets/icons/svg/tracked_membership_downgrade_alert.svg';
+  static const String trackedMembershipUpgradeAlert =
+      'assets/icons/svg/tracked_membership_upgrade_alert.svg';
+  static const String trackedMembershipRemoveCard =
+      'assets/icons/svg/tracked_membership_remove_card.svg';
+  static const String trackedMembershipDelete =
+      'assets/icons/svg/tracked_membership_delete.svg';
   static const String trackedSettingsAntiSpoofingIcon =
       'assets/icons/svg/tracked_settings_anti_spoofing_icon.svg';
   static const String trackedSettingsLogoutIcon =

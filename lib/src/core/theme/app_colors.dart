@@ -338,6 +338,7 @@ class AppColors {
   static const Color trackedCheckInAmber = Color(0xFFF59E0B);
   static const Color trackedQuickActionShadow = Color(0x3334206C);
   static const Color trackedAskAiBorder = Color(0x4D34206C);
+  static const Color trackedMembershipSheetBackground = Color(0xFF0A1824);
 
   // Tracked home - quick action primary gradient (13 stops, per Figma)
   static const List<Color> trackedQuickActionGradientColors = [

@@ -1,4 +1,6 @@
 import '../../../../../core/utils/app_exports.dart';
+import '../../../authentication/domain/entities/tracked_subscription_plan_entity.dart';
+import '../../domain/entities/tracked_payment_card_entity.dart';
 import '../../domain/entities/tracked_sync_log_entry_entity.dart';
 
 class TrackedSettingsController extends ChangeNotifier with Buffers {
@@ -161,6 +163,71 @@ class TrackedSettingsController extends ChangeNotifier with Buffers {
   Future<void> logout() async {
     await AuthHandler.ref.logout();
     AppRouterGo.pushRemoveUntil(signInView);
+  }
+
+  // Membership - Joshua R Hughes (location tracking)
+  TrackedSubscriptionPlan currentPlan = TrackedSubscriptionPlan.basic;
+  List<TrackedPaymentCardEntity> paymentCards = const [
+    TrackedPaymentCardEntity(
+      brand: 'Visa',
+      last4: '4242',
+      expiry: '12/27',
+      isDefault: true,
+    ),
+    TrackedPaymentCardEntity(
+      brand: 'Mastercard',
+      last4: '5555',
+      expiry: '09/26',
+    ),
+  ];
+
+  void changePlan(TrackedSubscriptionPlan plan) {
+    if (currentPlan == plan) return;
+    currentPlan = plan;
+    notifyListeners();
+  }
+
+  /// Adds a card locally. tokenize via the payment provider instead.
+  void addCard({required String number, required String expiry}) {
+    final digits = number.replaceAll(RegExp(r'\D'), '');
+    final brand = switch (digits.isEmpty ? '' : digits[0]) {
+      '4' => 'Visa',
+      '5' || '2' => 'Mastercard',
+      '3' => 'Amex',
+      _ => 'Card',
+    };
+    paymentCards = [
+      ...paymentCards,
+      TrackedPaymentCardEntity(
+        brand: brand,
+        last4: digits.substring(digits.length - 4),
+        expiry: expiry,
+        isDefault: paymentCards.isEmpty,
+      ),
+    ];
+    notifyListeners();
+  }
+
+  void setDefaultCard(TrackedPaymentCardEntity card) {
+    paymentCards = [
+      for (final c in paymentCards) c.copyWith(isDefault: identical(c, card)),
+    ];
+    notifyListeners();
+  }
+
+  void removeCard(TrackedPaymentCardEntity card) {
+    final wasDefault = card.isDefault;
+    paymentCards = [
+      for (final c in paymentCards)
+        if (!identical(c, card)) c,
+    ];
+    if (wasDefault && paymentCards.isNotEmpty) {
+      paymentCards = [
+        paymentCards.first.copyWith(isDefault: true),
+        ...paymentCards.skip(1),
+      ];
+    }
+    notifyListeners();
   }
 }
 

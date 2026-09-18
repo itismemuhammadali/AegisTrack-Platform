@@ -156,6 +156,52 @@ class AppStrings {
   static const String trackedSettingsManageMembershipSubtitle =
       'Upgrade, downgrade or manage payment methods';
   static const String trackedSettingsAntiSpoofing = 'Anti-Spoofing';
+  static const String trackedMembershipTitle = 'Membership';
+  static const String trackedMembershipSubtitle =
+      'Manage your plan and billing';
+  static const String trackedMembershipCurrentPlan = 'Current Plan';
+  static const String trackedMembershipActive = 'Active';
+  static const String trackedMembershipPerMonthShort = ' /mo';
+  static const String trackedMembershipPerMonth = '/mo';
+  static const String trackedMembershipNextBilling = 'Next billing: ';
+  static const String trackedMembershipNextBillingDate = 'September 24, 2026';
+  static const List<String> trackedMembershipCurrentFeatures = [
+    'Unlimited logs',
+    '30-day history',
+    'AI search & summary',
+    'Geofencing',
+  ];
+  static const String trackedMembershipChangePlan = 'Change Plan';
+  static const String trackedMembershipFreeForever = 'Free forever';
+  static const String trackedMembershipUpgrade = 'Upgrade';
+  static const String trackedMembershipDowngrade = 'Downgrade';
+  static const String trackedMembershipPaymentMethods = 'Payment Methods';
+  static const String trackedMembershipDefault = 'Default';
+  static const String trackedMembershipSetDefault = 'Set default';
+  static const String trackedMembershipExpires = 'Expires ';
+  static const String trackedMembershipDowngradePlan = 'Downgrade Plan';
+  static const String trackedMembershipUpgradePlan = 'Upgrade Plan';
+  static const String trackedMembershipSwitchTo = 'Switch to ';
+  static const String trackedMembershipDowngradeDescription =
+      'Your subscription will be cancelled at the end of the current billing period.';
+  static const String trackedMembershipUpgradeDescription =
+      'You will be charged immediately and gain access to additional features.';
+  static const String trackedMembershipConfirmChange = 'Confirm Change';
+  static const String trackedMembershipConfirmUpgrade = 'Confirm Upgrade';
+  static const String trackedMembershipCancel = 'Cancel';
+  static const String trackedMembershipRemoveCard = 'Remove Card';
+  static const String trackedMembershipRemoveCardDescription =
+      'This card will be permanently removed from your account.';
+  static const String trackedMembershipRemove = 'Remove';
+  static const String trackedMembershipAddPaymentMethod = 'Add Payment Method';
+  static const String trackedMembershipCardNumber = 'Card Number';
+  static const String trackedMembershipCardNumberHint = '1234 5678 9012 3456';
+  static const String trackedMembershipExpiryDate = 'Expiry Date';
+  static const String trackedMembershipExpiryHint = 'MM/YY';
+  static const String trackedMembershipCvc = 'CVC';
+  static const String trackedMembershipCvcHint = '123';
+  static const String trackedMembershipCancelSubscription =
+      'Cancel Subscription';
   static const String trackedSettingsAntiSpoofingSubtitle =
       'Run authenticity scoring demo';
   static const String trackedSettingsBackgroundTracking = 'Background Tracking';

@@ -14,6 +14,7 @@ import '../../../modules/tracked/home/presentation/views/tracked_log_capture_vie
 import '../../../modules/tracked/logs/presentation/views/tracked_log_details_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_edit_profile_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_export_center_view.dart';
+import '../../../modules/tracked/settings/presentation/views/tracked_membership_view.dart';
 import '../../../modules/tracked/settings/presentation/views/tracked_sync_status_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/tracked_choose_plan_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/tracked_confirm_subscription_view.dart';
@@ -145,6 +146,13 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: const TrackedExportCenterView(),
+        ),
+      ),
+      GoRoute(
+        path: trackedMembershipView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackedMembershipView(),
         ),
       ),
       GoRoute(
