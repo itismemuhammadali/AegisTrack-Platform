@@ -8,11 +8,13 @@ class TrackedSubscriptionScaffold extends StatelessWidget {
     required this.child,
     this.title,
     this.subtitle,
+    this.subtitleColor = AppColors.trackedPlanMutedText,
   });
 
   final Widget child;
   final String? title;
   final String? subtitle;
+  final Color subtitleColor;
 
   @override
   Widget build(BuildContext context) {
@@ -63,7 +65,7 @@ class TrackedSubscriptionScaffold extends StatelessWidget {
                                 Text(
                                   subtitle!,
                                   style: context.bodyMediumStyle?.copyWith(
-                                    color: AppColors.trackedPlanMutedText,
+                                    color: subtitleColor,
                                     fontSize: 14.sp,
                                     fontWeight: FontWeight.w400,
                                     height: 20 / 14,

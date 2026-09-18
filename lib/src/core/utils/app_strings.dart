@@ -77,6 +77,17 @@ class AppStrings {
   static const String checkIn = 'Check-in';
   static const String sos = 'SOS';
   static const String sosEmergency = 'SOS Emergency';
+  static const String zoneStatusTitle = 'Zone Status';
+  static const String zoneStatusSubtitle = 'Current geofence zone';
+  static const String zoneStatusName = 'Work Site Alpha';
+  static const String zoneStatusLabel = 'Status';
+  static const String zoneStatusInside = 'Inside Zone';
+  static const String zoneStatusLastUpdate = 'Last Update';
+  static const String zoneStatusJustNow = 'Just now';
+  static const String zoneStatusMapPreview = 'Zone map preview';
+  static const String zoneStatusInsideBoundary = 'Inside boundary';
+  static const String zoneStatusRecentEvents = 'Recent Zone Events';
+  static const String zoneStatusLogged = 'Logged';
   static const String sosHoldToActivate = 'Hold to activate';
   static const String sosWhenActivated = 'When SOS is activated:';
   static const String sosStepLocation =

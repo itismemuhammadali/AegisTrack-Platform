@@ -15,6 +15,7 @@ class TrackedHomeView extends StatelessWidget {
     this.onCheckIn,
     this.onSos,
     this.onAskAi,
+    this.onZone,
   });
 
   final VoidCallback? onViewFullMap;
@@ -24,6 +25,7 @@ class TrackedHomeView extends StatelessWidget {
   final VoidCallback? onCheckIn;
   final VoidCallback? onSos;
   final VoidCallback? onAskAi;
+  final VoidCallback? onZone;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +36,7 @@ class TrackedHomeView extends StatelessWidget {
         children: [
           TrackedHomeHeader(onSos: onSos),
           24.ph,
-          TrackedHomeStatsGrid(onCheckIn: onCheckIn),
+          TrackedHomeStatsGrid(onCheckIn: onCheckIn, onZone: onZone),
           24.ph,
           LiveMapCard(onViewFullMap: onViewFullMap),
           24.ph,
