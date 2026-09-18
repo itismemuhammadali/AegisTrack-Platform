@@ -190,6 +190,14 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_check_in_missed.svg';
   static const String trackedCheckInCalendar =
       'assets/icons/svg/tracked_check_in_calendar.svg';
+  static const String trackedReviewImageCaptured =
+      'assets/icons/svg/tracked_review_image_captured.svg';
+  static const String trackedReviewImageAttach =
+      'assets/icons/svg/tracked_review_image_attach.svg';
+  static const String trackedReviewImageDiscard =
+      'assets/icons/svg/tracked_review_image_discard.svg';
+  static const String trackedCaptureImageCamera =
+      'assets/icons/svg/tracked_capture_image_camera.svg';
   static const String trackedLiveMapBack =
       'assets/icons/svg/tracked_live_map_back.svg';
   static const String trackedLiveMapRefresh =

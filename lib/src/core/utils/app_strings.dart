@@ -79,6 +79,16 @@ class AppStrings {
   static const String sosEmergency = 'SOS Emergency';
   static const String zoneStatusTitle = 'Zone Status';
   static const String liveMapUpcoming = 'Upcoming';
+  static const String captureImageTitle = 'Capture Image';
+  static const String reviewImageTitle = 'Review Image';
+  static const String reviewImageCaptured = 'Image Captured';
+  static const String reviewImageHint = 'Review and attach to log';
+  static const String reviewImageAttach = 'Attach & Save';
+  static const String reviewImageRetake = 'Retake Photo';
+  static const String reviewImageDiscard = 'Discard';
+  static const String captureImageCameraOnly = 'Camera Only - No Gallery Upload';
+  static const String captureImageLightingHint =
+      'Ensure good lighting for best results';
   static const String liveMapCurrentLocation = 'Current Location';
   static const String liveMapCoordinates = '37.7749° N, 122.4194° W';
   static const String liveMapAccuracy = 'Accuracy';

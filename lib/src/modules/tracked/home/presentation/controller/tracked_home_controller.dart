@@ -53,6 +53,20 @@ class TrackedHomeController extends ChangeNotifier with Buffers {
     notifyListeners();
   }
 
+  /// Quick-action Capture: camera-only photo that pre-fills Add Note.
+  Future<bool> capturePhoto() async {
+    final File? file;
+    try {
+      file = await AppImagePicker.fromCamera();
+    } on PlatformException {
+      Prompts.showToast(AppStrings.selfieCameraUnavailable);
+      return false;
+    }
+    if (file == null) return false;
+    setPhoto(file);
+    return true;
+  }
+
   Future<void> captureSelfie() async {
     final File? file;
     try {
