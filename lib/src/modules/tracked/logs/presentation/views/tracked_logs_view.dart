@@ -10,7 +10,7 @@ class TrackedLogsView extends ConsumerWidget {
     final controller = ref.watch(trackedLogsControllerProvider);
 
     return Padding(
-      padding: AppInsets.symmetric(horizontal: 24, vertical: 16),
+      padding: AppInsets.only(left: 24, right: 24, top: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

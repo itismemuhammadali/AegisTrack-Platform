@@ -7,12 +7,16 @@ class TrackedSettingsNavRow extends StatelessWidget {
     required this.title,
     required this.subtitle,
     this.onTap,
+    this.titleWeight = FontWeight.w500,
+    this.gap = 12,
   });
 
   final String icon;
   final String title;
   final String subtitle;
   final VoidCallback? onTap;
+  final FontWeight titleWeight;
+  final double gap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +29,20 @@ class TrackedSettingsNavRow extends StatelessWidget {
           children: [
             Container(
               width: 40.w,
-              height: 40.h,
+              height: 40.w,
               alignment: Alignment.center,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: AppColors.trackedSettingsIconBg,
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: AppColors.onboardingButtonGradientColors,
+                  stops: AppColors.onboardingButtonGradientStops,
+                ),
               ),
               child: SvgPicture.asset(icon, width: 20.sp, height: 20.sp),
             ),
-            12.pw,
+            gap.pw,
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -42,7 +51,7 @@ class TrackedSettingsNavRow extends StatelessWidget {
                     title,
                     style: context.bodyMediumStyle?.copyWith(
                       fontSize: 14.sp,
-                      fontWeight: FontWeight.w500,
+                      fontWeight: titleWeight,
                       color: AppColors.primaryWhite,
                     ),
                   ),

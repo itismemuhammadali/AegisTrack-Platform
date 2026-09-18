@@ -8,14 +8,16 @@ import '../widgets/tracked_settings_settings_card.dart';
 import '../widgets/tracked_settings_toggle_row.dart';
 
 class TrackedSettingsView extends ConsumerWidget {
-  const TrackedSettingsView({super.key});
+  const TrackedSettingsView({super.key, this.onAntiSpoofing});
+
+  final VoidCallback? onAntiSpoofing;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = ref.watch(trackedSettingsControllerProvider);
 
     return Padding(
-      padding: AppInsets.symmetric(horizontal: 24, vertical: 16),
+      padding: AppInsets.only(left: 24, right: 24, top: 24),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -41,6 +43,24 @@ class TrackedSettingsView extends ConsumerWidget {
                 ),
                 24.ph,
                 TrackedSettingsSectionLabel(
+                  AppStrings.trackedSettingsMembershipSection,
+                ),
+                10.ph,
+                TrackedSettingsSettingsCard(
+                  children: [
+                    TrackedSettingsNavRow(
+                      icon: AppAssetsSvg.trackedSubscriptionCardIcon,
+                      title: AppStrings.trackedSettingsManageMembership,
+                      subtitle:
+                          AppStrings.trackedSettingsManageMembershipSubtitle,
+                      titleWeight: FontWeight.w600,
+                      gap: 16,
+                      onTap: () => AppRouterGo.push(trackedChoosePlanView),
+                    ),
+                  ],
+                ),
+                24.ph,
+                TrackedSettingsSectionLabel(
                   AppStrings.trackedSettingsTrackingSection,
                 ),
                 10.ph,
@@ -60,6 +80,12 @@ class TrackedSettingsView extends ConsumerWidget {
                       subtitle: AppStrings.trackedSettingsAutoSyncSubtitle,
                       value: controller.autoSyncEnabled,
                       onChanged: controller.setAutoSync,
+                    ),
+                    TrackedSettingsNavRow(
+                      icon: AppAssetsSvg.trackedSettingsAntiSpoofingIcon,
+                      title: AppStrings.trackedSettingsAntiSpoofing,
+                      subtitle: AppStrings.trackedSettingsAntiSpoofingSubtitle,
+                      onTap: onAntiSpoofing,
                     ),
                   ],
                 ),

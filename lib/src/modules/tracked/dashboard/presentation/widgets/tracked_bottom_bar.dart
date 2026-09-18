@@ -45,13 +45,9 @@ class TrackedBottomBar extends StatelessWidget {
                               : null,
                         ),
                         child: SvgPicture.asset(
-                          tab.icon,
+                          selected ? tab.activeIcon : tab.icon,
                           width: 24.w,
                           height: 24.w,
-                          colorFilter: ColorFilter.mode(
-                            color,
-                            BlendMode.srcIn,
-                          ),
                         ),
                       ),
                       4.ph,

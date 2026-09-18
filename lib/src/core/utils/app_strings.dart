@@ -88,7 +88,23 @@ class AppStrings {
   static const String checkInDueNow = 'Due Now';
   static const String checkInTime = '10:30 AM';
   static const String askAiPlaceholder = 'Ask AI about your activity...';
-  static const String trackedAiComingSoon = 'AI assistant coming soon';
+  static const String trackedAiSearchTitle = 'AI Search';
+  static const String trackedAiBeta = 'Beta';
+  static const String trackedAiSearchSubtitle =
+      'Ask about your activity in natural language';
+  static const String trackedAiSearchHint = 'Ask about your activity...';
+  static const String trackedAiSearchButton = 'Search';
+  static const String trackedAiSummaryTitle = 'AI Activity Summary';
+  static const String trackedAiSummarySubtitle =
+      'System-generated overview of recent activity';
+  static const String trackedAiSuggestedQueries = 'Suggested Queries';
+  static const List<String> trackedAiSuggestions = [
+    'Show logs near office last Monday',
+    'Show missed check-ins this week',
+    'Show activity in the restricted area',
+    'Logs from the past 3 days',
+    'Check-ins completed yesterday',
+  ];
 
   // Tracked logs - Joshua R Hughes (location tracking)
   static const String logHistory = 'Log History';
@@ -133,6 +149,13 @@ class AppStrings {
   static const String trackedSettingsProfileSection = 'Profile';
   static const String trackedSettingsProfileName = 'Joshua R Hughe';
   static const String trackedSettingsTrackingSection = 'Tracking';
+  static const String trackedSettingsMembershipSection = 'Membership';
+  static const String trackedSettingsManageMembership = 'Manage Membership';
+  static const String trackedSettingsManageMembershipSubtitle =
+      'Upgrade, downgrade or manage payment methods';
+  static const String trackedSettingsAntiSpoofing = 'Anti-Spoofing';
+  static const String trackedSettingsAntiSpoofingSubtitle =
+      'Run authenticity scoring demo';
   static const String trackedSettingsBackgroundTracking = 'Background Tracking';
   static const String trackedSettingsBackgroundTrackingSubtitle =
       'Enable continuous location logging';

@@ -12,7 +12,7 @@ class TrackedSettingsProfileCard extends StatelessWidget {
       onTap: onTap,
       child: Container(
         width: double.infinity,
-        padding: AppInsets.all(16),
+        padding: AppInsets.all(17),
         decoration: BoxDecoration(
           color: AppColors.primaryWhite.withValues(alpha: 0.05),
           borderRadius: 16.circular,
@@ -23,12 +23,12 @@ class TrackedSettingsProfileCard extends StatelessWidget {
             ClipOval(
               child: Image.asset(
                 AppAssetsPng.trackedSettingsProfileAvatar,
-                width: 48.w,
-                height: 48.w,
+                width: 64.w,
+                height: 64.w,
                 fit: BoxFit.cover,
               ),
             ),
-            12.pw,
+            16.pw,
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -41,13 +41,12 @@ class TrackedSettingsProfileCard extends StatelessWidget {
                       color: AppColors.primaryWhite,
                     ),
                   ),
-                  6.ph,
                   Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Container(
-                        width: 6.w,
-                        height: 6.w,
+                        width: 8.w,
+                        height: 8.w,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: AppColors.trackedTrackingActiveGreen
