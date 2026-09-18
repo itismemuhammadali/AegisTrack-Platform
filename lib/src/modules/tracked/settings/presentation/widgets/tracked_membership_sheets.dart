@@ -17,7 +17,7 @@ Future<T?> showTrackedMembershipSheet<T>(
       ),
       child: Container(
         width: double.infinity,
-        padding: AppInsets.only(left: 24, right: 24, top: 24, bottom: 40),
+        padding: AppInsets.only(left: 24, right: 24, top: 24, bottom: 24),
         decoration: BoxDecoration(
           color: AppColors.trackedMembershipSheetBackground,
           borderRadius: BorderRadius.vertical(top: Radius.circular(24.r)),
@@ -25,7 +25,7 @@ Future<T?> showTrackedMembershipSheet<T>(
             color: AppColors.primaryWhite.withValues(alpha: 0.1),
           ),
         ),
-        child: SafeArea(top: false, child: child),
+        child: SafeArea(top: false, bottom : false,child: child),
       ),
     ),
   );
