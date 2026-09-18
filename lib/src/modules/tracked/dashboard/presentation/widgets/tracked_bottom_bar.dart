@@ -12,6 +12,7 @@ class TrackedBottomBar extends StatelessWidget {
       color: AppColors.trackedBottomBarArc,
       child: SafeArea(
         top: false,
+        bottom: false,
         child: Padding(
           padding: AppInsets.symmetric(horizontal: 24, vertical: 16),
           child: Row(
