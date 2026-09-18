@@ -27,6 +27,7 @@ class AppStrings {
   static const String signInSubtitle = 'Sign in to continue tracking';
   static const String email = 'Email';
   static const String signIn = 'Sign in';
+  static const String createViewerAccount = 'Create Viewer Account';
   static const String or = 'Or';
   static const String continueWithGoogle = 'Continue with Google';
   static const String continueWithApple = 'Continue with Apple';

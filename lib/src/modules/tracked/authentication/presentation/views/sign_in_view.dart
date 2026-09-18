@@ -14,6 +14,7 @@ class SignInView extends HookConsumerWidget {
     this.onAppleSignIn,
     this.onFacebookSignIn,
     this.onContactSupport,
+    this.onCreateViewerAccount,
   });
 
   final void Function(String email, String password)? onSignIn;
@@ -21,6 +22,7 @@ class SignInView extends HookConsumerWidget {
   final VoidCallback? onAppleSignIn;
   final VoidCallback? onFacebookSignIn;
   final VoidCallback? onContactSupport;
+  final VoidCallback? onCreateViewerAccount;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -131,9 +133,36 @@ class SignInView extends HookConsumerWidget {
                             isLoading: authController.isSigningIn,
                           ),
                           24.ph,
+                          GestureDetector(
+                            onTap: onCreateViewerAccount,
+                            child: Container(
+                              width: double.infinity,
+                              padding: AppInsets.symmetric(vertical: 16),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: fieldFillColor,
+                                borderRadius: 16.circular,
+                                border: Border.all(color: fieldBorderColor),
+                              ),
+                              child: Text(
+                                AppStrings.createViewerAccount,
+                                style: context.bodyLargeStyle?.copyWith(
+                                  color: AppColors.primaryWhite,
+                                  fontSize: 16.sp,
+                                  fontWeight: FontWeight.w500,
+                                  height: 24 / 16,
+                                ),
+                              ),
+                            ),
+                          ),
+                          24.ph,
                           Row(
                             children: [
-                              const Expanded(child: Divider()),
+                              const Expanded(
+                                child: Divider(
+                                  color: AppColors.signInDarkDivider,
+                                ),
+                              ),
                               Padding(
                                 padding: AppInsets.symmetric(horizontal: 16),
                                 child: Text(
@@ -145,7 +174,11 @@ class SignInView extends HookConsumerWidget {
                                   ),
                                 ),
                               ),
-                              const Expanded(child: Divider()),
+                              const Expanded(
+                                child: Divider(
+                                  color: AppColors.signInDarkDivider,
+                                ),
+                              ),
                             ],
                           ),
                           10.ph,
