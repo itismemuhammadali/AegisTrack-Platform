@@ -63,26 +63,31 @@ class LiveMapCard extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
+                      // Figma: 50.7×62.3 pin with a 21.7 dot centred in
+                      // the pin's head (14.5 from top/left), 12.8 above text.
                       SizedBox(
-                        width: 50.w,
-                        height: 62.h,
+                        width: 50.7.w,
+                        height: 62.3.w,
                         child: Stack(
-                          alignment: Alignment.center,
                           children: [
                             SvgPicture.asset(
                               AppAssetsSvg.trackedHomeMapMarkerPin,
-                              width: 50.w,
-                              height: 62.h,
+                              width: 50.7.w,
+                              height: 62.3.w,
                             ),
-                            SvgPicture.asset(
-                              AppAssetsSvg.trackedHomeMapMarkerDot,
-                              width: 22.w,
-                              height: 22.h,
+                            Positioned(
+                              left: 14.5.w,
+                              top: 14.5.w,
+                              child: SvgPicture.asset(
+                                AppAssetsSvg.trackedHomeMapMarkerDot,
+                                width: 21.7.w,
+                                height: 21.7.w,
+                              ),
                             ),
                           ],
                         ),
                       ),
-                      8.ph,
+                      12.8.ph,
                       Text(
                         AppStrings.mapPreview,
                         style: context.bodyMediumStyle?.copyWith(
