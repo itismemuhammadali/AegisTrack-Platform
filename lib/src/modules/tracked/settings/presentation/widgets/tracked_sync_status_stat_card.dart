@@ -6,13 +6,11 @@ class TrackedSyncStatusStatCard extends StatelessWidget {
     required this.icon,
     required this.label,
     required this.count,
-    required this.color,
   });
 
   final String icon;
   final String label;
   final int count;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -34,9 +32,8 @@ class TrackedSyncStatusStatCard extends StatelessWidget {
               children: [
                 SvgPicture.asset(
                   icon,
-                  width: 16.sp,
-                  height: 16.sp,
-                  colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+                  width: 16.w,
+                  height: 16.w,
                 ),
                 8.pw,
                 Text(
@@ -44,17 +41,19 @@ class TrackedSyncStatusStatCard extends StatelessWidget {
                   style: context.bodySmallStyle?.copyWith(
                     fontSize: 12.sp,
                     fontWeight: FontWeight.w400,
+                    height: 16 / 12,
                     color: AppColors.trackedLogTagText,
                   ),
                 ),
               ],
             ),
-            8.ph,
+            4.ph,
             Text(
               '$count',
               style: context.headlineSmallStyle?.copyWith(
                 fontSize: 24.sp,
                 fontWeight: FontWeight.w600,
+                height: 32 / 24,
                 color: AppColors.primaryWhite,
               ),
             ),

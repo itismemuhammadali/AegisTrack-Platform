@@ -13,7 +13,7 @@ class TrackedSyncStatusPill extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: AppInsets.symmetric(horizontal: 12, vertical: 5),
+      padding: AppInsets.symmetric(horizontal: 12, vertical: 4),
       decoration: BoxDecoration(
         color: color.withValues(alpha: 0.1),
         borderRadius: 999.circular,
@@ -24,6 +24,7 @@ class TrackedSyncStatusPill extends StatelessWidget {
         style: context.bodySmallStyle?.copyWith(
           fontSize: 12.sp,
           fontWeight: FontWeight.w500,
+          height: 16 / 12,
           color: color,
         ),
       ),

@@ -188,6 +188,29 @@ class AppAssetsSvg {
       'assets/icons/svg/tracked_sync_status_failed_badge_icon.svg';
   static const String trackedSyncStatusSyncedBadgeIcon =
       'assets/icons/svg/tracked_sync_status_synced_badge_icon.svg';
+  // Pre-coloured per Figma — render without tinting.
+  static const String trackedSyncStatPending =
+      'assets/icons/svg/tracked_sync_stat_pending.svg';
+  static const String trackedSyncStatFailed =
+      'assets/icons/svg/tracked_sync_stat_failed.svg';
+  static const String trackedSyncStatSynced =
+      'assets/icons/svg/tracked_sync_stat_synced.svg';
+  static const String trackedSyncHeadingPending =
+      'assets/icons/svg/tracked_sync_heading_pending.svg';
+  static const String trackedSyncHeadingFailed =
+      'assets/icons/svg/tracked_sync_heading_failed.svg';
+  static const String trackedSyncSyncedCheck =
+      'assets/icons/svg/tracked_sync_synced_check.svg';
+  static const String trackedSyncPinPending =
+      'assets/icons/svg/tracked_sync_pin_pending.svg';
+  static const String trackedSyncPinFailed =
+      'assets/icons/svg/tracked_sync_pin_failed.svg';
+  static const String trackedSyncPinSynced =
+      'assets/icons/svg/tracked_sync_pin_synced.svg';
+  static const String trackedSyncRefresh =
+      'assets/icons/svg/tracked_sync_refresh.svg';
+  static const String trackedSyncRetry =
+      'assets/icons/svg/tracked_sync_retry.svg';
 
   /// Tracked settings - Joshua R Hughes (location tracking)
   static const String trackedSettingsChevronIcon =

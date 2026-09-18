@@ -8,16 +8,22 @@ class TrackedSyncStatusLogRow extends StatelessWidget {
   final TrackedSyncLogEntryEntity entry;
 
   Color get _color => switch (entry.status) {
-    TrackedSyncLogStatus.pending => AppColors.trackedLogPendingAmber,
-    TrackedSyncLogStatus.failed => AppColors.trackedLogFailedRed,
-    TrackedSyncLogStatus.synced => AppColors.trackedLogSyncedGreen,
-  };
+        TrackedSyncLogStatus.pending => AppColors.trackedLogPendingAmber,
+        TrackedSyncLogStatus.failed => AppColors.trackedLogFailedRed,
+        TrackedSyncLogStatus.synced => AppColors.trackedLogSyncedGreen,
+      };
+
+  String get _pinIcon => switch (entry.status) {
+        TrackedSyncLogStatus.pending => AppAssetsSvg.trackedSyncPinPending,
+        TrackedSyncLogStatus.failed => AppAssetsSvg.trackedSyncPinFailed,
+        TrackedSyncLogStatus.synced => AppAssetsSvg.trackedSyncPinSynced,
+      };
 
   String get _statusLabel => switch (entry.status) {
-    TrackedSyncLogStatus.pending => AppStrings.logStatusPending,
-    TrackedSyncLogStatus.failed => AppStrings.logStatusFailed,
-    TrackedSyncLogStatus.synced => AppStrings.logStatusSynced,
-  };
+        TrackedSyncLogStatus.pending => AppStrings.logStatusPending,
+        TrackedSyncLogStatus.failed => AppStrings.logStatusFailed,
+        TrackedSyncLogStatus.synced => AppStrings.logStatusSynced,
+      };
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +32,7 @@ class TrackedSyncStatusLogRow extends StatelessWidget {
       children: [
         Padding(
           padding: AppInsets.only(top: 2),
-          child: SvgPicture.asset(
-            AppAssetsSvg.trackedLogsLocationPinIcon,
-            width: 20.sp,
-            height: 20.sp,
-            colorFilter: ColorFilter.mode(_color, BlendMode.srcIn),
-          ),
+          child: SvgPicture.asset(_pinIcon, width: 20.w, height: 20.w),
         ),
         12.pw,
         Expanded(
@@ -43,6 +44,7 @@ class TrackedSyncStatusLogRow extends StatelessWidget {
                 style: context.bodyMediumStyle?.copyWith(
                   fontSize: 14.sp,
                   fontWeight: FontWeight.w500,
+                  height: 20 / 14,
                   color: AppColors.primaryWhite,
                 ),
               ),
@@ -74,10 +76,9 @@ class TrackedSyncStatusLogRow extends StatelessWidget {
           Padding(
             padding: AppInsets.only(top: 2),
             child: SvgPicture.asset(
-              AppAssetsSvg.trackedSyncStatusSyncedBadgeIcon,
-              width: 20.sp,
-              height: 20.sp,
-              colorFilter: ColorFilter.mode(_color, BlendMode.srcIn),
+              AppAssetsSvg.trackedSyncSyncedCheck,
+              width: 20.w,
+              height: 20.w,
             ),
           )
         else

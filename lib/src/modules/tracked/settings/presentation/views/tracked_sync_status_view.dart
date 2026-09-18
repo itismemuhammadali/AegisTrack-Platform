@@ -30,7 +30,7 @@ class TrackedSyncStatusView extends ConsumerWidget {
         ),
         child: SafeArea(
           child: Padding(
-            padding: AppInsets.symmetric(horizontal: 24, vertical: 16),
+            padding: AppInsets.only(left: 24, right: 24, top: 24),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -44,6 +44,7 @@ class TrackedSyncStatusView extends ConsumerWidget {
                         style: context.titleLargeStyle?.copyWith(
                           fontSize: 20.sp,
                           fontWeight: FontWeight.w600,
+                          height: 28 / 20,
                           color: AppColors.primaryWhite,
                         ),
                       ),
@@ -53,7 +54,7 @@ class TrackedSyncStatusView extends ConsumerWidget {
                       onTap: controller.syncNow,
                       child: Container(
                         width: 40.w,
-                        height: 40.h,
+                        height: 40.w,
                         alignment: Alignment.center,
                         decoration: BoxDecoration(
                           color: AppColors.primaryWhite.withValues(alpha: 0.05),
@@ -64,9 +65,9 @@ class TrackedSyncStatusView extends ConsumerWidget {
                           ),
                         ),
                         child: SvgPicture.asset(
-                          AppAssetsSvg.trackedSettingsSyncStatusIcon,
-                          width: 20.sp,
-                          height: 20.sp,
+                          AppAssetsSvg.trackedSyncRefresh,
+                          width: 20.w,
+                          height: 20.w,
                         ),
                       ),
                     ),
@@ -80,33 +81,29 @@ class TrackedSyncStatusView extends ConsumerWidget {
                       Row(
                         children: [
                           TrackedSyncStatusStatCard(
-                            icon: AppAssetsSvg.trackedLogsStatusPendingIcon,
+                            icon: AppAssetsSvg.trackedSyncStatPending,
                             label: AppStrings.logStatusPending,
                             count: controller.pendingEntries.length,
-                            color: AppColors.trackedLogPendingAmber,
                           ),
                           12.pw,
                           TrackedSyncStatusStatCard(
-                            icon: AppAssetsSvg.trackedSyncStatusFailedBadgeIcon,
+                            icon: AppAssetsSvg.trackedSyncStatFailed,
                             label: AppStrings.logStatusFailed,
                             count: controller.failedEntries.length,
-                            color: AppColors.trackedLogFailedRed,
                           ),
                           12.pw,
                           TrackedSyncStatusStatCard(
-                            icon: AppAssetsSvg.trackedSyncStatusSyncedBadgeIcon,
+                            icon: AppAssetsSvg.trackedSyncStatSynced,
                             label: AppStrings.logStatusSynced,
                             count: controller.syncedEntries.length,
-                            color: AppColors.trackedLogSyncedGreen,
                           ),
                         ],
                       ),
                       if (controller.pendingEntries.isNotEmpty) ...[
                         24.ph,
                         TrackedSyncStatusSectionHeading(
-                          icon: AppAssetsSvg.trackedLogsStatusPendingIcon,
+                          icon: AppAssetsSvg.trackedSyncHeadingPending,
                           label: AppStrings.trackedSyncStatusPendingLogs,
-                          color: AppColors.trackedLogPendingAmber,
                         ),
                         12.ph,
                         for (final entry in controller.pendingEntries) ...[
@@ -121,9 +118,8 @@ class TrackedSyncStatusView extends ConsumerWidget {
                       if (controller.failedEntries.isNotEmpty) ...[
                         24.ph,
                         TrackedSyncStatusSectionHeading(
-                          icon: AppAssetsSvg.trackedSyncStatusFailedBadgeIcon,
+                          icon: AppAssetsSvg.trackedSyncHeadingFailed,
                           label: AppStrings.trackedSyncStatusFailedLogs,
-                          color: AppColors.trackedLogFailedRed,
                         ),
                         12.ph,
                         TrackedSyncStatusLogCard(
@@ -133,7 +129,7 @@ class TrackedSyncStatusView extends ConsumerWidget {
                             children: [
                               for (final entry in controller.failedEntries) ...[
                                 TrackedSyncStatusLogRow(entry: entry),
-                                12.ph,
+                                10.ph,
                                 TrackedSyncStatusRetryButton(
                                   onTap: () => controller.retrySync(entry),
                                 ),
@@ -147,9 +143,8 @@ class TrackedSyncStatusView extends ConsumerWidget {
                       if (controller.syncedEntries.isNotEmpty) ...[
                         24.ph,
                         TrackedSyncStatusSectionHeading(
-                          icon: AppAssetsSvg.trackedSyncStatusSyncedBadgeIcon,
+                          icon: AppAssetsSvg.trackedSyncSyncedCheck,
                           label: AppStrings.trackedSyncStatusSyncedLogs,
-                          color: AppColors.trackedLogSyncedGreen,
                         ),
                         12.ph,
                         for (final entry in controller.syncedEntries) ...[

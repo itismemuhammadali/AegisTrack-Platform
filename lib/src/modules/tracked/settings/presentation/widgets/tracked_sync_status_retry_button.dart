@@ -21,13 +21,9 @@ class TrackedSyncStatusRetryButton extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             SvgPicture.asset(
-              AppAssetsSvg.trackedSettingsSyncStatusIcon,
-              width: 16.sp,
-              height: 16.sp,
-              colorFilter: const ColorFilter.mode(
-                AppColors.primaryWhite,
-                BlendMode.srcIn,
-              ),
+              AppAssetsSvg.trackedSyncRetry,
+              width: 16.w,
+              height: 16.w,
             ),
             8.pw,
             Text(

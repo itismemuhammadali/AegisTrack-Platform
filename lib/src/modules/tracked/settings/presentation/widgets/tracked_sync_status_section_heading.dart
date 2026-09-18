@@ -4,13 +4,11 @@ class TrackedSyncStatusSectionHeading extends StatelessWidget {
   const TrackedSyncStatusSectionHeading({
     required this.icon,
     required this.label,
-    required this.color,
     super.key,
   });
 
   final String icon;
   final String label;
-  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +16,8 @@ class TrackedSyncStatusSectionHeading extends StatelessWidget {
       children: [
         SvgPicture.asset(
           icon,
-          width: 20.sp,
-          height: 20.sp,
-          colorFilter: ColorFilter.mode(color, BlendMode.srcIn),
+          width: 20.w,
+          height: 20.w,
         ),
         8.pw,
         Text(
@@ -28,6 +25,7 @@ class TrackedSyncStatusSectionHeading extends StatelessWidget {
           style: context.bodyLargeStyle?.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeight.w500,
+            height: 27 / 18,
             color: AppColors.primaryWhite,
           ),
         ),
