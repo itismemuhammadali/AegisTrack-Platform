@@ -23,6 +23,7 @@ class TrackedExportCenterSummaryCard extends StatelessWidget {
             style: context.bodySmallStyle?.copyWith(
               fontSize: 14.sp,
               fontWeight: FontWeight.w400,
+              height: 20 / 14,
               color: AppColors.trackedExportCenterMutedText,
             ),
           ),
@@ -32,6 +33,7 @@ class TrackedExportCenterSummaryCard extends StatelessWidget {
             style: context.headlineSmallStyle?.copyWith(
               fontSize: 24.sp,
               fontWeight: FontWeight.w600,
+              height: 32 / 24,
               color: AppColors.primaryWhite,
             ),
           ),

@@ -23,6 +23,7 @@ class TrackedExportCenterTagChip extends StatelessWidget {
         style: context.bodySmallStyle?.copyWith(
           fontSize: 12.sp,
           fontWeight: FontWeight.w500,
+          height: 16 / 12,
           color: color,
         ),
       ),

@@ -21,7 +21,7 @@ class TrackedExportCenterFormatCard extends StatelessWidget {
 
   Color get _iconBackground => switch (format) {
         TrackedExportFormat.encryptedPdf =>
-          AppColors.trackedExportCenterPdfIconBackground,
+          AppColors.primaryWhite.withValues(alpha: 0.1),
         TrackedExportFormat.spreadsheet =>
           AppColors.trackedExportCenterSpreadsheetIconBackground,
         TrackedExportFormat.email =>
@@ -114,6 +114,7 @@ class TrackedExportCenterFormatCard extends StatelessWidget {
                           style: context.bodyMediumStyle?.copyWith(
                             fontSize: 16.sp,
                             fontWeight: FontWeight.w600,
+                            height: 24 / 16,
                             color: AppColors.primaryWhite,
                           ),
                         ),
@@ -133,7 +134,8 @@ class TrackedExportCenterFormatCard extends StatelessWidget {
                     _description,
                     style: context.bodySmallStyle?.copyWith(
                       fontSize: 14.sp,
-                      fontWeight: FontWeight.w400,
+                      fontWeight: FontWeight.w500,
+                      height: 20 / 14,
                       color: AppColors.trackedExportCenterMutedText,
                     ),
                   ),

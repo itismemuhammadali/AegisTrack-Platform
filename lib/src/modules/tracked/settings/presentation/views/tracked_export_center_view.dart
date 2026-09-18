@@ -47,6 +47,7 @@ class TrackedExportCenterView extends ConsumerWidget {
                           color: AppColors.primaryWhite,
                           fontSize: 18.sp,
                           fontWeight: FontWeight.w500,
+                          height: 27 / 18,
                         ),
                       ),
                       12.ph,

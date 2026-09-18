@@ -382,7 +382,6 @@ class AppColors {
   static const Color trackedExportCenterCardBorder = Color(0x1AFFFFFF);
   static const Color trackedExportCenterMutedText = Color(0xFFA0A7B8);
   static const Color trackedExportCenterPdfAccent = Color(0xFF34206C);
-  static const Color trackedExportCenterPdfIconBackground = Color(0x3334206C);
   static const Color trackedExportCenterSpreadsheetAccent = Color(0xFF10B981);
   static const Color trackedExportCenterSpreadsheetIconBackground =
       Color(0x3310B981);
