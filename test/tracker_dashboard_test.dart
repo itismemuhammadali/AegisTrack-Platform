@@ -139,6 +139,12 @@ void main() {
         }
         if (tab == 'Profile') {
           expect(find.text('Alex Viewer'), findsOneWidget);
+          // The content viewport extends behind the overlaid navigation bar.
+          expect(
+              tester
+                  .getRect(find.byKey(const PageStorageKey('tracker-profile')))
+                  .bottom,
+              956);
           await tester.scrollUntilVisible(find.text('Logout'), 250,
               scrollable: find.byType(Scrollable).first);
           await tester.pumpAndSettle();

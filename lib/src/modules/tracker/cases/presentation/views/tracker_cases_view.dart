@@ -15,7 +15,8 @@ class TrackerCasesView extends StatelessWidget {
   @override
   Widget build(BuildContext context) => ListView(
         key: const PageStorageKey('tracker-cases'),
-        padding: AppInsets.all(24),
+        padding: EdgeInsets.fromLTRB(
+            24.w, 24.h, 24.w, 24.h + MediaQuery.paddingOf(context).bottom),
         children: [
           TrackerHomeHeader(
               name: AppStrings.trackedSettingsProfileName,

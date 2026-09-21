@@ -7,17 +7,20 @@ class TrackerBottomBar extends StatelessWidget {
 
   final TrackerDashboardController controller;
 
+  static double heightOf(BuildContext context) =>
+      112.h +
+      (MediaQuery.paddingOf(context).bottom - 15.h).clamp(0, double.infinity);
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 112.h +
-          (MediaQuery.paddingOf(context).bottom - 15.h)
-              .clamp(0, double.infinity),
+      height: heightOf(context),
       width: double.infinity,
       child: ClipRect(
         child: Stack(
           children: [
-            OverflowBox(
+            IgnorePointer(
+                child: OverflowBox(
               alignment: Alignment.topCenter,
               minWidth: 0,
               maxWidth: double.infinity,
@@ -27,7 +30,7 @@ class TrackerBottomBar extends StatelessWidget {
                 width: 1192.w,
                 height: 596.w,
               ),
-            ),
+            )),
             Positioned(
               top: 37.h,
               left: 40.w,

@@ -26,7 +26,8 @@ class TrackerHomeView extends ConsumerWidget {
     final controller = ref.watch(trackerHomeControllerProvider);
 
     return ListView(
-      padding: AppInsets.only(left: 24, right: 24, top: 24, bottom: 24),
+      padding: EdgeInsets.fromLTRB(
+          24.w, 24.h, 24.w, 24.h + MediaQuery.paddingOf(context).bottom),
       children: [
         TrackerHomeHeader(
           name: controller.viewerName,

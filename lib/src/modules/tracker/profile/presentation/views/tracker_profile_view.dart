@@ -68,7 +68,8 @@ class TrackerProfileView extends ConsumerWidget {
         );
     return ListView(
       key: const PageStorageKey('tracker-profile'),
-      padding: AppInsets.all(24),
+      padding: EdgeInsets.fromLTRB(
+          24.w, 24.h, 24.w, 24.h + MediaQuery.paddingOf(context).bottom),
       children: [
         TrackerSurface(
             padding: 20,

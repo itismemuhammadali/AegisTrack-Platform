@@ -24,18 +24,30 @@ class TrackerDashboardView extends ConsumerWidget {
             ],
           ),
         ),
-        child: Column(
+        child: Stack(
           children: [
-            Expanded(
-              child: SafeArea(
-                bottom: false,
-                child: IndexedStack(
-                  index: controller.selectedIndex,
-                  children: controller.screens,
+            Positioned.fill(
+              child: MediaQuery(
+                data: MediaQuery.of(context).copyWith(
+                  padding: MediaQuery.paddingOf(context).copyWith(
+                    bottom: TrackerBottomBar.heightOf(context),
+                  ),
+                ),
+                child: SafeArea(
+                  bottom: false,
+                  child: IndexedStack(
+                    index: controller.selectedIndex,
+                    children: controller.screens,
+                  ),
                 ),
               ),
             ),
-            TrackerBottomBar(controller: controller),
+            Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              child: TrackerBottomBar(controller: controller),
+            ),
           ],
         ),
       ),
