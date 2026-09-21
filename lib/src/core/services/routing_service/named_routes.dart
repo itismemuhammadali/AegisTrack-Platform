@@ -6,7 +6,9 @@ import '../../../modules/onboarding/presentation/views/onboarding_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/enable_location_access_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/register_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_forgot_password_view.dart';
+import '../../../modules/tracker/authentication/presentation/views/viewer_new_password_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_sign_in_view.dart';
+import '../../../modules/tracker/authentication/presentation/views/viewer_verify_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/sign_in_options_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/sign_in_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/two_factor_view.dart';
@@ -85,7 +87,30 @@ class AppRouterGo {
         path: viewerForgotPasswordView,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child: const ViewerForgotPasswordView(),
+          child: ViewerForgotPasswordView(
+            onContinue: (email) =>
+                AppRouterGo.push(viewerVerifyView, extra: email),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: viewerVerifyView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: ViewerVerifyView(
+            email: (state.extra as String?) ?? '',
+            onVerified: () => AppRouterGo.push(viewerNewPasswordView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: viewerNewPasswordView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: ViewerNewPasswordView(
+            // Back to viewer sign in once the password is saved.
+            onSaved: () => AppRouterGo.pushRemoveUntil(viewerSignInView),
+          ),
         ),
       ),
       GoRoute(

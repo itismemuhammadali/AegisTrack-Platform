@@ -136,13 +136,25 @@ class RegisterView extends ConsumerWidget {
                           CustomTextField(
                             controller: controller.confirmPasswordController,
                             hintText: AppStrings.confirmPassword,
-                            isObscure: controller.obscureRegisterPassword,
+                            isObscure: controller.obscureConfirmPassword,
                             isLast: true,
                             isPrefix: true,
                             prefixWidget: SvgPicture.asset(
                               AppAssetsSvg.signInPasswordIcon,
                               width: 20.sp,
                               height: 20.sp,
+                            ),
+                            suffixbutton: IconButton(
+                              splashRadius: 20.r,
+                              onPressed:
+                                  controller.toggleConfirmPasswordVisibility,
+                              icon: Icon(
+                                controller.obscureConfirmPassword
+                                    ? Icons.visibility_off_outlined
+                                    : Icons.visibility_outlined,
+                                color: AppColors.signInDarkSubtitle,
+                                size: 20.sp,
+                              ),
                             ),
                             fillColor: fieldFillColor,
                             enableBorderColor: fieldBorderColor,

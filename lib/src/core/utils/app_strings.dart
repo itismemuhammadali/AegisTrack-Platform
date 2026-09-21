@@ -36,6 +36,7 @@ class AppStrings {
   static const String rememberMe = 'Remember Me';
   static const String forgotPassword = 'Forgot Password?';
   static const String forgetPasswordTitle = 'Forget Password';
+  static const String newPasswordTitle = 'New Password';
   static const String continueAction = 'Continue';
   static const String signInWithBiometrics = 'Sign In with Biometrics';
   static const String createAccountSubtitle =
@@ -65,6 +66,7 @@ class AppStrings {
   static const String verificationSubtitle = 'Enter the 6-digit code sent to';
   static const String resendCodeIn = 'Resend code in ';
   static const String resendCode = 'Resend code';
+  static const String enterOtpToContinue = 'Enter the 6-digit code to continue';
   static const String verifyCode = 'Verify Code';
 
   // Two-factor authentication - Joshua R Hughes (location tracking)

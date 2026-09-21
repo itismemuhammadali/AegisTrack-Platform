@@ -24,6 +24,7 @@ class AuthController extends ChangeNotifier {
   bool agreedToTerms = false;
   bool isRegistering = false;
   bool obscureRegisterPassword = true;
+  bool obscureConfirmPassword = true;
 
   List<TextEditingController?> _verificationOtpControllers = [];
   List<TextEditingController?> _twoFactorOtpControllers = [];
@@ -46,6 +47,11 @@ class AuthController extends ChangeNotifier {
 
   void toggleRegisterPasswordVisibility() {
     obscureRegisterPassword = !obscureRegisterPassword;
+    notifyListeners();
+  }
+
+  void toggleConfirmPasswordVisibility() {
+    obscureConfirmPassword = !obscureConfirmPassword;
     notifyListeners();
   }
 
