@@ -16,6 +16,7 @@ class TrackedHomeView extends StatelessWidget {
     this.onSos,
     this.onAskAi,
     this.onZone,
+    this.onSyncStatus,
   });
 
   final VoidCallback? onViewFullMap;
@@ -27,6 +28,9 @@ class TrackedHomeView extends StatelessWidget {
   final VoidCallback? onAskAi;
   final VoidCallback? onZone;
 
+  /// Tapping the Last Synced / Failed cards opens Sync Status.
+  final VoidCallback? onSyncStatus;
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -36,7 +40,12 @@ class TrackedHomeView extends StatelessWidget {
         children: [
           TrackedHomeHeader(onSos: onSos),
           24.ph,
-          TrackedHomeStatsGrid(onCheckIn: onCheckIn, onZone: onZone),
+          TrackedHomeStatsGrid(
+            onCheckIn: onCheckIn,
+            onZone: onZone,
+            onLastSynced: onSyncStatus,
+            onFailed: onSyncStatus,
+          ),
           24.ph,
           LiveMapCard(onViewFullMap: onViewFullMap),
           24.ph,
