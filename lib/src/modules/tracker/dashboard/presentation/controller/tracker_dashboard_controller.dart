@@ -8,11 +8,11 @@ import '../../domain/entities/tracker_tab_item_entity.dart';
 class TrackerDashboardController extends ChangeNotifier with Buffers {
   int selectedIndex = 0;
 
-  final List<Widget> screens = const [
-    TrackerHomeView(),
-    TrackerUsersView(),
-    TrackerCasesView(),
-    TrackerProfileView(),
+  late final List<Widget> screens = [
+    const TrackerHomeView(),
+    const TrackerUsersView(),
+    const TrackerCasesView(),
+    TrackerProfileView(onLogout: logout),
   ];
 
   final List<TrackerTabItemEntity> tabs = const [
@@ -38,6 +38,11 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
     if (selectedIndex == index) return;
     selectedIndex = index;
     notifyListeners();
+  }
+
+  Future<void> logout() async {
+    await AuthHandler.ref.logout();
+    AppRouterGo.pushRemoveUntil(signInOptionsView);
   }
 
   bool isSelected(int index) => selectedIndex == index;
