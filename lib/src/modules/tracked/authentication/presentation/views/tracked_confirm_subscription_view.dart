@@ -1,4 +1,6 @@
 import '../../../../../core/utils/app_exports.dart';
+import '../../../settings/presentation/controller/tracked_settings_controller.dart';
+import '../../../settings/presentation/widgets/tracked_membership_sheets.dart';
 import '../controller/auth_controller.dart';
 import '../widgets/tracked_subscription_scaffold.dart';
 
@@ -15,7 +17,11 @@ class TrackedConfirmSubscriptionView extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final controller = ref.watch(authControllerProvider);
+    final settings = ref.watch(trackedSettingsControllerProvider);
     final plan = controller.selectedPlan;
+    final card =
+        settings.paymentCards.where((card) => card.isDefault).firstOrNull ??
+            settings.paymentCards.firstOrNull;
 
     final mutedStyle = context.bodyMediumStyle?.copyWith(
       color: AppColors.trackedPlanMutedText,
@@ -80,7 +86,16 @@ class TrackedConfirmSubscriptionView extends ConsumerWidget {
                     Align(
                       alignment: Alignment.centerRight,
                       child: GestureDetector(
-                        onTap: onAddCard,
+                        onTap: onAddCard ??
+                            () => showTrackedMembershipSheet<void>(
+                                  context,
+                                  child: TrackedAddCardSheet(
+                                    onAdd: (number, expiry) => settings.addCard(
+                                      number: number,
+                                      expiry: expiry,
+                                    ),
+                                  ),
+                                ),
                         child: Text(
                           AppStrings.trackedConfirmAddCard,
                           style: context.bodyLargeStyle?.copyWith(
@@ -118,13 +133,17 @@ class TrackedConfirmSubscriptionView extends ConsumerWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  AppStrings.trackedConfirmCardTitle,
+                                  card?.maskedNumber ??
+                                      AppStrings.trackedConfirmCardTitle,
                                   style: valueStyle?.copyWith(
                                     fontWeight: FontWeight.w500,
                                   ),
                                 ),
                                 Text(
-                                  AppStrings.trackedConfirmCardExpiry,
+                                  card == null
+                                      ? AppStrings.trackedConfirmCardExpiry
+                                      : AppStrings.trackedMembershipExpires +
+                                          card.expiry,
                                   style: context.bodySmallStyle?.copyWith(
                                     color: AppColors.trackedPlanFaintText,
                                     fontSize: 12.sp,
