@@ -29,6 +29,17 @@ class AppStrings {
   static const String signIn = 'Sign in';
   static const String createViewerAccount = 'Create Viewer Account';
   static const String registerNow = 'Register Now';
+  static const String createAccount = 'Create Account';
+  static const String createAccountSubtitle =
+      'Start tracking your location securely';
+  static const String fullName = 'Full Name';
+  static const String confirmPassword = 'Confirm Password';
+  static const String agreeToTermsPrefix = 'I agree to the ';
+  static const String termsAndPrivacy = 'Terms & Privacy';
+  static const String mustAgreeToTerms =
+      'Please accept the Terms & Privacy to continue';
+  static const String alreadyHaveAccount = 'Already have an account? ';
+  static const String signInAction = 'Sign In';
   static const String signInWithEmail = 'Sign In with Email';
   static const String continueAsViewer = 'Continue as Viewer Account';
   static const String signInOr = 'OR';

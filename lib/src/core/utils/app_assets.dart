@@ -51,6 +51,7 @@ class AppAssetsSvg {
       'assets/icons/svg/onboarding_track_location_blob.svg';
 
   /// Sign in - Joshua R Hughes (location tracking)
+  static const String signInPersonIcon = 'assets/icons/svg/sign_in_person.svg';
   static const String signInEmailIcon = 'assets/icons/svg/sign_in_email.svg';
   static const String signInPasswordIcon =
       'assets/icons/svg/sign_in_password.svg';

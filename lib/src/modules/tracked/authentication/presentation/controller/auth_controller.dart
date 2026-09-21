@@ -15,6 +15,16 @@ class AuthController extends ChangeNotifier {
     text: kDebugMode ? 'Test@1234' : null,
   );
 
+  // Register
+  final registerFormKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
+  final registerEmailController = TextEditingController();
+  final registerPasswordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
+  bool agreedToTerms = false;
+  bool isRegistering = false;
+  bool obscureRegisterPassword = true;
+
   List<TextEditingController?> _verificationOtpControllers = [];
   List<TextEditingController?> _twoFactorOtpControllers = [];
   Timer? _resendTimer;
@@ -28,6 +38,33 @@ class AuthController extends ChangeNotifier {
   int secondsUntilResend = resendDuration;
   TrackedSubscriptionPlan selectedPlan = TrackedSubscriptionPlan.basic;
   bool isConfirmingSubscription = false;
+
+  void toggleTerms() {
+    agreedToTerms = !agreedToTerms;
+    notifyListeners();
+  }
+
+  void toggleRegisterPasswordVisibility() {
+    obscureRegisterPassword = !obscureRegisterPassword;
+    notifyListeners();
+  }
+
+  void submitRegister({void Function(String email)? onSuccess}) {
+    if (!(registerFormKey.currentState?.validate() ?? false)) return;
+    if (!agreedToTerms) {
+      Prompts.showToast(AppStrings.mustAgreeToTerms);
+      return;
+    }
+
+    final email = registerEmailController.text.trim();
+    isRegistering = true;
+    notifyListeners();
+
+    // TODO: call the register API before sending the verification code.
+    isRegistering = false;
+    notifyListeners();
+    onSuccess?.call(email);
+  }
 
   void togglePasswordVisibility() {
     obscurePassword = !obscurePassword;
@@ -173,6 +210,10 @@ class AuthController extends ChangeNotifier {
     _resendTimer?.cancel();
     emailController.dispose();
     passwordController.dispose();
+    nameController.dispose();
+    registerEmailController.dispose();
+    registerPasswordController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
 }

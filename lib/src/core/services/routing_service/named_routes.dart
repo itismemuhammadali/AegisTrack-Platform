@@ -4,6 +4,7 @@
 
 import '../../../modules/onboarding/presentation/views/onboarding_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/enable_location_access_view.dart';
+import '../../../modules/tracked/authentication/presentation/views/register_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/sign_in_options_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/sign_in_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/two_factor_view.dart';
@@ -63,6 +64,16 @@ class AppRouterGo {
           child: SignInView(
             onSignIn: (email, password) =>
                 AppRouterGo.push(verifyView, extra: email),
+            onRegister: () => AppRouterGo.push(registerView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: registerView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: RegisterView(
+            onRegister: (email) => AppRouterGo.push(verifyView, extra: email),
           ),
         ),
       ),

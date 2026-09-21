@@ -1,6 +1,7 @@
 ﻿const String onboardingView = '/';
 const String signInOptionsView = '/sign-in-options';
 const String signInView = '/sign-in';
+const String registerView = '/register';
 const String verifyView = '/verify';
 const String twoFactorView = '/two-factor';
 const String enableLocationAccessView = '/enable-location-access';
