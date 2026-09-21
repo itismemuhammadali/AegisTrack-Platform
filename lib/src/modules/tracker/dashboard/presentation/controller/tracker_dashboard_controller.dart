@@ -1,0 +1,49 @@
+import '../../../../../core/utils/app_exports.dart';
+import '../../../cases/presentation/views/tracker_cases_view.dart';
+import '../../../home/presentation/views/tracker_home_view.dart';
+import '../../../profile/presentation/views/tracker_profile_view.dart';
+import '../../../users/presentation/views/tracker_users_view.dart';
+import '../../domain/entities/tracker_tab_item_entity.dart';
+
+class TrackerDashboardController extends ChangeNotifier with Buffers {
+  int selectedIndex = 0;
+
+  final List<Widget> screens = const [
+    TrackerHomeView(),
+    TrackerUsersView(),
+    TrackerCasesView(),
+    TrackerProfileView(),
+  ];
+
+  final List<TrackerTabItemEntity> tabs = const [
+    TrackerTabItemEntity(
+      icon: AppAssetsSvg.trackerNavHome,
+      label: AppStrings.trackerNavHome,
+    ),
+    TrackerTabItemEntity(
+      icon: AppAssetsSvg.trackerNavUsers,
+      label: AppStrings.trackerNavUsers,
+    ),
+    TrackerTabItemEntity(
+      icon: AppAssetsSvg.trackerNavCases,
+      label: AppStrings.trackerNavCases,
+    ),
+    TrackerTabItemEntity(
+      icon: AppAssetsSvg.trackerNavProfile,
+      label: AppStrings.trackerNavProfile,
+    ),
+  ];
+
+  void onTabTapped(int index) {
+    if (selectedIndex == index) return;
+    selectedIndex = index;
+    notifyListeners();
+  }
+
+  bool isSelected(int index) => selectedIndex == index;
+}
+
+final trackerDashboardControllerProvider =
+    ChangeNotifierProvider.autoDispose<TrackerDashboardController>(
+  (ref) => TrackerDashboardController(),
+);

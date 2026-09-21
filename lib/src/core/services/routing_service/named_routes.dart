@@ -6,6 +6,7 @@ import '../../../modules/onboarding/presentation/views/onboarding_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/enable_location_access_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/register_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_forgot_password_view.dart';
+import '../../../modules/tracker/dashboard/presentation/views/tracker_dashboard_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_new_password_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_register_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_sign_in_view.dart';
@@ -75,10 +76,21 @@ class AppRouterGo {
         ),
       ),
       GoRoute(
+        path: trackerDashboardView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const TrackerDashboardView(),
+        ),
+      ),
+      GoRoute(
         path: viewerSignInView,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: ViewerSignInView(
+            onSignIn: (email) =>
+                AppRouterGo.pushRemoveUntil(trackerDashboardView),
+            onBiometrics: () =>
+                AppRouterGo.pushRemoveUntil(trackerDashboardView),
             onForgotPassword: () =>
                 AppRouterGo.push(viewerForgotPasswordView),
             onRegister: () => AppRouterGo.push(viewerRegisterView),

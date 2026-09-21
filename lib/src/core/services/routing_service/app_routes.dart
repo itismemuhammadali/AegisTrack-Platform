@@ -2,6 +2,7 @@
 const String signInOptionsView = '/sign-in-options';
 const String signInView = '/sign-in';
 const String registerView = '/register';
+const String trackerDashboardView = '/tracker-dashboard';
 const String viewerSignInView = '/viewer-sign-in';
 const String viewerForgotPasswordView = '/viewer-forgot-password';
 const String viewerRegisterView = '/viewer-register';

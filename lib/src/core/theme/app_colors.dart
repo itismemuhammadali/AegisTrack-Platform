@@ -243,6 +243,14 @@ class AppColors {
   static const Color signInDarkBorder = Color(0x1AFFFFFF);
   static const Color signInDarkSubtitle = Color(0xFFA0A7B8);
   static const Color signInDarkDivider = Color(0xFF1F2937);
+  // Tracker (viewer) dashboard
+  static const Color trackerSosRed = Color(0xFFC90000);
+  static const Color trackerOnlineGreen = Color(0xFF05DF72);
+  static const Color trackerAmber = Color(0xFFFFB900);
+  static const Color trackerOrange = Color(0xFFFF8904);
+  static const Color trackerAlertSubtitle = Color(0xFF8BA9A3);
+  static const Color trackerCardGlow = Color(0x4D2F1D63);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);
