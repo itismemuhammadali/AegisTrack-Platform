@@ -126,6 +126,16 @@ void main() {
     expect(tester.takeException(), isNull);
   });
 
+  testWidgets('Bottom bar caps the gap on phones with a home indicator',
+      (tester) async {
+    tester.view.padding = const FakeViewPadding(bottom: 34);
+    addTearDown(tester.view.resetPadding);
+    await pumpDashboard(tester, const Size(440, 956));
+    final labelBottom = tester.getRect(find.text('Profile')).bottom;
+    expect(956 - labelBottom, closeTo(12, 0.1));
+    expect(tester.takeException(), isNull);
+  });
+
   for (final width in [320.0, 375.0, 440.0]) {
     testWidgets('Viewer tabs render and scroll at width $width',
         (tester) async {

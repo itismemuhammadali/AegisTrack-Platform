@@ -7,9 +7,12 @@ class TrackerBottomBar extends StatelessWidget {
 
   final TrackerDashboardController controller;
 
+  // Keep the footer compact even on phones with a large home-indicator inset.
+  static double _bottomSpacing(BuildContext context) =>
+      MediaQuery.paddingOf(context).bottom.clamp(4.0, 12.0);
+
   static double heightOf(BuildContext context) =>
-      112.h +
-      (MediaQuery.paddingOf(context).bottom - 15.h).clamp(0, double.infinity);
+      37.h + 40.w + 4.h + 16.sp + _bottomSpacing(context);
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class TrackerBottomBar extends StatelessWidget {
               ),
             )),
             Positioned(
-              top: 37.h,
+              bottom: _bottomSpacing(context),
               left: 40.w,
               right: 40.w,
               child: Row(
