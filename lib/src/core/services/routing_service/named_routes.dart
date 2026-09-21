@@ -119,10 +119,11 @@ class AppRouterGo {
               final isReset = extra['flow'] == 'reset';
               return ViewerVerifyView(
                 email: (extra['email'] as String?) ?? '',
-                // Reset → set a new password; register → viewer sign in.
+                // Reset → set a new password; register → 2FA, then the
+                // shared plan / subscription screens.
                 onVerified: () => isReset
                     ? AppRouterGo.push(viewerNewPasswordView)
-                    : AppRouterGo.pushRemoveUntil(viewerSignInView),
+                    : AppRouterGo.push(twoFactorView),
               );
             },
           ),
