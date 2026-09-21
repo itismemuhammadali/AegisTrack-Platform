@@ -30,6 +30,12 @@ class AppStrings {
   static const String createViewerAccount = 'Create Viewer Account';
   static const String registerNow = 'Register Now';
   static const String createAccount = 'Create Account';
+  static const String viewerSignInTitle = 'Secure Sign In';
+  static const String viewerSignInSubtitle =
+      'Access your authorized viewer account';
+  static const String rememberMe = 'Remember Me';
+  static const String forgotPassword = 'Forgot Password?';
+  static const String signInWithBiometrics = 'Sign In with Biometrics';
   static const String createAccountSubtitle =
       'Start tracking your location securely';
   static const String fullName = 'Full Name';
