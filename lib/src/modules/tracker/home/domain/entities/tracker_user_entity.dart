@@ -1,4 +1,4 @@
-enum TrackerAuthenticity { verified, acceptable }
+enum TrackerAuthenticity { verified, acceptable, questionable }
 
 class TrackerUserEntity {
   const TrackerUserEntity({
@@ -7,6 +7,7 @@ class TrackerUserEntity {
     required this.location,
     required this.authenticity,
     this.isOnline = true,
+    this.isSos = false,
   });
 
   final String name;
@@ -14,4 +15,5 @@ class TrackerUserEntity {
   final String location;
   final TrackerAuthenticity authenticity;
   final bool isOnline;
+  final bool isSos;
 }
