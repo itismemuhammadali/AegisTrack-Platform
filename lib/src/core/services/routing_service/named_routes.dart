@@ -7,6 +7,7 @@ import '../../../modules/tracked/authentication/presentation/views/enable_locati
 import '../../../modules/tracked/authentication/presentation/views/register_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_forgot_password_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_new_password_view.dart';
+import '../../../modules/tracker/authentication/presentation/views/viewer_register_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_sign_in_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_verify_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/sign_in_options_view.dart';
@@ -80,6 +81,7 @@ class AppRouterGo {
           child: ViewerSignInView(
             onForgotPassword: () =>
                 AppRouterGo.push(viewerForgotPasswordView),
+            onRegister: () => AppRouterGo.push(viewerRegisterView),
           ),
         ),
       ),
@@ -88,8 +90,22 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: ViewerForgotPasswordView(
-            onContinue: (email) =>
-                AppRouterGo.push(viewerVerifyView, extra: email),
+            onContinue: (email) => AppRouterGo.push(
+              viewerVerifyView,
+              extra: {'email': email, 'flow': 'reset'},
+            ),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: viewerRegisterView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: ViewerRegisterView(
+            onRegister: (email) => AppRouterGo.push(
+              viewerVerifyView,
+              extra: {'email': email, 'flow': 'register'},
+            ),
           ),
         ),
       ),
@@ -97,9 +113,18 @@ class AppRouterGo {
         path: viewerVerifyView,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child: ViewerVerifyView(
-            email: (state.extra as String?) ?? '',
-            onVerified: () => AppRouterGo.push(viewerNewPasswordView),
+          child: Builder(
+            builder: (context) {
+              final extra = (state.extra as Map?) ?? const {};
+              final isReset = extra['flow'] == 'reset';
+              return ViewerVerifyView(
+                email: (extra['email'] as String?) ?? '',
+                // Reset → set a new password; register → viewer sign in.
+                onVerified: () => isReset
+                    ? AppRouterGo.push(viewerNewPasswordView)
+                    : AppRouterGo.pushRemoveUntil(viewerSignInView),
+              );
+            },
           ),
         ),
       ),

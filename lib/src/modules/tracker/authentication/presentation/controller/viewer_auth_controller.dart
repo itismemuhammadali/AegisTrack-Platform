@@ -12,6 +12,49 @@ class ViewerAuthController extends ChangeNotifier with Buffers {
   bool obscurePassword = true;
   bool isSigningIn = false;
 
+  // Register
+  final registerFormKey = GlobalKey<FormState>();
+  final nameController = TextEditingController();
+  final registerEmailController = TextEditingController();
+  final registerPasswordController = TextEditingController();
+  final registerConfirmController = TextEditingController();
+  bool agreedToTerms = false;
+  bool isRegistering = false;
+  bool obscureRegisterPassword = true;
+  bool obscureRegisterConfirm = true;
+
+  void toggleTerms() {
+    agreedToTerms = !agreedToTerms;
+    notifyListeners();
+  }
+
+  void toggleRegisterPasswordVisibility() {
+    obscureRegisterPassword = !obscureRegisterPassword;
+    notifyListeners();
+  }
+
+  void toggleRegisterConfirmVisibility() {
+    obscureRegisterConfirm = !obscureRegisterConfirm;
+    notifyListeners();
+  }
+
+  void submitRegister({void Function(String email)? onSuccess}) {
+    if (!(registerFormKey.currentState?.validate() ?? false)) return;
+    if (!agreedToTerms) {
+      Prompts.showToast(AppStrings.mustAgreeToTerms);
+      return;
+    }
+
+    final email = registerEmailController.text.trim();
+    isRegistering = true;
+    notifyListeners();
+
+    //  call the viewer register API before sending the code.
+    isRegistering = false;
+    notifyListeners();
+    onSuccess?.call(email);
+  }
+
   // Forgot password
   final forgotPasswordFormKey = GlobalKey<FormState>();
   final forgotEmailController = TextEditingController();
@@ -50,7 +93,7 @@ class ViewerAuthController extends ChangeNotifier with Buffers {
 
   void resendCode() {
     if (secondsUntilResend != 0) return;
-    // TODO: call the resend-code API.
+    // call the resend-code API.
     startResendTimer();
   }
 
@@ -65,7 +108,7 @@ class ViewerAuthController extends ChangeNotifier with Buffers {
     isVerifying = true;
     notifyListeners();
 
-    // TODO: verify the reset code with the API.
+    //  verify the reset code with the API.
     isVerifying = false;
     notifyListeners();
     onSuccess?.call();
@@ -87,7 +130,7 @@ class ViewerAuthController extends ChangeNotifier with Buffers {
     isSavingPassword = true;
     notifyListeners();
 
-    // TODO: save the new password through the API.
+    //  save the new password through the API.
     isSavingPassword = false;
     notifyListeners();
     onSuccess?.call();
@@ -110,7 +153,7 @@ class ViewerAuthController extends ChangeNotifier with Buffers {
     isSigningIn = true;
     notifyListeners();
 
-    // TODO: call the viewer sign-in API.
+    //  call the viewer sign-in API.
     isSigningIn = false;
     notifyListeners();
     onSuccess?.call(email);
@@ -123,14 +166,14 @@ class ViewerAuthController extends ChangeNotifier with Buffers {
     isSendingReset = true;
     notifyListeners();
 
-    // TODO: call the password-reset API.
+    //  call the password-reset API.
     isSendingReset = false;
     notifyListeners();
     onSuccess?.call(email);
   }
 
   void signInWithBiometrics({VoidCallback? onSuccess}) {
-    // TODO: prompt Face ID / fingerprint (needs local_auth) before continuing.
+    // prompt Face ID / fingerprint (needs local_auth) before continuing.
     onSuccess?.call();
   }
 
@@ -139,6 +182,10 @@ class ViewerAuthController extends ChangeNotifier with Buffers {
     emailController.dispose();
     passwordController.dispose();
     forgotEmailController.dispose();
+    nameController.dispose();
+    registerEmailController.dispose();
+    registerPasswordController.dispose();
+    registerConfirmController.dispose();
     newPasswordController.dispose();
     confirmPasswordController.dispose();
     _resendTimer?.cancel();

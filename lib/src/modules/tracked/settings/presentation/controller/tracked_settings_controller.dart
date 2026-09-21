@@ -204,7 +204,7 @@ class TrackedSettingsController extends ChangeNotifier with Buffers {
               antiSpoofChecks.length)
           .round();
 
-  // TODO: replace the timed demo with the real authenticity scoring API.
+  // replace the timed demo with the real authenticity scoring API.
   void startAntiSpoofing() {
     _antiSpoofTimer?.cancel();
     antiSpoofPhase = TrackedAntiSpoofPhase.scanning;

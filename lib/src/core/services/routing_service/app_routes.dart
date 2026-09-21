@@ -4,6 +4,7 @@ const String signInView = '/sign-in';
 const String registerView = '/register';
 const String viewerSignInView = '/viewer-sign-in';
 const String viewerForgotPasswordView = '/viewer-forgot-password';
+const String viewerRegisterView = '/viewer-register';
 const String viewerVerifyView = '/viewer-verify';
 const String viewerNewPasswordView = '/viewer-new-password';
 const String verifyView = '/verify';

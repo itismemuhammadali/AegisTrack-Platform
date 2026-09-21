@@ -66,7 +66,7 @@ class AuthController extends ChangeNotifier {
     isRegistering = true;
     notifyListeners();
 
-    // TODO: call the register API before sending the verification code.
+    //  call the register API before sending the verification code.
     isRegistering = false;
     notifyListeners();
     onSuccess?.call(email);

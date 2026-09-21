@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import '../../../../../components/custom_textfield.dart';
 import '../../../../../core/utils/app_exports.dart';
 import '../../../../onboarding/presentation/widgets/onboarding_page_scaffold.dart';
@@ -66,7 +68,7 @@ class RegisterView extends ConsumerWidget {
                   24.ph,
                   Expanded(
                     child: SingleChildScrollView(
-                      padding: EdgeInsets.fromLTRB(24.w, 0, 24.w, 32.h),
+                      padding: EdgeInsets.fromLTRB(24.w, 0, 24.w, 24.h),
                       child: Column(
                         children: [
                           CustomTextField(
@@ -179,31 +181,38 @@ class RegisterView extends ConsumerWidget {
                               onSuccess: onRegister,
                             ),
                           ),
-                          24.ph,
-                          GestureDetector(
-                            onTap: onSignIn ?? AppRouterGo.back,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text(
-                                  AppStrings.alreadyHaveAccount,
-                                  style: context.bodyLargeStyle?.copyWith(
-                                    color: AppColors.signInDarkSubtitle,
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w400,
-                                    height: 24 / 16,
-                                  ),
-                                ),
-                                Text(
-                                  AppStrings.signInAction,
-                                  style: context.bodyLargeStyle?.copyWith(
-                                    color: AppColors.primaryWhite,
-                                    fontSize: 16.sp,
-                                    fontWeight: FontWeight.w500,
-                                    height: 24 / 16,
-                                  ),
-                                ),
-                              ],
+                        ],
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(
+                      24.w,
+                      0,
+                      24.w,
+                      math.max(32.h, MediaQuery.paddingOf(context).bottom),
+                    ),
+                    child: GestureDetector(
+                      onTap: onSignIn ?? AppRouterGo.back,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            AppStrings.alreadyHaveAccount,
+                            style: context.bodyLargeStyle?.copyWith(
+                              color: AppColors.signInDarkSubtitle,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w400,
+                              height: 24 / 16,
+                            ),
+                          ),
+                          Text(
+                            AppStrings.signInAction,
+                            style: context.bodyLargeStyle?.copyWith(
+                              color: AppColors.primaryWhite,
+                              fontSize: 16.sp,
+                              fontWeight: FontWeight.w500,
+                              height: 24 / 16,
                             ),
                           ),
                         ],
