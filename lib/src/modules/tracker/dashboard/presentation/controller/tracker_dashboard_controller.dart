@@ -10,7 +10,9 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
 
   late final List<Widget> screens = [
     const TrackerHomeView(),
-    const TrackerUsersView(),
+    TrackerUsersView(
+        onUserSelected: (user) =>
+            AppRouterGo.push(trackerUserDetailsView, extra: user)),
     const TrackerCasesView(),
     TrackerProfileView(onLogout: logout),
   ];

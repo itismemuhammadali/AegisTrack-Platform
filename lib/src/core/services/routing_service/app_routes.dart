@@ -32,3 +32,5 @@ const String trackedMembershipView = '/tracked-membership';
 const String trackedAntiSpoofingView = '/tracked-anti-spoofing';
 const String trackedConfirmSubscriptionView = '/tracked-confirm-subscription';
 const String trackedSubscriptionActiveView = '/tracked-subscription-active';
+
+const String trackerUserDetailsView = '/tracker-user-details';

@@ -14,6 +14,9 @@ import 'package:joshua_r_hughes/src/core/services/routing_service/app_routes.dar
 import 'package:joshua_r_hughes/src/core/services/routing_service/named_routes.dart';
 import 'package:joshua_r_hughes/src/modules/tracked/authentication/presentation/views/sign_in_options_view.dart';
 
+import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_user_details_view.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/home/domain/entities/tracker_user_entity.dart';
+
 Future<void> pumpDashboard(WidgetTester tester, Size size) async {
   tester.view.physicalSize = size;
   tester.view.devicePixelRatio = 1;
@@ -135,6 +138,83 @@ void main() {
     expect(956 - labelBottom, closeTo(12, 0.1));
     expect(tester.takeException(), isNull);
   });
+
+  testWidgets(
+      'Every user card opens its own overview and back preserves search',
+      (tester) async {
+    tester.view.physicalSize = const Size(440, 956);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    AppRouterGo.appRouter.go(trackerDashboardView);
+    await tester.pumpWidget(ProviderScope(
+        child: ScreenUtilInit(
+      designSize: const Size(440, 956),
+      minTextAdapt: true,
+      builder: (_, child) => MaterialApp.router(
+          theme: ThemeData.dark(), routerConfig: AppRouterGo.appRouter),
+    )));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Users'));
+    await tester.pumpAndSettle();
+    for (final name in [
+      'Daniel Chen',
+      'Aisha Johnson',
+      'Sarah Martinez',
+      'James Wilson',
+      'Emma Davis'
+    ]) {
+      await tester.enterText(find.byType(TextField), name);
+      await tester.pumpAndSettle();
+      await tester.tap(find.byType(TrackerUserCard));
+      await tester.pumpAndSettle();
+      final detail = tester
+          .widget<TrackerUserDetailsView>(find.byType(TrackerUserDetailsView));
+      expect(detail.user.name, name);
+      expect(find.text('User Overview'), findsOneWidget);
+      await tester.tap(find.byTooltip('Back to users'));
+      await tester.pumpAndSettle();
+      expect(find.byType(TrackerUserDetailsView), findsNothing);
+      expect(find.text(name), findsNWidgets(2));
+      expect(find.byType(TrackerUserCard), findsOneWidget);
+    }
+    expect(tester.takeException(), isNull);
+  });
+
+  for (final width in [320.0, 440.0]) {
+    testWidgets('User overview scrolls to its footer at width $width',
+        (tester) async {
+      tester.view.physicalSize = Size(width, 956);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(ScreenUtilInit(
+          designSize: const Size(440, 956),
+          minTextAdapt: true,
+          builder: (_, child) => MaterialApp(
+              theme: ThemeData.dark(),
+              home: const TrackerUserDetailsView(
+                  user: TrackerUserEntity(
+                name: 'Daniel Chen',
+                lastSeen: 'Today • 3 min ago',
+                location: 'Midtown Manhattan, NY',
+                authenticity: TrackerAuthenticity.acceptable,
+              )))));
+      await tester.pumpAndSettle();
+      expect(find.text('DC'), findsOneWidget);
+      for (final label in [
+        'Authenticity Score',
+        'Recent Activity',
+        'Zone Events Today',
+        'Secure Share'
+      ]) {
+        await tester.scrollUntilVisible(find.text(label), 200);
+        await tester.pumpAndSettle();
+        expect(find.text(label), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      }
+    });
+  }
 
   for (final width in [320.0, 375.0, 440.0]) {
     testWidgets('Viewer tabs render and scroll at width $width',

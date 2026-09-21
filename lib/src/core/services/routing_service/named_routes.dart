@@ -1,7 +1,9 @@
-﻿// ignore_for_file: strict_top_level_inference
+// ignore_for_file: strict_top_level_inference
 
 // This is also known as declerative routing
 
+import '../../../modules/tracker/users/presentation/views/tracker_user_details_view.dart';
+import '../../../modules/tracker/home/domain/entities/tracker_user_entity.dart';
 import '../../../modules/onboarding/presentation/views/onboarding_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/enable_location_access_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/register_view.dart';
@@ -76,6 +78,16 @@ class AppRouterGo {
         ),
       ),
       GoRoute(
+        path: trackerUserDetailsView,
+        redirect: (context, state) =>
+            state.extra is TrackerUserEntity ? null : trackerDashboardView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child:
+              TrackerUserDetailsView(user: state.extra! as TrackerUserEntity),
+        ),
+      ),
+      GoRoute(
         path: trackerDashboardView,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
@@ -91,8 +103,7 @@ class AppRouterGo {
                 AppRouterGo.pushRemoveUntil(trackerDashboardView),
             onBiometrics: () =>
                 AppRouterGo.pushRemoveUntil(trackerDashboardView),
-            onForgotPassword: () =>
-                AppRouterGo.push(viewerForgotPasswordView),
+            onForgotPassword: () => AppRouterGo.push(viewerForgotPasswordView),
             onRegister: () => AppRouterGo.push(viewerRegisterView),
           ),
         ),
