@@ -161,7 +161,9 @@ class TrackedMembershipView extends ConsumerWidget {
           ],
           24.ph,
           GestureDetector(
-            onTap: onCancelSubscription,
+            // Cancelling drops to the Free plan (same downgrade sheet).
+            onTap: onCancelSubscription ??
+                () => changePlan(TrackedSubscriptionPlan.free),
             child: Container(
               padding: AppInsets.all(16),
               alignment: Alignment.center,
