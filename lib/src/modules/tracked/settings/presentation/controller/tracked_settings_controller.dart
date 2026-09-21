@@ -246,7 +246,7 @@ class TrackedSettingsController extends ChangeNotifier with Buffers {
 
   Future<void> logout() async {
     await AuthHandler.ref.logout();
-    AppRouterGo.pushRemoveUntil(signInView);
+    AppRouterGo.pushRemoveUntil(signInOptionsView);
   }
 
   // Membership - Joshua R Hughes (location tracking)

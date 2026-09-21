@@ -4,6 +4,7 @@
 
 import '../../../modules/onboarding/presentation/views/onboarding_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/enable_location_access_view.dart';
+import '../../../modules/tracked/authentication/presentation/views/sign_in_options_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/sign_in_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/two_factor_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/verify_view.dart';
@@ -42,7 +43,16 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: OnboardingView(
-            onGetStarted: () => AppRouterGo.push(signInView),
+            onGetStarted: () => AppRouterGo.push(signInOptionsView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: signInOptionsView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: SignInOptionsView(
+            onEmailSignIn: () => AppRouterGo.push(signInView),
           ),
         ),
       ),

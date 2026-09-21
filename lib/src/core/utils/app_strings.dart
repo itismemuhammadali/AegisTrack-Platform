@@ -28,6 +28,11 @@ class AppStrings {
   static const String email = 'Email';
   static const String signIn = 'Sign in';
   static const String createViewerAccount = 'Create Viewer Account';
+  static const String signInWithEmail = 'Sign In with Email';
+  static const String continueAsViewer = 'Continue as Viewer Account';
+  static const String signInOr = 'OR';
+  static const String signInTerms =
+      'By continuing, you agree to our Terms & Privacy Policy';
   static const String or = 'Or';
   static const String continueWithGoogle = 'Continue with Google';
   static const String continueWithApple = 'Continue with Apple';
