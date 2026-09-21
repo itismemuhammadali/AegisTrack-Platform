@@ -4,25 +4,16 @@ import '../../../../../components/custom_textfield.dart';
 import '../../../../../core/utils/app_exports.dart';
 import '../../../../onboarding/presentation/widgets/onboarding_page_scaffold.dart';
 import '../controller/auth_controller.dart';
-import '../widgets/sign_in_social_button.dart';
 
 class SignInView extends HookConsumerWidget {
   const SignInView({
     super.key,
     this.onSignIn,
-    this.onGoogleSignIn,
-    this.onAppleSignIn,
-    this.onFacebookSignIn,
-    this.onContactSupport,
-    this.onCreateViewerAccount,
+    this.onRegister,
   });
 
   final void Function(String email, String password)? onSignIn;
-  final VoidCallback? onGoogleSignIn;
-  final VoidCallback? onAppleSignIn;
-  final VoidCallback? onFacebookSignIn;
-  final VoidCallback? onContactSupport;
-  final VoidCallback? onCreateViewerAccount;
+  final VoidCallback? onRegister;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -132,73 +123,7 @@ class SignInView extends HookConsumerWidget {
                             ),
                             isLoading: authController.isSigningIn,
                           ),
-                          24.ph,
-                          GestureDetector(
-                            onTap: onCreateViewerAccount,
-                            child: Container(
-                              width: double.infinity,
-                              padding: AppInsets.symmetric(vertical: 16),
-                              alignment: Alignment.center,
-                              decoration: BoxDecoration(
-                                color: fieldFillColor,
-                                borderRadius: 16.circular,
-                                border: Border.all(color: fieldBorderColor),
-                              ),
-                              child: Text(
-                                AppStrings.createViewerAccount,
-                                style: context.bodyLargeStyle?.copyWith(
-                                  color: AppColors.primaryWhite,
-                                  fontSize: 16.sp,
-                                  fontWeight: FontWeight.w500,
-                                  height: 24 / 16,
-                                ),
-                              ),
-                            ),
-                          ),
-                          24.ph,
-                          Row(
-                            children: [
-                              const Expanded(
-                                child: Divider(
-                                  color: AppColors.signInDarkDivider,
-                                ),
-                              ),
-                              Padding(
-                                padding: AppInsets.symmetric(horizontal: 16),
-                                child: Text(
-                                  AppStrings.or,
-                                  style: context.bodySmallStyle?.copyWith(
-                                    color: AppColors.coolGray,
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                              ),
-                              const Expanded(
-                                child: Divider(
-                                  color: AppColors.signInDarkDivider,
-                                ),
-                              ),
-                            ],
-                          ),
-                          10.ph,
-                          SignInSocialButton(
-                            icon: AppAssetsSvg.signInGoogleIcon,
-                            text: AppStrings.continueWithGoogle,
-                            onTap: () => onGoogleSignIn?.call(),
-                          ),
-                          16.ph,
-                          SignInSocialButton(
-                            icon: AppAssetsSvg.signInAppleIcon,
-                            text: AppStrings.continueWithApple,
-                            onTap: () => onAppleSignIn?.call(),
-                          ),
-                          16.ph,
-                          SignInSocialButton(
-                            icon: AppAssetsSvg.signInFacebookIcon,
-                            text: AppStrings.continueWithFacebook,
-                            onTap: () => onFacebookSignIn?.call(),
-                          ),
+
                         ],
                       ),
                     ),
@@ -211,7 +136,7 @@ class SignInView extends HookConsumerWidget {
                       math.max(24.h, MediaQuery.paddingOf(context).bottom),
                     ),
                     child: GestureDetector(
-                      onTap: onContactSupport,
+                      onTap: onRegister,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -224,7 +149,7 @@ class SignInView extends HookConsumerWidget {
                             ),
                           ),
                           Text(
-                            AppStrings.contactWithSupports,
+                            AppStrings.registerNow,
                             style: context.bodyLargeStyle?.copyWith(
                               color: AppColors.primaryWhite,
                               fontSize: 16.sp,
