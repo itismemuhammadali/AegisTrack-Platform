@@ -5,6 +5,7 @@
 import '../../../modules/onboarding/presentation/views/onboarding_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/enable_location_access_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/register_view.dart';
+import '../../../modules/tracker/authentication/presentation/views/viewer_forgot_password_view.dart';
 import '../../../modules/tracker/authentication/presentation/views/viewer_sign_in_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/sign_in_options_view.dart';
 import '../../../modules/tracked/authentication/presentation/views/sign_in_view.dart';
@@ -74,7 +75,17 @@ class AppRouterGo {
         path: viewerSignInView,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
-          child: const ViewerSignInView(),
+          child: ViewerSignInView(
+            onForgotPassword: () =>
+                AppRouterGo.push(viewerForgotPasswordView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: viewerForgotPasswordView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: const ViewerForgotPasswordView(),
         ),
       ),
       GoRoute(

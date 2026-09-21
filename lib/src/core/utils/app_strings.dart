@@ -35,6 +35,8 @@ class AppStrings {
       'Access your authorized viewer account';
   static const String rememberMe = 'Remember Me';
   static const String forgotPassword = 'Forgot Password?';
+  static const String forgetPasswordTitle = 'Forget Password';
+  static const String continueAction = 'Continue';
   static const String signInWithBiometrics = 'Sign In with Biometrics';
   static const String createAccountSubtitle =
       'Start tracking your location securely';

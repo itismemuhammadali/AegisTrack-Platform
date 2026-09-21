@@ -10,6 +10,11 @@ class ViewerAuthController extends ChangeNotifier with Buffers {
   bool obscurePassword = true;
   bool isSigningIn = false;
 
+  // Forgot password
+  final forgotPasswordFormKey = GlobalKey<FormState>();
+  final forgotEmailController = TextEditingController();
+  bool isSendingReset = false;
+
   void toggleRememberMe() {
     rememberMe = !rememberMe;
     notifyListeners();
@@ -33,6 +38,19 @@ class ViewerAuthController extends ChangeNotifier with Buffers {
     onSuccess?.call(email);
   }
 
+  void submitForgotPassword({void Function(String email)? onSuccess}) {
+    if (!(forgotPasswordFormKey.currentState?.validate() ?? false)) return;
+
+    final email = forgotEmailController.text.trim();
+    isSendingReset = true;
+    notifyListeners();
+
+    // TODO: call the password-reset API.
+    isSendingReset = false;
+    notifyListeners();
+    onSuccess?.call(email);
+  }
+
   void signInWithBiometrics({VoidCallback? onSuccess}) {
     // TODO: prompt Face ID / fingerprint (needs local_auth) before continuing.
     onSuccess?.call();
@@ -42,6 +60,7 @@ class ViewerAuthController extends ChangeNotifier with Buffers {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    forgotEmailController.dispose();
     super.dispose();
   }
 }
