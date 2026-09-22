@@ -5,8 +5,13 @@ import '../../../../../core/utils/app_exports.dart';
 /// Authentication for the tracker (authorized viewer) side of the app.
 class ViewerAuthController extends ChangeNotifier with Buffers {
   final signInFormKey = GlobalKey<FormState>();
-  final emailController = TextEditingController();
-  final passwordController = TextEditingController();
+  // Prefilled in debug builds only to speed up testing.
+  final emailController = TextEditingController(
+    text: kDebugMode ? 'test@example.com' : null,
+  );
+  final passwordController = TextEditingController(
+    text: kDebugMode ? 'Test@1234' : null,
+  );
 
   bool rememberMe = false;
   bool obscurePassword = true;
