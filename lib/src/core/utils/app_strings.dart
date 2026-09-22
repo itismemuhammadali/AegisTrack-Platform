@@ -176,6 +176,23 @@ class AppStrings {
   static const String trackerSosAlert = 'SOS!';
   static const String trackerVerifiedBadge = 'VERIFIED';
 
+  // Tracker (viewer) phone number
+  static const String trackerPhoneTitle = 'Phone Number';
+  static const String trackerPhoneBackTooltip = 'Back to profile';
+  static const String trackerPhoneCurrent = 'Current Phone';
+  static const String trackerPhoneCurrentValue = '+1 (555) 123-4567';
+  static const String trackerPhoneChangeTitle = 'Change Phone Number';
+  static const String trackerPhoneNewLabel = 'New Phone Number';
+  static const String trackerPhoneNewHint = '+1 (555) 000-0000';
+  static const String trackerPhoneSendCode = 'Send Verification Code';
+  static const String trackerSmsPreferences = 'SMS Preferences';
+  static const String trackerSmsNotifications = 'SMS Notifications';
+  static const String trackerSmsNotificationsNote =
+      'Receive alerts via text message';
+  static const String trackerSmsTwoFactor = 'Two-Factor via SMS';
+  static const String trackerSmsTwoFactorNote =
+      'Enhanced security verification';
+
   // Tracker (viewer) email settings
   static const String trackerEmailSettingsTitle = 'Email Settings';
   static const String trackerEmailSettingsBackTooltip = 'Back to profile';

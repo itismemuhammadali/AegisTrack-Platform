@@ -13,7 +13,8 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
         locationController = TextEditingController(
             text: AppStrings.trackerEditProfileLocationValue),
         newEmailController = TextEditingController(),
-        confirmPasswordController = TextEditingController();
+        confirmPasswordController = TextEditingController(),
+        newPhoneController = TextEditingController();
 
   final String name = AppStrings.trackerProfileName;
   final String email = AppStrings.trackerProfileEmail;
@@ -50,6 +51,25 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
     notifyListeners();
   }
 
+  // --- Phone number --------------------------------------------------------
+
+  final TextEditingController newPhoneController;
+
+  final String phone = AppStrings.trackerPhoneCurrentValue;
+
+  bool smsNotifications = true;
+  bool smsTwoFactor = false;
+
+  void toggleSmsNotifications() {
+    smsNotifications = !smsNotifications;
+    notifyListeners();
+  }
+
+  void toggleSmsTwoFactor() {
+    smsTwoFactor = !smsTwoFactor;
+    notifyListeners();
+  }
+
   /// Initials for the avatar, taken from whatever the name field holds.
   String get initials => nameController.text
       .split(' ')
@@ -66,6 +86,7 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
     locationController.dispose();
     newEmailController.dispose();
     confirmPasswordController.dispose();
+    newPhoneController.dispose();
     super.dispose();
   }
 

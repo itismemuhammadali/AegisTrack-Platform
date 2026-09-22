@@ -1,11 +1,19 @@
 import '../../../../../core/utils/app_exports.dart';
 import '../../../users/presentation/widgets/tracker_detail_text.dart';
 
-/// The address on file, with its verification state.
-class TrackerCurrentEmailCard extends StatelessWidget {
-  const TrackerCurrentEmailCard({super.key, required this.email});
+/// The contact on file, with its verification state. Shared by the email and
+/// phone screens.
+class TrackerContactCard extends StatelessWidget {
+  const TrackerContactCard({
+    super.key,
+    required this.icon,
+    required this.title,
+    required this.value,
+  });
 
-  final String email;
+  final String icon;
+  final String title;
+  final String value;
 
   @override
   Widget build(BuildContext context) => Container(
@@ -26,19 +34,18 @@ class TrackerCurrentEmailCard extends StatelessWidget {
                     color: AppColors.trackerSurfaceFill,
                     borderRadius: 16.circular,
                   ),
-                  child: SvgPicture.asset(AppAssetsSvg.trackerEmailSettingsMail,
-                      width: 20.w, height: 20.w),
+                  child: SvgPicture.asset(icon, width: 20.w, height: 20.w),
                 ),
                 12.pw,
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const TrackerDetailText(AppStrings.trackerEmailCurrent,
+                      TrackerDetailText(title,
                           weight: FontWeight.w600,
                           height: 20 / 14,
                           color: AppColors.primaryWhite),
-                      TrackerDetailText(email,
+                      TrackerDetailText(value,
                           height: 20 / 14, color: AppColors.primaryWhite),
                     ],
                   ),
@@ -65,14 +72,15 @@ class TrackerCurrentEmailCard extends StatelessWidget {
       );
 }
 
-/// A preference row with its switch.
-class TrackerEmailPreferenceRow extends StatelessWidget {
-  const TrackerEmailPreferenceRow({
+/// A preference row with its switch, shared by the email and SMS lists.
+class TrackerPreferenceRow extends StatelessWidget {
+  const TrackerPreferenceRow({
     super.key,
     required this.title,
     required this.note,
     required this.value,
     required this.onToggle,
+    this.icon,
     this.last = false,
   });
 
@@ -80,6 +88,9 @@ class TrackerEmailPreferenceRow extends StatelessWidget {
   final String note;
   final bool value;
   final VoidCallback onToggle;
+
+  /// Drawn before the title, as on the two-factor row.
+  final String? icon;
   final bool last;
 
   @override
@@ -93,6 +104,10 @@ class TrackerEmailPreferenceRow extends StatelessWidget {
               ),
         child: Row(
           children: [
+            if (icon != null) ...[
+              SvgPicture.asset(icon!, width: 16.w, height: 16.w),
+              8.pw,
+            ],
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

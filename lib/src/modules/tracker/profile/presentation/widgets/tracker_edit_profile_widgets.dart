@@ -92,6 +92,7 @@ class TrackerEditProfileField extends StatelessWidget {
     this.hint,
     this.obscure = false,
     this.keyboardType = TextInputType.text,
+    this.hintColor,
   });
 
   final String label;
@@ -105,6 +106,7 @@ class TrackerEditProfileField extends StatelessWidget {
   final String? hint;
   final bool obscure;
   final TextInputType keyboardType;
+  final Color? hintColor;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -137,7 +139,7 @@ class TrackerEditProfileField extends StatelessWidget {
             hintTextStyle: context.bodyLargeStyle?.copyWith(
               fontSize: 16.sp,
               height: 24 / 16,
-              color: AppColors.trackerMutedText,
+              color: hintColor ?? AppColors.trackerMutedText,
             ),
           ),
         ],

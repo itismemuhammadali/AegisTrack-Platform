@@ -367,6 +367,9 @@ class AppColors {
   static const Color trackerEditAvatarTop = Color(0xFF321F67);
   static const Color trackerEditAvatarBottom = Color(0xFF5B3A9E);
 
+  // Tracker (viewer) phone number
+  static const Color trackerPhoneHint = Color(0x80E5F4F0);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

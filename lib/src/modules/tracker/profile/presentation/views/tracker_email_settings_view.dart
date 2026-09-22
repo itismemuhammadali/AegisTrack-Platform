@@ -3,7 +3,7 @@ import '../../../users/presentation/widgets/tracker_detail_scaffold.dart';
 import '../../../users/presentation/widgets/tracker_detail_text.dart';
 import '../controller/tracker_profile_controller.dart';
 import '../widgets/tracker_edit_profile_widgets.dart';
-import '../widgets/tracker_email_settings_widgets.dart';
+import '../widgets/tracker_contact_settings_widgets.dart';
 
 /// The viewer's email address and what it receives, reached from the
 /// profile's Email Settings row.
@@ -24,7 +24,11 @@ class TrackerEmailSettingsView extends ConsumerWidget {
         key: const PageStorageKey('tracker-email-settings'),
         padding: AppInsets.only(left: 24, right: 24, bottom: 24),
         children: [
-          TrackerCurrentEmailCard(email: controller.email),
+          TrackerContactCard(
+            icon: AppAssetsSvg.trackerEmailSettingsMail,
+            title: AppStrings.trackerEmailCurrent,
+            value: controller.email,
+          ),
           24.ph,
           Container(
             padding: AppInsets.all(20),
@@ -105,19 +109,19 @@ class TrackerEmailSettingsView extends ConsumerWidget {
                       height: 30 / 20,
                       color: AppColors.primaryWhite),
                 ),
-                TrackerEmailPreferenceRow(
+                TrackerPreferenceRow(
                   title: AppStrings.trackerEmailPrefNotifications,
                   note: AppStrings.trackerEmailPrefNotificationsNote,
                   value: controller.emailNotifications,
                   onToggle: controller.toggleEmailNotifications,
                 ),
-                TrackerEmailPreferenceRow(
+                TrackerPreferenceRow(
                   title: AppStrings.trackerEmailPrefWeekly,
                   note: AppStrings.trackerEmailPrefWeeklyNote,
                   value: controller.weeklyReports,
                   onToggle: controller.toggleWeeklyReports,
                 ),
-                TrackerEmailPreferenceRow(
+                TrackerPreferenceRow(
                   title: AppStrings.trackerEmailPrefSecurity,
                   note: AppStrings.trackerEmailPrefSecurityNote,
                   value: controller.securityAlerts,

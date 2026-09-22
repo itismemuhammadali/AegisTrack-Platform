@@ -307,6 +307,8 @@ class AppAssetsSvg {
       'assets/icons/svg/tracker_email_settings_mail.svg';
   static const String trackerEmailSettingsCheck =
       'assets/icons/svg/tracker_email_settings_check.svg';
+  static const String trackerPhoneSettingsPhone =
+      'assets/icons/svg/tracker_phone_settings_phone.svg';
 
   // Tracker (viewer) edit profile
   static const String trackerEditProfileSave =
