@@ -227,6 +227,46 @@ class AppStrings {
   static const String trackerLogNote = 'Note';
   static const String trackerLogPending = 'Pending';
   static const String trackerLogOffline = 'OFFLINE';
+
+  // Tracker (viewer) map playback
+  static const String trackerMapPlayback = 'Map Playback';
+  static const String trackerBackToTimeline = 'Back to user overview';
+  static const String trackerRangeToday = 'Today';
+  static const String trackerRangeCustom = 'Custom Range';
+  static const String trackerPreviousDay = 'Previous day';
+  static const String trackerNextDay = 'Next day';
+  static const String trackerLegendRecorded = 'Recorded';
+  static const String trackerLegendMissing = 'Missing';
+  static const String trackerLegendSos = 'SOS';
+  static const String trackerLegendZone = 'Zone';
+  static const String trackerMapStart = 'START';
+  static const String trackerMapEnd = 'END';
+  static const String trackerMapZoneEntry = 'ZONE ENTRY';
+  static const String trackerMapCheckIn = 'CHECK-IN';
+  static const String trackerMapMissing = 'MISSING';
+  static const String trackerPlaybackRewind = 'Skip to start';
+  static const String trackerPlaybackPlay = 'Play';
+  static const String trackerPlaybackForward = 'Skip to end';
+  static const String trackerSpeed1x = '1x';
+  static const String trackerSpeed2x = '2x';
+  static const String trackerSpeed4x = '4x';
+  static const String trackerStatDuration = 'Duration';
+  static const String trackerStatDistance = 'Distance';
+  static const String trackerStatPings = 'Pings';
+  static const String trackerStatMissing = 'Missing';
+  static const String trackerFilters = 'Filters';
+  static const String trackerRouteTimeline = 'Route Timeline';
+  static const String trackerViewLog = 'View Log';
+  static const String trackerRouteStart = 'Route Start';
+  static const String trackerRouteEnd = 'Route End';
+  static const String trackerRouteZoneEntry = 'Zone Entry';
+  static const String trackerRouteCheckIn = 'Check-in';
+  static const String trackerMissingIntervalBegin = 'MISSING INTERVAL BEGIN';
+  static const String trackerMissingIntervalEnd = 'MISSING INTERVAL END';
+  static const String trackerMissingBeginNote =
+      'RECORDED LOCATION → MISSING / UNKNOWN PERIOD BEGINS';
+  static const String trackerMissingEndNote =
+      'MISSING / UNKNOWN PERIOD ENDS → RECORDED LOCATION RESUMES';
   static const String viewerSignInSubtitle =
       'Access your authorized viewer account';
   static const String rememberMe = 'Remember Me';

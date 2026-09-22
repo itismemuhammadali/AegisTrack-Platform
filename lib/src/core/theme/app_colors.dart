@@ -294,6 +294,13 @@ class AppColors {
   static const Color trackerSosCardFill = Color(0x0DFB2C36);
   static const Color trackerSosCardBorder = Color(0x66FB2C36);
 
+  // Tracker (viewer) map playback
+  static const Color trackerMapFill = Color(0xFF001420);
+  static const Color trackerMapMarkerBorder = Color(0xFF001A27);
+  static const Color trackerRouteGreen = Color(0xFF22C55E);
+  static const Color trackerRouteAmber = Color(0xFFF59E0B);
+  static const Color trackerZoneMarkerFill = Color(0x1A05DF72);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

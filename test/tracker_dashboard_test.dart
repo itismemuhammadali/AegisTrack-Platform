@@ -17,6 +17,7 @@ import 'package:joshua_r_hughes/src/modules/tracked/authentication/presentation/
 
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_user_details_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/home/domain/entities/tracker_user_entity.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_map_playback_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_timeline_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/widgets/tracker_timeline_log_card.dart';
 
@@ -382,6 +383,61 @@ void main() {
           scrollable: find.byType(Scrollable).first);
       await tester.pumpAndSettle();
       expect(find.text('No logs found'), findsOneWidget);
+    });
+  }
+
+  for (final width in [320.0, 440.0]) {
+    testWidgets('Map Playback quick action opens the route playback at $width',
+        (tester) async {
+      tester.view.physicalSize = Size(width, 956);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      AppRouterGo.appRouter.go(trackerDashboardView);
+      await tester.pumpWidget(ProviderScope(
+          child: ScreenUtilInit(
+        designSize: const Size(440, 956),
+        minTextAdapt: true,
+        builder: (_, child) => MaterialApp.router(
+            theme: ThemeData.dark(), routerConfig: AppRouterGo.appRouter),
+      )));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Users'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byType(TrackerUserCard).first);
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text('Map Playback'), 200);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Map Playback'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(TrackerMapPlaybackView), findsOneWidget);
+      expect(find.text('Dec 12, 2024'), findsOneWidget);
+      expect(find.text('13:15'), findsOneWidget);
+
+      // The speed and range choices are the only controls that hold state.
+      await tester.tap(find.text('2x'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Custom Range'));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+
+      for (final label in [
+        '8h 27m',
+        'Filters',
+        'Route Timeline',
+        'Zone Entry',
+        'MISSING INTERVAL BEGIN',
+        'MISSING INTERVAL END',
+        'Route End'
+      ]) {
+        await tester.scrollUntilVisible(find.text(label), 160,
+            scrollable: find.byType(Scrollable).first);
+        await tester.pumpAndSettle();
+        expect(find.text(label), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      }
+      expect(find.text('View Log'), findsWidgets);
     });
   }
 }

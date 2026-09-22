@@ -38,3 +38,5 @@ const String trackerUserDetailsView = '/tracker-user-details';
 const String trackerSecurityDetailsView = '/tracker-security-details';
 
 const String trackerTimelineView = '/tracker-timeline';
+
+const String trackerMapPlaybackView = '/tracker-map-playback';

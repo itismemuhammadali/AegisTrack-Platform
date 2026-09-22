@@ -4,6 +4,7 @@ import '../../domain/entities/tracker_activity_entity.dart';
 import '../../domain/entities/tracker_detail_info_entity.dart';
 import '../../domain/entities/tracker_device_info_entity.dart';
 import '../../domain/entities/tracker_quick_action_entity.dart';
+import '../../domain/entities/tracker_route_event_entity.dart';
 import '../../domain/entities/tracker_security_check_entity.dart';
 import '../../domain/entities/tracker_timeline_log_entity.dart';
 import '../../domain/entities/tracker_zone_event_entity.dart';
@@ -414,6 +415,89 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
 
   void setTimelineFilter(String value) {
     timelineFilter = value;
+    notifyListeners();
+  }
+
+  // --------------------------------------------------------- map playback
+
+  static const List<String> playbackSpeeds = [
+    AppStrings.trackerSpeed1x,
+    AppStrings.trackerSpeed2x,
+    AppStrings.trackerSpeed4x,
+  ];
+
+  final String playbackDate = 'Dec 12, 2024';
+  final String playbackStartTime = '09:15';
+  final String playbackEndTime = '17:42';
+  final String playbackCurrentTime = '13:15';
+  final String playbackDuration = '8h 27m';
+  final String playbackDistance = '23.4 km';
+  final String playbackPings = '47';
+  final String playbackMissing = '90 min';
+  final String playbackMissingWindow = '12:00–13:30';
+  final String playbackZoneEntryTime = '10:30';
+  final String playbackCheckInTime = '14:32';
+
+  /// Share of the route already played, driving the scrubber fill.
+  final double playbackProgress = .4;
+
+  final List<TrackerRouteEventEntity> routeEvents = const [
+    TrackerRouteEventEntity(
+      kind: TrackerRouteEventKind.start,
+      title: AppStrings.trackerRouteStart,
+      subtitle: 'Home Address, Brooklyn',
+      time: '09:15',
+    ),
+    TrackerRouteEventEntity(
+      kind: TrackerRouteEventKind.zoneEntry,
+      title: AppStrings.trackerRouteZoneEntry,
+      subtitle: 'Permitted: Office Building, Manhattan',
+      time: '10:30',
+    ),
+    TrackerRouteEventEntity(
+      kind: TrackerRouteEventKind.missingBegin,
+      title: AppStrings.trackerMissingIntervalBegin,
+      subtitle: '90 min gap',
+      note: AppStrings.trackerMissingBeginNote,
+      time: '12:00',
+    ),
+    TrackerRouteEventEntity(
+      kind: TrackerRouteEventKind.missingEnd,
+      title: AppStrings.trackerMissingIntervalEnd,
+      subtitle: 'Location signal resumed',
+      note: AppStrings.trackerMissingEndNote,
+      time: '13:30',
+    ),
+    TrackerRouteEventEntity(
+      kind: TrackerRouteEventKind.checkIn,
+      title: AppStrings.trackerRouteCheckIn,
+      subtitle: 'Office Building, Manhattan',
+      time: '14:32',
+    ),
+    TrackerRouteEventEntity(
+      kind: TrackerRouteEventKind.end,
+      title: AppStrings.trackerRouteEnd,
+      subtitle: 'Office Building, Manhattan',
+      time: '17:42',
+    ),
+  ];
+
+  String playbackRange = AppStrings.trackerRangeToday;
+  String playbackSpeed = AppStrings.trackerSpeed1x;
+  bool isPlaying = false;
+
+  void setPlaybackRange(String value) {
+    playbackRange = value;
+    notifyListeners();
+  }
+
+  void setPlaybackSpeed(String value) {
+    playbackSpeed = value;
+    notifyListeners();
+  }
+
+  void togglePlayback() {
+    isPlaying = !isPlaying;
     notifyListeners();
   }
 }

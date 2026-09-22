@@ -2,6 +2,7 @@
 
 // This is also known as declerative routing
 
+import '../../../modules/tracker/users/presentation/views/tracker_map_playback_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_security_details_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_timeline_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_user_details_view.dart';
@@ -100,10 +101,12 @@ class AppRouterGo {
             onSecurityDetails: () => AppRouterGo.push(
                 trackerSecurityDetailsView,
                 extra: state.extra),
-            onAction: (action) {
-              if (action == AppStrings.trackerActionTimeline) {
-                AppRouterGo.push(trackerTimelineView, extra: state.extra);
-              }
+            onAction: (action) => switch (action) {
+              AppStrings.trackerActionTimeline =>
+                AppRouterGo.push(trackerTimelineView, extra: state.extra),
+              AppStrings.trackerActionMapPlayback =>
+                AppRouterGo.push(trackerMapPlaybackView, extra: state.extra),
+              _ => null,
             },
           ),
         ),
@@ -113,6 +116,14 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: TrackerTimelineView(user: state.extra as TrackerUserEntity?),
+        ),
+      ),
+      GoRoute(
+        path: trackerMapPlaybackView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child:
+              TrackerMapPlaybackView(user: state.extra as TrackerUserEntity?),
         ),
       ),
       GoRoute(

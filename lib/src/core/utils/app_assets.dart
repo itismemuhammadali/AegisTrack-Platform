@@ -33,6 +33,8 @@ class AppAssetsPng {
   /// Tracked home - Joshua R Hughes (location tracking)
   static const String trackerUserAvatar =
       'assets/images/png/tracker_user_avatar.png';
+  static const String trackerMapPlaybackBg =
+      'assets/images/png/tracker_map_playback_bg.png';
   static const String trackedLiveMapBg =
       'assets/images/png/tracked_live_map_bg.png';
   static const String trackedHomeMapPreviewBg =
@@ -184,6 +186,22 @@ class AppAssetsSvg {
       'assets/icons/svg/tracker_timeline_pending.svg';
   static const String trackerTimelineSos =
       'assets/icons/svg/tracker_timeline_sos.svg';
+
+  /// Tracker (viewer) map playback
+  static const String trackerMapPlaybackDatePrev =
+      'assets/icons/svg/tracker_map_playback_date_prev.svg';
+  static const String trackerMapPlaybackRoute =
+      'assets/icons/svg/tracker_map_playback_route.svg';
+  static const String trackerMapPlaybackPrev =
+      'assets/icons/svg/tracker_map_playback_prev.svg';
+  static const String trackerMapPlaybackPlay =
+      'assets/icons/svg/tracker_map_playback_play.svg';
+  static const String trackerMapPlaybackNext =
+      'assets/icons/svg/tracker_map_playback_next.svg';
+  static const String trackerMapPlaybackFiltersChevron =
+      'assets/icons/svg/tracker_map_playback_filters_chevron.svg';
+  static const String trackerMapPlaybackZonePin =
+      'assets/icons/svg/tracker_map_playback_zone_pin.svg';
 
   /// Tracker (viewer) profile
   static const String trackerProfileEdit =
