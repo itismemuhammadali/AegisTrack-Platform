@@ -42,17 +42,31 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
     ),
     TrackerUserEntity(
       name: 'Sarah Martinez',
-      lastSeen: 'Today • 2hrs ago',
-      location: 'Last: Downtown LA',
+      lastSeen: 'Today • 3 min ago',
+      location: 'Brooklyn Bridge, NY',
       authenticity: TrackerAuthenticity.acceptable,
-      isOnline: false,
+      score: '82',
+      lastLog: '3 min ago',
+      lastSync: '14:30 today',
+      activeAlerts: '1',
+      missedCheckIns: '0',
+      zoneEvents: '2 today',
+      securityFlags: '0',
     ),
     TrackerUserEntity(
       name: 'James Wilson',
-      lastSeen: 'Today • 3 min ago',
-      location: 'Central Park, NY',
-      authenticity: TrackerAuthenticity.questionable,
+      lastSeen: 'Today • 2 hrs ago',
+      location: 'Last: Downtown LA, CA',
+      authenticity: TrackerAuthenticity.acceptable,
       isOnline: false,
+      score: '72',
+      trend: AppStrings.trackerTrendDeclining,
+      lastLog: '2 hrs ago',
+      lastSync: '12:15 today',
+      activeAlerts: '1',
+      missedCheckIns: '2',
+      zoneEvents: '1 today',
+      securityFlags: '1',
     ),
     TrackerUserEntity(
       name: 'Emma Davis',
@@ -93,42 +107,36 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
 
   // -------------------------------------------------------- user overview
 
-  final String lastSync = '14:32 today';
-  final String activeAlerts = '2';
-  final String missedCheckIns = '1';
-  final String zoneEvents = '3 today';
-  final String securityFlags = '0';
-
-  final List<TrackerQuickActionEntity> quickActions = const [
-    TrackerQuickActionEntity(
-      label: AppStrings.trackerActionTimeline,
-      icon: AppAssetsSvg.trackerUserDetailTimeline,
-    ),
-    TrackerQuickActionEntity(
-      label: AppStrings.trackerActionMapPlayback,
-      icon: AppAssetsSvg.trackerUserDetailMap,
-    ),
-    TrackerQuickActionEntity(
-      label: AppStrings.trackerActionLiveView,
-      icon: AppAssetsSvg.trackerUserDetailLive,
-    ),
-    TrackerQuickActionEntity(
-      label: AppStrings.trackerActionCheckIns,
-      icon: AppAssetsSvg.trackerUserDetailCheckIns,
-    ),
-    TrackerQuickActionEntity(
-      label: AppStrings.trackerActionAiInsights,
-      icon: AppAssetsSvg.trackerUserDetailAi,
-      badge: AppStrings.trackerBadgeExpert,
-      badgeColor: AppColors.trackerExpertBadge,
-    ),
-    TrackerQuickActionEntity(
-      label: AppStrings.trackerActionViewAlerts,
-      icon: AppAssetsSvg.trackerUserDetailAlerts,
-      badge: '2',
-      badgeColor: AppColors.trackerDangerRed,
-    ),
-  ];
+  List<TrackerQuickActionEntity> quickActions(TrackerUserEntity user) => [
+        TrackerQuickActionEntity(
+          label: AppStrings.trackerActionTimeline,
+          icon: AppAssetsSvg.trackerUserDetailTimeline,
+        ),
+        TrackerQuickActionEntity(
+          label: AppStrings.trackerActionMapPlayback,
+          icon: AppAssetsSvg.trackerUserDetailMap,
+        ),
+        TrackerQuickActionEntity(
+          label: AppStrings.trackerActionLiveView,
+          icon: AppAssetsSvg.trackerUserDetailLive,
+        ),
+        TrackerQuickActionEntity(
+          label: AppStrings.trackerActionCheckIns,
+          icon: AppAssetsSvg.trackerUserDetailCheckIns,
+        ),
+        TrackerQuickActionEntity(
+          label: AppStrings.trackerActionAiInsights,
+          icon: AppAssetsSvg.trackerUserDetailAi,
+          badge: AppStrings.trackerBadgeExpert,
+          badgeColor: AppColors.trackerExpertBadge,
+        ),
+        TrackerQuickActionEntity(
+          label: AppStrings.trackerActionViewAlerts,
+          icon: AppAssetsSvg.trackerUserDetailAlerts,
+          badge: user.activeAlerts,
+          badgeColor: AppColors.trackerDangerRed,
+        ),
+      ];
 
   final List<TrackerZoneEventEntity> zoneEventsToday = const [
     TrackerZoneEventEntity(
@@ -311,12 +319,12 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
                   value: lastLocation(user)),
               TrackerDetailInfoEntity(
                 label: AppStrings.trackerLastLog,
-                value: user.name == 'Daniel Chen'
-                    ? '2 min ago'
-                    : user.lastSeen.split('•').last.trim(),
+                value: user.lastLog.isEmpty
+                    ? user.lastSeen.split('\u2022').last.trim()
+                    : user.lastLog,
               ),
               TrackerDetailInfoEntity(
-                  label: AppStrings.trackerLastSync, value: lastSync),
+                  label: AppStrings.trackerLastSync, value: user.lastSync),
               TrackerDetailInfoEntity(
                 label: AppStrings.trackerConnection,
                 value: user.isOnline
@@ -324,17 +332,19 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
                     : AppStrings.trackerOffline,
               ),
               TrackerDetailInfoEntity(
-                  label: AppStrings.trackerActiveAlerts, value: activeAlerts),
+                  label: AppStrings.trackerActiveAlerts,
+                  value: user.activeAlerts),
               TrackerDetailInfoEntity(
                   label: AppStrings.trackerMissedCheckIns,
-                  value: missedCheckIns),
+                  value: user.missedCheckIns),
               TrackerDetailInfoEntity(
-                  label: AppStrings.trackerZoneEvents, value: zoneEvents),
+                  label: AppStrings.trackerZoneEvents, value: user.zoneEvents),
               TrackerDetailInfoEntity(
-                  label: AppStrings.trackerSecurityFlags, value: securityFlags),
-              const TrackerDetailInfoEntity(
+                  label: AppStrings.trackerSecurityFlags,
+                  value: user.securityFlags),
+              TrackerDetailInfoEntity(
                 label: AppStrings.trackerAuthenticityTrend,
-                value: AppStrings.trackerAuthenticityTrendValue,
+                value: user.trend,
               ),
             ]
           : const [
@@ -368,30 +378,37 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
               ),
             ];
 
-  // Authenticity block: verified for a tracked user, suspect for an
-  // unidentified one.
+  /// The authenticity block follows the user's band: an unidentified subject
+  /// is always treated as suspect, whatever the record claims.
+  TrackerAuthenticity band(TrackerUserEntity user) =>
+      user.isIdentified ? user.authenticity : TrackerAuthenticity.suspect;
+
   bool isSuspect(TrackerUserEntity user) =>
-      !user.isIdentified || user.authenticity == TrackerAuthenticity.suspect;
+      band(user) == TrackerAuthenticity.suspect;
 
-  String authenticityScore(TrackerUserEntity user) => isSuspect(user)
-      ? AppStrings.trackerScoreSuspectValue
-      : AppStrings.trackerAuthenticityScoreValue;
+  String authenticityScore(TrackerUserEntity user) =>
+      isSuspect(user) ? AppStrings.trackerScoreSuspectValue : user.score;
 
-  String authenticityLabel(TrackerUserEntity user) => isSuspect(user)
-      ? AppStrings.trackerScoreSuspect
-      : AppStrings.trackerVerified;
+  String authenticityLabel(TrackerUserEntity user) => band(user).label;
 
-  String authenticityNote(TrackerUserEntity user) => isSuspect(user)
-      ? AppStrings.trackerSuspectNote
-      : AppStrings.trackerAuthenticityScoreNote;
+  String authenticityNote(TrackerUserEntity user) => band(user).note;
 
-  Color authenticityColor(TrackerUserEntity user) => isSuspect(user)
-      ? AppColors.trackerSuspectRed
-      : AppColors.trackerOnlineGreen;
+  Color authenticityColor(TrackerUserEntity user) => band(user).color;
 
-  Color authenticityBadgeFill(TrackerUserEntity user) => isSuspect(user)
-      ? AppColors.trackerSuspectFill
-      : AppColors.trackerOnlineGreen.withValues(alpha: .1);
+  Color authenticityBadgeFill(TrackerUserEntity user) => band(user).badgeFill;
+
+  /// Security flags card: the count, or the all-clear.
+  String securityFlagHeadline(TrackerUserEntity user) {
+    if (!user.hasSecurityFlags) return AppStrings.trackerNoSecurityFlags;
+    final suffix = user.securityFlags == '1'
+        ? AppStrings.trackerFlagsDetectedSuffix
+        : AppStrings.trackerFlagsDetectedPluralSuffix;
+    return '${user.securityFlags}$suffix';
+  }
+
+  String securityFlagNote(TrackerUserEntity user) => user.hasSecurityFlags
+      ? AppStrings.trackerReviewRecommended
+      : AppStrings.trackerAllChecksPassed;
 
   List<TrackerActivityEntity> recentActivity(TrackerUserEntity user) => [
         TrackerActivityEntity(

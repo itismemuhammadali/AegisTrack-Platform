@@ -59,7 +59,7 @@ class TrackerUserDetailsView extends ConsumerWidget {
               weight: FontWeight.w600),
           10.ph,
           TrackerQuickActionsGrid(
-              actions: controller.quickActions, onAction: onAction),
+              actions: controller.quickActions(user), onAction: onAction),
           24.ph,
           const TrackerDetailText(AppStrings.trackerRecentActivity,
               weight: FontWeight.w600),
@@ -69,7 +69,11 @@ class TrackerUserDetailsView extends ConsumerWidget {
             onEntrySelected: onActivitySelected,
           ),
           24.ph,
-          const TrackerSecurityFlagsCard(),
+          TrackerSecurityFlagsCard(
+            headline: controller.securityFlagHeadline(user),
+            note: controller.securityFlagNote(user),
+            flagged: user.hasSecurityFlags,
+          ),
           24.ph,
           TrackerZoneEventsCard(events: controller.zoneEventsToday),
           24.ph,

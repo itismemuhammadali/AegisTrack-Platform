@@ -44,6 +44,18 @@ class AppStrings {
   static const String trackerOnline = 'Online';
   static const String trackerVerified = 'Verified';
   static const String trackerAcceptable = 'Acceptable';
+  static const String trackerAcceptableBadge = 'ACCEPTABLE';
+  static const String trackerQuestionableBadge = 'QUESTIONABLE';
+  static const String trackerAcceptableNote =
+      'Minor inconsistencies detected. Within acceptable range.';
+  static const String trackerQuestionableNote =
+      'Several inconsistencies detected. Review the security report.';
+  static const String trackerTrendStable = '→ Stable';
+  static const String trackerTrendDeclining = '↓ Declining';
+  static const String trackerTrendImproving = '↑ Improving';
+  static const String trackerFlagsDetectedSuffix = ' flag detected';
+  static const String trackerFlagsDetectedPluralSuffix = ' flags detected';
+  static const String trackerReviewRecommended = 'Review recommended';
   static const String trackerActionVideo = 'Video';
   static const String trackerActionTimeline = 'Timeline';
   static const String trackerActionMap = 'Map';
@@ -85,7 +97,6 @@ class AppStrings {
   static const String trackerZoneEvents = 'Zone Events';
   static const String trackerSecurityFlags = 'Security Flags';
   static const String trackerAuthenticityTrend = 'Authenticity Trend';
-  static const String trackerAuthenticityTrendValue = '↑ Stable';
   static const String trackerAuthenticityScore = 'Authenticity Score';
   static const String trackerAuthenticityScoreValue = '94';
   static const String trackerAuthenticityScoreTotal = '/ 100';
