@@ -188,6 +188,22 @@ class AppAssetsSvg {
   static const String trackerTimelineSos =
       'assets/icons/svg/tracker_timeline_sos.svg';
 
+  /// Tracker (viewer) alert center
+  static const String trackerAlertCenterSos =
+      'assets/icons/svg/tracker_alert_center_sos.svg';
+  static const String trackerAlertCenterZone =
+      'assets/icons/svg/tracker_alert_center_zone.svg';
+  static const String trackerAlertCenterMissed =
+      'assets/icons/svg/tracker_alert_center_missed.svg';
+  static const String trackerAlertCenterSpoofing =
+      'assets/icons/svg/tracker_alert_center_spoofing.svg';
+  static const String trackerAlertCenterMissingLog =
+      'assets/icons/svg/tracker_alert_center_missing_log.svg';
+  static const String trackerAlertCenterSecurity =
+      'assets/icons/svg/tracker_alert_center_security.svg';
+  static const String trackerAlertCenterChevron =
+      'assets/icons/svg/tracker_alert_center_chevron.svg';
+
   /// Tracker (viewer) check-ins
   static const String trackerCheckInCompleted =
       'assets/icons/svg/tracker_check_in_completed.svg';

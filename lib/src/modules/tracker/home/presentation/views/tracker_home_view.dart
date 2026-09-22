@@ -1,4 +1,5 @@
 import '../../../../../core/utils/app_exports.dart';
+import '../../domain/entities/tracker_alert_entity.dart';
 import '../controller/tracker_home_controller.dart';
 import '../widgets/tracker_alert_row.dart';
 import '../widgets/tracker_home_header.dart';
@@ -13,6 +14,7 @@ class TrackerHomeView extends ConsumerWidget {
     this.onMissingLogDetails,
     this.onViewAllUsers,
     this.onViewAllAlerts,
+    this.onAlertSelected,
   });
 
   final VoidCallback? onNotifications;
@@ -20,6 +22,9 @@ class TrackerHomeView extends ConsumerWidget {
   final VoidCallback? onMissingLogDetails;
   final VoidCallback? onViewAllUsers;
   final VoidCallback? onViewAllAlerts;
+
+  /// Tapping a recent alert card opens the alert centre.
+  final ValueChanged<TrackerAlertEntity>? onAlertSelected;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -86,7 +91,11 @@ class TrackerHomeView extends ConsumerWidget {
         ),
         for (final alert in controller.alerts) ...[
           16.ph,
-          TrackerAlertRow(alert: alert),
+          TrackerAlertRow(
+            alert: alert,
+            onTap:
+                onAlertSelected == null ? null : () => onAlertSelected!(alert),
+          ),
         ],
         24.ph,
         Row(

@@ -5,6 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/dashboard/presentation/views/tracker_dashboard_view.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/home/presentation/widgets/tracker_home_header.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/home/presentation/widgets/tracker_user_card.dart';
 
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
@@ -17,6 +18,8 @@ import 'package:joshua_r_hughes/src/modules/tracked/authentication/presentation/
 
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_user_details_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/home/domain/entities/tracker_user_entity.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/notifications/presentation/views/tracker_notifications_view.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/notifications/presentation/widgets/tracker_notification_card.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_check_ins_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_live_tracking_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_map_playback_view.dart';
@@ -580,4 +583,112 @@ void main() {
       expect(tester.takeException(), isNull);
     });
   }
+
+  Future<void> pumpRouter(WidgetTester tester, double width) async {
+    tester.view.physicalSize = Size(width, 956);
+    tester.view.devicePixelRatio = 1;
+    addTearDown(tester.view.resetPhysicalSize);
+    addTearDown(tester.view.resetDevicePixelRatio);
+    AppRouterGo.appRouter.go(trackerDashboardView);
+    await tester.pumpWidget(ProviderScope(
+        child: ScreenUtilInit(
+      designSize: const Size(440, 956),
+      minTextAdapt: true,
+      builder: (_, child) => MaterialApp.router(
+          theme: ThemeData.dark(), routerConfig: AppRouterGo.appRouter),
+    )));
+    await tester.pumpAndSettle();
+  }
+
+  testWidgets('Alert centre renders its groups, severities and filters',
+      (tester) async {
+    await pumpRouter(tester, 440);
+    // The bell is the header's only tappable element.
+    await tester.tap(find.descendant(
+      of: find.byType(TrackerHomeHeader),
+      matching: find.byType(GestureDetector),
+    ));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(TrackerNotificationsView), findsOneWidget);
+    expect(find.text('Alert Center'), findsOneWidget);
+    expect(find.text('3 unread'), findsOneWidget);
+    expect(find.text('TODAY'), findsOneWidget);
+    expect(find.text('SOS EMERGENCY'), findsOneWidget);
+    expect(find.text('CRITICAL'), findsOneWidget);
+
+    for (final label in [
+      'RESTRICTED ZONE ENTRY',
+      'ANTI-SPOOFING FLAG',
+      'YESTERDAY',
+      'MISSING LOG INTERVAL',
+      'SECURITY EVENT',
+      'LOW'
+    ]) {
+      await tester.scrollUntilVisible(find.text(label), 160,
+          scrollable: find.byType(Scrollable).first);
+      await tester.pumpAndSettle();
+      expect(find.text(label), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    }
+
+    await tester.scrollUntilVisible(find.text('All'), -200,
+        scrollable: find.byType(Scrollable).first);
+    await tester.pumpAndSettle();
+    await tester.ensureVisible(find.text('SOS').first);
+    await tester.tap(find.text('SOS').first);
+    await tester.pumpAndSettle();
+    expect(find.byType(TrackerNotificationCard), findsOneWidget);
+    expect(find.text('YESTERDAY'), findsNothing);
+  });
+
+  testWidgets('Every bell, alert card and quick action opens the alert centre',
+      (tester) async {
+    await pumpRouter(tester, 440);
+
+    // Home: a recent alert card.
+    await tester.scrollUntilVisible(find.text('Restricted Zone'), 200);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Restricted Zone'));
+    await tester.pumpAndSettle();
+    expect(find.byType(TrackerNotificationsView), findsOneWidget);
+    AppRouterGo.appRouter.go(trackerDashboardView);
+    await tester.pumpAndSettle();
+
+    // Home: the View All Alerts footer button.
+    await tester.scrollUntilVisible(find.text('View All Alerts'), 200);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('View All Alerts'));
+    await tester.pumpAndSettle();
+    expect(find.byType(TrackerNotificationsView), findsOneWidget);
+    AppRouterGo.appRouter.go(trackerDashboardView);
+    await tester.pumpAndSettle();
+
+    // A user's View Alerts quick action.
+    await tester.tap(find.text('Users'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byType(TrackerUserCard).first);
+    await tester.pumpAndSettle();
+    await tester.scrollUntilVisible(find.text('View Alerts'), 200);
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('View Alerts'));
+    await tester.pumpAndSettle();
+    expect(find.byType(TrackerNotificationsView), findsOneWidget);
+    AppRouterGo.appRouter.go(trackerDashboardView);
+    await tester.pumpAndSettle();
+
+    // The bells on the Users and Cases tabs.
+    for (final tab in ['Users', 'Cases']) {
+      await tester.tap(find.text(tab).last);
+      await tester.pumpAndSettle();
+      await tester.tap(find.descendant(
+        of: find.byType(TrackerHomeHeader).hitTestable(),
+        matching: find.byType(GestureDetector),
+      ));
+      await tester.pumpAndSettle();
+      expect(find.byType(TrackerNotificationsView), findsOneWidget);
+      AppRouterGo.appRouter.go(trackerDashboardView);
+      await tester.pumpAndSettle();
+    }
+  });
 }

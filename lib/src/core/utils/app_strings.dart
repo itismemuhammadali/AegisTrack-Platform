@@ -312,6 +312,27 @@ class AppStrings {
   static const String trackerMorningCheckIn = 'Morning Check-in';
   static const String trackerEscalationNote =
       'Grace period expired · Escalation triggered';
+
+  // Tracker (viewer) alert center
+  static const String trackerAlerts = 'Alerts';
+  static const String trackerAlertCenter = 'Alert Center';
+  static const String trackerUnreadSuffix = 'unread';
+  static const String trackerAlertsEmpty = 'No alerts found';
+  static const String trackerFilterSos = 'SOS';
+  static const String trackerFilterRestrictedZone = 'Restricted Zone';
+  static const String trackerFilterMissedCheckIn = 'Missed Check-in';
+  static const String trackerFilterSecurity = 'Security';
+  static const String trackerFilterMissingLogs = 'Missing Logs';
+  static const String trackerAlertSosEmergency = 'SOS EMERGENCY';
+  static const String trackerAlertRestrictedZoneEntry = 'RESTRICTED ZONE ENTRY';
+  static const String trackerAlertMissedCheckIn = 'MISSED CHECK-IN';
+  static const String trackerAlertAntiSpoofing = 'ANTI-SPOOFING FLAG';
+  static const String trackerAlertMissingLogInterval = 'MISSING LOG INTERVAL';
+  static const String trackerAlertSecurityEvent = 'SECURITY EVENT';
+  static const String trackerSeverityCritical = 'CRITICAL';
+  static const String trackerSeverityHigh = 'HIGH';
+  static const String trackerSeverityMedium = 'MEDIUM';
+  static const String trackerSeverityLow = 'LOW';
   static const String viewerSignInSubtitle =
       'Access your authorized viewer account';
   static const String rememberMe = 'Remember Me';

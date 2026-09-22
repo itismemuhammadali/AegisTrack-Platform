@@ -2,6 +2,7 @@
 
 // This is also known as declerative routing
 
+import '../../../modules/tracker/notifications/presentation/views/tracker_notifications_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_check_ins_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_live_tracking_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_map_playback_view.dart';
@@ -112,6 +113,8 @@ class AppRouterGo {
                 AppRouterGo.push(trackerLiveTrackingView, extra: state.extra),
               AppStrings.trackerActionCheckIns =>
                 AppRouterGo.push(trackerCheckInsView, extra: state.extra),
+              AppStrings.trackerActionViewAlerts =>
+                AppRouterGo.push(trackerNotificationsView),
               _ => null,
             },
           ),
@@ -145,6 +148,12 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: TrackerCheckInsView(user: state.extra as TrackerUserEntity?),
+        ),
+      ),
+      GoRoute(
+        path: trackerNotificationsView,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: TrackerNotificationsView(),
         ),
       ),
       GoRoute(

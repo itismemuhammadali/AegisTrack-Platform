@@ -311,6 +311,20 @@ class AppColors {
   static const Color trackerDangerPillFill = Color(0x1AFB2C36);
   static const Color trackerDangerPillBorder = Color(0x4DFB2C36);
 
+  // Tracker (viewer) alert center
+  static const Color trackerAlertCriticalRed = Color(0xFFE7000B);
+  static const Color trackerAlertRedCardFill = Color(0x1A82181A);
+  static const Color trackerAlertRedCardBorder = Color(0x80FB2C36);
+  static const Color trackerAlertOrangeCardFill = Color(0x1A7E2A0C);
+  static const Color trackerAlertOrangeCardBorder = Color(0x80FF6900);
+  static const Color trackerAlertAmberCardFill = Color(0x1A733E0A);
+  static const Color trackerAlertAmberCardBorder = Color(0x80F0B100);
+  static const Color trackerAlertRedIconFill = Color(0x33FB2C36);
+  static const Color trackerAlertOrangeIconFill = Color(0x33FF6900);
+  static const Color trackerAlertAmberIconFill = Color(0x33F0B100);
+  static const Color trackerAlertBlueIconFill = Color(0x332B7FFF);
+  static const Color trackerAlertUnreadDot = Color(0xFF51A2FF);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

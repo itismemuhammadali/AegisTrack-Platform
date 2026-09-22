@@ -9,11 +9,18 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
   int selectedIndex = 0;
 
   late final List<Widget> screens = [
-    const TrackerHomeView(),
+    TrackerHomeView(
+      onNotifications: openAlerts,
+      onViewAllAlerts: openAlerts,
+      onAlertSelected: (_) => openAlerts(),
+      onSosDetails: openAlerts,
+    ),
     TrackerUsersView(
-        onUserSelected: (user) =>
-            AppRouterGo.push(trackerUserDetailsView, extra: user)),
-    const TrackerCasesView(),
+      onNotifications: openAlerts,
+      onUserSelected: (user) =>
+          AppRouterGo.push(trackerUserDetailsView, extra: user),
+    ),
+    TrackerCasesView(onNotifications: openAlerts),
     TrackerProfileView(onLogout: logout),
   ];
 
@@ -35,6 +42,10 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
       label: AppStrings.trackerNavProfile,
     ),
   ];
+
+  /// Every notification bell, the home alert cards and the View Alerts quick
+  /// action land on the same alert centre.
+  void openAlerts() => AppRouterGo.push(trackerNotificationsView);
 
   void onTabTapped(int index) {
     if (selectedIndex == index) return;
