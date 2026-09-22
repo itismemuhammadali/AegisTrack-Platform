@@ -6,6 +6,7 @@ import '../../../modules/tracker/cases/domain/entities/tracker_case_entity.dart'
 import '../../../modules/tracker/cases/presentation/views/tracker_case_detail_view.dart';
 import '../../../modules/tracker/notifications/presentation/views/tracker_notifications_view.dart';
 import '../../../modules/tracker/profile/presentation/views/tracker_edit_profile_view.dart';
+import '../../../modules/tracker/profile/presentation/views/tracker_email_settings_view.dart';
 import '../../../modules/tracker/profile/presentation/views/tracker_help_support_view.dart';
 import '../../../modules/tracker/profile/presentation/views/tracker_plan_subscription_view.dart';
 import '../../../modules/tracker/reports/presentation/views/tracker_reports_view.dart';
@@ -190,6 +191,12 @@ class AppRouterGo {
         path: trackerSecureShareView,
         pageBuilder: (context, state) => const NoTransitionPage(
           child: TrackerSecureShareView(),
+        ),
+      ),
+      GoRoute(
+        path: trackerEmailSettingsView,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: TrackerEmailSettingsView(),
         ),
       ),
       GoRoute(

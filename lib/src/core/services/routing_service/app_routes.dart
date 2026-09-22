@@ -55,6 +55,8 @@ const String trackerPlanSubscriptionView = '/tracker-plan-subscription';
 
 const String trackerEditProfileView = '/tracker-edit-profile';
 
+const String trackerEmailSettingsView = '/tracker-email-settings';
+
 const String trackerAiInsightsView = '/tracker-ai-insights';
 
 const String trackerLogDetailView = '/tracker-log-detail';

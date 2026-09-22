@@ -176,6 +176,28 @@ class AppStrings {
   static const String trackerSosAlert = 'SOS!';
   static const String trackerVerifiedBadge = 'VERIFIED';
 
+  // Tracker (viewer) email settings
+  static const String trackerEmailSettingsTitle = 'Email Settings';
+  static const String trackerEmailSettingsBackTooltip = 'Back to profile';
+  static const String trackerEmailCurrent = 'Current Email';
+  static const String trackerEmailVerified = '✓ Verified';
+  static const String trackerEmailChangeTitle = 'Change Email Address';
+  static const String trackerEmailNewLabel = 'New Email Address';
+  static const String trackerEmailNewHint = 'new.email@example.com';
+  static const String trackerEmailConfirmPasswordLabel = 'Confirm Password';
+  static const String trackerEmailConfirmPasswordHint = 'Enter your password';
+  static const String trackerEmailUpdate = 'Update Email';
+  static const String trackerEmailPreferences = 'Email Preferences';
+  static const String trackerEmailPrefNotifications = 'Email Notifications';
+  static const String trackerEmailPrefNotificationsNote =
+      'Receive updates via email';
+  static const String trackerEmailPrefWeekly = 'Weekly Reports';
+  static const String trackerEmailPrefWeeklyNote =
+      'Get weekly activity summaries';
+  static const String trackerEmailPrefSecurity = 'Security Alerts';
+  static const String trackerEmailPrefSecurityNote =
+      'Important security notifications';
+
   // Tracker (viewer) edit profile
   static const String trackerEditProfileTitle = 'Edit Profile';
   static const String trackerEditProfileBackTooltip = 'Back to profile';

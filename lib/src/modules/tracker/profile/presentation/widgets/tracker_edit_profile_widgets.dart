@@ -89,6 +89,9 @@ class TrackerEditProfileField extends StatelessWidget {
     required this.controller,
     this.lines = 1,
     this.filled = false,
+    this.hint,
+    this.obscure = false,
+    this.keyboardType = TextInputType.text,
   });
 
   final String label;
@@ -98,6 +101,10 @@ class TrackerEditProfileField extends StatelessWidget {
   /// The Location field sits on a filled surface in the design; the rest are
   /// outlined only.
   final bool filled;
+
+  final String? hint;
+  final bool obscure;
+  final TextInputType keyboardType;
 
   @override
   Widget build(BuildContext context) => Column(
@@ -110,10 +117,11 @@ class TrackerEditProfileField extends StatelessWidget {
           6.ph,
           CustomTextField(
             controller: controller,
-            maxLines: lines,
-            minLines: lines,
-            textInputType:
-                lines > 1 ? TextInputType.multiline : TextInputType.text,
+            maxLines: obscure ? 1 : lines,
+            minLines: obscure ? 1 : lines,
+            isObscure: obscure,
+            hintText: hint,
+            textInputType: lines > 1 ? TextInputType.multiline : keyboardType,
             fillColor:
                 filled ? AppColors.trackerSurfaceFill : AppColors.transparent,
             enableBorderColor: AppColors.trackerSurfaceFill,
@@ -125,6 +133,11 @@ class TrackerEditProfileField extends StatelessWidget {
               fontSize: 16.sp,
               height: 24 / 16,
               color: AppColors.primaryWhite,
+            ),
+            hintTextStyle: context.bodyLargeStyle?.copyWith(
+              fontSize: 16.sp,
+              height: 24 / 16,
+              color: AppColors.trackerMutedText,
             ),
           ),
         ],

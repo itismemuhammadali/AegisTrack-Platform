@@ -11,7 +11,9 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
         bioController =
             TextEditingController(text: AppStrings.trackerEditProfileBioValue),
         locationController = TextEditingController(
-            text: AppStrings.trackerEditProfileLocationValue);
+            text: AppStrings.trackerEditProfileLocationValue),
+        newEmailController = TextEditingController(),
+        confirmPasswordController = TextEditingController();
 
   final String name = AppStrings.trackerProfileName;
   final String email = AppStrings.trackerProfileEmail;
@@ -22,6 +24,31 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
   final TextEditingController usernameController;
   final TextEditingController bioController;
   final TextEditingController locationController;
+
+  // --- Email settings ------------------------------------------------------
+
+  final TextEditingController newEmailController;
+  final TextEditingController confirmPasswordController;
+
+  /// Email preference switches, all on in the design.
+  bool emailNotifications = true;
+  bool weeklyReports = true;
+  bool securityAlerts = true;
+
+  void toggleEmailNotifications() {
+    emailNotifications = !emailNotifications;
+    notifyListeners();
+  }
+
+  void toggleWeeklyReports() {
+    weeklyReports = !weeklyReports;
+    notifyListeners();
+  }
+
+  void toggleSecurityAlerts() {
+    securityAlerts = !securityAlerts;
+    notifyListeners();
+  }
 
   /// Initials for the avatar, taken from whatever the name field holds.
   String get initials => nameController.text
@@ -37,6 +64,8 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
     usernameController.dispose();
     bioController.dispose();
     locationController.dispose();
+    newEmailController.dispose();
+    confirmPasswordController.dispose();
     super.dispose();
   }
 

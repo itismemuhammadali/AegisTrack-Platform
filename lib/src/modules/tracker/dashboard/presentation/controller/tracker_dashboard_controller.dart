@@ -62,6 +62,8 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
           AppRouterGo.push(trackerPlanSubscriptionView),
         AppStrings.trackerEditProfile =>
           AppRouterGo.push(trackerEditProfileView),
+        AppStrings.trackerEmailSettings =>
+          AppRouterGo.push(trackerEmailSettingsView),
         _ => null,
       };
 
