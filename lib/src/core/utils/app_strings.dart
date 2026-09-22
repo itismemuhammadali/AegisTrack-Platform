@@ -165,6 +165,40 @@ class AppStrings {
   static const String trackerSosAlert = 'SOS!';
   static const String trackerVerifiedBadge = 'VERIFIED';
 
+  // Tracker (viewer) help & support
+  static const String trackerHelpBackTooltip = 'Back to profile';
+  static const String trackerHelpLiveChat = 'Live Chat';
+  static const String trackerHelpLiveChatSubtitle = 'Chat with support';
+  static const String trackerHelpEmailSupport = 'Email Support';
+  static const String trackerHelpSupportEmail = 'support@securetrack.io';
+  static const String trackerHelpDocumentation = 'Documentation';
+  static const String trackerHelpDocumentationSubtitle = 'Viewer guide & FAQs';
+  static const String trackerHelpStatusPage = 'Status Page';
+  static const String trackerHelpStatusPageSubtitle = 'System status';
+  static const String trackerHelpQuickReference = 'Viewer Quick Reference';
+  static const String trackerHelpTipReadOnly =
+      'You have read-only access to assigned users';
+  static const String trackerHelpTipAuthenticity =
+      'Authenticity Scores verify GPS log integrity';
+  static const String trackerHelpTipAiSummaries =
+      'AI summaries are labelled SYSTEM-GENERATED';
+  static const String trackerHelpTipShareLinks =
+      'Secure Share links expire automatically';
+  static const String trackerHelpTipImmutable =
+      'All records are immutable and cannot be edited';
+  static const String trackerHelpFaqTitle = 'Frequently Asked Questions';
+  static const String trackerHelpFaqReadOnly =
+      'What does "Read-Only Access" mean?';
+  static const String trackerHelpFaqRequestAccess =
+      'How do I request access to additional users?';
+  static const String trackerHelpFaqAuthenticityScore =
+      'What is the Authenticity Score?';
+  static const String trackerHelpFaqEncryption = 'How are reports encrypted?';
+  static const String trackerHelpFaqLegalTeam =
+      'Can I share logs with my legal team?';
+  static const String trackerHelpFooterVersion =
+      'SecureTrack v2.1.0 · Authorized Viewer Portal';
+
   // Tracker (viewer) case detail
   static const String trackerCaseDetailClose = 'Close case detail';
   static const String trackerCaseInformation = 'Case Information';

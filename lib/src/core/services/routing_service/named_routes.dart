@@ -5,6 +5,7 @@
 import '../../../modules/tracker/cases/domain/entities/tracker_case_entity.dart';
 import '../../../modules/tracker/cases/presentation/views/tracker_case_detail_view.dart';
 import '../../../modules/tracker/notifications/presentation/views/tracker_notifications_view.dart';
+import '../../../modules/tracker/profile/presentation/views/tracker_help_support_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_check_ins_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_live_tracking_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_map_playback_view.dart';
@@ -161,6 +162,12 @@ class AppRouterGo {
           child: TrackerCaseDetailView(
             caseEntity: state.extra! as TrackerCaseEntity,
           ),
+        ),
+      ),
+      GoRoute(
+        path: trackerHelpSupportView,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: TrackerHelpSupportView(),
         ),
       ),
       GoRoute(

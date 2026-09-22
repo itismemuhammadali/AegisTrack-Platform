@@ -28,3 +28,18 @@ class TrackerProfileSectionEntity {
   final String title;
   final List<TrackerProfileRowEntity> rows;
 }
+
+/// A way to reach support from the Help & Support screen.
+class TrackerHelpChannelEntity {
+  const TrackerHelpChannelEntity({
+    required this.icon,
+    required this.iconFill,
+    required this.title,
+    required this.subtitle,
+  });
+
+  final String icon;
+  final Color iconFill;
+  final String title;
+  final String subtitle;
+}

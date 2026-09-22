@@ -48,3 +48,5 @@ const String trackerCheckInsView = '/tracker-check-ins';
 const String trackerNotificationsView = '/tracker-notifications';
 
 const String trackerCaseDetailView = '/tracker-case-detail';
+
+const String trackerHelpSupportView = '/tracker-help-support';

@@ -299,6 +299,22 @@ class AppAssetsSvg {
   static const String trackerCaseDetailCsv =
       'assets/icons/svg/tracker_case_detail_csv.svg';
 
+  // Tracker (viewer) help & support
+  static const String trackerHelpChat =
+      'assets/icons/svg/tracker_help_chat.svg';
+  static const String trackerHelpEmail =
+      'assets/icons/svg/tracker_help_email.svg';
+  static const String trackerHelpDocs =
+      'assets/icons/svg/tracker_help_docs.svg';
+  static const String trackerHelpStatus =
+      'assets/icons/svg/tracker_help_status.svg';
+  static const String trackerHelpReference =
+      'assets/icons/svg/tracker_help_reference.svg';
+  static const String trackerHelpCheck =
+      'assets/icons/svg/tracker_help_check.svg';
+  static const String trackerHelpFaqChevron =
+      'assets/icons/svg/tracker_help_faq_chevron.svg';
+
   static const String trackerViewerBiometricsIcon =
       'assets/icons/svg/tracker_viewer_biometrics.svg';
   static const String signInPersonIcon = 'assets/icons/svg/sign_in_person.svg';

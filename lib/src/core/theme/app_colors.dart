@@ -333,6 +333,12 @@ class AppColors {
   static const Color trackerCaseLocationPurple = Color(0xFFC27AFF);
   static const Color trackerCaseLocationSurface = Color(0x33AD46FF);
 
+  // Tracker (viewer) help & support
+  static const Color trackerHelpChatFill = Color(0x1A321F67);
+  static const Color trackerHelpEmailFill = Color(0x1A2B7FFF);
+  static const Color trackerHelpDocsFill = Color(0x1A00C950);
+  static const Color trackerHelpStatusFill = Color(0x1A5B3A9E);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

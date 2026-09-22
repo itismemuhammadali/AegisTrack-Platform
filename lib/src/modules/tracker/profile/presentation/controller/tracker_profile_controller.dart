@@ -102,6 +102,60 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
       ],
     ),
   ];
+
+  // --- Help & support ------------------------------------------------------
+
+  final List<TrackerHelpChannelEntity> helpChannels = const [
+    TrackerHelpChannelEntity(
+      icon: AppAssetsSvg.trackerHelpChat,
+      iconFill: AppColors.trackerHelpChatFill,
+      title: AppStrings.trackerHelpLiveChat,
+      subtitle: AppStrings.trackerHelpLiveChatSubtitle,
+    ),
+    TrackerHelpChannelEntity(
+      icon: AppAssetsSvg.trackerHelpEmail,
+      iconFill: AppColors.trackerHelpEmailFill,
+      title: AppStrings.trackerHelpEmailSupport,
+      subtitle: AppStrings.trackerHelpSupportEmail,
+    ),
+    TrackerHelpChannelEntity(
+      icon: AppAssetsSvg.trackerHelpDocs,
+      iconFill: AppColors.trackerHelpDocsFill,
+      title: AppStrings.trackerHelpDocumentation,
+      subtitle: AppStrings.trackerHelpDocumentationSubtitle,
+    ),
+    TrackerHelpChannelEntity(
+      icon: AppAssetsSvg.trackerHelpStatus,
+      iconFill: AppColors.trackerHelpStatusFill,
+      title: AppStrings.trackerHelpStatusPage,
+      subtitle: AppStrings.trackerHelpStatusPageSubtitle,
+    ),
+  ];
+
+  final List<String> helpQuickReference = const [
+    AppStrings.trackerHelpTipReadOnly,
+    AppStrings.trackerHelpTipAuthenticity,
+    AppStrings.trackerHelpTipAiSummaries,
+    AppStrings.trackerHelpTipShareLinks,
+    AppStrings.trackerHelpTipImmutable,
+  ];
+
+  final List<String> helpFaqs = const [
+    AppStrings.trackerHelpFaqReadOnly,
+    AppStrings.trackerHelpFaqRequestAccess,
+    AppStrings.trackerHelpFaqAuthenticityScore,
+    AppStrings.trackerHelpFaqEncryption,
+    AppStrings.trackerHelpFaqLegalTeam,
+  ];
+
+  /// Which FAQ is open, or null while they are all collapsed. The design only
+  /// shows the collapsed state, so an answer body is not modelled yet.
+  String? expandedFaq;
+
+  void toggleFaq(String question) {
+    expandedFaq = expandedFaq == question ? null : question;
+    notifyListeners();
+  }
 }
 
 final trackerProfileControllerProvider =

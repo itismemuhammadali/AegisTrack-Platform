@@ -27,7 +27,7 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
       onSosDetails: openSosSubject,
       onCaseSelected: openCase,
     ),
-    TrackerProfileView(onLogout: logout),
+    TrackerProfileView(onLogout: logout, onAction: openProfileAction),
   ];
 
   final List<TrackerTabItemEntity> tabs = const [
@@ -54,6 +54,14 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
   void openAlerts() => AppRouterGo.push(trackerNotificationsView);
 
   /// The Cases SOS card opens the unidentified subject's overview.
+  /// Only Help & Support has a screen behind it so far; the other profile
+  /// rows stay inert rather than pushing a placeholder.
+  void openProfileAction(String action) {
+    if (action == AppStrings.trackerHelpSupport) {
+      AppRouterGo.push(trackerHelpSupportView);
+    }
+  }
+
   void openCase(TrackerCaseEntity caseEntity) =>
       AppRouterGo.push(trackerCaseDetailView, extra: caseEntity);
 
