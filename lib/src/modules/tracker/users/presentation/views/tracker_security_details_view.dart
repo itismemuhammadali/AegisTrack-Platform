@@ -14,12 +14,14 @@ import '../widgets/tracker_security_section_title.dart';
 class TrackerSecurityDetailsView extends ConsumerWidget {
   const TrackerSecurityDetailsView({
     super.key,
-    required this.user,
+    this.user,
     this.onViewRelatedLog,
     this.onDownloadReport,
   });
 
-  final TrackerUserEntity user;
+  /// The subject the report belongs to. Absent when the report is opened
+  /// from a log record rather than from a user's overview.
+  final TrackerUserEntity? user;
   final VoidCallback? onViewRelatedLog;
   final VoidCallback? onDownloadReport;
 

@@ -90,12 +90,13 @@ class AppRouterGo {
       ),
       GoRoute(
         path: trackerSecurityDetailsView,
-        redirect: (context, state) =>
-            state.extra is TrackerUserEntity ? null : trackerDashboardView,
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: TrackerSecurityDetailsView(
-              user: state.extra! as TrackerUserEntity),
+            user: state.extra as TrackerUserEntity?,
+            onViewRelatedLog: () =>
+                AppRouterGo.push(trackerLogDetailView, extra: state.extra),
+          ),
         ),
       ),
       GoRoute(
