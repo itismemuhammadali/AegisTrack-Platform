@@ -39,6 +39,9 @@ class TrackerUserInfoGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Column(
+        // Stretch, so a trailing odd tile spans the row rather than shrinking
+        // to its label.
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           for (var i = 0; i + 1 < tiles.length; i += 2) ...[
             IntrinsicHeight(

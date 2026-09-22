@@ -1,6 +1,4 @@
 import '../../../../../core/utils/app_exports.dart';
-import '../../../dashboard/presentation/widgets/tracker_surface.dart';
-import 'tracker_detail_button.dart';
 import 'tracker_detail_surface.dart';
 import 'tracker_detail_text.dart';
 
@@ -35,12 +33,21 @@ class TrackerAuthenticityCard extends StatelessWidget {
                   child: TrackerDetailText(AppStrings.trackerAuthenticityScore,
                       weight: FontWeight.w600),
                 ),
-                TrackerBadge(label,
-                    color: color, background: badgeFill, horizontal: 16),
+                8.pw,
+                Container(
+                  padding: AppInsets.symmetric(horizontal: 16, vertical: 4),
+                  decoration: BoxDecoration(
+                    color: badgeFill,
+                    borderRadius: 100.circular,
+                  ),
+                  child: TrackerDetailText(label,
+                      size: 12, weight: FontWeight.w500, color: color),
+                ),
               ],
             ),
             10.ph,
             Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 TrackerDetailText(score,
                     size: 32, weight: FontWeight.w700, color: color),
@@ -55,8 +62,23 @@ class TrackerAuthenticityCard extends StatelessWidget {
             TrackerDetailText(note,
                 size: 12, color: AppColors.trackerMutedText),
             10.ph,
-            TrackerDetailButton(AppStrings.trackerViewSecurityDetails,
-                onTap: onSecurityDetails),
+            // The card's own button: wider padding and a heavier label than
+            // the icon buttons closing the overview.
+            GestureDetector(
+              onTap: onSecurityDetails,
+              child: Container(
+                width: double.infinity,
+                alignment: Alignment.center,
+                padding: AppInsets.symmetric(horizontal: 16, vertical: 12),
+                decoration: BoxDecoration(
+                  color: AppColors.trackerSurfaceFill,
+                  borderRadius: 20.circular,
+                ),
+                child: const TrackerDetailText(
+                    AppStrings.trackerViewSecurityDetails,
+                    weight: FontWeight.w600),
+              ),
+            ),
           ],
         ),
       );
