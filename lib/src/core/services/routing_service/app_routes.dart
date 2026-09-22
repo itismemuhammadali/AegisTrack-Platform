@@ -52,3 +52,5 @@ const String trackerCaseDetailView = '/tracker-case-detail';
 const String trackerHelpSupportView = '/tracker-help-support';
 
 const String trackerAiInsightsView = '/tracker-ai-insights';
+
+const String trackerLogDetailView = '/tracker-log-detail';

@@ -9,6 +9,7 @@ import '../../../modules/tracker/profile/presentation/views/tracker_help_support
 import '../../../modules/tracker/users/presentation/views/tracker_ai_insights_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_check_ins_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_live_tracking_view.dart';
+import '../../../modules/tracker/users/presentation/views/tracker_log_detail_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_map_playback_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_security_details_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_timeline_view.dart';
@@ -108,6 +109,8 @@ class AppRouterGo {
             onSecurityDetails: () => AppRouterGo.push(
                 trackerSecurityDetailsView,
                 extra: state.extra),
+            onActivitySelected: (_) =>
+                AppRouterGo.push(trackerLogDetailView, extra: state.extra),
             onAction: (action) => switch (action) {
               AppStrings.trackerActionTimeline =>
                 AppRouterGo.push(trackerTimelineView, extra: state.extra),
@@ -181,9 +184,25 @@ class AppRouterGo {
         ),
       ),
       GoRoute(
+        path: trackerLogDetailView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: TrackerLogDetailView(
+            onSecurityDetails: () => AppRouterGo.push(
+                trackerSecurityDetailsView,
+                extra: state.extra),
+            onViewOnMap: () =>
+                AppRouterGo.push(trackerMapPlaybackView, extra: state.extra),
+          ),
+        ),
+      ),
+      GoRoute(
         path: trackerNotificationsView,
-        pageBuilder: (context, state) => const NoTransitionPage(
-          child: TrackerNotificationsView(),
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: TrackerNotificationsView(
+            onAlertSelected: (_) => AppRouterGo.push(trackerLogDetailView),
+          ),
         ),
       ),
       GoRoute(

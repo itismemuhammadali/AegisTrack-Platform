@@ -339,6 +339,15 @@ class AppColors {
   static const Color trackerHelpDocsFill = Color(0x1A00C950);
   static const Color trackerHelpStatusFill = Color(0x1A5B3A9E);
 
+  // Tracker (viewer) log detail
+  static const Color trackerLogBannerBorder = Color(0x33FE9A00);
+  static const Color trackerLogAcceptableFill = Color(0x1AF0B100);
+  static const Color trackerLogAcceptableBorder = Color(0x33F0B100);
+  static const Color trackerLogQuestionableFill = Color(0x1AFF6900);
+  static const Color trackerLogSuspectBorder = Color(0x33FB2C36);
+  static const Color trackerLogSecurityFill = Color(0x1A2B7FFF);
+  static const Color trackerLogSecurityBorder = Color(0x4D51A2FF);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

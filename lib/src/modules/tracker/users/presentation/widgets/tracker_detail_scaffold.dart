@@ -9,6 +9,7 @@ class TrackerDetailScaffold extends StatelessWidget {
     required this.backTooltip,
     required this.child,
     this.header,
+    this.banner,
     this.subtitle,
     this.trailing,
     this.titleColor = AppColors.viewerSignInText,
@@ -26,6 +27,10 @@ class TrackerDetailScaffold extends StatelessWidget {
   /// Replaces the default back-arrow header row, for screens whose header is
   /// laid out differently (the case detail closes rather than going back).
   final Widget? header;
+
+  /// Full-bleed strip shown above the header, such as the log record's
+  /// immutability notice.
+  final Widget? banner;
 
   /// Optional action shown at the end of the header row.
   final Widget? trailing;
@@ -58,6 +63,7 @@ class TrackerDetailScaffold extends StatelessWidget {
         child: SafeArea(
           child: Column(
             children: [
+              if (banner != null) banner!,
               Padding(
                 padding:
                     AppInsets.only(left: 24, right: 24, top: 24, bottom: 16),

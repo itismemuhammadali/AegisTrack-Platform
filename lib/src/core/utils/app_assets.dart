@@ -299,6 +299,26 @@ class AppAssetsSvg {
   static const String trackerCaseDetailCsv =
       'assets/icons/svg/tracker_case_detail_csv.svg';
 
+  // Tracker (viewer) log detail
+  static const String trackerLogLockBanner =
+      'assets/icons/svg/tracker_log_lock_banner.svg';
+  static const String trackerLogLockSmall =
+      'assets/icons/svg/tracker_log_lock_small.svg';
+  static const String trackerLogGps = 'assets/icons/svg/tracker_log_gps.svg';
+  static const String trackerLogRowLock =
+      'assets/icons/svg/tracker_log_row_lock.svg';
+  static const String trackerLogShield =
+      'assets/icons/svg/tracker_log_shield.svg';
+  static const String trackerLogSync = 'assets/icons/svg/tracker_log_sync.svg';
+  static const String trackerLogDevice =
+      'assets/icons/svg/tracker_log_device.svg';
+  static const String trackerLogCamera =
+      'assets/icons/svg/tracker_log_camera.svg';
+  static const String trackerLogImage =
+      'assets/icons/svg/tracker_log_image.svg';
+  static const String trackerLogSecurity =
+      'assets/icons/svg/tracker_log_security.svg';
+
   // Tracker (viewer) AI insights
   static const String trackerAiSparkle =
       'assets/icons/svg/tracker_ai_sparkle.svg';

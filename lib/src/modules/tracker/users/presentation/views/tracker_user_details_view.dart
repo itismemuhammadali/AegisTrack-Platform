@@ -1,5 +1,6 @@
 import '../../../../../core/utils/app_exports.dart';
 import '../../../home/domain/entities/tracker_user_entity.dart';
+import '../../domain/entities/tracker_activity_entity.dart';
 import '../controller/tracker_users_controller.dart';
 import '../widgets/tracker_authenticity_card.dart';
 import '../widgets/tracker_detail_button.dart';
@@ -19,11 +20,15 @@ class TrackerUserDetailsView extends ConsumerWidget {
     required this.user,
     this.onAction,
     this.onSecurityDetails,
+    this.onActivitySelected,
   });
 
   final TrackerUserEntity user;
   final VoidCallback? onSecurityDetails;
   final ValueChanged<String>? onAction;
+
+  /// Opens the log record behind a recent activity row.
+  final ValueChanged<TrackerActivityEntity>? onActivitySelected;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -59,7 +64,10 @@ class TrackerUserDetailsView extends ConsumerWidget {
           const TrackerDetailText(AppStrings.trackerRecentActivity,
               weight: FontWeight.w600),
           10.ph,
-          TrackerRecentActivityCard(activity: controller.recentActivity(user)),
+          TrackerRecentActivityCard(
+            activity: controller.recentActivity(user),
+            onEntrySelected: onActivitySelected,
+          ),
           24.ph,
           const TrackerSecurityFlagsCard(),
           24.ph,

@@ -165,6 +165,44 @@ class AppStrings {
   static const String trackerSosAlert = 'SOS!';
   static const String trackerVerifiedBadge = 'VERIFIED';
 
+  // Tracker (viewer) log detail
+  static const String trackerLogDetail = 'Log Detail';
+  static const String trackerLogBackTooltip = 'Back to user overview';
+  static const String trackerLogLockedBanner = 'LOCKED · IMMUTABLE RECORD';
+  static const String trackerLogArchived = 'ARCHIVED';
+  static const String trackerLogGpsSection = 'GPS · LOCATION';
+  static const String trackerLogCoordinates = 'Coordinates';
+  static const String trackerLogAddress = 'Address';
+  static const String trackerLogAccuracy = 'Accuracy';
+  static const String trackerLogAltitude = 'Altitude';
+  static const String trackerLogGpsProvider = 'GPS Provider';
+  static const String trackerLogScoreCaption = '/ 100 · VERIFIED';
+  static const String trackerLogScoreNote =
+      'All security checks passed. GPS coordinates verified authentic.';
+  static const String trackerLogBandVerified = 'VERIFIED';
+  static const String trackerLogBandVerifiedRange = '90–100';
+  static const String trackerLogBandAcceptable = 'ACCEPTABLE';
+  static const String trackerLogBandAcceptableRange = '70–89';
+  static const String trackerLogBandQuestionable = 'QUESTIONABLE';
+  static const String trackerLogBandQuestionableRange = '40–69';
+  static const String trackerLogBandSuspect = 'SUSPECT';
+  static const String trackerLogBandSuspectRange = '<40';
+  static const String trackerLogSyncSection = 'SYNC · DEVICE';
+  static const String trackerLogSyncStatus = 'Sync Status';
+  static const String trackerLogSyncTime = 'Sync Time';
+  static const String trackerLogDeviceLabel = 'Device';
+  static const String trackerLogNetwork = 'Network';
+  static const String trackerLogConnectionQuality = 'Connection Quality';
+  static const String trackerLogEventSection = 'EVENT DETAILS';
+  static const String trackerLogEventType = 'Event Type';
+  static const String trackerLogZone = 'Zone';
+  static const String trackerLogRelatedCheckIn = 'Related Check-in';
+  static const String trackerLogNotes = 'Notes';
+  static const String trackerLogMediaSection = 'MEDIA';
+  static const String trackerLogViewOnMap = 'View on Map';
+  static const String trackerLogSecurityDetails = 'Security Details';
+  static const String trackerLogViewSecurityDetails = 'View Security Details';
+
   // Tracker (viewer) AI insights
   static const String trackerAiInsightsBackTooltip = 'Back to user overview';
   static const String trackerAiGenerateSummary = 'Generate AI Summary';

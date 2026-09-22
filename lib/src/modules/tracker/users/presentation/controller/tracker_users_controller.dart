@@ -4,6 +4,7 @@ import '../../domain/entities/tracker_activity_entity.dart';
 import '../../domain/entities/tracker_check_in_entity.dart';
 import '../../domain/entities/tracker_detail_info_entity.dart';
 import '../../domain/entities/tracker_live_status_entity.dart';
+import '../../domain/entities/tracker_log_detail_entity.dart';
 import '../../domain/entities/tracker_device_info_entity.dart';
 import '../../domain/entities/tracker_quick_action_entity.dart';
 import '../../domain/entities/tracker_route_event_entity.dart';
@@ -153,6 +154,120 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
       : user.isOnline
           ? AppColors.trackerOnlineGreen
           : AppColors.trackerMutedText;
+
+  // --- Log detail ----------------------------------------------------------
+
+  /// The bands are fixed scale documentation, not per-log data.
+  static const List<TrackerLogScoreBandEntity> scoreBands = [
+    TrackerLogScoreBandEntity(
+      label: AppStrings.trackerLogBandVerified,
+      range: AppStrings.trackerLogBandVerifiedRange,
+      color: AppColors.trackerOnlineGreen,
+      fill: AppColors.trackerOnlinePillFill,
+      border: AppColors.trackerSuccessSurface,
+    ),
+    TrackerLogScoreBandEntity(
+      label: AppStrings.trackerLogBandAcceptable,
+      range: AppStrings.trackerLogBandAcceptableRange,
+      color: AppColors.trackerAcceptableText,
+      fill: AppColors.trackerLogAcceptableFill,
+      border: AppColors.trackerLogAcceptableBorder,
+    ),
+    TrackerLogScoreBandEntity(
+      label: AppStrings.trackerLogBandQuestionable,
+      range: AppStrings.trackerLogBandQuestionableRange,
+      color: AppColors.trackerOrange,
+      fill: AppColors.trackerLogQuestionableFill,
+      border: AppColors.trackerOrangeSurface,
+    ),
+    TrackerLogScoreBandEntity(
+      label: AppStrings.trackerLogBandSuspect,
+      range: AppStrings.trackerLogBandSuspectRange,
+      color: AppColors.trackerFlaggedRed,
+      fill: AppColors.trackerDangerPillFill,
+      border: AppColors.trackerLogSuspectBorder,
+    ),
+  ];
+
+  /// Figma sample record; replace with the viewer log API.
+  final TrackerLogDetailEntity logDetail = const TrackerLogDetailEntity(
+    sequence: '1',
+    status: AppStrings.trackerLogArchived,
+    kindLabel: AppStrings.trackerCaseTagCheckIn,
+    kindColor: AppColors.trackerInfoBlue,
+    kindFill: AppColors.trackerInfoBlueSurface,
+    timestamp: 'Dec 12, 2024 · 14:32:07 UTC',
+    score: '94',
+    scoreColor: AppColors.trackerOnlineGreen,
+    scoreNote: AppStrings.trackerLogScoreNote,
+    gpsFields: [
+      TrackerLogFieldEntity(
+        label: AppStrings.trackerLogCoordinates,
+        value: '40.7589° N, 73.9851° W',
+        locked: true,
+        monospace: true,
+      ),
+      TrackerLogFieldEntity(
+        label: AppStrings.trackerLogAddress,
+        value: '1251 Sixth Ave, New York, NY 10020',
+        locked: true,
+      ),
+      TrackerLogFieldEntity(
+        label: AppStrings.trackerLogAccuracy,
+        value: '±4.2 meters',
+        locked: true,
+        monospace: true,
+      ),
+      TrackerLogFieldEntity(
+        label: AppStrings.trackerLogAltitude,
+        value: '22.4m',
+        locked: true,
+        monospace: true,
+      ),
+      TrackerLogFieldEntity(
+        label: AppStrings.trackerLogGpsProvider,
+        value: 'Device GPS',
+        locked: true,
+      ),
+    ],
+    syncFields: [
+      TrackerLogFieldEntity(
+        label: AppStrings.trackerLogSyncStatus,
+        value: 'Synced',
+        valueColor: AppColors.trackerOnlineGreen,
+        leadingDot: true,
+      ),
+      TrackerLogFieldEntity(
+        label: AppStrings.trackerLogSyncTime,
+        value: 'Dec 12, 2024 · 14:32:09 UTC',
+        monospace: true,
+      ),
+      TrackerLogFieldEntity(
+        label: AppStrings.trackerLogDeviceLabel,
+        value: 'iPhone 14 Pro',
+        icon: AppAssetsSvg.trackerLogDevice,
+      ),
+      TrackerLogFieldEntity(
+          label: AppStrings.trackerLogNetwork, value: 'Wi-Fi'),
+      TrackerLogFieldEntity(
+        label: AppStrings.trackerLogConnectionQuality,
+        value: 'Strong',
+        valueColor: AppColors.trackerOnlineGreen,
+      ),
+    ],
+    eventFields: [
+      TrackerLogFieldEntity(
+          label: AppStrings.trackerLogZone,
+          value: 'Permitted Zone – Office Building'),
+      TrackerLogFieldEntity(
+        label: AppStrings.trackerLogRelatedCheckIn,
+        value: 'CHK-2024-441 "14:30 Scheduled"',
+      ),
+    ],
+    notes: 'Arrived at office. All clear.',
+    attachmentSummary: '1 photo attached',
+    mediaCaption: 'Photo Evidence · 1 attachment',
+  );
 
   // --- AI insights ---------------------------------------------------------
 
