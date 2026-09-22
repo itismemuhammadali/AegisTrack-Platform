@@ -302,6 +302,18 @@ class AppAssetsSvg {
   static const String trackerUserFlagAlert =
       'assets/icons/svg/tracker_user_flag_alert.svg';
 
+  // Tracker (viewer) security settings
+  static const String trackerSecurityStatusShield =
+      'assets/icons/svg/tracker_security_status_shield.svg';
+  static const String trackerSecurityTwoFactor =
+      'assets/icons/svg/tracker_security_two_factor.svg';
+  static const String trackerSecurityBiometric =
+      'assets/icons/svg/tracker_security_biometric.svg';
+  static const String trackerSecurityPasswordLock =
+      'assets/icons/svg/tracker_security_password_lock.svg';
+  static const String trackerSecurityEye =
+      'assets/icons/svg/tracker_security_eye.svg';
+
   // Tracker (viewer) email settings
   static const String trackerEmailSettingsMail =
       'assets/icons/svg/tracker_email_settings_mail.svg';

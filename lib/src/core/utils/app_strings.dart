@@ -193,6 +193,28 @@ class AppStrings {
   static const String trackerSmsTwoFactorNote =
       'Enhanced security verification';
 
+  // Tracker (viewer) security settings
+  static const String trackerSecuritySettingsTitle = 'Security Settings';
+  static const String trackerSecurityBackTooltip = 'Back to profile';
+  static const String trackerSecurityStatus = 'Security Status';
+  static const String trackerSecurityStatusValue = 'Strong Protection';
+  static const String trackerSecurityStatusNote =
+      'Your account has multiple layers of security enabled';
+  static const String trackerSecurityAuthentication = 'Authentication';
+  static const String trackerSecurityTwoFactorTitle =
+      'Two-Factor Authentication';
+  static const String trackerSecurityTwoFactorNote = 'Extra layer of security';
+  static const String trackerSecurityBiometricTitle = 'Biometric Login';
+  static const String trackerSecurityBiometricNote = 'Face ID / Fingerprint';
+  static const String trackerSecurityChangePassword = 'Change Password';
+  static const String trackerSecurityCurrentPassword = 'Current Password';
+  static const String trackerSecurityNewPassword = 'New Password';
+  static const String trackerSecurityConfirmPassword = 'Confirm New Password';
+  static const String trackerSecurityUpdatePassword = 'Update Password';
+  static const String trackerSecuritySessions = 'Active Sessions';
+  static const String trackerSecuritySessionCurrent = 'Current';
+  static const String trackerSecuritySessionRevoke = 'Revoke';
+
   // Tracker (viewer) email settings
   static const String trackerEmailSettingsTitle = 'Email Settings';
   static const String trackerEmailSettingsBackTooltip = 'Back to profile';

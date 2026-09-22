@@ -66,6 +66,11 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
           AppRouterGo.push(trackerEmailSettingsView),
         AppStrings.trackerPhoneNumber =>
           AppRouterGo.push(trackerPhoneNumberView),
+        // Both the security row and the two-factor row land on the same
+        // screen; two-factor is one switch on it.
+        AppStrings.trackerSecuritySettings ||
+        AppStrings.trackerTwoFactorAuth =>
+          AppRouterGo.push(trackerSecuritySettingsView),
         _ => null,
       };
 

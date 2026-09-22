@@ -52,3 +52,20 @@ class TrackerPlanFeatureEntity {
   final String label;
   final List<bool> tiers;
 }
+
+/// A signed-in device on the security screen.
+class TrackerSessionEntity {
+  const TrackerSessionEntity({
+    required this.device,
+    required this.location,
+    required this.lastActive,
+    this.isCurrent = false,
+  });
+
+  final String device;
+  final String location;
+  final String lastActive;
+
+  /// The device being used now cannot be revoked from itself.
+  final bool isCurrent;
+}

@@ -59,6 +59,8 @@ const String trackerEmailSettingsView = '/tracker-email-settings';
 
 const String trackerPhoneNumberView = '/tracker-phone-number';
 
+const String trackerSecuritySettingsView = '/tracker-security-settings';
+
 const String trackerAiInsightsView = '/tracker-ai-insights';
 
 const String trackerLogDetailView = '/tracker-log-detail';

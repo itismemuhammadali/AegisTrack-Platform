@@ -14,7 +14,10 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
             text: AppStrings.trackerEditProfileLocationValue),
         newEmailController = TextEditingController(),
         confirmPasswordController = TextEditingController(),
-        newPhoneController = TextEditingController();
+        newPhoneController = TextEditingController(),
+        currentPasswordController = TextEditingController(),
+        newPasswordController = TextEditingController(),
+        confirmNewPasswordController = TextEditingController();
 
   final String name = AppStrings.trackerProfileName;
   final String email = AppStrings.trackerProfileEmail;
@@ -70,6 +73,44 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
     notifyListeners();
   }
 
+  // --- Security settings ---------------------------------------------------
+
+  final TextEditingController currentPasswordController;
+  final TextEditingController newPasswordController;
+  final TextEditingController confirmNewPasswordController;
+
+  bool twoFactorAuth = true;
+  bool biometricLogin = true;
+
+  void toggleTwoFactorAuth() {
+    twoFactorAuth = !twoFactorAuth;
+    notifyListeners();
+  }
+
+  void toggleBiometricLogin() {
+    biometricLogin = !biometricLogin;
+    notifyListeners();
+  }
+
+  final List<TrackerSessionEntity> sessions = const [
+    TrackerSessionEntity(
+      device: 'iPhone 14 Pro',
+      location: 'New York, USA',
+      lastActive: 'Active now',
+      isCurrent: true,
+    ),
+    TrackerSessionEntity(
+      device: 'MacBook Pro',
+      location: 'New York, USA',
+      lastActive: '2 hours ago',
+    ),
+    TrackerSessionEntity(
+      device: 'iPad Air',
+      location: 'Boston, MA',
+      lastActive: '1 day ago',
+    ),
+  ];
+
   /// Initials for the avatar, taken from whatever the name field holds.
   String get initials => nameController.text
       .split(' ')
@@ -87,6 +128,9 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
     newEmailController.dispose();
     confirmPasswordController.dispose();
     newPhoneController.dispose();
+    currentPasswordController.dispose();
+    newPasswordController.dispose();
+    confirmNewPasswordController.dispose();
     super.dispose();
   }
 

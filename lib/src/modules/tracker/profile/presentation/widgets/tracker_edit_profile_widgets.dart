@@ -93,6 +93,7 @@ class TrackerEditProfileField extends StatelessWidget {
     this.obscure = false,
     this.keyboardType = TextInputType.text,
     this.hintColor,
+    this.showVisibilityToggle = false,
   });
 
   final String label;
@@ -108,6 +109,9 @@ class TrackerEditProfileField extends StatelessWidget {
   final TextInputType keyboardType;
   final Color? hintColor;
 
+  /// Adds the eye button that reveals an obscured value.
+  final bool showVisibilityToggle;
+
   @override
   Widget build(BuildContext context) => Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -122,6 +126,9 @@ class TrackerEditProfileField extends StatelessWidget {
             maxLines: obscure ? 1 : lines,
             minLines: obscure ? 1 : lines,
             isObscure: obscure,
+            isSuffix: showVisibilityToggle,
+            suffixIcon:
+                showVisibilityToggle ? AppAssetsSvg.trackerSecurityEye : null,
             hintText: hint,
             textInputType: lines > 1 ? TextInputType.multiline : keyboardType,
             fillColor:
