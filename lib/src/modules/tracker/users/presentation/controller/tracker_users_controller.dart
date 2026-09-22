@@ -154,6 +154,23 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
           ? AppColors.trackerOnlineGreen
           : AppColors.trackerMutedText;
 
+  // --- AI insights ---------------------------------------------------------
+
+  static const List<String> aiDateRanges = [
+    AppStrings.trackerAiRangeToday,
+    AppStrings.trackerAiRangeLast7Days,
+    AppStrings.trackerAiRangeLast30Days,
+    AppStrings.trackerAiRangeCustom,
+  ];
+
+  String aiDateRange = AppStrings.trackerAiRangeLast7Days;
+
+  void setAiDateRange(String range) {
+    if (aiDateRange == range) return;
+    aiDateRange = range;
+    notifyListeners();
+  }
+
   String initials(TrackerUserEntity user) => user.name
       .split(' ')
       .where((part) => part.isNotEmpty)

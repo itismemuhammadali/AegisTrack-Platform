@@ -165,6 +165,16 @@ class AppStrings {
   static const String trackerSosAlert = 'SOS!';
   static const String trackerVerifiedBadge = 'VERIFIED';
 
+  // Tracker (viewer) AI insights
+  static const String trackerAiInsightsBackTooltip = 'Back to user overview';
+  static const String trackerAiGenerateSummary = 'Generate AI Summary';
+  static const String trackerAiDateRange = 'DATE RANGE';
+  static const String trackerAiRangeToday = 'Today';
+  static const String trackerAiRangeLast7Days = 'Last 7 Days';
+  static const String trackerAiRangeLast30Days = 'Last 30 Days';
+  static const String trackerAiRangeCustom = 'Custom Range';
+  static const String trackerAiGenerateSummaryAction = 'Generate Summary';
+
   // Tracker (viewer) help & support
   static const String trackerHelpBackTooltip = 'Back to profile';
   static const String trackerHelpLiveChat = 'Live Chat';

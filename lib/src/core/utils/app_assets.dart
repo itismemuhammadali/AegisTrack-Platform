@@ -299,6 +299,10 @@ class AppAssetsSvg {
   static const String trackerCaseDetailCsv =
       'assets/icons/svg/tracker_case_detail_csv.svg';
 
+  // Tracker (viewer) AI insights
+  static const String trackerAiSparkle =
+      'assets/icons/svg/tracker_ai_sparkle.svg';
+
   // Tracker (viewer) help & support
   static const String trackerHelpChat =
       'assets/icons/svg/tracker_help_chat.svg';

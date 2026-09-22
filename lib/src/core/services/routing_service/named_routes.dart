@@ -6,6 +6,7 @@ import '../../../modules/tracker/cases/domain/entities/tracker_case_entity.dart'
 import '../../../modules/tracker/cases/presentation/views/tracker_case_detail_view.dart';
 import '../../../modules/tracker/notifications/presentation/views/tracker_notifications_view.dart';
 import '../../../modules/tracker/profile/presentation/views/tracker_help_support_view.dart';
+import '../../../modules/tracker/users/presentation/views/tracker_ai_insights_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_check_ins_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_live_tracking_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_map_playback_view.dart';
@@ -116,6 +117,8 @@ class AppRouterGo {
                 AppRouterGo.push(trackerLiveTrackingView, extra: state.extra),
               AppStrings.trackerActionCheckIns =>
                 AppRouterGo.push(trackerCheckInsView, extra: state.extra),
+              AppStrings.trackerActionAiInsights =>
+                AppRouterGo.push(trackerAiInsightsView, extra: state.extra),
               AppStrings.trackerActionViewAlerts =>
                 AppRouterGo.push(trackerNotificationsView),
               _ => null,
@@ -168,6 +171,13 @@ class AppRouterGo {
         path: trackerHelpSupportView,
         pageBuilder: (context, state) => const NoTransitionPage(
           child: TrackerHelpSupportView(),
+        ),
+      ),
+      GoRoute(
+        path: trackerAiInsightsView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: TrackerAiInsightsView(user: state.extra as TrackerUserEntity?),
         ),
       ),
       GoRoute(
