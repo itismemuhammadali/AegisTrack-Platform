@@ -147,6 +147,44 @@ class AppAssetsSvg {
   static const String trackerSecurityDownload =
       'assets/icons/svg/tracker_security_download.svg';
 
+  /// Tracker (viewer) timeline
+  static const String trackerTimelineSearch =
+      'assets/icons/svg/tracker_timeline_search.svg';
+  static const String trackerTimelineCheckIn =
+      'assets/icons/svg/tracker_timeline_check_in.svg';
+  static const String trackerTimelineChevron =
+      'assets/icons/svg/tracker_timeline_chevron.svg';
+  static const String trackerTimelineClock =
+      'assets/icons/svg/tracker_timeline_clock.svg';
+  static const String trackerTimelineLocation =
+      'assets/icons/svg/tracker_timeline_location.svg';
+  static const String trackerTimelinePhoto =
+      'assets/icons/svg/tracker_timeline_photo.svg';
+  static const String trackerTimelineNote =
+      'assets/icons/svg/tracker_timeline_note.svg';
+  static const String trackerTimelineLock =
+      'assets/icons/svg/tracker_timeline_lock.svg';
+  static const String trackerTimelineZone =
+      'assets/icons/svg/tracker_timeline_zone.svg';
+  static const String trackerTimelineMissing =
+      'assets/icons/svg/tracker_timeline_missing.svg';
+  static const String trackerTimelineWarning =
+      'assets/icons/svg/tracker_timeline_warning.svg';
+  static const String trackerTimelineSyncFailed =
+      'assets/icons/svg/tracker_timeline_sync_failed.svg';
+  static const String trackerTimelineSecurityFlag =
+      'assets/icons/svg/tracker_timeline_security_flag.svg';
+  static const String trackerTimelineVpn =
+      'assets/icons/svg/tracker_timeline_vpn.svg';
+  static const String trackerTimelineMap =
+      'assets/icons/svg/tracker_timeline_map.svg';
+  static const String trackerTimelineOffline =
+      'assets/icons/svg/tracker_timeline_offline.svg';
+  static const String trackerTimelinePending =
+      'assets/icons/svg/tracker_timeline_pending.svg';
+  static const String trackerTimelineSos =
+      'assets/icons/svg/tracker_timeline_sos.svg';
+
   /// Tracker (viewer) profile
   static const String trackerProfileEdit =
       'assets/icons/svg/tracker_profile_edit.svg';

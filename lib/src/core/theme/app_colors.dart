@@ -283,6 +283,17 @@ class AppColors {
   static const Color trackerSecurityScrimSlate = Color(0xFF2B2F3F);
   static const Color trackerSecurityScrimNavy = Color(0xFF000414);
 
+  // Tracker (viewer) timeline
+  static const Color trackerOrangeSurface = Color(0x33FF6900);
+  static const Color trackerAmberSurface = Color(0x33FE9A00);
+  static const Color trackerNeutralSurface = Color(0x33FFFFFF);
+  static const Color trackerAcceptableSurface = Color(0x33F0B100);
+  static const Color trackerAcceptableText = Color(0xFFFDC700);
+  static const Color trackerMissingCardFill = Color(0x0DFE9A00);
+  static const Color trackerMissingCardBorder = Color(0x4DFE9A00);
+  static const Color trackerSosCardFill = Color(0x0DFB2C36);
+  static const Color trackerSosCardBorder = Color(0x66FB2C36);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

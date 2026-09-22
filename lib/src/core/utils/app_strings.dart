@@ -194,6 +194,39 @@ class AppStrings {
   static const String trackerLogout = 'Logout';
   static const String trackerAppVersionFooter =
       'SecureTrack v2.1.0 · Authorized Viewer Portal';
+
+  // Tracker (viewer) timeline
+  static const String trackerTimeline = 'Timeline';
+  static const String trackerTimelineSubtitle = 'Read-only log history';
+  static const String trackerBackToUserDetails = 'Back to user overview';
+  static const String trackerTimelineSearchHint =
+      'Search by user or location...';
+  static const String trackerTimelineEmpty = 'No logs found';
+  static const String trackerFilterSecurityFlags = 'Security Flags';
+  static const String trackerFilterMissing = 'Missing';
+  static const String trackerFilterZoneEvents = 'Zone Events';
+  static const String trackerFilterCheckIns = 'Check-ins';
+  static const String trackerTimelineTotal = 'Total';
+  static const String trackerTimelineVerified = 'Verified';
+  static const String trackerTimelineFlagged = 'Flagged';
+  static const String trackerTimelineToday = 'Today';
+  static const String trackerTimelineYesterday = 'Yesterday';
+  static const String trackerTimelineLogsSuffix = 'logs';
+  static const String trackerViewAllOnMap = 'View All on Map';
+  static const String trackerLogCheckIn = 'CHECK-IN';
+  static const String trackerLogZoneEvent = 'ZONE EVENT';
+  static const String trackerLogMissing = 'MISSING';
+  static const String trackerLogSecurityFlag = 'SECURITY FLAG';
+  static const String trackerLogLocation = 'LOCATION';
+  static const String trackerLogSos = 'SOS';
+  static const String trackerLogEnteredZone = 'Entered: Permitted Zone';
+  static const String trackerLogMissingPeriod = 'MISSING / UNKNOWN PERIOD';
+  static const String trackerLogVpnDetected = 'VPN Detected';
+  static const String trackerLogSyncFailed = 'Sync Failed';
+  static const String trackerLogPhoto = 'Photo';
+  static const String trackerLogNote = 'Note';
+  static const String trackerLogPending = 'Pending';
+  static const String trackerLogOffline = 'OFFLINE';
   static const String viewerSignInSubtitle =
       'Access your authorized viewer account';
   static const String rememberMe = 'Remember Me';

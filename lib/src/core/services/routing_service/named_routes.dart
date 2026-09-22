@@ -3,6 +3,7 @@
 // This is also known as declerative routing
 
 import '../../../modules/tracker/users/presentation/views/tracker_security_details_view.dart';
+import '../../../modules/tracker/users/presentation/views/tracker_timeline_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_user_details_view.dart';
 import '../../../modules/tracker/home/domain/entities/tracker_user_entity.dart';
 import '../../../modules/onboarding/presentation/views/onboarding_view.dart';
@@ -99,7 +100,19 @@ class AppRouterGo {
             onSecurityDetails: () => AppRouterGo.push(
                 trackerSecurityDetailsView,
                 extra: state.extra),
+            onAction: (action) {
+              if (action == AppStrings.trackerActionTimeline) {
+                AppRouterGo.push(trackerTimelineView, extra: state.extra);
+              }
+            },
           ),
+        ),
+      ),
+      GoRoute(
+        path: trackerTimelineView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: TrackerTimelineView(user: state.extra as TrackerUserEntity?),
         ),
       ),
       GoRoute(

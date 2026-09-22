@@ -17,6 +17,8 @@ import 'package:joshua_r_hughes/src/modules/tracked/authentication/presentation/
 
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_user_details_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/home/domain/entities/tracker_user_entity.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_timeline_view.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/widgets/tracker_timeline_log_card.dart';
 
 Future<void> pumpDashboard(WidgetTester tester, Size size) async {
   tester.view.physicalSize = size;
@@ -296,6 +298,90 @@ void main() {
           expect(tester.takeException(), isNull);
         }
       }
+    });
+  }
+
+  for (final width in [320.0, 440.0]) {
+    testWidgets(
+        'Timeline quick action opens the log history and filters it at $width',
+        (tester) async {
+      tester.view.physicalSize = Size(width, 956);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      AppRouterGo.appRouter.go(trackerDashboardView);
+      await tester.pumpWidget(ProviderScope(
+          child: ScreenUtilInit(
+        designSize: const Size(440, 956),
+        minTextAdapt: true,
+        builder: (_, child) => MaterialApp.router(
+            theme: ThemeData.dark(), routerConfig: AppRouterGo.appRouter),
+      )));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Users'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byType(TrackerUserCard).first);
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text('Timeline'), 200);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Timeline'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(TrackerTimelineView), findsOneWidget);
+      expect(find.text('Read-only log history'), findsOneWidget);
+      expect(find.text('248'), findsOneWidget);
+      expect(find.byType(TrackerTimelineLogCard), findsWidgets);
+      expect(find.text('TODAY'), findsOneWidget);
+
+      // Every log kind and its footer stay reachable while scrolling.
+      for (final label in [
+        'CHECK-IN',
+        'Entered: Permitted Zone',
+        'MISSING / UNKNOWN PERIOD',
+        'VPN Detected',
+        'OFFLINE',
+        'YESTERDAY',
+        '93 · VERIFIED',
+        'View All on Map'
+      ]) {
+        await tester.scrollUntilVisible(find.text(label), 160,
+            scrollable: find.byType(Scrollable).first);
+        await tester.pumpAndSettle();
+        expect(find.text(label), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      }
+
+      await tester.scrollUntilVisible(find.byType(TextField), -200,
+          scrollable: find.byType(Scrollable).first);
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(find.text('Missing'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Missing'));
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.byType(TrackerTimelineLogCard), -200,
+          scrollable: find.byType(Scrollable).first);
+      await tester.pumpAndSettle();
+      expect(find.byType(TrackerTimelineLogCard), findsOneWidget);
+      expect(find.text('YESTERDAY'), findsNothing);
+
+      await tester.ensureVisible(find.text('All'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('All'));
+      await tester.pumpAndSettle();
+      await tester.enterText(find.byType(TextField), 'brooklyn');
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.byType(TrackerTimelineLogCard), -200,
+          scrollable: find.byType(Scrollable).first);
+      await tester.pumpAndSettle();
+      expect(find.byType(TrackerTimelineLogCard), findsOneWidget);
+      expect(find.text('Sarah Martinez'), findsOneWidget);
+
+      await tester.enterText(find.byType(TextField), 'nobody');
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text('No logs found'), -200,
+          scrollable: find.byType(Scrollable).first);
+      await tester.pumpAndSettle();
+      expect(find.text('No logs found'), findsOneWidget);
     });
   }
 }
