@@ -305,6 +305,12 @@ class AppColors {
   static const Color trackerOnlinePillFill = Color(0x1A00C950);
   static const Color trackerOnlinePillBorder = Color(0x4D00C950);
 
+  // Tracker (viewer) check-ins
+  static const Color trackerUpcomingPillFill = Color(0x1A2B7FFF);
+  static const Color trackerUpcomingPillBorder = Color(0x4D2B7FFF);
+  static const Color trackerDangerPillFill = Color(0x1AFB2C36);
+  static const Color trackerDangerPillBorder = Color(0x4DFB2C36);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

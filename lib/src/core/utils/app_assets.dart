@@ -188,6 +188,16 @@ class AppAssetsSvg {
   static const String trackerTimelineSos =
       'assets/icons/svg/tracker_timeline_sos.svg';
 
+  /// Tracker (viewer) check-ins
+  static const String trackerCheckInCompleted =
+      'assets/icons/svg/tracker_check_in_completed.svg';
+  static const String trackerCheckInUpcoming =
+      'assets/icons/svg/tracker_check_in_upcoming.svg';
+  static const String trackerCheckInEscalated =
+      'assets/icons/svg/tracker_check_in_escalated.svg';
+  static const String trackerCheckInGrace =
+      'assets/icons/svg/tracker_check_in_grace.svg';
+
   /// Tracker (viewer) live tracking
   static const String trackerLiveRefresh =
       'assets/icons/svg/tracker_live_refresh.svg';

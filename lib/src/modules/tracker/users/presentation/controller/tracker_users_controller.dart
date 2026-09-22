@@ -1,6 +1,7 @@
 import '../../../../../core/utils/app_exports.dart';
 import '../../../home/domain/entities/tracker_user_entity.dart';
 import '../../domain/entities/tracker_activity_entity.dart';
+import '../../domain/entities/tracker_check_in_entity.dart';
 import '../../domain/entities/tracker_detail_info_entity.dart';
 import '../../domain/entities/tracker_live_status_entity.dart';
 import '../../domain/entities/tracker_device_info_entity.dart';
@@ -541,6 +542,88 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
 
   void refreshLive() {
     liveUpdated = AppStrings.trackerJustNow;
+    notifyListeners();
+  }
+
+  // ------------------------------------------------------------ check-ins
+
+  static const List<String> checkInFilters = [
+    AppStrings.trackerFilterAll,
+    AppStrings.trackerFilterUpcoming,
+    AppStrings.trackerFilterCompleted,
+    AppStrings.trackerFilterMissed,
+    AppStrings.trackerFilterEscalated,
+  ];
+
+  final String completedCheckIns = '4';
+  final String missedCheckInsCount = '1';
+  final String upcomingCheckIns = '1';
+
+  final List<TrackerCheckInEntity> checkIns = const [
+    TrackerCheckInEntity(
+      title: AppStrings.trackerOfficeCheckIn,
+      schedule: 'Today · 14:30',
+      detail: 'Completed at 14:31 · 1 min early',
+      status: TrackerCheckInStatus.completed,
+      hasPhoto: true,
+    ),
+    TrackerCheckInEntity(
+      title: AppStrings.trackerEveningCheckIn,
+      schedule: 'Today · 18:00',
+      detail: 'Due in 3h 22m',
+      status: TrackerCheckInStatus.upcoming,
+    ),
+    TrackerCheckInEntity(
+      title: AppStrings.trackerOfficeCheckIn,
+      schedule: 'Yesterday · 14:30',
+      detail: 'Completed on time',
+      status: TrackerCheckInStatus.completed,
+      hasPhoto: true,
+    ),
+    TrackerCheckInEntity(
+      title: AppStrings.trackerMorningCheckIn,
+      schedule: 'Dec 10 · 10:00',
+      detail: '45 min grace period expired',
+      status: TrackerCheckInStatus.escalated,
+      note: AppStrings.trackerEscalationNote,
+      hasEscalatedTag: true,
+    ),
+    TrackerCheckInEntity(
+      title: AppStrings.trackerOfficeCheckIn,
+      schedule: 'Dec 9 · 14:30',
+      detail: 'Completed 2 min early',
+      status: TrackerCheckInStatus.completed,
+      hasPhoto: true,
+    ),
+    TrackerCheckInEntity(
+      title: AppStrings.trackerOfficeCheckIn,
+      schedule: 'Dec 8 · 14:30',
+      detail: 'Completed on time',
+      status: TrackerCheckInStatus.completed,
+      hasPhoto: true,
+    ),
+  ];
+
+  String checkInFilter = AppStrings.trackerFilterAll;
+
+  /// An escalated check-in was also a missed one, so it answers both chips.
+  List<TrackerCheckInEntity> get visibleCheckIns => checkIns.where((checkIn) {
+        return switch (checkInFilter) {
+          AppStrings.trackerFilterUpcoming =>
+            checkIn.status == TrackerCheckInStatus.upcoming,
+          AppStrings.trackerFilterCompleted =>
+            checkIn.status == TrackerCheckInStatus.completed,
+          AppStrings.trackerFilterMissed =>
+            checkIn.status == TrackerCheckInStatus.missed ||
+                checkIn.status == TrackerCheckInStatus.escalated,
+          AppStrings.trackerFilterEscalated =>
+            checkIn.status == TrackerCheckInStatus.escalated,
+          _ => true,
+        };
+      }).toList();
+
+  void setCheckInFilter(String value) {
+    checkInFilter = value;
     notifyListeners();
   }
 }

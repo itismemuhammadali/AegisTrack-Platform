@@ -290,6 +290,28 @@ class AppStrings {
       'purposes only and must be handled in accordance with applicable '
       'privacy and legal requirements.';
   static const String trackerRefresh = 'Refresh';
+
+  // Tracker (viewer) check-ins
+  static const String trackerCheckIns = 'Check-ins';
+  static const String trackerCheckInsEmpty = 'No check-ins found';
+  static const String trackerStatCompleted = 'Completed';
+  static const String trackerStatMissed = 'Missed';
+  static const String trackerStatUpcoming = 'Upcoming';
+  static const String trackerFilterUpcoming = 'Upcoming';
+  static const String trackerFilterCompleted = 'Completed';
+  static const String trackerFilterMissed = 'Missed';
+  static const String trackerFilterEscalated = 'Escalated';
+  static const String trackerStatusCompleted = 'Completed';
+  static const String trackerStatusUpcoming = 'Upcoming';
+  static const String trackerStatusEscalated = 'Escalated';
+  static const String trackerStatusMissed = 'Missed';
+  static const String trackerEscalatedTag = 'ESCALATED';
+  static const String trackerPhotoAvailable = 'Photo Available';
+  static const String trackerOfficeCheckIn = 'Office Check-in';
+  static const String trackerEveningCheckIn = 'Evening Check-in';
+  static const String trackerMorningCheckIn = 'Morning Check-in';
+  static const String trackerEscalationNote =
+      'Grace period expired · Escalation triggered';
   static const String viewerSignInSubtitle =
       'Access your authorized viewer account';
   static const String rememberMe = 'Remember Me';

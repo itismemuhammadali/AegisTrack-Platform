@@ -17,9 +17,12 @@ import 'package:joshua_r_hughes/src/modules/tracked/authentication/presentation/
 
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_user_details_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/home/domain/entities/tracker_user_entity.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_check_ins_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_live_tracking_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_map_playback_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_timeline_view.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/widgets/tracker_check_in_card.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/widgets/tracker_timeline_filter_bar.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/widgets/tracker_timeline_log_card.dart';
 
 Future<void> pumpDashboard(WidgetTester tester, Size size) async {
@@ -501,6 +504,79 @@ void main() {
       }
       await tester.tap(find.text('Refresh'));
       await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+    });
+  }
+
+  for (final width in [320.0, 440.0]) {
+    testWidgets('Check-ins quick action opens the schedule at $width',
+        (tester) async {
+      tester.view.physicalSize = Size(width, 956);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      AppRouterGo.appRouter.go(trackerDashboardView);
+      await tester.pumpWidget(ProviderScope(
+          child: ScreenUtilInit(
+        designSize: const Size(440, 956),
+        minTextAdapt: true,
+        builder: (_, child) => MaterialApp.router(
+            theme: ThemeData.dark(), routerConfig: AppRouterGo.appRouter),
+      )));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Users'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byType(TrackerUserCard).first);
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text('Check-ins'), 200);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Check-ins').last);
+      await tester.pumpAndSettle();
+
+      expect(find.byType(TrackerCheckInsView), findsOneWidget);
+      expect(find.byType(TrackerCheckInCard), findsWidgets);
+      expect(find.text('ESCALATED'), findsOneWidget);
+
+      for (final label in [
+        'Evening Check-in',
+        'Morning Check-in',
+        'Grace period expired · Escalation triggered',
+        'Completed 2 min early'
+      ]) {
+        await tester.scrollUntilVisible(find.text(label), 160,
+            scrollable: find.byType(Scrollable).first);
+        await tester.pumpAndSettle();
+        expect(find.text(label), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      }
+
+      // Each chip narrows the list; Missed also answers for an escalation.
+      // The stat tiles and status pills repeat these words, so the finders
+      // are scoped to the filter bar.
+      Finder chip(String label) => find.descendant(
+            of: find.byType(TrackerTimelineFilterBar),
+            matching: find.text(label),
+          );
+      await tester.scrollUntilVisible(chip('Upcoming'), -200,
+          scrollable: find.byType(Scrollable).first);
+      await tester.pumpAndSettle();
+      await tester.ensureVisible(chip('Upcoming'));
+      await tester.tap(chip('Upcoming'));
+      await tester.pumpAndSettle();
+      expect(find.byType(TrackerCheckInCard), findsOneWidget);
+      expect(find.text('Evening Check-in'), findsOneWidget);
+
+      await tester.ensureVisible(chip('Missed'));
+      await tester.tap(chip('Missed'));
+      await tester.pumpAndSettle();
+      expect(find.byType(TrackerCheckInCard), findsOneWidget);
+      expect(find.text('Morning Check-in'), findsOneWidget);
+
+      await tester.ensureVisible(chip('Completed'));
+      await tester.tap(chip('Completed'));
+      await tester.pumpAndSettle();
+      expect(find.byType(TrackerCheckInCard), findsWidgets);
+      expect(find.text('Evening Check-in'), findsNothing);
       expect(tester.takeException(), isNull);
     });
   }

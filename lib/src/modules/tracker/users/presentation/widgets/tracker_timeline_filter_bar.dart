@@ -6,11 +6,15 @@ class TrackerTimelineFilterBar extends StatelessWidget {
     required this.filters,
     required this.selected,
     required this.onSelected,
+    this.radius = 100,
   });
 
   final List<String> filters;
   final String selected;
   final ValueChanged<String> onSelected;
+
+  /// Chip corner radius: pill-shaped on the timeline, rounded on check-ins.
+  final double radius;
 
   @override
   Widget build(BuildContext context) => SingleChildScrollView(
@@ -34,7 +38,7 @@ class TrackerTimelineFilterBar extends StatelessWidget {
                         color: selected == filter
                             ? AppColors.trackerPurpleDeep
                             : AppColors.trackerSurfaceFill,
-                        borderRadius: 100.circular,
+                        borderRadius: radius.circular,
                         border: selected == filter
                             ? null
                             : Border.all(color: AppColors.trackerBorderSoft),

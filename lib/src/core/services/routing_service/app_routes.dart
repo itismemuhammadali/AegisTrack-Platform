@@ -42,3 +42,5 @@ const String trackerTimelineView = '/tracker-timeline';
 const String trackerMapPlaybackView = '/tracker-map-playback';
 
 const String trackerLiveTrackingView = '/tracker-live-tracking';
+
+const String trackerCheckInsView = '/tracker-check-ins';
