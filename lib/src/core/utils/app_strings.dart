@@ -59,6 +59,141 @@ class AppStrings {
   static const String trackerNavCases = 'Cases';
   static const String trackerNavProfile = 'Profile';
   static const String trackerComingSoon = 'Coming soon';
+  static const String trackerOffline = 'Offline';
+  static const String trackerSos = 'SOS';
+  static const String trackerQuestionable = 'Questionable';
+  static const String trackerReadOnlyAccess = 'Authorized Access · Read-Only';
+  static const String trackerUsersReadOnlySubtitle =
+      '12 users · Read-Only Access';
+
+  // Tracker (viewer) users list
+  static const String trackerAssignedUsers = 'Assigned Users';
+  static const String trackerUsersSearchHint = 'Search users or locations...';
+  static const String trackerUsersEmpty = 'No users found';
+  static const String trackerFilterAll = 'All';
+  static const String trackerFilterFlagged = 'Flagged';
+
+  // Tracker (viewer) user details
+  static const String trackerUserOverview = 'User Overview';
+  static const String trackerBackToUsers = 'Back to users';
+  static const String trackerLastLocation = 'Last Location';
+  static const String trackerLastLog = 'Last Log';
+  static const String trackerLastSync = 'Last Sync';
+  static const String trackerConnection = 'Connection';
+  static const String trackerActiveAlerts = 'Active Alerts';
+  static const String trackerMissedCheckIns = 'Missed Check-ins';
+  static const String trackerZoneEvents = 'Zone Events';
+  static const String trackerSecurityFlags = 'Security Flags';
+  static const String trackerAuthenticityTrend = 'Authenticity Trend';
+  static const String trackerAuthenticityTrendValue = '↑ Stable';
+  static const String trackerAuthenticityScore = 'Authenticity Score';
+  static const String trackerAuthenticityScoreValue = '94';
+  static const String trackerAuthenticityScoreTotal = '/ 100';
+  static const String trackerAuthenticityScoreNote =
+      'All security checks passed. GPS authentic.';
+  static const String trackerViewSecurityDetails = 'View Security Details';
+  static const String trackerQuickActions = 'Quick Actions';
+  static const String trackerActionMapPlayback = 'Map Playback';
+  static const String trackerActionLiveView = 'Live View';
+  static const String trackerActionCheckIns = 'Check-ins';
+  static const String trackerActionAiInsights = 'AI Insights';
+  static const String trackerActionViewAlerts = 'View Alerts';
+  static const String trackerBadgeExpert = 'EXPERT';
+  static const String trackerRecentActivity = 'Recent Activity';
+  static const String trackerActivityCheckIn = 'Check-in';
+  static const String trackerActivityZoneEntry = 'Zone Entry';
+  static const String trackerActivityStarted = 'Started';
+  static const String trackerPermittedZone = 'Permitted Zone';
+  static const String trackerSessionBegun = 'Session begun';
+  static const String trackerNoSecurityFlags = 'No security flags';
+  static const String trackerAllChecksPassed = 'All checks passed';
+  static const String trackerZoneEventsToday = 'Zone Events Today';
+  static const String trackerZoneEntered = 'Entered: Permitted Zone';
+  static const String trackerZoneExited = 'Exited: Permitted Zone';
+  static const String trackerZonePlace = 'Office Building';
+  static const String trackerGenerateReport = 'Generate Report';
+  static const String trackerSecureShare = 'Secure Share';
+
+  // Tracker (viewer) security details
+  static const String trackerSecurityDetails = 'Security Details';
+  static const String trackerBackToUserOverview = 'Back to user overview';
+  static const String trackerSecurityScoreCaption = '/ 100 · VERIFIED';
+  static const String trackerSecurityScoreNote =
+      'All primary security checks passed';
+  static const String trackerSecurityLogReference =
+      'Log #LG-2024-8821 · 14:32:07 · Dec 12, 2024';
+  static const String trackerSecurityChecksTitle = 'SECURITY CHECKS';
+  static const String trackerSecurityDeviceTitle = 'DEVICE INFORMATION';
+  static const String trackerCheckMockLocation = 'Mock Location Detection';
+  static const String trackerCheckFakeGps = 'Fake GPS Detection';
+  static const String trackerCheckRoot = 'Root / Jailbreak Detection';
+  static const String trackerCheckAppIntegrity = 'App Integrity';
+  static const String trackerCheckDeviceIntegrity = 'Device Integrity';
+  static const String trackerCheckVpn = 'VPN / Network';
+  static const String trackerCheckClock = 'Clock Manipulation';
+  static const String trackerCheckBluetooth = 'Bluetooth Correlation';
+  static const String trackerCheckSuspicious = 'Suspicious Activity';
+  static const String trackerStatusPassed = 'PASSED';
+  static const String trackerStatusFlagged = 'FLAGGED';
+  static const String trackerStatusUnavailable = 'NOT AVAILABLE';
+  static const String trackerStatusUnderReview = 'UNDER REVIEW';
+  static const String trackerVpnDetected =
+      'VPN connection detected at time of log';
+  static const String trackerBluetoothDisabled = 'Bluetooth disabled';
+  static const String trackerPatternAnalysis = 'Pattern analysis in progress';
+  static const String trackerVpnNotice =
+      'Note: VPN detection does not invalidate the log. Original timestamp and '
+      'GPS coordinates remain authentic. Authenticity Score reflects this flag.';
+  static const String trackerReadOnlyNotice =
+      'Security details are read-only. You cannot modify security check '
+      'results or authenticity scores.';
+  static const String trackerDeviceModel = 'Device Model';
+  static const String trackerDeviceOs = 'OS';
+  static const String trackerAppVersionLabel = 'App Version';
+  static const String trackerDeviceId = 'Device ID';
+  static const String trackerLockedImmutable = 'LOCKED · IMMUTABLE';
+  static const String trackerViewRelatedLog = 'View Related Log';
+  static const String trackerDownloadSecurityReport =
+      'Download Security Report';
+
+  // Tracker (viewer) cases
+  static const String trackerCases = 'Cases';
+  static const String trackerCaseStatusActive = 'Active';
+  static const String trackerCaseStatusUnderReview = 'Under Review';
+  static const String trackerCaseStatusArchived = 'ARCHIVED';
+  static const String trackerLegalHold = 'LEGAL HOLD';
+  static const String trackerSosAlert = 'SOS!';
+  static const String trackerVerifiedBadge = 'VERIFIED';
+
+  // Tracker (viewer) profile
+  static const String trackerProfileName = 'Alex Viewer';
+  static const String trackerProfileEmail = 'alex.viewer@securetrack.com';
+  static const String trackerAuthorizedViewer = 'Authorized Viewer';
+  static const String trackerProfileAssigned = 'Assigned';
+  static const String trackerProfileLogs = 'Logs';
+  static const String trackerProfileCases = 'Cases';
+  static const String trackerReadOnlyDetail =
+      'You can view assigned records only. No edit or delete permissions.';
+  static const String trackerSectionAccount = 'Account';
+  static const String trackerSectionViewerAccess = 'Viewer Access';
+  static const String trackerSectionSecurity = 'SECURITY';
+  static const String trackerSectionPreferences = 'Preferences';
+  static const String trackerSectionSubscription = 'Subscription';
+  static const String trackerSectionSupport = 'Support';
+  static const String trackerEditProfile = 'Edit Profile';
+  static const String trackerEmailSettings = 'Email Settings';
+  static const String trackerPhoneNumber = 'Phone Number';
+  static const String trackerActiveShareLinks = 'Active Share Links';
+  static const String trackerReports = 'Reports';
+  static const String trackerSecuritySettings = 'Security Settings';
+  static const String trackerTwoFactorAuth = 'Two-Factor Auth';
+  static const String trackerNotificationSettings = 'Notification Settings';
+  static const String trackerDarkMode = 'Dark Mode';
+  static const String trackerPlanSubscription = 'Plan & Subscription';
+  static const String trackerHelpSupport = 'Help & Support';
+  static const String trackerLogout = 'Logout';
+  static const String trackerAppVersionFooter =
+      'SecureTrack v2.1.0 · Authorized Viewer Portal';
   static const String viewerSignInSubtitle =
       'Access your authorized viewer account';
   static const String rememberMe = 'Remember Me';
@@ -141,7 +276,8 @@ class AppStrings {
   static const String reviewImageAttach = 'Attach & Save';
   static const String reviewImageRetake = 'Retake Photo';
   static const String reviewImageDiscard = 'Discard';
-  static const String captureImageCameraOnly = 'Camera Only - No Gallery Upload';
+  static const String captureImageCameraOnly =
+      'Camera Only - No Gallery Upload';
   static const String captureImageLightingHint =
       'Ensure good lighting for best results';
   static const String liveMapCurrentLocation = 'Current Location';

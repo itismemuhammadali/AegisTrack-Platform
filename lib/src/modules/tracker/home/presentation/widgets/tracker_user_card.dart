@@ -84,15 +84,15 @@ class TrackerUserCard extends StatelessWidget {
                       ? Colors.transparent
                       : null,
                   label: user.isSos
-                      ? 'SOS'
+                      ? AppStrings.trackerSos
                       : user.isOnline
                           ? AppStrings.trackerOnline
-                          : 'Offline',
+                          : AppStrings.trackerOffline,
                   color: user.isSos
                       ? Colors.red
                       : user.isOnline
                           ? AppColors.trackerOnlineGreen
-                          : Colors.white.withValues(alpha: .6),
+                          : AppColors.trackerMutedText,
                 ),
                 8.pw,
               ],
@@ -100,7 +100,7 @@ class TrackerUserCard extends StatelessWidget {
                 label: isVerified
                     ? AppStrings.trackerVerified
                     : user.authenticity == TrackerAuthenticity.questionable
-                        ? 'Questionable'
+                        ? AppStrings.trackerQuestionable
                         : AppStrings.trackerAcceptable,
                 color: authColor,
               ),

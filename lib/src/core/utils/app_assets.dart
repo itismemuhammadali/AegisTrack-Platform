@@ -54,8 +54,7 @@ class AppAssetsSvg {
 
   /// Sign in - Joshua R Hughes (location tracking)
   /// Tracker (viewer) dashboard - Joshua R Hughes
-  static const String trackerBell =
-      'assets/icons/svg/tracker_bell.svg';
+  static const String trackerBell = 'assets/icons/svg/tracker_bell.svg';
   static const String trackerUserLocation =
       'assets/icons/svg/tracker_user_location.svg';
   static const String trackerActionVideo =
@@ -90,14 +89,99 @@ class AppAssetsSvg {
       'assets/icons/svg/tracker_stat_sync.svg';
   static const String trackerStatMissed =
       'assets/icons/svg/tracker_stat_missed.svg';
-  static const String trackerNavHome =
-      'assets/icons/svg/tracker_nav_home.svg';
+  static const String trackerNavHome = 'assets/icons/svg/tracker_nav_home.svg';
   static const String trackerNavUsers =
       'assets/icons/svg/tracker_nav_users.svg';
   static const String trackerNavCases =
       'assets/icons/svg/tracker_nav_cases.svg';
   static const String trackerNavProfile =
       'assets/icons/svg/tracker_nav_profile.svg';
+  static const String trackerNavUsersActive =
+      'assets/icons/svg/tracker_nav_users_active.svg';
+  static const String trackerNavCasesActive =
+      'assets/icons/svg/tracker_nav_cases_active.svg';
+  static const String trackerNavProfileActiveBody =
+      'assets/icons/svg/tracker_nav_profile_active_body.svg';
+  static const String trackerNavProfileActiveHead =
+      'assets/icons/svg/tracker_nav_profile_active_head.svg';
+
+  /// Tracker (viewer) user details
+  static const String trackerUserDetailBack =
+      'assets/icons/svg/tracker_user_detail_back.svg';
+  static const String trackerUserDetailChevron =
+      'assets/icons/svg/tracker_user_detail_chevron.svg';
+  static const String trackerUserDetailLocation =
+      'assets/icons/svg/tracker_user_detail_location.svg';
+  static const String trackerUserDetailSecurity =
+      'assets/icons/svg/tracker_user_detail_security.svg';
+  static const String trackerUserDetailReport =
+      'assets/icons/svg/tracker_user_detail_report.svg';
+  static const String trackerUserDetailShare =
+      'assets/icons/svg/tracker_user_detail_share.svg';
+  static const String trackerUserDetailTimeline =
+      'assets/icons/svg/tracker_user_detail_timeline.svg';
+  static const String trackerUserDetailMap =
+      'assets/icons/svg/tracker_user_detail_map.svg';
+  static const String trackerUserDetailLive =
+      'assets/icons/svg/tracker_user_detail_live.svg';
+  static const String trackerUserDetailCheckIns =
+      'assets/icons/svg/tracker_user_detail_check_ins.svg';
+  static const String trackerUserDetailAi =
+      'assets/icons/svg/tracker_user_detail_ai.svg';
+  static const String trackerUserDetailAlerts =
+      'assets/icons/svg/tracker_user_detail_alerts.svg';
+
+  /// Tracker (viewer) security details
+  static const String trackerSecurityPassed =
+      'assets/icons/svg/tracker_security_passed.svg';
+  static const String trackerSecurityFlagged =
+      'assets/icons/svg/tracker_security_flagged.svg';
+  static const String trackerSecurityUnavailable =
+      'assets/icons/svg/tracker_security_unavailable.svg';
+  static const String trackerSecurityReview =
+      'assets/icons/svg/tracker_security_review.svg';
+  static const String trackerSecurityWarning =
+      'assets/icons/svg/tracker_security_warning.svg';
+  static const String trackerSecurityLocked =
+      'assets/icons/svg/tracker_security_locked.svg';
+  static const String trackerSecurityDownload =
+      'assets/icons/svg/tracker_security_download.svg';
+
+  /// Tracker (viewer) profile
+  static const String trackerProfileEdit =
+      'assets/icons/svg/tracker_profile_edit.svg';
+  static const String trackerProfileViewerShield =
+      'assets/icons/svg/tracker_profile_viewer_shield.svg';
+  static const String trackerProfileAccessLock =
+      'assets/icons/svg/tracker_profile_access_lock.svg';
+  static const String trackerProfilePerson =
+      'assets/icons/svg/tracker_profile_person.svg';
+  static const String trackerProfileChevron =
+      'assets/icons/svg/tracker_profile_chevron.svg';
+  static const String trackerProfileEmail =
+      'assets/icons/svg/tracker_profile_email.svg';
+  static const String trackerProfilePhone =
+      'assets/icons/svg/tracker_profile_phone.svg';
+  static const String trackerProfileUsers =
+      'assets/icons/svg/tracker_profile_users.svg';
+  static const String trackerProfileShareLink =
+      'assets/icons/svg/tracker_profile_share_link.svg';
+  static const String trackerProfileReports =
+      'assets/icons/svg/tracker_profile_reports.svg';
+  static const String trackerProfileSecurity =
+      'assets/icons/svg/tracker_profile_security.svg';
+  static const String trackerProfileTwoFactor =
+      'assets/icons/svg/tracker_profile_two_factor.svg';
+  static const String trackerProfileNotifications =
+      'assets/icons/svg/tracker_profile_notifications.svg';
+  static const String trackerProfileDarkMode =
+      'assets/icons/svg/tracker_profile_dark_mode.svg';
+  static const String trackerProfileSubscription =
+      'assets/icons/svg/tracker_profile_subscription.svg';
+  static const String trackerProfileHelp =
+      'assets/icons/svg/tracker_profile_help.svg';
+  static const String trackerProfileLogout =
+      'assets/icons/svg/tracker_profile_logout.svg';
 
   /// Tracker (viewer) authentication - Joshua R Hughes
   static const String trackerViewerBiometricsIcon =

@@ -13,10 +13,9 @@ class TrackerSurface extends StatelessWidget {
         width: double.infinity,
         padding: AppInsets.all(padding),
         decoration: BoxDecoration(
-          color: Colors.white.withValues(alpha: .05),
+          color: AppColors.trackerSurfaceFill,
           borderRadius: 16.circular,
-          border: Border.all(
-              color: borderColor ?? Colors.white.withValues(alpha: .1)),
+          border: Border.all(color: borderColor ?? AppColors.trackerBorderSoft),
         ),
         child: child,
       );
@@ -25,7 +24,7 @@ class TrackerSurface extends StatelessWidget {
 class TrackerBadge extends StatelessWidget {
   const TrackerBadge(this.label,
       {super.key,
-      this.color = Colors.white,
+      this.color = AppColors.primaryWhite,
       this.background,
       this.horizontal = 8});
   final String label;
@@ -59,14 +58,15 @@ class TrackerSectionTitle extends StatelessWidget {
               style: context.titleMediumStyle?.copyWith(
                   fontSize: 20.sp,
                   fontWeight: FontWeight.w600,
-                  color: Colors.white)),
+                  color: AppColors.primaryWhite)),
           6.ph,
-          Text('12 users · Read-Only Access',
+          Text(AppStrings.trackerUsersReadOnlySubtitle,
               style: context.bodySmallStyle?.copyWith(
                   fontSize: 12.sp,
                   fontWeight: FontWeight.w400,
-                  color:
-                      mutedSubtitle ? const Color(0xff8ba9a3) : Colors.white)),
+                  color: mutedSubtitle
+                      ? AppColors.trackerAlertSubtitle
+                      : AppColors.primaryWhite)),
         ],
       );
 }

@@ -251,6 +251,38 @@ class AppColors {
   static const Color trackerAlertSubtitle = Color(0xFF8BA9A3);
   static const Color trackerCardGlow = Color(0x4D2F1D63);
 
+  // Tracker (viewer) surfaces & text
+  static const Color trackerSurfaceFill = Color(0x0DFFFFFF);
+  static const Color trackerBorderSoft = Color(0x1AFFFFFF);
+  static const Color trackerMutedText = Color(0x99FFFFFF);
+  static const Color trackerFaintText = Color(0x61FFFFFF);
+  static const Color trackerPurpleDeep = Color(0xFF321F67);
+  static const Color trackerPurpleLight = Color(0xFF5B3A9E);
+  static const Color trackerAvatarPurple = Color(0xFF432980);
+  static const Color trackerExpertBadge = Color(0x4D5B3A9E);
+  static const Color trackerLinkLavender = Color(0xFFEDE9FE);
+
+  // Tracker (viewer) status accents
+  static const Color trackerSuccessGreen = Color(0xFF00C950);
+  static const Color trackerSuccessSurface = Color(0x3300C950);
+  static const Color trackerInfoBlue = Color(0xFF51A2FF);
+  static const Color trackerInfoBlueStrong = Color(0xFF2B7FFF);
+  static const Color trackerInfoBlueSurface = Color(0x332B7FFF);
+  static const Color trackerInfoBlueText = Color(0xFF8EC5FF);
+  static const Color trackerDangerRed = Color(0xFFFB2C36);
+  static const Color trackerDangerSurface = Color(0x33FB2C36);
+  static const Color trackerFlaggedRed = Color(0xFFFF6467);
+  static const Color trackerCriticalRed = Color(0xFFD4183D);
+  static const Color trackerWarningAmber = Color(0xFFFE9A00);
+  static const Color trackerWarningText = Color(0xFFFFD230);
+  static const Color trackerWarningSurface = Color(0x1AFE9A00);
+  static const Color trackerWarningBorder = Color(0x4DFE9A00);
+  static const Color trackerLegalHoldSurface = Color(0xFF513B22);
+
+  // Tracker (viewer) security details gradient
+  static const Color trackerSecurityScrimSlate = Color(0xFF2B2F3F);
+  static const Color trackerSecurityScrimNavy = Color(0xFF000414);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

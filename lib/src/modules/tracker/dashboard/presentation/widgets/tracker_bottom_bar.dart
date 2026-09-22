@@ -122,29 +122,30 @@ class _NavigationIcon extends StatelessWidget {
                 top: 14.25.w,
                 width: 15.5.w,
                 height: 7.5.w,
-                child: SvgPicture.asset(
-                    'assets/icons/svg/tracker_nav_profile_active_body.svg')),
+                child:
+                    SvgPicture.asset(AppAssetsSvg.trackerNavProfileActiveBody)),
             Positioned(
                 left: 7.25.w,
                 top: 2.25.w,
                 width: 9.5.w,
                 height: 9.5.w,
-                child: SvgPicture.asset(
-                    'assets/icons/svg/tracker_nav_profile_active_head.svg')),
+                child:
+                    SvgPicture.asset(AppAssetsSvg.trackerNavProfileActiveHead)),
           ]));
     }
     final asset = switch (index) {
-      1 when selected => 'assets/icons/svg/tracker_nav_users_active.svg',
+      1 when selected => AppAssetsSvg.trackerNavUsersActive,
       2 => selected
-          ? 'assets/icons/svg/tracker_nav_cases_active.svg'
-          : 'assets/icons/svg/tracker_nav_cases.svg',
+          ? AppAssetsSvg.trackerNavCasesActive
+          : AppAssetsSvg.trackerNavCases,
       _ => fallback,
     };
     return SvgPicture.asset(asset,
         width: (index == 2 ? (selected ? 22.5 : 24.75) : 24).w,
         height: (index == 2 ? (selected ? 20 : 22) : 24).w,
         colorFilter: index == 0 && !selected
-            ? const ColorFilter.mode(Color(0x99ffffff), BlendMode.srcIn)
+            ? const ColorFilter.mode(
+                AppColors.trackerMutedText, BlendMode.srcIn)
             : null);
   }
 }

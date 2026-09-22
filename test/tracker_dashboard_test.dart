@@ -208,15 +208,16 @@ void main() {
       await tester.pumpWidget(ScreenUtilInit(
         designSize: const Size(440, 956),
         minTextAdapt: true,
-        builder: (_, child) => MaterialApp(
-          theme: ThemeData.dark(),
-          home: const TrackerSecurityDetailsView(
-              user: TrackerUserEntity(
-            name: 'Daniel Chen',
-            lastSeen: 'Today • 3 min ago',
-            location: 'Midtown Manhattan, NY',
-            authenticity: TrackerAuthenticity.acceptable,
-          )),
+        builder: (_, child) => const ProviderScope(
+          child: MaterialApp(
+            home: TrackerSecurityDetailsView(
+                user: TrackerUserEntity(
+              name: 'Daniel Chen',
+              lastSeen: 'Today • 3 min ago',
+              location: 'Midtown Manhattan, NY',
+              authenticity: TrackerAuthenticity.acceptable,
+            )),
+          ),
         ),
       ));
       await tester.pumpAndSettle();
@@ -245,15 +246,15 @@ void main() {
       await tester.pumpWidget(ScreenUtilInit(
           designSize: const Size(440, 956),
           minTextAdapt: true,
-          builder: (_, child) => MaterialApp(
-              theme: ThemeData.dark(),
-              home: const TrackerUserDetailsView(
-                  user: TrackerUserEntity(
+          builder: (_, child) => const ProviderScope(
+                  child: MaterialApp(
+                      home: TrackerUserDetailsView(
+                          user: TrackerUserEntity(
                 name: 'Daniel Chen',
                 lastSeen: 'Today • 3 min ago',
                 location: 'Midtown Manhattan, NY',
                 authenticity: TrackerAuthenticity.acceptable,
-              )))));
+              ))))));
       await tester.pumpAndSettle();
       expect(find.text('DC'), findsOneWidget);
       for (final label in [
