@@ -161,39 +161,105 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
       .map((part) => part[0])
       .join();
 
-  String lastLocation(TrackerUserEntity user) =>
-      user.location.replaceFirst('Last: ', '');
+  /// Recent activity keeps the designed sample location when the subject
+  /// carries none of its own.
+  static const String _fallbackActivityLocation = 'Midtown Manhattan, NY';
 
-  List<TrackerDetailInfoEntity> infoTiles(TrackerUserEntity user) => [
-        TrackerDetailInfoEntity(
-            label: AppStrings.trackerLastLocation, value: lastLocation(user)),
-        TrackerDetailInfoEntity(
-          label: AppStrings.trackerLastLog,
-          value: user.name == 'Daniel Chen'
-              ? '2 min ago'
-              : user.lastSeen.split('•').last.trim(),
-        ),
-        TrackerDetailInfoEntity(
-            label: AppStrings.trackerLastSync, value: lastSync),
-        TrackerDetailInfoEntity(
-          label: AppStrings.trackerConnection,
-          value: user.isOnline
-              ? AppStrings.trackerOnline
-              : AppStrings.trackerOffline,
-        ),
-        TrackerDetailInfoEntity(
-            label: AppStrings.trackerActiveAlerts, value: activeAlerts),
-        TrackerDetailInfoEntity(
-            label: AppStrings.trackerMissedCheckIns, value: missedCheckIns),
-        TrackerDetailInfoEntity(
-            label: AppStrings.trackerZoneEvents, value: zoneEvents),
-        TrackerDetailInfoEntity(
-            label: AppStrings.trackerSecurityFlags, value: securityFlags),
-        const TrackerDetailInfoEntity(
-          label: AppStrings.trackerAuthenticityTrend,
-          value: AppStrings.trackerAuthenticityTrendValue,
-        ),
-      ];
+  String lastLocation(TrackerUserEntity user) => user.location.isEmpty
+      ? _fallbackActivityLocation
+      : user.location.replaceFirst('Last: ', '');
+
+  /// An unidentified subject has no history behind it, so every metric reads
+  /// Unknown / N/A instead of the tracked user's figures.
+  List<TrackerDetailInfoEntity> infoTiles(TrackerUserEntity user) =>
+      user.isIdentified
+          ? [
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerLastLocation,
+                  value: lastLocation(user)),
+              TrackerDetailInfoEntity(
+                label: AppStrings.trackerLastLog,
+                value: user.name == 'Daniel Chen'
+                    ? '2 min ago'
+                    : user.lastSeen.split('•').last.trim(),
+              ),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerLastSync, value: lastSync),
+              TrackerDetailInfoEntity(
+                label: AppStrings.trackerConnection,
+                value: user.isOnline
+                    ? AppStrings.trackerOnline
+                    : AppStrings.trackerOffline,
+              ),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerActiveAlerts, value: activeAlerts),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerMissedCheckIns,
+                  value: missedCheckIns),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerZoneEvents, value: zoneEvents),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerSecurityFlags, value: securityFlags),
+              const TrackerDetailInfoEntity(
+                label: AppStrings.trackerAuthenticityTrend,
+                value: AppStrings.trackerAuthenticityTrendValue,
+              ),
+            ]
+          : const [
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerLastLocation,
+                  value: AppStrings.trackerValueUnknown),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerLastLog,
+                  value: AppStrings.trackerValueNotAvailable),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerLastSync,
+                  value: AppStrings.trackerValueNotAvailable),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerConnection,
+                  value: AppStrings.trackerValueUnknown),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerActiveAlerts,
+                  value: AppStrings.trackerValueZero),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerMissedCheckIns,
+                  value: AppStrings.trackerValueZero),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerZoneEvents,
+                  value: AppStrings.trackerValueZoneEventsNone),
+              TrackerDetailInfoEntity(
+                  label: AppStrings.trackerSecurityFlags,
+                  value: AppStrings.trackerValueZero),
+              TrackerDetailInfoEntity(
+                label: AppStrings.trackerAuthenticityTrend,
+                value: AppStrings.trackerValueNotAvailable,
+              ),
+            ];
+
+  // Authenticity block: verified for a tracked user, suspect for an
+  // unidentified one.
+  bool isSuspect(TrackerUserEntity user) =>
+      !user.isIdentified || user.authenticity == TrackerAuthenticity.suspect;
+
+  String authenticityScore(TrackerUserEntity user) => isSuspect(user)
+      ? AppStrings.trackerScoreSuspectValue
+      : AppStrings.trackerAuthenticityScoreValue;
+
+  String authenticityLabel(TrackerUserEntity user) => isSuspect(user)
+      ? AppStrings.trackerScoreSuspect
+      : AppStrings.trackerVerified;
+
+  String authenticityNote(TrackerUserEntity user) => isSuspect(user)
+      ? AppStrings.trackerSuspectNote
+      : AppStrings.trackerAuthenticityScoreNote;
+
+  Color authenticityColor(TrackerUserEntity user) => isSuspect(user)
+      ? AppColors.trackerSuspectRed
+      : AppColors.trackerOnlineGreen;
+
+  Color authenticityBadgeFill(TrackerUserEntity user) => isSuspect(user)
+      ? AppColors.trackerSuspectFill
+      : AppColors.trackerOnlineGreen.withValues(alpha: .1);
 
   List<TrackerActivityEntity> recentActivity(TrackerUserEntity user) => [
         TrackerActivityEntity(

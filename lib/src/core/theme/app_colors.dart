@@ -325,6 +325,10 @@ class AppColors {
   static const Color trackerAlertBlueIconFill = Color(0x332B7FFF);
   static const Color trackerAlertUnreadDot = Color(0xFF51A2FF);
 
+  // Tracker (viewer) unidentified subject
+  static const Color trackerSuspectRed = Color(0xFFEF4444);
+  static const Color trackerSuspectFill = Color(0x1AEF4444);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

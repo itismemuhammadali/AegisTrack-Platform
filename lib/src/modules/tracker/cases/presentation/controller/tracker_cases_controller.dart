@@ -1,4 +1,5 @@
 import '../../../../../core/utils/app_exports.dart';
+import '../../../home/domain/entities/tracker_user_entity.dart';
 import '../../domain/entities/tracker_case_entity.dart';
 
 /// Figma sample records; replace with the viewer case API.
@@ -36,6 +37,16 @@ class TrackerCasesController extends ChangeNotifier with Buffers {
       date: 'Closed Nov. 2023',
     ),
   ];
+
+  /// The SOS card opens an overview for an unidentified subject: the alert
+  /// carries a position but no verified history behind it.
+  static const TrackerUserEntity sosSubject = TrackerUserEntity(
+    name: AppStrings.trackerUnknownUser,
+    lastSeen: '',
+    location: '',
+    authenticity: TrackerAuthenticity.suspect,
+    isIdentified: false,
+  );
 
   final String sosName = 'Lisa Park';
   final String sosInitials = 'LP';

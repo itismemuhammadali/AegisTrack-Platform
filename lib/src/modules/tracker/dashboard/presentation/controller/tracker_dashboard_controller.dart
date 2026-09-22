@@ -1,4 +1,5 @@
 import '../../../../../core/utils/app_exports.dart';
+import '../../../cases/presentation/controller/tracker_cases_controller.dart';
 import '../../../cases/presentation/views/tracker_cases_view.dart';
 import '../../../home/presentation/views/tracker_home_view.dart';
 import '../../../profile/presentation/views/tracker_profile_view.dart';
@@ -20,7 +21,10 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
       onUserSelected: (user) =>
           AppRouterGo.push(trackerUserDetailsView, extra: user),
     ),
-    TrackerCasesView(onNotifications: openAlerts),
+    TrackerCasesView(
+      onNotifications: openAlerts,
+      onSosDetails: openSosSubject,
+    ),
     TrackerProfileView(onLogout: logout),
   ];
 
@@ -46,6 +50,12 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
   /// Every notification bell, the home alert cards and the View Alerts quick
   /// action land on the same alert centre.
   void openAlerts() => AppRouterGo.push(trackerNotificationsView);
+
+  /// The Cases SOS card opens the unidentified subject's overview.
+  void openSosSubject() => AppRouterGo.push(
+        trackerUserDetailsView,
+        extra: TrackerCasesController.sosSubject,
+      );
 
   void onTabTapped(int index) {
     if (selectedIndex == index) return;

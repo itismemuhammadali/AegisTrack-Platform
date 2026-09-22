@@ -333,6 +333,17 @@ class AppStrings {
   static const String trackerSeverityHigh = 'HIGH';
   static const String trackerSeverityMedium = 'MEDIUM';
   static const String trackerSeverityLow = 'LOW';
+
+  // Tracker (viewer) unidentified subject
+  static const String trackerUnknownUser = 'Unknown User';
+  static const String trackerValueUnknown = 'Unknown';
+  static const String trackerValueNotAvailable = 'N/A';
+  static const String trackerValueZero = '0';
+  static const String trackerValueZoneEventsNone = '0 Today';
+  static const String trackerScoreSuspect = 'Suspect';
+  static const String trackerScoreSuspectValue = '0';
+  static const String trackerSuspectNote =
+      'Significant Security Concerns. Immediate Review Required.';
   static const String viewerSignInSubtitle =
       'Access your authorized viewer account';
   static const String rememberMe = 'Remember Me';

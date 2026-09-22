@@ -5,8 +5,23 @@ import 'tracker_detail_surface.dart';
 import 'tracker_detail_text.dart';
 
 class TrackerAuthenticityCard extends StatelessWidget {
-  const TrackerAuthenticityCard({super.key, this.onSecurityDetails});
+  const TrackerAuthenticityCard({
+    super.key,
+    required this.score,
+    required this.label,
+    required this.note,
+    required this.color,
+    required this.badgeFill,
+    this.onSecurityDetails,
+  });
 
+  final String score;
+
+  /// Verified for a tracked user, Suspect for an unidentified subject.
+  final String label;
+  final String note;
+  final Color color;
+  final Color badgeFill;
   final VoidCallback? onSecurityDetails;
 
   @override
@@ -14,24 +29,21 @@ class TrackerAuthenticityCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Row(
+            Row(
               children: [
-                Expanded(
+                const Expanded(
                   child: TrackerDetailText(AppStrings.trackerAuthenticityScore,
                       weight: FontWeight.w600),
                 ),
-                TrackerBadge(AppStrings.trackerVerified,
-                    color: AppColors.trackerOnlineGreen, horizontal: 16),
+                TrackerBadge(label,
+                    color: color, background: badgeFill, horizontal: 16),
               ],
             ),
             10.ph,
             Row(
               children: [
-                const TrackerDetailText(
-                    AppStrings.trackerAuthenticityScoreValue,
-                    size: 32,
-                    weight: FontWeight.w700,
-                    color: AppColors.trackerOnlineGreen),
+                TrackerDetailText(score,
+                    size: 32, weight: FontWeight.w700, color: color),
                 10.pw,
                 const TrackerDetailText(
                     AppStrings.trackerAuthenticityScoreTotal,
@@ -40,7 +52,7 @@ class TrackerAuthenticityCard extends StatelessWidget {
               ],
             ),
             10.ph,
-            const TrackerDetailText(AppStrings.trackerAuthenticityScoreNote,
+            TrackerDetailText(note,
                 size: 12, color: AppColors.trackerMutedText),
             10.ph,
             TrackerDetailButton(AppStrings.trackerViewSecurityDetails,
