@@ -363,6 +363,10 @@ class AppColors {
   static const Color trackerPlanCardBorder = Color(0x665B3A9E);
   static const Color trackerPlanBadgeFill = Color(0x335B3A9E);
 
+  // Tracker (viewer) edit profile
+  static const Color trackerEditAvatarTop = Color(0xFF321F67);
+  static const Color trackerEditAvatarBottom = Color(0xFF5B3A9E);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

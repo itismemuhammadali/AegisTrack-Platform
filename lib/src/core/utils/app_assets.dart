@@ -302,6 +302,12 @@ class AppAssetsSvg {
   static const String trackerUserFlagAlert =
       'assets/icons/svg/tracker_user_flag_alert.svg';
 
+  // Tracker (viewer) edit profile
+  static const String trackerEditProfileSave =
+      'assets/icons/svg/tracker_edit_profile_save.svg';
+  static const String trackerEditProfileCamera =
+      'assets/icons/svg/tracker_edit_profile_camera.svg';
+
   // Tracker (viewer) plan & subscription
   static const String trackerPlanStar =
       'assets/icons/svg/tracker_plan_star.svg';

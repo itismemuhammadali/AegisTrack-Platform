@@ -53,6 +53,8 @@ const String trackerHelpSupportView = '/tracker-help-support';
 
 const String trackerPlanSubscriptionView = '/tracker-plan-subscription';
 
+const String trackerEditProfileView = '/tracker-edit-profile';
+
 const String trackerAiInsightsView = '/tracker-ai-insights';
 
 const String trackerLogDetailView = '/tracker-log-detail';

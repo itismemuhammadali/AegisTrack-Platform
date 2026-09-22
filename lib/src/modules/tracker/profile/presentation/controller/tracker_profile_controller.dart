@@ -3,8 +3,42 @@ import '../../domain/entities/tracker_profile_row_entity.dart';
 
 /// Figma sample profile; replace with the viewer account API.
 class TrackerProfileController extends ChangeNotifier with Buffers {
+  TrackerProfileController()
+      : nameController =
+            TextEditingController(text: AppStrings.trackerProfileName),
+        usernameController = TextEditingController(
+            text: AppStrings.trackerEditProfileUsernameValue),
+        bioController =
+            TextEditingController(text: AppStrings.trackerEditProfileBioValue),
+        locationController = TextEditingController(
+            text: AppStrings.trackerEditProfileLocationValue);
+
   final String name = AppStrings.trackerProfileName;
   final String email = AppStrings.trackerProfileEmail;
+
+  // --- Edit profile --------------------------------------------------------
+
+  final TextEditingController nameController;
+  final TextEditingController usernameController;
+  final TextEditingController bioController;
+  final TextEditingController locationController;
+
+  /// Initials for the avatar, taken from whatever the name field holds.
+  String get initials => nameController.text
+      .split(' ')
+      .where((part) => part.isNotEmpty)
+      .take(2)
+      .map((part) => part[0].toUpperCase())
+      .join();
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    usernameController.dispose();
+    bioController.dispose();
+    locationController.dispose();
+    super.dispose();
+  }
 
   final List<(String, String)> stats = const [
     ('12', AppStrings.trackerProfileAssigned),

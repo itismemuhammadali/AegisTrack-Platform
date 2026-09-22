@@ -176,6 +176,21 @@ class AppStrings {
   static const String trackerSosAlert = 'SOS!';
   static const String trackerVerifiedBadge = 'VERIFIED';
 
+  // Tracker (viewer) edit profile
+  static const String trackerEditProfileTitle = 'Edit Profile';
+  static const String trackerEditProfileBackTooltip = 'Back to profile';
+  static const String trackerEditProfileSaveTooltip = 'Save changes';
+  static const String trackerEditProfileChangePhoto = 'Change Profile Photo';
+  static const String trackerEditProfileFullName = 'Full Name';
+  static const String trackerEditProfileUsername = 'Username';
+  static const String trackerEditProfileBio = 'Bio';
+  static const String trackerEditProfileLocation = 'Location';
+  static const String trackerEditProfileSaveChanges = 'Save Changes';
+  static const String trackerEditProfileUsernameValue = 'alexviewer';
+  static const String trackerEditProfileBioValue =
+      'Authorized viewer managing secure location tracking';
+  static const String trackerEditProfileLocationValue = 'New York, USA';
+
   // Tracker (viewer) plan & subscription
   static const String trackerPlanSubtitle =
       'Your current plan and available features';
