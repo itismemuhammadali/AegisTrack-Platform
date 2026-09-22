@@ -193,6 +193,52 @@ class AppStrings {
   static const String trackerSmsTwoFactorNote =
       'Enhanced security verification';
 
+  // Tracker (viewer) notification settings
+  static const String trackerNotifSettingsTitle = 'Notification Settings';
+  static const String trackerNotifBackTooltip = 'Back to profile';
+  static const String trackerNotifChannels = 'Channels';
+  static const String trackerNotifPushTitle = 'Push Notifications';
+  static const String trackerNotifPushNote = 'Real-time alerts on this device';
+  static const String trackerNotifEmailTitle = 'Email Notifications';
+  static const String trackerNotifEmailNote = 'Updates sent to your email';
+  static const String trackerNotifEmailEmoji = '📧';
+  static const String trackerNotifSmsTitle = 'SMS Notifications';
+  static const String trackerNotifSmsNote = 'Text message alerts';
+  static const String trackerNotifSmsEmoji = '💬';
+  static const String trackerNotifAlertStyle = 'Alert Style';
+  static const String trackerNotifSoundTitle = 'Sound';
+  static const String trackerNotifVibrationTitle = 'Vibration';
+  static const String trackerNotifBadgeTitle = 'Badge Count';
+  static const String trackerNotifBadgeEmoji = '🔴';
+  static const String trackerNotifDndTitle = 'Do Not Disturb';
+  static const String trackerNotifDndNote = 'Silence all notifications';
+  static const String trackerNotifTypes = 'Notification Types';
+  static const String trackerNotifTypeNewLogs = 'New Logs Synced';
+  static const String trackerNotifTypeSyncAlerts = 'Sync Alerts';
+  static const String trackerNotifTypeExport = 'Export Complete';
+  static const String trackerNotifTypeSecurity = 'Security Warnings';
+  static const String trackerNotifTypeSystem = 'System Updates';
+  static const String trackerNotifTypeWeekly = 'Weekly Reports';
+
+  // Tracker (viewer) display & theme
+  static const String trackerThemeTitle = 'Display & Theme';
+  static const String trackerThemeBackTooltip = 'Back to profile';
+  static const String trackerThemeCurrent = 'Current Theme';
+  static const String trackerThemeDarkTitle = 'Dark Mode';
+  static const String trackerThemeDarkNote = 'Use dark theme always';
+  static const String trackerThemeDarkActive = 'Dark Mode Active';
+  static const String trackerThemeLightTitle = 'Light Mode';
+  static const String trackerThemeLightNote = 'Use light theme always';
+  static const String trackerThemeLightActive = 'Light Mode Active';
+  static const String trackerThemeSystemTitle = 'System Default';
+  static const String trackerThemeSystemNote = 'Match device settings';
+  static const String trackerThemeSystemActive = 'Matching Device Settings';
+  static const String trackerThemeAboutTitle = 'About Dark Mode';
+  static const String trackerThemeAboutBody =
+      'Dark mode reduces eye strain in low-light environments and can help '
+      'save battery life on OLED screens. Your theme preference is saved '
+      'across all your devices.';
+
   // Tracker (viewer) security settings
   static const String trackerSecuritySettingsTitle = 'Security Settings';
   static const String trackerSecurityBackTooltip = 'Back to profile';

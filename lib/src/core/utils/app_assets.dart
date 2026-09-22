@@ -302,6 +302,24 @@ class AppAssetsSvg {
   static const String trackerUserFlagAlert =
       'assets/icons/svg/tracker_user_flag_alert.svg';
 
+  // Tracker (viewer) notification settings
+  static const String trackerNotifPush =
+      'assets/icons/svg/tracker_notif_push.svg';
+  static const String trackerNotifSound =
+      'assets/icons/svg/tracker_notif_sound.svg';
+  static const String trackerNotifVibration =
+      'assets/icons/svg/tracker_notif_vibration.svg';
+  static const String trackerNotifDnd =
+      'assets/icons/svg/tracker_notif_dnd.svg';
+
+  // Tracker (viewer) display & theme
+  static const String trackerThemeDark =
+      'assets/icons/svg/tracker_theme_dark.svg';
+  static const String trackerThemeLight =
+      'assets/icons/svg/tracker_theme_light.svg';
+  static const String trackerThemeSystem =
+      'assets/icons/svg/tracker_theme_system.svg';
+
   // Tracker (viewer) security settings
   static const String trackerSecurityStatusShield =
       'assets/icons/svg/tracker_security_status_shield.svg';

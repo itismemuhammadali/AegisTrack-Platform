@@ -71,6 +71,9 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
         AppStrings.trackerSecuritySettings ||
         AppStrings.trackerTwoFactorAuth =>
           AppRouterGo.push(trackerSecuritySettingsView),
+        AppStrings.trackerNotificationSettings =>
+          AppRouterGo.push(trackerNotificationSettingsView),
+        AppStrings.trackerDarkMode => AppRouterGo.push(trackerDisplayThemeView),
         _ => null,
       };
 

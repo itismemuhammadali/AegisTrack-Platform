@@ -1,4 +1,4 @@
-﻿const String onboardingView = '/';
+const String onboardingView = '/';
 const String signInOptionsView = '/sign-in-options';
 const String signInView = '/sign-in';
 const String registerView = '/register';
@@ -60,6 +60,10 @@ const String trackerEmailSettingsView = '/tracker-email-settings';
 const String trackerPhoneNumberView = '/tracker-phone-number';
 
 const String trackerSecuritySettingsView = '/tracker-security-settings';
+
+const String trackerNotificationSettingsView = '/tracker-notification-settings';
+
+const String trackerDisplayThemeView = '/tracker-display-theme';
 
 const String trackerAiInsightsView = '/tracker-ai-insights';
 

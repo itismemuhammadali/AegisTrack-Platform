@@ -77,20 +77,30 @@ class TrackerPreferenceRow extends StatelessWidget {
   const TrackerPreferenceRow({
     super.key,
     required this.title,
-    required this.note,
     required this.value,
     required this.onToggle,
+    this.note = '',
     this.icon,
+    this.emoji = '',
+    this.tinted = true,
     this.last = false,
   });
 
   final String title;
+
+  /// Omitted on the rows that are a title alone.
   final String note;
   final bool value;
   final VoidCallback onToggle;
 
   /// Drawn before the title, as on the two-factor row.
   final String? icon;
+
+  /// Some rows use an emoji glyph instead of an SVG.
+  final String emoji;
+
+  /// Whether the switch fills purple when on.
+  final bool tinted;
   final bool last;
 
   @override
@@ -105,8 +115,11 @@ class TrackerPreferenceRow extends StatelessWidget {
         child: Row(
           children: [
             if (icon != null) ...[
-              SvgPicture.asset(icon!, width: 16.w, height: 16.w),
-              8.pw,
+              SvgPicture.asset(icon!, width: 20.w, height: 20.w),
+              12.pw,
+            ] else if (emoji.isNotEmpty) ...[
+              TrackerDetailText(emoji, size: 20, height: 28 / 20),
+              12.pw,
             ],
             Expanded(
               child: Column(
@@ -123,7 +136,7 @@ class TrackerPreferenceRow extends StatelessWidget {
               ),
             ),
             12.pw,
-            TrackerToggle(value: value, onTap: onToggle),
+            TrackerToggle(value: value, tinted: tinted, onTap: onToggle),
           ],
         ),
       );
@@ -131,9 +144,18 @@ class TrackerPreferenceRow extends StatelessWidget {
 
 /// Pill switch used by the email preferences.
 class TrackerToggle extends StatelessWidget {
-  const TrackerToggle({super.key, required this.value, this.onTap});
+  const TrackerToggle({
+    super.key,
+    required this.value,
+    this.tinted = true,
+    this.onTap,
+  });
 
   final bool value;
+
+  /// Fills purple when on. The notification screen draws its switches with
+  /// the neutral track in both states, so position alone marks the state.
+  final bool tinted;
   final VoidCallback? onTap;
 
   @override
@@ -148,7 +170,7 @@ class TrackerToggle extends StatelessWidget {
             padding: AppInsets.all(2),
             alignment: value ? Alignment.centerRight : Alignment.centerLeft,
             decoration: BoxDecoration(
-              color: value
+              color: value && tinted
                   ? AppColors.trackerPurpleDeep
                   : AppColors.trackerSurfaceFill,
               borderRadius: 100.circular,

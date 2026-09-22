@@ -370,6 +370,9 @@ class AppColors {
   // Tracker (viewer) phone number
   static const Color trackerPhoneHint = Color(0x80E5F4F0);
 
+  // Tracker (viewer) display & theme
+  static const Color trackerThemePreviewBar = Color(0x1AE5F4F0);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

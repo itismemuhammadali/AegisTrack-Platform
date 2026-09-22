@@ -69,3 +69,60 @@ class TrackerSessionEntity {
   /// The device being used now cannot be revoked from itself.
   final bool isCurrent;
 }
+
+/// Theme choice, carrying the icon and headline each option shows.
+enum TrackerThemeMode {
+  dark(
+    icon: AppAssetsSvg.trackerThemeDark,
+    title: AppStrings.trackerThemeDarkTitle,
+    note: AppStrings.trackerThemeDarkNote,
+    activeLabel: AppStrings.trackerThemeDarkActive,
+  ),
+  light(
+    icon: AppAssetsSvg.trackerThemeLight,
+    title: AppStrings.trackerThemeLightTitle,
+    note: AppStrings.trackerThemeLightNote,
+    activeLabel: AppStrings.trackerThemeLightActive,
+  ),
+  system(
+    icon: AppAssetsSvg.trackerThemeSystem,
+    title: AppStrings.trackerThemeSystemTitle,
+    note: AppStrings.trackerThemeSystemNote,
+    activeLabel: AppStrings.trackerThemeSystemActive,
+  );
+
+  const TrackerThemeMode({
+    required this.icon,
+    required this.title,
+    required this.note,
+    required this.activeLabel,
+  });
+
+  final String icon;
+  final String title;
+  final String note;
+
+  /// Shown under "Current Theme" when this option is the chosen one.
+  final String activeLabel;
+}
+
+/// A notification switch, kept as data so the three lists render from loops.
+class TrackerNotificationToggleEntity {
+  const TrackerNotificationToggleEntity({
+    required this.title,
+    required this.value,
+    required this.onToggle,
+    this.note = '',
+    this.icon,
+    this.emoji = '',
+  });
+
+  final String title;
+  final bool value;
+  final VoidCallback onToggle;
+  final String note;
+  final String? icon;
+
+  /// Some rows use an emoji glyph rather than an SVG, as the design does.
+  final String emoji;
+}

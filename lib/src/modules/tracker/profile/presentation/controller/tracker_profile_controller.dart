@@ -92,6 +92,122 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
     notifyListeners();
   }
 
+  // --- Notification settings -----------------------------------------------
+
+  bool pushNotifications = true;
+  bool emailChannel = true;
+  bool smsChannel = false;
+  bool alertSound = true;
+  bool alertVibration = true;
+  bool badgeCount = true;
+  bool doNotDisturb = false;
+  bool typeNewLogs = true;
+  bool typeSyncAlerts = true;
+  bool typeExport = true;
+  bool typeSecurity = true;
+  bool typeSystem = false;
+  bool typeWeekly = true;
+
+  void _set(void Function() change) {
+    change();
+    notifyListeners();
+  }
+
+  List<TrackerNotificationToggleEntity> get notificationChannels => [
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifPushTitle,
+          note: AppStrings.trackerNotifPushNote,
+          icon: AppAssetsSvg.trackerNotifPush,
+          value: pushNotifications,
+          onToggle: () => _set(() => pushNotifications = !pushNotifications),
+        ),
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifEmailTitle,
+          note: AppStrings.trackerNotifEmailNote,
+          emoji: AppStrings.trackerNotifEmailEmoji,
+          value: emailChannel,
+          onToggle: () => _set(() => emailChannel = !emailChannel),
+        ),
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifSmsTitle,
+          note: AppStrings.trackerNotifSmsNote,
+          emoji: AppStrings.trackerNotifSmsEmoji,
+          value: smsChannel,
+          onToggle: () => _set(() => smsChannel = !smsChannel),
+        ),
+      ];
+
+  List<TrackerNotificationToggleEntity> get alertStyle => [
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifSoundTitle,
+          icon: AppAssetsSvg.trackerNotifSound,
+          value: alertSound,
+          onToggle: () => _set(() => alertSound = !alertSound),
+        ),
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifVibrationTitle,
+          icon: AppAssetsSvg.trackerNotifVibration,
+          value: alertVibration,
+          onToggle: () => _set(() => alertVibration = !alertVibration),
+        ),
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifBadgeTitle,
+          emoji: AppStrings.trackerNotifBadgeEmoji,
+          value: badgeCount,
+          onToggle: () => _set(() => badgeCount = !badgeCount),
+        ),
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifDndTitle,
+          note: AppStrings.trackerNotifDndNote,
+          icon: AppAssetsSvg.trackerNotifDnd,
+          value: doNotDisturb,
+          onToggle: () => _set(() => doNotDisturb = !doNotDisturb),
+        ),
+      ];
+
+  List<TrackerNotificationToggleEntity> get notificationTypes => [
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifTypeNewLogs,
+          value: typeNewLogs,
+          onToggle: () => _set(() => typeNewLogs = !typeNewLogs),
+        ),
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifTypeSyncAlerts,
+          value: typeSyncAlerts,
+          onToggle: () => _set(() => typeSyncAlerts = !typeSyncAlerts),
+        ),
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifTypeExport,
+          value: typeExport,
+          onToggle: () => _set(() => typeExport = !typeExport),
+        ),
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifTypeSecurity,
+          value: typeSecurity,
+          onToggle: () => _set(() => typeSecurity = !typeSecurity),
+        ),
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifTypeSystem,
+          value: typeSystem,
+          onToggle: () => _set(() => typeSystem = !typeSystem),
+        ),
+        TrackerNotificationToggleEntity(
+          title: AppStrings.trackerNotifTypeWeekly,
+          value: typeWeekly,
+          onToggle: () => _set(() => typeWeekly = !typeWeekly),
+        ),
+      ];
+
+  // --- Display & theme -----------------------------------------------------
+
+  TrackerThemeMode themeMode = TrackerThemeMode.dark;
+
+  void setThemeMode(TrackerThemeMode mode) {
+    if (themeMode == mode) return;
+    themeMode = mode;
+    notifyListeners();
+  }
+
   final List<TrackerSessionEntity> sessions = const [
     TrackerSessionEntity(
       device: 'iPhone 14 Pro',

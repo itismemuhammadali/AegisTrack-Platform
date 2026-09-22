@@ -8,6 +8,8 @@ import '../../../modules/tracker/notifications/presentation/views/tracker_notifi
 import '../../../modules/tracker/profile/presentation/views/tracker_edit_profile_view.dart';
 import '../../../modules/tracker/profile/presentation/views/tracker_email_settings_view.dart';
 import '../../../modules/tracker/profile/presentation/views/tracker_phone_number_view.dart';
+import '../../../modules/tracker/profile/presentation/views/tracker_display_theme_view.dart';
+import '../../../modules/tracker/profile/presentation/views/tracker_notification_settings_view.dart';
 import '../../../modules/tracker/profile/presentation/views/tracker_security_settings_view.dart';
 import '../../../modules/tracker/profile/presentation/views/tracker_help_support_view.dart';
 import '../../../modules/tracker/profile/presentation/views/tracker_plan_subscription_view.dart';
@@ -193,6 +195,18 @@ class AppRouterGo {
         path: trackerSecureShareView,
         pageBuilder: (context, state) => const NoTransitionPage(
           child: TrackerSecureShareView(),
+        ),
+      ),
+      GoRoute(
+        path: trackerNotificationSettingsView,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: TrackerNotificationSettingsView(),
+        ),
+      ),
+      GoRoute(
+        path: trackerDisplayThemeView,
+        pageBuilder: (context, state) => const NoTransitionPage(
+          child: TrackerDisplayThemeView(),
         ),
       ),
       GoRoute(
