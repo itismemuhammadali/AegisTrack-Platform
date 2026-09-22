@@ -165,6 +165,59 @@ class AppStrings {
   static const String trackerSosAlert = 'SOS!';
   static const String trackerVerifiedBadge = 'VERIFIED';
 
+  // Tracker (viewer) reports
+  static const String trackerReportsTitle = 'Reports';
+  static const String trackerReportsSubtitle =
+      'Generate & export secure evidence reports';
+  static const String trackerReportsBackTooltip = 'Back to user overview';
+  static const String trackerReportConfigure = 'Configure export options';
+  static const String trackerReportEncryptedBadge = 'Encrypted';
+  static const String trackerReportFormatPdf = 'PDF';
+  static const String trackerReportFormatCsv = 'CSV';
+  static const String trackerReportDateRange = 'DATE RANGE';
+  static const String trackerReportTrackedUser = 'TRACKED USER';
+  static const String trackerReportIncludes = 'PDF INCLUDES';
+  static const String trackerReportIncludeLogs =
+      'Logs with per-log Authenticity Scores';
+  static const String trackerReportIncludeZoneEvents = 'Zone Events';
+  static const String trackerReportIncludeCheckIns = 'Check-in Records';
+  static const String trackerReportIncludeSecurityFlags = 'Security Flags';
+  static const String trackerReportIncludeScoreSummary = 'Secure Score Summary';
+  static const String trackerReportAiNarrative = 'Include AI Narrative';
+  static const String trackerReportSummary = 'Report Summary';
+  static const String trackerReportPeriod = 'Period';
+  static const String trackerReportUsersLabel = 'Users';
+  static const String trackerReportEstimatedLogs = 'Estimated Logs';
+  static const String trackerReportEstimatedSize = 'Est. Size';
+  static const String trackerReportPreviewAction = 'Preview';
+  static const String trackerReportExportPrefix = 'Export ';
+  static const String trackerReportPrevious = 'Previous Reports';
+  static const String trackerReportReadOnly = 'Read-only';
+  static const String trackerReportShareLink = 'Create Secure Share Link';
+  static const String trackerReportCsvColumns = 'CSV COLUMNS';
+  static const String trackerReportCsvColumnList =
+      'log_id, timestamp, latitude, longitude, address, event_type, '
+      'auth_score, auth_status, sync_status, security_flags, zone, '
+      'checkin_id, device';
+  static const String trackerReportPdfPreviewTitle = 'PDF Preview';
+  static const String trackerReportCsvPreviewTitle = 'CSV Preview';
+  static const String trackerReportPreviewClose = 'Close';
+  static const String trackerReportPreviewHeading =
+      'SecureTrack — Authorized Viewer Report';
+  static const String trackerReportPreviewCasePrefix = 'Case / User: ';
+  static const String trackerReportPreviewScore = 'Secure Score: 91/100';
+  static const String trackerReportPreviewGenerated =
+      'Generated: 9/11/2026, 4:45:40 AM';
+  static const String trackerReportCsvPreviewBody =
+      'log_id,timestamp,latitude,longitude,address,event_type,auth_score,'
+      'auth_status\n'
+      'LG-8821,2024-12-12T14:32:07Z,40.7589,-73.9851,"Manhattan NY",'
+      'checkin,94,VERIFIED\n'
+      'LG-8820,2024-12-12T11:45:00Z,40.7282,-73.7949,"Queens NY",'
+      'security_flag,88,ACCEPTABLE\n'
+      'LG-8818,2024-12-12T09:15:00Z,40.6892,-73.9442,"Brooklyn NY",'
+      'location,94,VERIFIED';
+
   // Tracker (viewer) log detail
   static const String trackerLogDetail = 'Log Detail';
   static const String trackerLogBackTooltip = 'Back to user overview';

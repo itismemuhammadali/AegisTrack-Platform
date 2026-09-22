@@ -299,6 +299,36 @@ class AppAssetsSvg {
   static const String trackerCaseDetailCsv =
       'assets/icons/svg/tracker_case_detail_csv.svg';
 
+  // Tracker (viewer) reports
+  static const String trackerReportDoc =
+      'assets/icons/svg/tracker_report_doc.svg';
+  static const String trackerReportEncrypted =
+      'assets/icons/svg/tracker_report_encrypted.svg';
+  static const String trackerReportCalendar =
+      'assets/icons/svg/tracker_report_calendar.svg';
+  static const String trackerReportChevron =
+      'assets/icons/svg/tracker_report_chevron.svg';
+  static const String trackerReportUsers =
+      'assets/icons/svg/tracker_report_users.svg';
+  static const String trackerReportCheck =
+      'assets/icons/svg/tracker_report_check.svg';
+  static const String trackerReportPreview =
+      'assets/icons/svg/tracker_report_preview.svg';
+  static const String trackerReportExport =
+      'assets/icons/svg/tracker_report_export.svg';
+  static const String trackerReportFile =
+      'assets/icons/svg/tracker_report_file.svg';
+  static const String trackerReportLock =
+      'assets/icons/svg/tracker_report_lock.svg';
+  static const String trackerReportDownload =
+      'assets/icons/svg/tracker_report_download.svg';
+  static const String trackerReportOpen =
+      'assets/icons/svg/tracker_report_open.svg';
+  static const String trackerReportShare =
+      'assets/icons/svg/tracker_report_share.svg';
+  static const String trackerReportPreviewDoc =
+      'assets/icons/svg/tracker_report_preview_doc.svg';
+
   // Tracker (viewer) log detail
   static const String trackerLogLockBanner =
       'assets/icons/svg/tracker_log_lock_banner.svg';
