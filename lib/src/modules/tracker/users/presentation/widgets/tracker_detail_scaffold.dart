@@ -10,6 +10,7 @@ class TrackerDetailScaffold extends StatelessWidget {
     required this.child,
     this.header,
     this.banner,
+    this.onBack,
     this.subtitle,
     this.trailing,
     this.titleColor = AppColors.viewerSignInText,
@@ -31,6 +32,10 @@ class TrackerDetailScaffold extends StatelessWidget {
   /// Full-bleed strip shown above the header, such as the log record's
   /// immutability notice.
   final Widget? banner;
+
+  /// Overrides popping the route, for a screen whose back arrow steps within
+  /// the screen itself (the share wizard walks back through its steps).
+  final VoidCallback? onBack;
 
   /// Optional action shown at the end of the header row.
   final Widget? trailing;
@@ -76,7 +81,8 @@ class TrackerDetailScaffold extends StatelessWidget {
                           height: 40.w,
                           child: IconButton(
                             tooltip: backTooltip,
-                            onPressed: () => Navigator.of(context).pop(),
+                            onPressed:
+                                onBack ?? () => Navigator.of(context).pop(),
                             padding: EdgeInsets.zero,
                             style: IconButton.styleFrom(
                               backgroundColor: AppColors.trackerSurfaceFill,

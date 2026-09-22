@@ -7,6 +7,7 @@ import '../../../modules/tracker/cases/presentation/views/tracker_case_detail_vi
 import '../../../modules/tracker/notifications/presentation/views/tracker_notifications_view.dart';
 import '../../../modules/tracker/profile/presentation/views/tracker_help_support_view.dart';
 import '../../../modules/tracker/reports/presentation/views/tracker_reports_view.dart';
+import '../../../modules/tracker/share/presentation/views/tracker_secure_share_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_ai_insights_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_check_ins_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_live_tracking_view.dart';
@@ -176,8 +177,17 @@ class AppRouterGo {
       ),
       GoRoute(
         path: trackerReportsView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: TrackerReportsView(
+            onShareLink: () => AppRouterGo.push(trackerSecureShareView),
+          ),
+        ),
+      ),
+      GoRoute(
+        path: trackerSecureShareView,
         pageBuilder: (context, state) => const NoTransitionPage(
-          child: TrackerReportsView(),
+          child: TrackerSecureShareView(),
         ),
       ),
       GoRoute(

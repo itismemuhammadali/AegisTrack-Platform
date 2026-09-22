@@ -165,6 +165,61 @@ class AppStrings {
   static const String trackerSosAlert = 'SOS!';
   static const String trackerVerifiedBadge = 'VERIFIED';
 
+  // Tracker (viewer) secure share
+  static const String trackerShareTitle = 'Secure Share';
+  static const String trackerShareBackTooltip = 'Back to reports';
+  static const String trackerShareStepContentTitle =
+      'What would you like to share?';
+  static const String trackerShareRecentActivity = 'Recent Activity Period';
+  static const String trackerShareRecentActivityNote =
+      'Location history for a time period';
+  static const String trackerShareLiveActivity = 'Live Activity';
+  static const String trackerShareLiveActivityNote =
+      'Current location and status';
+  static const String trackerShareExpertBadge = 'EXPERT';
+  static const String trackerShareContinue = 'Continue';
+  static const String trackerShareBack = 'Back';
+  static const String trackerShareExpiryTitle = 'Link Expiry';
+  static const String trackerShareExpiry1Hour = '1 Hour';
+  static const String trackerShareExpiry1HourNote =
+      'Expires 1 hour after creation';
+  static const String trackerShareExpiry24Hours = '24 Hours';
+  static const String trackerShareExpiry24HoursNote =
+      'Expires tomorrow at same time';
+  static const String trackerShareExpiry7Days = '7 Days';
+  static const String trackerShareExpiry7DaysNote = 'Expires in one week';
+  static const String trackerShareExpiryCustom = 'Custom';
+  static const String trackerShareExpiryCustomNote = 'Set your own expiry date';
+  static const String trackerShareReviewTitle = 'Review & Confirm';
+  static const String trackerShareReviewContent = 'Content';
+  static const String trackerShareReviewExpiry = 'Expiry';
+  static const String trackerShareReviewAccess = 'Access';
+  static const String trackerShareReviewEncryption = 'Encryption';
+  static const String trackerShareEncryptedValue = 'End-to-end encrypted';
+  static const String trackerShareReadOnlyValue = 'Read-only · No download';
+  static const String trackerShareRecipientsPrefix = 'Recipients will have ';
+  static const String trackerShareRecipientsBold = 'READ-ONLY';
+  static const String trackerShareRecipientsSuffix =
+      ' access to shared content.';
+  static const String trackerShareTemporaryNotice =
+      'Shared links are temporary. Access expires automatically.';
+  static const String trackerShareGenerate = 'Generate Secure Link';
+  static const String trackerShareCreatedTitle = 'Secure Link Created';
+  static const String trackerShareStatusActive = 'ACTIVE';
+  static const String trackerShareStatusExpired = 'EXPIRED';
+  static const String trackerShareStatusRevoked = 'REVOKED';
+  static const String trackerShareCreatedLabel = 'Created';
+  static const String trackerShareExpiresLabel = 'Expires';
+  static const String trackerShareAccessLabel = 'Access';
+  static const String trackerShareReadOnly = 'Read-only';
+  static const String trackerShareCopyLink = 'Copy Link';
+  static const String trackerShareRevokeLink = 'Revoke Link';
+  static const String trackerShareManageLinks = 'Manage Active Links';
+  static const String trackerShareAllLinks = 'ALL LINKS';
+  static const String trackerShareRevokeAction = 'Revoke';
+  static const String trackerShareCreateAnother = 'Create Another Link';
+  static const String trackerShareExpiresPrefix = 'Expires: ';
+
   // Tracker (viewer) reports
   static const String trackerReportsTitle = 'Reports';
   static const String trackerReportsSubtitle =

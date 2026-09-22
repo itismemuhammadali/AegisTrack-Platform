@@ -348,6 +348,15 @@ class AppColors {
   static const Color trackerLogSecurityFill = Color(0x1A2B7FFF);
   static const Color trackerLogSecurityBorder = Color(0x4D51A2FF);
 
+  // Tracker (viewer) secure share
+  static const Color trackerShareActiveFill = Color(0x1A00C950);
+  static const Color trackerShareActiveBorder = Color(0x4D00C950);
+  static const Color trackerShareRevokedFill = Color(0x1AFB2C36);
+  static const Color trackerShareRevokedBorder = Color(0x4DFB2C36);
+  static const Color trackerShareWarningFill = Color(0x0DFE9A00);
+  static const Color trackerShareExpertFill = Color(0x33FFFFFF);
+  static const Color trackerShareExpertBorder = Color(0x4DFFFFFF);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

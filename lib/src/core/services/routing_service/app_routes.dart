@@ -56,3 +56,5 @@ const String trackerAiInsightsView = '/tracker-ai-insights';
 const String trackerLogDetailView = '/tracker-log-detail';
 
 const String trackerReportsView = '/tracker-reports';
+
+const String trackerSecureShareView = '/tracker-secure-share';

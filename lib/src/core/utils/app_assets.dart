@@ -299,6 +299,38 @@ class AppAssetsSvg {
   static const String trackerCaseDetailCsv =
       'assets/icons/svg/tracker_case_detail_csv.svg';
 
+  // Tracker (viewer) secure share
+  static const String trackerShareRecent =
+      'assets/icons/svg/tracker_share_recent.svg';
+  static const String trackerShareLive =
+      'assets/icons/svg/tracker_share_live.svg';
+  static const String trackerShareExpertLock =
+      'assets/icons/svg/tracker_share_expert_lock.svg';
+  static const String trackerShareChevron =
+      'assets/icons/svg/tracker_share_chevron.svg';
+  static const String trackerShareContent =
+      'assets/icons/svg/tracker_share_content.svg';
+  static const String trackerShareClock =
+      'assets/icons/svg/tracker_share_clock.svg';
+  static const String trackerShareAccess =
+      'assets/icons/svg/tracker_share_access.svg';
+  static const String trackerShareEncryption =
+      'assets/icons/svg/tracker_share_encryption.svg';
+  static const String trackerShareWarning =
+      'assets/icons/svg/tracker_share_warning.svg';
+  static const String trackerShareSuccess =
+      'assets/icons/svg/tracker_share_success.svg';
+  static const String trackerShareLink =
+      'assets/icons/svg/tracker_share_link.svg';
+  static const String trackerShareCopySmall =
+      'assets/icons/svg/tracker_share_copy_small.svg';
+  static const String trackerShareCopy =
+      'assets/icons/svg/tracker_share_copy.svg';
+  static const String trackerShareRevoke =
+      'assets/icons/svg/tracker_share_revoke.svg';
+  static const String trackerShareRevokeSmall =
+      'assets/icons/svg/tracker_share_revoke_small.svg';
+
   // Tracker (viewer) reports
   static const String trackerReportDoc =
       'assets/icons/svg/tracker_report_doc.svg';
