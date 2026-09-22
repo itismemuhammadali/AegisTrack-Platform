@@ -1,8 +1,21 @@
 import '../../../../../core/utils/app_exports.dart';
 import '../../../home/domain/entities/tracker_user_entity.dart';
+import '../../domain/entities/tracker_activity_entity.dart';
+import '../../domain/entities/tracker_detail_info_entity.dart';
+import '../../domain/entities/tracker_device_info_entity.dart';
+import '../../domain/entities/tracker_quick_action_entity.dart';
+import '../../domain/entities/tracker_security_check_entity.dart';
+import '../../domain/entities/tracker_timeline_log_entity.dart';
+import '../../domain/entities/tracker_zone_event_entity.dart';
 
+/// Drives every read-only viewer users screen: the assigned users list, a
+/// user's overview, their security report and their timeline.
+///
+/// All records are the Figma sample data; replace them with the viewer API.
 class TrackerUsersController extends ChangeNotifier with Buffers {
-  static const List<String> filters = [
+  // ---------------------------------------------------------------- users
+
+  static const List<String> userFilters = [
     AppStrings.trackerFilterAll,
     AppStrings.trackerOnline,
     AppStrings.trackerOffline,
@@ -10,7 +23,6 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
     AppStrings.trackerFilterFlagged,
   ];
 
-  // Figma sample records; replace with assigned users from the viewer API.
   final List<TrackerUserEntity> users = const [
     TrackerUserEntity(
       name: 'Daniel Chen',
@@ -48,13 +60,13 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
     ),
   ];
 
-  String query = '';
-  String filter = AppStrings.trackerFilterAll;
+  String userQuery = '';
+  String userFilter = AppStrings.trackerFilterAll;
 
   List<TrackerUserEntity> get visibleUsers => users.where((user) {
         final matchesQuery =
-            '${user.name} ${user.location}'.toLowerCase().contains(query);
-        final matchesFilter = switch (filter) {
+            '${user.name} ${user.location}'.toLowerCase().contains(userQuery);
+        final matchesFilter = switch (userFilter) {
           AppStrings.trackerOnline => user.isOnline,
           AppStrings.trackerOffline => !user.isOnline && !user.isSos,
           AppStrings.trackerSos => user.isSos,
@@ -65,13 +77,343 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
         return matchesQuery && matchesFilter;
       }).toList();
 
-  void setQuery(String value) {
-    query = value.trim().toLowerCase();
+  void setUserQuery(String value) {
+    userQuery = value.trim().toLowerCase();
     notifyListeners();
   }
 
-  void setFilter(String value) {
-    filter = value;
+  void setUserFilter(String value) {
+    userFilter = value;
+    notifyListeners();
+  }
+
+  // -------------------------------------------------------- user overview
+
+  final String lastSync = '14:32 today';
+  final String activeAlerts = '2';
+  final String missedCheckIns = '1';
+  final String zoneEvents = '3 today';
+  final String securityFlags = '0';
+
+  final List<TrackerQuickActionEntity> quickActions = const [
+    TrackerQuickActionEntity(
+      label: AppStrings.trackerActionTimeline,
+      icon: AppAssetsSvg.trackerUserDetailTimeline,
+    ),
+    TrackerQuickActionEntity(
+      label: AppStrings.trackerActionMapPlayback,
+      icon: AppAssetsSvg.trackerUserDetailMap,
+    ),
+    TrackerQuickActionEntity(
+      label: AppStrings.trackerActionLiveView,
+      icon: AppAssetsSvg.trackerUserDetailLive,
+    ),
+    TrackerQuickActionEntity(
+      label: AppStrings.trackerActionCheckIns,
+      icon: AppAssetsSvg.trackerUserDetailCheckIns,
+    ),
+    TrackerQuickActionEntity(
+      label: AppStrings.trackerActionAiInsights,
+      icon: AppAssetsSvg.trackerUserDetailAi,
+      badge: AppStrings.trackerBadgeExpert,
+      badgeColor: AppColors.trackerExpertBadge,
+    ),
+    TrackerQuickActionEntity(
+      label: AppStrings.trackerActionViewAlerts,
+      icon: AppAssetsSvg.trackerUserDetailAlerts,
+      badge: '2',
+      badgeColor: AppColors.trackerDangerRed,
+    ),
+  ];
+
+  final List<TrackerZoneEventEntity> zoneEventsToday = const [
+    TrackerZoneEventEntity(
+      time: '09:15',
+      title: AppStrings.trackerZoneEntered,
+      place: AppStrings.trackerZonePlace,
+    ),
+    TrackerZoneEventEntity(
+      time: '17:30',
+      title: AppStrings.trackerZoneExited,
+      place: AppStrings.trackerZonePlace,
+    ),
+  ];
+
+  String statusLabel(TrackerUserEntity user) => user.isSos
+      ? AppStrings.trackerSos
+      : user.isOnline
+          ? AppStrings.trackerOnline
+          : AppStrings.trackerOffline;
+
+  Color statusColor(TrackerUserEntity user) => user.isSos
+      ? AppColors.trackerSosRed
+      : user.isOnline
+          ? AppColors.trackerOnlineGreen
+          : AppColors.trackerMutedText;
+
+  String initials(TrackerUserEntity user) => user.name
+      .split(' ')
+      .where((part) => part.isNotEmpty)
+      .take(2)
+      .map((part) => part[0])
+      .join();
+
+  String lastLocation(TrackerUserEntity user) =>
+      user.location.replaceFirst('Last: ', '');
+
+  List<TrackerDetailInfoEntity> infoTiles(TrackerUserEntity user) => [
+        TrackerDetailInfoEntity(
+            label: AppStrings.trackerLastLocation, value: lastLocation(user)),
+        TrackerDetailInfoEntity(
+          label: AppStrings.trackerLastLog,
+          value: user.name == 'Daniel Chen'
+              ? '2 min ago'
+              : user.lastSeen.split('•').last.trim(),
+        ),
+        TrackerDetailInfoEntity(
+            label: AppStrings.trackerLastSync, value: lastSync),
+        TrackerDetailInfoEntity(
+          label: AppStrings.trackerConnection,
+          value: user.isOnline
+              ? AppStrings.trackerOnline
+              : AppStrings.trackerOffline,
+        ),
+        TrackerDetailInfoEntity(
+            label: AppStrings.trackerActiveAlerts, value: activeAlerts),
+        TrackerDetailInfoEntity(
+            label: AppStrings.trackerMissedCheckIns, value: missedCheckIns),
+        TrackerDetailInfoEntity(
+            label: AppStrings.trackerZoneEvents, value: zoneEvents),
+        TrackerDetailInfoEntity(
+            label: AppStrings.trackerSecurityFlags, value: securityFlags),
+        const TrackerDetailInfoEntity(
+          label: AppStrings.trackerAuthenticityTrend,
+          value: AppStrings.trackerAuthenticityTrendValue,
+        ),
+      ];
+
+  List<TrackerActivityEntity> recentActivity(TrackerUserEntity user) => [
+        TrackerActivityEntity(
+          time: '14:32',
+          label: AppStrings.trackerActivityCheckIn,
+          location: lastLocation(user),
+          color: AppColors.trackerOnlineGreen,
+        ),
+        const TrackerActivityEntity(
+          time: '13:15',
+          label: AppStrings.trackerActivityZoneEntry,
+          location: AppStrings.trackerPermittedZone,
+          color: AppColors.trackerInfoBlue,
+        ),
+        const TrackerActivityEntity(
+          time: '09:10',
+          label: AppStrings.trackerActivityStarted,
+          location: AppStrings.trackerSessionBegun,
+          color: AppColors.trackerMutedText,
+        ),
+      ];
+
+  // ------------------------------------------------------ security report
+
+  final String securityScore = AppStrings.trackerAuthenticityScoreValue;
+
+  /// Checks rendered above the VPN advisory notice.
+  final List<TrackerSecurityCheckEntity> primaryChecks = const [
+    TrackerSecurityCheckEntity(label: AppStrings.trackerCheckMockLocation),
+    TrackerSecurityCheckEntity(label: AppStrings.trackerCheckFakeGps),
+    TrackerSecurityCheckEntity(label: AppStrings.trackerCheckRoot),
+    TrackerSecurityCheckEntity(label: AppStrings.trackerCheckAppIntegrity),
+    TrackerSecurityCheckEntity(label: AppStrings.trackerCheckDeviceIntegrity),
+    TrackerSecurityCheckEntity(
+      label: AppStrings.trackerCheckVpn,
+      status: AppStrings.trackerStatusFlagged,
+      icon: AppAssetsSvg.trackerSecurityFlagged,
+      color: AppColors.trackerFlaggedRed,
+      background: AppColors.trackerDangerSurface,
+      description: AppStrings.trackerVpnDetected,
+    ),
+  ];
+
+  /// Checks rendered below the VPN advisory notice.
+  final List<TrackerSecurityCheckEntity> secondaryChecks = const [
+    TrackerSecurityCheckEntity(label: AppStrings.trackerCheckClock),
+    TrackerSecurityCheckEntity(
+      label: AppStrings.trackerCheckBluetooth,
+      status: AppStrings.trackerStatusUnavailable,
+      icon: AppAssetsSvg.trackerSecurityUnavailable,
+      color: AppColors.primaryWhite,
+      background: AppColors.trackerBorderSoft,
+      description: AppStrings.trackerBluetoothDisabled,
+    ),
+    TrackerSecurityCheckEntity(
+      label: AppStrings.trackerCheckSuspicious,
+      status: AppStrings.trackerStatusUnderReview,
+      icon: AppAssetsSvg.trackerSecurityReview,
+      color: AppColors.trackerInfoBlue,
+      background: AppColors.trackerInfoBlueSurface,
+      description: AppStrings.trackerPatternAnalysis,
+    ),
+  ];
+
+  final List<TrackerDeviceInfoEntity> deviceInfo = const [
+    TrackerDeviceInfoEntity(
+        label: AppStrings.trackerDeviceModel, value: 'iPhone 14 Pro'),
+    TrackerDeviceInfoEntity(
+        label: AppStrings.trackerDeviceOs, value: 'iOS 17.2.1'),
+    TrackerDeviceInfoEntity(
+        label: AppStrings.trackerAppVersionLabel, value: '3.4.2 (Build 441)'),
+    TrackerDeviceInfoEntity(
+        label: AppStrings.trackerDeviceId, value: '••••7f3a'),
+  ];
+
+  // ------------------------------------------------------------- timeline
+
+  static const List<String> timelineFilters = [
+    AppStrings.trackerFilterAll,
+    AppStrings.trackerFilterSecurityFlags,
+    AppStrings.trackerFilterMissing,
+    AppStrings.trackerOffline,
+    AppStrings.trackerFilterZoneEvents,
+    AppStrings.trackerFilterCheckIns,
+    AppStrings.trackerLogSos,
+  ];
+
+  final String totalLogs = '248';
+  final String verifiedLogs = '235';
+  final String flaggedLogs = '3';
+
+  static const _photoTag = TrackerTimelineTagEntity(
+    label: AppStrings.trackerLogPhoto,
+    color: AppColors.primaryWhite,
+    icon: AppAssetsSvg.trackerTimelinePhoto,
+  );
+  static const _noteTag = TrackerTimelineTagEntity(
+    label: AppStrings.trackerLogNote,
+    color: AppColors.primaryWhite,
+    icon: AppAssetsSvg.trackerTimelineNote,
+  );
+
+  final List<TrackerTimelineGroupEntity> timelineGroups = const [
+    TrackerTimelineGroupEntity(
+      title: AppStrings.trackerTimelineToday,
+      logs: [
+        TrackerTimelineLogEntity(
+          name: 'Daniel Chen',
+          kind: TrackerTimelineLogKind.checkIn,
+          time: '14:32',
+          location: '1251 Sixth Ave, New York, NY',
+          authenticity: TrackerTimelineAuthenticityEntity.verified('94'),
+          tags: [_photoTag, _noteTag],
+        ),
+        TrackerTimelineLogEntity(
+          name: 'Sarah Martinez',
+          kind: TrackerTimelineLogKind.zoneEvent,
+          time: '14:18',
+          location: 'Brooklyn Bridge, New York, NY',
+          status: TrackerTimelineTagEntity(
+            label: AppStrings.trackerLogEnteredZone,
+            color: AppColors.trackerOrange,
+          ),
+          authenticity: TrackerTimelineAuthenticityEntity.acceptable('87'),
+        ),
+        TrackerTimelineLogEntity(
+          name: 'Daniel Chen',
+          kind: TrackerTimelineLogKind.missing,
+          time: '12:00–13:30',
+          location: '',
+          status: TrackerTimelineTagEntity(
+            label: AppStrings.trackerLogMissingPeriod,
+            color: AppColors.trackerAmber,
+            icon: AppAssetsSvg.trackerTimelineWarning,
+          ),
+          tags: [
+            TrackerTimelineTagEntity(
+              label: AppStrings.trackerLogSyncFailed,
+              color: AppColors.trackerFlaggedRed,
+              icon: AppAssetsSvg.trackerTimelineSyncFailed,
+            ),
+          ],
+        ),
+        TrackerTimelineLogEntity(
+          name: 'Carlos Rivera',
+          kind: TrackerTimelineLogKind.securityFlag,
+          time: '11:45',
+          location: 'Queens, New York, NY',
+          status: TrackerTimelineTagEntity(
+            label: AppStrings.trackerLogVpnDetected,
+            color: AppColors.trackerFlaggedRed,
+            icon: AppAssetsSvg.trackerTimelineVpn,
+          ),
+          authenticity: TrackerTimelineAuthenticityEntity.acceptable('88'),
+          tags: [_noteTag],
+        ),
+        TrackerTimelineLogEntity(
+          name: 'James Wilson',
+          kind: TrackerTimelineLogKind.location,
+          time: '09:15',
+          location: 'Downtown Los Angeles, CA',
+          isOffline: true,
+          timeTag: TrackerTimelineTagEntity(
+            label: AppStrings.trackerLogOffline,
+            color: AppColors.trackerAmber,
+            icon: AppAssetsSvg.trackerTimelineOffline,
+          ),
+          authenticity: TrackerTimelineAuthenticityEntity.acceptable('72'),
+          tags: [
+            _photoTag,
+            TrackerTimelineTagEntity(
+              label: AppStrings.trackerLogPending,
+              color: AppColors.trackerAcceptableText,
+              icon: AppAssetsSvg.trackerTimelinePending,
+            ),
+          ],
+        ),
+      ],
+    ),
+    TrackerTimelineGroupEntity(
+      title: AppStrings.trackerTimelineYesterday,
+      logs: [
+        TrackerTimelineLogEntity(
+          name: 'Lisa Park',
+          kind: TrackerTimelineLogKind.sos,
+          time: '08:30',
+          location: 'Financial District, New York, NY',
+          authenticity: TrackerTimelineAuthenticityEntity.verified('93'),
+        ),
+      ],
+    ),
+  ];
+
+  String timelineQuery = '';
+  String timelineFilter = AppStrings.trackerFilterAll;
+
+  /// Groups with their logs narrowed by the search box and filter chips;
+  /// groups left without logs are dropped.
+  List<TrackerTimelineGroupEntity> get visibleTimelineGroups => timelineGroups
+      .map((group) => TrackerTimelineGroupEntity(
+            title: group.title,
+            logs: group.logs.where(_matchesTimelineLog).toList(),
+          ))
+      .where((group) => group.logs.isNotEmpty)
+      .toList();
+
+  bool _matchesTimelineLog(TrackerTimelineLogEntity log) {
+    final matchesQuery =
+        '${log.name} ${log.location}'.toLowerCase().contains(timelineQuery);
+    final matchesFilter = timelineFilter == AppStrings.trackerFilterAll ||
+        (timelineFilter == AppStrings.trackerOffline
+            ? log.isOffline
+            : log.kind.filter == timelineFilter);
+    return matchesQuery && matchesFilter;
+  }
+
+  void setTimelineQuery(String value) {
+    timelineQuery = value.trim().toLowerCase();
+    notifyListeners();
+  }
+
+  void setTimelineFilter(String value) {
+    timelineFilter = value;
     notifyListeners();
   }
 }

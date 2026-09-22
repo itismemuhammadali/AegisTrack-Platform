@@ -1,7 +1,7 @@
 import '../../../../../core/utils/app_exports.dart';
 import '../../../home/domain/entities/tracker_user_entity.dart';
 import '../../../dashboard/presentation/widgets/tracker_surface.dart';
-import '../controller/tracker_user_details_controller.dart';
+import '../controller/tracker_users_controller.dart';
 import 'tracker_detail_surface.dart';
 import 'tracker_detail_text.dart';
 
@@ -10,7 +10,7 @@ class TrackerUserProfileCard extends StatelessWidget {
       {super.key, required this.user, required this.controller});
 
   final TrackerUserEntity user;
-  final TrackerUserDetailsController controller;
+  final TrackerUsersController controller;
 
   @override
   Widget build(BuildContext context) => TrackerDetailSurface(

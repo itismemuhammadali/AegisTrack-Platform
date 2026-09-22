@@ -31,12 +31,12 @@ class TrackerUsersView extends ConsumerWidget {
         const TrackerSectionTitle(AppStrings.trackerAssignedUsers,
             mutedSubtitle: true),
         24.ph,
-        TrackerUsersSearchField(onChanged: controller.setQuery),
+        TrackerUsersSearchField(onChanged: controller.setUserQuery),
         10.ph,
         TrackerUsersFilterBar(
-          filters: TrackerUsersController.filters,
-          selected: controller.filter,
-          onSelected: controller.setFilter,
+          filters: TrackerUsersController.userFilters,
+          selected: controller.userFilter,
+          onSelected: controller.setUserFilter,
         ),
         24.ph,
         if (users.isEmpty)

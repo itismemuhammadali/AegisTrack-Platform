@@ -1,6 +1,6 @@
 import '../../../../../core/utils/app_exports.dart';
 import '../../../home/domain/entities/tracker_user_entity.dart';
-import '../controller/tracker_security_details_controller.dart';
+import '../controller/tracker_users_controller.dart';
 import '../widgets/tracker_detail_scaffold.dart';
 import '../widgets/tracker_detail_text.dart';
 import '../widgets/tracker_device_info_card.dart';
@@ -25,7 +25,7 @@ class TrackerSecurityDetailsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.watch(trackerSecurityDetailsControllerProvider);
+    final controller = ref.watch(trackerUsersControllerProvider);
 
     return TrackerDetailScaffold(
       title: AppStrings.trackerSecurityDetails,
@@ -40,7 +40,7 @@ class TrackerSecurityDetailsView extends ConsumerWidget {
         key: const PageStorageKey('tracker-security-details'),
         padding: AppInsets.only(left: 24, right: 24, bottom: 24),
         children: [
-          TrackerSecurityScoreCard(score: controller.score),
+          TrackerSecurityScoreCard(score: controller.securityScore),
           24.ph,
           const TrackerSecuritySectionTitle(
               AppStrings.trackerSecurityChecksTitle),

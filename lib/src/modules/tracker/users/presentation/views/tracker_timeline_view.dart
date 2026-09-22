@@ -3,7 +3,7 @@ import '../../../home/domain/entities/tracker_user_entity.dart';
 import '../widgets/tracker_detail_scaffold.dart';
 import '../widgets/tracker_security_footer_button.dart';
 import '../../domain/entities/tracker_timeline_log_entity.dart';
-import '../controller/tracker_timeline_controller.dart';
+import '../controller/tracker_users_controller.dart';
 import '../widgets/tracker_timeline_filter_bar.dart';
 import '../widgets/tracker_timeline_group_header.dart';
 import '../widgets/tracker_timeline_log_card.dart';
@@ -25,8 +25,8 @@ class TrackerTimelineView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.watch(trackerTimelineControllerProvider);
-    final groups = controller.visibleGroups;
+    final controller = ref.watch(trackerUsersControllerProvider);
+    final groups = controller.visibleTimelineGroups;
 
     return TrackerDetailScaffold(
       title: AppStrings.trackerTimeline,
@@ -37,12 +37,12 @@ class TrackerTimelineView extends ConsumerWidget {
         key: const PageStorageKey('tracker-timeline'),
         padding: AppInsets.only(left: 24, right: 24, bottom: 24),
         children: [
-          TrackerTimelineSearchField(onChanged: controller.setQuery),
+          TrackerTimelineSearchField(onChanged: controller.setTimelineQuery),
           10.ph,
           TrackerTimelineFilterBar(
-            filters: TrackerTimelineController.filters,
-            selected: controller.filter,
-            onSelected: controller.setFilter,
+            filters: TrackerUsersController.timelineFilters,
+            selected: controller.timelineFilter,
+            onSelected: controller.setTimelineFilter,
           ),
           24.ph,
           TrackerTimelineStatsRow(

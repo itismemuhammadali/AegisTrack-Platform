@@ -1,6 +1,6 @@
 import '../../../../../core/utils/app_exports.dart';
 import '../../../home/domain/entities/tracker_user_entity.dart';
-import '../controller/tracker_user_details_controller.dart';
+import '../controller/tracker_users_controller.dart';
 import '../widgets/tracker_authenticity_card.dart';
 import '../widgets/tracker_detail_button.dart';
 import '../widgets/tracker_detail_scaffold.dart';
@@ -27,7 +27,7 @@ class TrackerUserDetailsView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final controller = ref.watch(trackerUserDetailsControllerProvider);
+    final controller = ref.watch(trackerUsersControllerProvider);
 
     return TrackerDetailScaffold(
       title: user.name,
