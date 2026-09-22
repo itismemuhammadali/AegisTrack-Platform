@@ -165,6 +165,41 @@ class AppStrings {
   static const String trackerSosAlert = 'SOS!';
   static const String trackerVerifiedBadge = 'VERIFIED';
 
+  // Tracker (viewer) plan & subscription
+  static const String trackerPlanSubtitle =
+      'Your current plan and available features';
+  static const String trackerPlanBackTooltip = 'Back to profile';
+  static const String trackerPlanExpert = 'Expert Plan';
+  static const String trackerPlanActive = 'ACTIVE';
+  static const String trackerPlanRenews =
+      'Full advanced functionality · Renews Jan 12, 2025';
+  static const String trackerPlanAllUnlocked = 'All features unlocked';
+  static const String trackerPlanComparison = 'FEATURE COMPARISON';
+  static const String trackerPlanColumnFeature = 'Feature';
+  static const String trackerPlanColumnFree = 'Free';
+  static const String trackerPlanColumnBasic = 'Basic';
+  static const String trackerPlanColumnPro = 'Pro';
+  static const String trackerPlanColumnExpert = 'Expert';
+  static const String trackerPlanUnavailable = '—';
+  static const String trackerPlanFooterTitle = 'You have the Expert plan';
+  static const String trackerPlanFooterNote =
+      'All features are available. Contact support to manage your '
+      'subscription.';
+  static const String trackerPlanFeatureLocalStorage = 'Local log storage';
+  static const String trackerPlanFeatureServerStorage = 'Secure server storage';
+  static const String trackerPlanFeatureAntiSpoofing =
+      'Anti-spoofing detection';
+  static const String trackerPlanFeatureAuthenticity = 'Authenticity Score';
+  static const String trackerPlanFeatureViewerAccess = 'Viewer access';
+  static const String trackerPlanFeatureMapPlayback = 'Map playback';
+  static const String trackerPlanFeatureGeofencing = 'Geofencing & zones';
+  static const String trackerPlanFeatureCases = 'Case management';
+  static const String trackerPlanFeatureAiInsights = 'AI Insights';
+  static const String trackerPlanFeatureLiveTracking = 'Live tracking';
+  static const String trackerPlanFeatureShareLinks = 'Secure share links';
+  static const String trackerPlanFeatureCheckIns = 'Scheduled check-ins';
+  static const String trackerPlanFeatureAdvancedAi = 'Advanced AI & search';
+
   // Tracker (viewer) secure share
   static const String trackerShareTitle = 'Secure Share';
   static const String trackerShareBackTooltip = 'Back to reports';

@@ -357,6 +357,12 @@ class AppColors {
   static const Color trackerShareExpertFill = Color(0x33FFFFFF);
   static const Color trackerShareExpertBorder = Color(0x4DFFFFFF);
 
+  // Tracker (viewer) plan & subscription
+  static const Color trackerPlanCardTop = Color(0x335B3A9E);
+  static const Color trackerPlanCardBottom = Color(0x33321F67);
+  static const Color trackerPlanCardBorder = Color(0x665B3A9E);
+  static const Color trackerPlanBadgeFill = Color(0x335B3A9E);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

@@ -53,18 +53,20 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
   /// action land on the same alert centre.
   void openAlerts() => AppRouterGo.push(trackerNotificationsView);
 
-  /// The Cases SOS card opens the unidentified subject's overview.
-  /// Only Help & Support has a screen behind it so far; the other profile
-  /// rows stay inert rather than pushing a placeholder.
-  void openProfileAction(String action) {
-    if (action == AppStrings.trackerHelpSupport) {
-      AppRouterGo.push(trackerHelpSupportView);
-    }
-  }
+  /// The profile rows that have a screen behind them; the rest stay inert
+  /// rather than pushing a placeholder.
+  void openProfileAction(String action) => switch (action) {
+        AppStrings.trackerHelpSupport =>
+          AppRouterGo.push(trackerHelpSupportView),
+        AppStrings.trackerPlanSubscription =>
+          AppRouterGo.push(trackerPlanSubscriptionView),
+        _ => null,
+      };
 
   void openCase(TrackerCaseEntity caseEntity) =>
       AppRouterGo.push(trackerCaseDetailView, extra: caseEntity);
 
+  /// The Cases SOS card opens the unidentified subject's overview.
   void openSosSubject() => AppRouterGo.push(
         trackerUserDetailsView,
         extra: TrackerCasesController.sosSubject,

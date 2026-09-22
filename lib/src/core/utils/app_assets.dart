@@ -299,6 +299,12 @@ class AppAssetsSvg {
   static const String trackerCaseDetailCsv =
       'assets/icons/svg/tracker_case_detail_csv.svg';
 
+  // Tracker (viewer) plan & subscription
+  static const String trackerPlanStar =
+      'assets/icons/svg/tracker_plan_star.svg';
+  static const String trackerPlanCheck =
+      'assets/icons/svg/tracker_plan_check.svg';
+
   // Tracker (viewer) secure share
   static const String trackerShareRecent =
       'assets/icons/svg/tracker_share_recent.svg';

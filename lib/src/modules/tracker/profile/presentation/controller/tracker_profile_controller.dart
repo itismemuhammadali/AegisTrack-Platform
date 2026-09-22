@@ -148,6 +148,57 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
     AppStrings.trackerHelpFaqLegalTeam,
   ];
 
+  // --- Plan & subscription -------------------------------------------------
+
+  static const List<String> planTiers = [
+    AppStrings.trackerPlanColumnFree,
+    AppStrings.trackerPlanColumnBasic,
+    AppStrings.trackerPlanColumnPro,
+    AppStrings.trackerPlanColumnExpert,
+  ];
+
+  final List<TrackerPlanFeatureEntity> planFeatures = const [
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureLocalStorage,
+        tiers: [true, true, true, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureServerStorage,
+        tiers: [false, true, true, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureAntiSpoofing,
+        tiers: [false, true, true, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureAuthenticity,
+        tiers: [false, true, true, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureViewerAccess,
+        tiers: [false, false, true, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureMapPlayback,
+        tiers: [false, false, true, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureGeofencing,
+        tiers: [false, false, true, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureCases,
+        tiers: [false, false, true, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureAiInsights,
+        tiers: [false, true, false, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureLiveTracking,
+        tiers: [false, false, false, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureShareLinks,
+        tiers: [false, false, false, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureCheckIns,
+        tiers: [false, false, false, true]),
+    TrackerPlanFeatureEntity(
+        label: AppStrings.trackerPlanFeatureAdvancedAi,
+        tiers: [false, false, false, true]),
+  ];
+
   /// Which FAQ is open, or null while they are all collapsed. The design only
   /// shows the collapsed state, so an answer body is not modelled yet.
   String? expandedFaq;

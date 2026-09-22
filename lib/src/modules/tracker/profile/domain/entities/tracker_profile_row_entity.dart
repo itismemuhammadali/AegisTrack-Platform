@@ -43,3 +43,12 @@ class TrackerHelpChannelEntity {
   final String title;
   final String subtitle;
 }
+
+/// One row of the plan comparison table: the feature, and whether each tier
+/// includes it. [tiers] is ordered Free, Basic, Pro, Expert.
+class TrackerPlanFeatureEntity {
+  const TrackerPlanFeatureEntity({required this.label, required this.tiers});
+
+  final String label;
+  final List<bool> tiers;
+}
