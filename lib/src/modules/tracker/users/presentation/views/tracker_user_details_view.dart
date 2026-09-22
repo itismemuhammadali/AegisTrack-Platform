@@ -5,8 +5,10 @@ import '../../../home/domain/entities/tracker_user_entity.dart';
 /// Read-only overview. Metrics and history are the Figma sample data until
 /// the assigned-user detail API is connected.
 class TrackerUserDetailsView extends StatelessWidget {
-  const TrackerUserDetailsView({super.key, required this.user, this.onAction});
+  const TrackerUserDetailsView(
+      {super.key, required this.user, this.onAction, this.onSecurityDetails});
   final TrackerUserEntity user;
+  final VoidCallback? onSecurityDetails;
   final ValueChanged<String>? onAction;
 
   static const _actions = [
@@ -179,9 +181,7 @@ class TrackerUserDetailsView extends StatelessWidget {
                         color: Colors.white60),
                     10.ph,
                     _DetailButton('View Security Details',
-                        onTap: onAction == null
-                            ? null
-                            : () => onAction!('View Security Details')),
+                        onTap: onSecurityDetails),
                   ])),
               24.ph,
               const _DetailText('Quick Actions', weight: FontWeight.w600),

@@ -34,3 +34,5 @@ const String trackedConfirmSubscriptionView = '/tracked-confirm-subscription';
 const String trackedSubscriptionActiveView = '/tracked-subscription-active';
 
 const String trackerUserDetailsView = '/tracker-user-details';
+
+const String trackerSecurityDetailsView = '/tracker-security-details';

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_security_details_view.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -172,6 +173,21 @@ void main() {
           .widget<TrackerUserDetailsView>(find.byType(TrackerUserDetailsView));
       expect(detail.user.name, name);
       expect(find.text('User Overview'), findsOneWidget);
+      await tester.scrollUntilVisible(find.text('View Security Details'), 200);
+      await tester.tap(find.text('View Security Details'));
+      await tester.pumpAndSettle();
+      expect(find.text('Security Details'), findsOneWidget);
+      expect(
+          tester
+              .widget<TrackerSecurityDetailsView>(
+                  find.byType(TrackerSecurityDetailsView))
+              .user
+              .name,
+          name);
+      await tester.tap(find.byTooltip('Back to user overview'));
+      await tester.pumpAndSettle();
+      expect(find.byType(TrackerSecurityDetailsView), findsNothing);
+      expect(find.text('User Overview'), findsOneWidget);
       await tester.tap(find.byTooltip('Back to users'));
       await tester.pumpAndSettle();
       expect(find.byType(TrackerUserDetailsView), findsNothing);
@@ -182,6 +198,44 @@ void main() {
   });
 
   for (final width in [320.0, 440.0]) {
+    testWidgets(
+        'Security details scrolls through checks and device data at $width',
+        (tester) async {
+      tester.view.physicalSize = Size(width, 956);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      await tester.pumpWidget(ScreenUtilInit(
+        designSize: const Size(440, 956),
+        minTextAdapt: true,
+        builder: (_, child) => MaterialApp(
+          theme: ThemeData.dark(),
+          home: const TrackerSecurityDetailsView(
+              user: TrackerUserEntity(
+            name: 'Daniel Chen',
+            lastSeen: 'Today • 3 min ago',
+            location: 'Midtown Manhattan, NY',
+            authenticity: TrackerAuthenticity.acceptable,
+          )),
+        ),
+      ));
+      await tester.pumpAndSettle();
+      expect(find.text('94'), findsOneWidget);
+      for (final label in [
+        'FLAGGED',
+        'NOT AVAILABLE',
+        'UNDER REVIEW',
+        'DEVICE INFORMATION',
+        'Download Security Report',
+        'Security details are read-only. You cannot modify security check results or authenticity scores.'
+      ]) {
+        await tester.scrollUntilVisible(find.text(label), 160);
+        await tester.pumpAndSettle();
+        expect(find.text(label), findsOneWidget);
+        expect(tester.takeException(), isNull);
+      }
+    });
+
     testWidgets('User overview scrolls to its footer at width $width',
         (tester) async {
       tester.view.physicalSize = Size(width, 956);
