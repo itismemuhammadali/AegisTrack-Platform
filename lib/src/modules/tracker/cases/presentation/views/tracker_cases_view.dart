@@ -1,6 +1,7 @@
 import '../../../../../core/utils/app_exports.dart';
 import '../../../dashboard/presentation/widgets/tracker_surface.dart';
 import '../../../home/presentation/widgets/tracker_home_header.dart';
+import '../../domain/entities/tracker_case_entity.dart';
 import '../controller/tracker_cases_controller.dart';
 import '../widgets/tracker_case_card.dart';
 import '../widgets/tracker_case_sos_card.dart';
@@ -13,7 +14,7 @@ class TrackerCasesView extends ConsumerWidget {
     this.onNotifications,
   });
 
-  final ValueChanged<String>? onCaseSelected;
+  final ValueChanged<TrackerCaseEntity>? onCaseSelected;
   final VoidCallback? onSosDetails;
   final VoidCallback? onNotifications;
 
@@ -37,7 +38,7 @@ class TrackerCasesView extends ConsumerWidget {
             caseEntity: caseEntity,
             onTap: onCaseSelected == null
                 ? null
-                : () => onCaseSelected!(caseEntity.id),
+                : () => onCaseSelected!(caseEntity),
           ),
           10.ph,
         ],

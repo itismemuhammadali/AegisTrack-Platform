@@ -46,3 +46,5 @@ const String trackerLiveTrackingView = '/tracker-live-tracking';
 const String trackerCheckInsView = '/tracker-check-ins';
 
 const String trackerNotificationsView = '/tracker-notifications';
+
+const String trackerCaseDetailView = '/tracker-case-detail';

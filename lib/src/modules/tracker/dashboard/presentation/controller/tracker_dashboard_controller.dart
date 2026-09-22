@@ -1,4 +1,5 @@
 import '../../../../../core/utils/app_exports.dart';
+import '../../../cases/domain/entities/tracker_case_entity.dart';
 import '../../../cases/presentation/controller/tracker_cases_controller.dart';
 import '../../../cases/presentation/views/tracker_cases_view.dart';
 import '../../../home/presentation/views/tracker_home_view.dart';
@@ -24,6 +25,7 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
     TrackerCasesView(
       onNotifications: openAlerts,
       onSosDetails: openSosSubject,
+      onCaseSelected: openCase,
     ),
     TrackerProfileView(onLogout: logout),
   ];
@@ -52,6 +54,9 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
   void openAlerts() => AppRouterGo.push(trackerNotificationsView);
 
   /// The Cases SOS card opens the unidentified subject's overview.
+  void openCase(TrackerCaseEntity caseEntity) =>
+      AppRouterGo.push(trackerCaseDetailView, extra: caseEntity);
+
   void openSosSubject() => AppRouterGo.push(
         trackerUserDetailsView,
         extra: TrackerCasesController.sosSubject,

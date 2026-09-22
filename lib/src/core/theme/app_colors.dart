@@ -329,6 +329,10 @@ class AppColors {
   static const Color trackerSuspectRed = Color(0xFFEF4444);
   static const Color trackerSuspectFill = Color(0x1AEF4444);
 
+  // Tracker (viewer) case detail
+  static const Color trackerCaseLocationPurple = Color(0xFFC27AFF);
+  static const Color trackerCaseLocationSurface = Color(0x33AD46FF);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

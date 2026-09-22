@@ -273,6 +273,32 @@ class AppAssetsSvg {
       'assets/icons/svg/tracker_profile_logout.svg';
 
   /// Tracker (viewer) authentication - Joshua R Hughes
+  // Tracker (viewer) case detail
+  static const String trackerCaseDetailClose =
+      'assets/icons/svg/tracker_case_detail_close.svg';
+  static const String trackerCaseDetailLogs =
+      'assets/icons/svg/tracker_case_detail_logs.svg';
+  static const String trackerCaseDetailCheckIns =
+      'assets/icons/svg/tracker_case_detail_check_ins.svg';
+  static const String trackerCaseDetailZone =
+      'assets/icons/svg/tracker_case_detail_zone.svg';
+  static const String trackerCaseDetailSos =
+      'assets/icons/svg/tracker_case_detail_sos.svg';
+  static const String trackerCaseDetailFlags =
+      'assets/icons/svg/tracker_case_detail_flags.svg';
+  static const String trackerCaseDetailReports =
+      'assets/icons/svg/tracker_case_detail_reports.svg';
+  static const String trackerCaseDetailExport =
+      'assets/icons/svg/tracker_case_detail_export.svg';
+  static const String trackerCaseDetailLock =
+      'assets/icons/svg/tracker_case_detail_lock.svg';
+  static const String trackerCaseDetailReport =
+      'assets/icons/svg/tracker_case_detail_report.svg';
+  static const String trackerCaseDetailPdf =
+      'assets/icons/svg/tracker_case_detail_pdf.svg';
+  static const String trackerCaseDetailCsv =
+      'assets/icons/svg/tracker_case_detail_csv.svg';
+
   static const String trackerViewerBiometricsIcon =
       'assets/icons/svg/tracker_viewer_biometrics.svg';
   static const String signInPersonIcon = 'assets/icons/svg/sign_in_person.svg';

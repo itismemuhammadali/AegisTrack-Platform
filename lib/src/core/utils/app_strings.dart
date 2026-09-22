@@ -165,6 +165,37 @@ class AppStrings {
   static const String trackerSosAlert = 'SOS!';
   static const String trackerVerifiedBadge = 'VERIFIED';
 
+  // Tracker (viewer) case detail
+  static const String trackerCaseDetailClose = 'Close case detail';
+  static const String trackerCaseInformation = 'Case Information';
+  static const String trackerCaseType = 'Type';
+  static const String trackerCaseJurisdiction = 'Jurisdiction';
+  static const String trackerCaseOpened = 'Opened';
+  static const String trackerCaseAuthorizedViewers = 'Authorized Viewers';
+  static const String trackerCaseTrackedUsers = 'Tracked Users';
+  static const String trackerCaseMonitoredSubject = 'Monitored subject';
+  static const String trackerCaseAuthScore = 'Auth Score';
+  static const String trackerCaseEvidenceSummary = 'Evidence Summary';
+  static const String trackerCaseStatLogs = 'Logs';
+  static const String trackerCaseStatCheckIns = 'Check-ins';
+  static const String trackerCaseStatZoneEvents = 'Zone Events';
+  static const String trackerCaseStatSosEvents = 'SOS Events';
+  static const String trackerCaseStatSecurityFlags = 'Security Flags';
+  static const String trackerCaseStatReports = 'Reports';
+  static const String trackerCaseTabTimeline = 'Timeline';
+  static const String trackerCaseTabEvidence = 'Evidence';
+  static const String trackerCaseTabReports = 'Reports';
+  static const String trackerCaseTagCheckIn = 'CHECK-IN';
+  static const String trackerCaseTagZoneEvent = 'ZONE EVENT';
+  static const String trackerCaseTagLocationUpdate = 'LOCATION UPDATE';
+  static const String trackerCaseTagSosEvent = 'SOS EVENT';
+  static const String trackerCaseAuthPrefix = 'Auth: ';
+  static const String trackerCaseViewLog = 'View Log \u2192';
+  static const String trackerCaseExportReport = 'Export Case Report';
+  static const String trackerCaseLockedImmutable = 'LOCKED \u00b7 IMMUTABLE';
+  static const String trackerCaseReportPdf = 'PDF';
+  static const String trackerCaseReportCsv = 'CSV';
+
   // Tracker (viewer) profile
   static const String trackerProfileName = 'Alex Viewer';
   static const String trackerProfileEmail = 'alex.viewer@securetrack.com';

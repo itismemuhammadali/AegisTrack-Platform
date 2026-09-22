@@ -2,6 +2,8 @@
 
 // This is also known as declerative routing
 
+import '../../../modules/tracker/cases/domain/entities/tracker_case_entity.dart';
+import '../../../modules/tracker/cases/presentation/views/tracker_case_detail_view.dart';
 import '../../../modules/tracker/notifications/presentation/views/tracker_notifications_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_check_ins_view.dart';
 import '../../../modules/tracker/users/presentation/views/tracker_live_tracking_view.dart';
@@ -148,6 +150,17 @@ class AppRouterGo {
         pageBuilder: (context, state) => NoTransitionPage(
           key: state.pageKey,
           child: TrackerCheckInsView(user: state.extra as TrackerUserEntity?),
+        ),
+      ),
+      GoRoute(
+        path: trackerCaseDetailView,
+        redirect: (context, state) =>
+            state.extra is TrackerCaseEntity ? null : trackerDashboardView,
+        pageBuilder: (context, state) => NoTransitionPage(
+          key: state.pageKey,
+          child: TrackerCaseDetailView(
+            caseEntity: state.extra! as TrackerCaseEntity,
+          ),
         ),
       ),
       GoRoute(
