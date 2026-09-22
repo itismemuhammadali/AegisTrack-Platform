@@ -33,8 +33,9 @@ class AppAssetsPng {
   /// Tracked home - Joshua R Hughes (location tracking)
   static const String trackerUserAvatar =
       'assets/images/png/tracker_user_avatar.png';
-  static const String trackerMapPlaybackBg =
-      'assets/images/png/tracker_map_playback_bg.png';
+
+  /// Shared by the map playback and live tracking previews.
+  static const String trackerMapBg = 'assets/images/png/tracker_map_bg.png';
   static const String trackedLiveMapBg =
       'assets/images/png/tracked_live_map_bg.png';
   static const String trackedHomeMapPreviewBg =
@@ -186,6 +187,12 @@ class AppAssetsSvg {
       'assets/icons/svg/tracker_timeline_pending.svg';
   static const String trackerTimelineSos =
       'assets/icons/svg/tracker_timeline_sos.svg';
+
+  /// Tracker (viewer) live tracking
+  static const String trackerLiveRefresh =
+      'assets/icons/svg/tracker_live_refresh.svg';
+  static const String trackerLiveSignal =
+      'assets/icons/svg/tracker_live_signal.svg';
 
   /// Tracker (viewer) map playback
   static const String trackerMapPlaybackDatePrev =

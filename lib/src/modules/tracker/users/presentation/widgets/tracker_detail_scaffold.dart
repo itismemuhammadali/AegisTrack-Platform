@@ -9,6 +9,7 @@ class TrackerDetailScaffold extends StatelessWidget {
     required this.backTooltip,
     required this.child,
     this.subtitle,
+    this.trailing,
     this.titleColor = AppColors.viewerSignInText,
     this.backgroundColor = AppColors.trackedDashboardBackground,
     this.scrimColor = AppColors.onboardingScrimNavy,
@@ -20,6 +21,9 @@ class TrackerDetailScaffold extends StatelessWidget {
   final String title;
   final String backTooltip;
   final String? subtitle;
+
+  /// Optional action shown at the end of the header row.
+  final Widget? trailing;
   final Widget child;
   final Color titleColor;
   final Color backgroundColor;
@@ -97,6 +101,7 @@ class TrackerDetailScaffold extends StatelessWidget {
                         ],
                       ),
                     ),
+                    if (trailing != null) ...[16.pw, trailing!],
                   ],
                 ),
               ),

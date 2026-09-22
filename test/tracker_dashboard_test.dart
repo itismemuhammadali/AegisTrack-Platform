@@ -17,6 +17,7 @@ import 'package:joshua_r_hughes/src/modules/tracked/authentication/presentation/
 
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_user_details_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/home/domain/entities/tracker_user_entity.dart';
+import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_live_tracking_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_map_playback_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/views/tracker_timeline_view.dart';
 import 'package:joshua_r_hughes/src/modules/tracker/users/presentation/widgets/tracker_timeline_log_card.dart';
@@ -438,6 +439,69 @@ void main() {
         expect(tester.takeException(), isNull);
       }
       expect(find.text('View Log'), findsWidgets);
+    });
+  }
+
+  for (final width in [320.0, 440.0]) {
+    testWidgets('Live View quick action opens live tracking at $width',
+        (tester) async {
+      tester.view.physicalSize = Size(width, 956);
+      tester.view.devicePixelRatio = 1;
+      addTearDown(tester.view.resetPhysicalSize);
+      addTearDown(tester.view.resetDevicePixelRatio);
+      AppRouterGo.appRouter.go(trackerDashboardView);
+      await tester.pumpWidget(ProviderScope(
+          child: ScreenUtilInit(
+        designSize: const Size(440, 956),
+        minTextAdapt: true,
+        builder: (_, child) => MaterialApp.router(
+            theme: ThemeData.dark(), routerConfig: AppRouterGo.appRouter),
+      )));
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Users'));
+      await tester.pumpAndSettle();
+      await tester.tap(find.byType(TrackerUserCard).first);
+      await tester.pumpAndSettle();
+      await tester.scrollUntilVisible(find.text('Live View'), 200);
+      await tester.pumpAndSettle();
+      await tester.tap(find.text('Live View'));
+      await tester.pumpAndSettle();
+
+      expect(find.byType(TrackerLiveTrackingView), findsOneWidget);
+      expect(find.text('Daniel Chen'), findsOneWidget);
+      expect(find.text('ONLINE'), findsOneWidget);
+      expect(find.text('LIVE'), findsOneWidget);
+      expect(find.text('LIVE POSITION'), findsOneWidget);
+      expect(find.text('Strong'), findsOneWidget);
+
+      // Simulating a dropped signal restates the whole screen.
+      await tester.tap(find.text('Simulate Offline'));
+      await tester.pumpAndSettle();
+      expect(find.text('OFFLINE'), findsOneWidget);
+      expect(find.text('LIVE'), findsNothing);
+      expect(find.text('LAST KNOWN POSITION'), findsOneWidget);
+      expect(find.text('No signal'), findsOneWidget);
+      await tester.tap(find.text('Simulate Online'));
+      await tester.pumpAndSettle();
+      expect(find.text('ONLINE'), findsOneWidget);
+
+      for (final label in [
+        'Times Square, Manhattan, NY',
+        'LAST CHECK-IN',
+        'ACTIVE ZONES',
+        'Recent Pings',
+        "Hell's Kitchen, Manhattan, NY",
+        'Refresh'
+      ]) {
+        await tester.scrollUntilVisible(find.text(label).first, 160,
+            scrollable: find.byType(Scrollable).first);
+        await tester.pumpAndSettle();
+        expect(find.text(label), findsWidgets);
+        expect(tester.takeException(), isNull);
+      }
+      await tester.tap(find.text('Refresh'));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
     });
   }
 }

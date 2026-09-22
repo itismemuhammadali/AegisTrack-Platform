@@ -39,7 +39,7 @@ class TrackerMapPlaybackMap extends StatelessWidget {
                 clipBehavior: Clip.none,
                 children: [
                   Positioned.fill(
-                    child: Image.asset(AppAssetsPng.trackerMapPlaybackBg,
+                    child: Image.asset(AppAssetsPng.trackerMapBg,
                         fit: BoxFit.cover),
                   ),
                   Positioned(
@@ -93,7 +93,8 @@ class TrackerMapPlaybackMap extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: 6 * scale, vertical: 2 * scale),
                       decoration: BoxDecoration(
-                        color: AppColors.trackerWarningSurface,
+                        color: Color.alphaBlend(AppColors.trackerWarningSurface,
+                            AppColors.trackerMapFill),
                         borderRadius: BorderRadius.circular(4 * scale),
                         border:
                             Border.all(color: AppColors.trackerWarningBorder),

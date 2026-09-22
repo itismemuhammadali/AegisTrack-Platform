@@ -2,6 +2,7 @@ import '../../../../../core/utils/app_exports.dart';
 import '../../../home/domain/entities/tracker_user_entity.dart';
 import '../../domain/entities/tracker_activity_entity.dart';
 import '../../domain/entities/tracker_detail_info_entity.dart';
+import '../../domain/entities/tracker_live_status_entity.dart';
 import '../../domain/entities/tracker_device_info_entity.dart';
 import '../../domain/entities/tracker_quick_action_entity.dart';
 import '../../domain/entities/tracker_route_event_entity.dart';
@@ -498,6 +499,48 @@ class TrackerUsersController extends ChangeNotifier with Buffers {
 
   void togglePlayback() {
     isPlaying = !isPlaying;
+    notifyListeners();
+  }
+
+  // -------------------------------------------------------- live tracking
+
+  final String liveLocation = 'Times Square, Manhattan, NY';
+  final String liveCoordinates = '40.7580° N, 73.9855° W';
+
+  final List<TrackerLiveStatEntity> liveStats = const [
+    TrackerLiveStatEntity(
+      label: AppStrings.trackerLastCheckIn,
+      value: '14:30',
+      subtitle: 'Office Building',
+    ),
+    TrackerLiveStatEntity(
+      label: AppStrings.trackerActiveZones,
+      value: '1 Permitted',
+      subtitle: 'Manhattan Office',
+    ),
+  ];
+
+  final List<TrackerLivePingEntity> livePings = const [
+    TrackerLivePingEntity(
+        time: '14:32', location: 'Times Square, Manhattan, NY'),
+    TrackerLivePingEntity(
+        time: '14:18', location: '7th Ave & W 43rd St, Manhattan, NY'),
+    TrackerLivePingEntity(
+        time: '14:05', location: "Hell's Kitchen, Manhattan, NY"),
+  ];
+
+  /// The design ships the connected state; "Simulate Offline" flips this so
+  /// the viewer can see how a dropped signal reads.
+  bool isLiveOnline = true;
+  String liveUpdated = AppStrings.trackerJustNow;
+
+  void toggleLiveConnection() {
+    isLiveOnline = !isLiveOnline;
+    notifyListeners();
+  }
+
+  void refreshLive() {
+    liveUpdated = AppStrings.trackerJustNow;
     notifyListeners();
   }
 }

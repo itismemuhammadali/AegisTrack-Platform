@@ -301,6 +301,10 @@ class AppColors {
   static const Color trackerRouteAmber = Color(0xFFF59E0B);
   static const Color trackerZoneMarkerFill = Color(0x1A05DF72);
 
+  // Tracker (viewer) live tracking
+  static const Color trackerOnlinePillFill = Color(0x1A00C950);
+  static const Color trackerOnlinePillBorder = Color(0x4D00C950);
+
   // Tracker (viewer) sign in
   static const Color viewerSignInText = Color(0xFFE5F4F0);
   static const Color authFocusedFieldBorder = Color(0x4070699F);

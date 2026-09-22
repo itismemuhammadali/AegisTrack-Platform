@@ -267,6 +267,29 @@ class AppStrings {
       'RECORDED LOCATION → MISSING / UNKNOWN PERIOD BEGINS';
   static const String trackerMissingEndNote =
       'MISSING / UNKNOWN PERIOD ENDS → RECORDED LOCATION RESUMES';
+
+  // Tracker (viewer) live tracking
+  static const String trackerLiveTracking = 'Live Tracking';
+  static const String trackerSimulateOffline = 'Simulate Offline';
+  static const String trackerSimulateOnline = 'Simulate Online';
+  static const String trackerMonitoredUser = 'Monitored User';
+  static const String trackerStatusOnline = 'ONLINE';
+  static const String trackerStatusOffline = 'OFFLINE';
+  static const String trackerLiveBadge = 'LIVE';
+  static const String trackerLivePosition = 'LIVE POSITION';
+  static const String trackerLastPosition = 'LAST KNOWN POSITION';
+  static const String trackerLastUpdated = 'Last Updated: ';
+  static const String trackerJustNow = 'Just now';
+  static const String trackerSignalStrong = 'Strong';
+  static const String trackerSignalNone = 'No signal';
+  static const String trackerLastCheckIn = 'Last Check-in';
+  static const String trackerActiveZones = 'Active Zones';
+  static const String trackerRecentPings = 'Recent Pings';
+  static const String trackerLiveReadOnlyNotice =
+      'This view is read-only. Location data is provided for monitoring '
+      'purposes only and must be handled in accordance with applicable '
+      'privacy and legal requirements.';
+  static const String trackerRefresh = 'Refresh';
   static const String viewerSignInSubtitle =
       'Access your authorized viewer account';
   static const String rememberMe = 'Remember Me';
