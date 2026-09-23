@@ -135,36 +135,35 @@ class TrackerUserCard extends StatelessWidget {
           ),
           if (!compact) ...[
             10.ph,
-            // Six links across a phone width — scale down rather than overflow.
-            FittedBox(
-              fit: BoxFit.scaleDown,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  for (final (icon, label) in _actions)
-                    GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () => onAction?.call(label),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SvgPicture.asset(icon, width: 14.w, height: 14.w),
-                          4.pw,
-                          Text(
-                            label,
-                            style: context.bodySmallStyle?.copyWith(
-                              fontSize: 12.sp,
-                              fontWeight: FontWeight.w500,
-                              height: 16 / 12,
-                              color:
-                                  AppColors.primaryWhite.withValues(alpha: 0.6),
-                            ),
+            // The six links span the card body with even gaps. They must keep
+            // their real width for that: inside a FittedBox the row would be
+            // unbounded and spaceBetween would have no space to distribute.
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                for (final (icon, label) in _actions)
+                  GestureDetector(
+                    behavior: HitTestBehavior.opaque,
+                    onTap: () => onAction?.call(label),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        SvgPicture.asset(icon, width: 14.w, height: 14.w),
+                        4.pw,
+                        Text(
+                          label,
+                          style: context.bodySmallStyle?.copyWith(
+                            fontSize: 12.sp,
+                            fontWeight: FontWeight.w500,
+                            height: 16 / 12,
+                            color:
+                                AppColors.primaryWhite.withValues(alpha: 0.6),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                ],
-              ),
+                  ),
+              ],
             ),
           ],
         ],

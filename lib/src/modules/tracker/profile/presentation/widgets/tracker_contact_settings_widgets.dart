@@ -114,11 +114,18 @@ class TrackerPreferenceRow extends StatelessWidget {
               ),
         child: Row(
           children: [
-            if (icon != null) ...[
-              SvgPicture.asset(icon!, width: 20.w, height: 20.w),
-              12.pw,
-            ] else if (emoji.isNotEmpty) ...[
-              TrackerDetailText(emoji, size: 20, height: 28 / 20),
+            // A fixed leading slot, so the labels line up down the card
+            // whether the row leads with an SVG or an emoji glyph, whose
+            // rendered width varies by platform.
+            if (icon != null || emoji.isNotEmpty) ...[
+              SizedBox(
+                width: 20.w,
+                child: Center(
+                  child: icon != null
+                      ? SvgPicture.asset(icon!, width: 20.w, height: 20.w)
+                      : TrackerDetailText(emoji, size: 16, height: 20 / 16),
+                ),
+              ),
               12.pw,
             ],
             Expanded(
@@ -129,9 +136,16 @@ class TrackerPreferenceRow extends StatelessWidget {
                       weight: FontWeight.w500,
                       height: 20 / 14,
                       color: AppColors.primaryWhite),
-                  2.ph,
-                  TrackerDetailText(note,
-                      size: 12, height: 16 / 12, color: AppColors.primaryWhite),
+                  // Rows without a note are a single line: an empty Text still
+                  // occupies a line box, which would push the title above the
+                  // centre line the icon sits on.
+                  if (note.isNotEmpty) ...[
+                    2.ph,
+                    TrackerDetailText(note,
+                        size: 12,
+                        height: 16 / 12,
+                        color: AppColors.primaryWhite),
+                  ],
                 ],
               ),
             ),
