@@ -15,7 +15,9 @@ class TrackerDashboardController extends ChangeNotifier with Buffers {
       onNotifications: openAlerts,
       onViewAllAlerts: openAlerts,
       onAlertSelected: (_) => openAlerts(),
-      onSosDetails: openAlerts,
+      onSosDetails: openSosSubject,
+      onUserSelected: (user) =>
+          AppRouterGo.push(trackerUserDetailsView, extra: user),
     ),
     TrackerUsersView(
       onNotifications: openAlerts,

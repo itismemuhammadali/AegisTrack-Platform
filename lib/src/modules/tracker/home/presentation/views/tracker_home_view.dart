@@ -1,5 +1,6 @@
 import '../../../../../core/utils/app_exports.dart';
 import '../../domain/entities/tracker_alert_entity.dart';
+import '../../domain/entities/tracker_user_entity.dart';
 import '../controller/tracker_home_controller.dart';
 import '../widgets/tracker_alert_row.dart';
 import '../widgets/tracker_home_header.dart';
@@ -15,6 +16,7 @@ class TrackerHomeView extends ConsumerWidget {
     this.onViewAllUsers,
     this.onViewAllAlerts,
     this.onAlertSelected,
+    this.onUserSelected,
   });
 
   final VoidCallback? onNotifications;
@@ -25,6 +27,9 @@ class TrackerHomeView extends ConsumerWidget {
 
   /// Tapping a recent alert card opens the alert centre.
   final ValueChanged<TrackerAlertEntity>? onAlertSelected;
+
+  /// Tapping a tracked user card opens that user's overview.
+  final ValueChanged<TrackerUserEntity>? onUserSelected;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -60,7 +65,11 @@ class TrackerHomeView extends ConsumerWidget {
         ),
         for (final user in controller.users) ...[
           16.ph,
-          TrackerUserCard(user: user),
+          GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTap: onUserSelected == null ? null : () => onUserSelected!(user),
+            child: TrackerUserCard(user: user),
+          ),
         ],
         24.ph,
         TrackerEventBanner(
