@@ -136,6 +136,8 @@ class AppRouterGo {
                 AppRouterGo.push(trackerNotificationsView),
               AppStrings.trackerGenerateReport =>
                 AppRouterGo.push(trackerReportsView),
+              AppStrings.trackerSecureShare =>
+                AppRouterGo.push(trackerSecureShareView),
               _ => null,
             },
           ),
