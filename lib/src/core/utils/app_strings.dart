@@ -346,6 +346,7 @@ class AppStrings {
       'Current location and status';
   static const String trackerShareExpertBadge = 'EXPERT';
   static const String trackerShareContinue = 'Continue';
+  static const String trackerShareDateHint = 'mm/dd/yyyy';
   static const String trackerShareBack = 'Back';
   static const String trackerShareExpiryTitle = 'Link Expiry';
   static const String trackerShareExpiry1Hour = '1 Hour';

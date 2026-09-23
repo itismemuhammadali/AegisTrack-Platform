@@ -31,6 +31,20 @@ class TrackerShareController extends ChangeNotifier with Buffers {
     notifyListeners();
   }
 
+  DateTime? startDate;
+  DateTime? endDate;
+
+  void setStartDate(DateTime date) {
+    startDate = date;
+    if (endDate != null && endDate!.isBefore(date)) endDate = null;
+    notifyListeners();
+  }
+
+  void setEndDate(DateTime date) {
+    endDate = date;
+    notifyListeners();
+  }
+
   void selectContent(int index) {
     if (selectedContent == index) return;
     selectedContent = index;

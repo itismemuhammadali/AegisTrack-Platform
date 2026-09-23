@@ -359,6 +359,8 @@ class AppAssetsSvg {
       'assets/icons/svg/tracker_share_live.svg';
   static const String trackerShareExpertLock =
       'assets/icons/svg/tracker_share_expert_lock.svg';
+  static const String trackerShareCalendar =
+      'assets/icons/svg/tracker_share_calendar.svg';
   static const String trackerShareChevron =
       'assets/icons/svg/tracker_share_chevron.svg';
   static const String trackerShareContent =

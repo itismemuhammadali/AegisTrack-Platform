@@ -72,17 +72,23 @@ class _TrackerShareContentStep extends StatelessWidget {
               ),
               10.ph,
             ],
-            // The design's two empty date pickers: the range is chosen on a
-            // screen that has not been designed yet.
-            IntrinsicHeight(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  Expanded(child: const _TrackerShareDatePlaceholder()),
-                  8.pw,
-                  Expanded(child: const _TrackerShareDatePlaceholder()),
-                ],
-              ),
+            Row(
+              children: [
+                Expanded(
+                  child: _TrackerShareDateField(
+                    date: controller.startDate,
+                    onPicked: controller.setStartDate,
+                  ),
+                ),
+                8.pw,
+                Expanded(
+                  child: _TrackerShareDateField(
+                    date: controller.endDate,
+                    firstDate: controller.startDate,
+                    onPicked: controller.setEndDate,
+                  ),
+                ),
+              ],
             ),
             16.ph,
             TrackerShareButton(
@@ -96,16 +102,59 @@ class _TrackerShareContentStep extends StatelessWidget {
       );
 }
 
-class _TrackerShareDatePlaceholder extends StatelessWidget {
-  const _TrackerShareDatePlaceholder();
+/// A start or end date for the shared period; tapping opens the date picker.
+class _TrackerShareDateField extends StatelessWidget {
+  const _TrackerShareDateField({
+    required this.date,
+    required this.onPicked,
+    this.firstDate,
+  });
+
+  final DateTime? date;
+  final DateTime? firstDate;
+  final ValueChanged<DateTime> onPicked;
+
+  static String _format(DateTime d) => '${d.month.toString().padLeft(2, '0')}/'
+      '${d.day.toString().padLeft(2, '0')}/${d.year}';
+
+  Future<void> _pick(BuildContext context) async {
+    final now = DateTime.now();
+    final first = firstDate ?? DateTime(now.year - 5);
+    final picked = await showDatePicker(
+      context: context,
+      initialDate: date ?? (first.isAfter(now) ? first : now),
+      firstDate: first,
+      lastDate: now,
+    );
+    if (picked != null) onPicked(picked);
+  }
 
   @override
-  Widget build(BuildContext context) => Container(
-        height: 42.h,
-        decoration: BoxDecoration(
-          color: AppColors.trackerSurfaceFill,
-          borderRadius: 20.circular,
-          border: Border.all(color: AppColors.trackerSurfaceFill),
+  Widget build(BuildContext context) => GestureDetector(
+        onTap: () => _pick(context),
+        behavior: HitTestBehavior.opaque,
+        child: Container(
+          height: 38.h,
+          padding: AppInsets.symmetric(horizontal: 10),
+          decoration: BoxDecoration(
+            color: AppColors.trackerSurfaceFill,
+            borderRadius: 20.circular,
+            border: Border.all(color: AppColors.trackerSurfaceFill),
+          ),
+          child: Row(
+            children: [
+              Expanded(
+                child: TrackerDetailText(
+                  date == null
+                      ? AppStrings.trackerShareDateHint
+                      : _format(date!),
+                  weight: FontWeight.w400,
+                ),
+              ),
+              SvgPicture.asset(AppAssetsSvg.trackerShareCalendar,
+                  width: 20.w, height: 20.w),
+            ],
+          ),
         ),
       );
 }
