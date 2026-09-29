@@ -56,6 +56,8 @@ export '../exceptions/exceptions.dart';
 //CPMPONENTS EXPORTS
 
 export '../../components/network_snap.dart';
+export '../../components/app_back_button.dart';
+export '../../components/primary_app_button.dart';
 
 //Handlers
 export '../handlers/auth_handler.dart';

@@ -1,4 +1,3 @@
-
 import 'package:joshua_r_hughes/src/core/services/local_db_service/secure_storage.dart';
 
 import '../utils/app_exports.dart';
@@ -63,8 +62,11 @@ class AuthHandler {
       await prefs.deleteUser();
       await prefs.deleteToken();
 
+      user = null;
+      acessToken = null;
+      onBoardToken = null;
+      onBoadEmail = null;
       didLogOut = true;
-      // AppRouterGo.pushRemoveUntil(signInView);
     } catch (e) {
       appPrint(e);
     }

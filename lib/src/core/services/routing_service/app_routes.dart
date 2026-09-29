@@ -1,2 +1,74 @@
-﻿const String onboardingView = '/';
+const String onboardingView = '/';
+const String signInOptionsView = '/sign-in-options';
+const String signInView = '/sign-in';
+const String registerView = '/register';
+const String trackerDashboardView = '/tracker-dashboard';
+const String viewerSignInView = '/viewer-sign-in';
+const String viewerForgotPasswordView = '/viewer-forgot-password';
+const String viewerRegisterView = '/viewer-register';
+const String viewerVerifyView = '/viewer-verify';
+const String viewerNewPasswordView = '/viewer-new-password';
+const String verifyView = '/verify';
+const String twoFactorView = '/two-factor';
+const String enableLocationAccessView = '/enable-location-access';
+const String trackedDashboardView = '/tracked-dashboard';
+const String trackedSyncStatusView = '/tracked-sync-status';
+const String trackedExportCenterView = '/tracked-export-center';
+const String trackedLogDetailsView = '/tracked-log-details';
+const String trackedLogCaptureView = '/tracked-log-capture';
+const String trackedAddNoteView = '/tracked-add-note';
+const String trackedSosView = '/tracked-sos';
+const String trackedZoneStatusView = '/tracked-zone-status';
+const String trackedLiveMapView = '/tracked-live-map';
+const String trackedCaptureImageView = '/tracked-capture-image';
+const String trackedReviewImageView = '/tracked-review-image';
+const String trackedCheckInsView = '/tracked-check-ins';
+const String trackedCheckInVerifyView = '/tracked-check-in-verify';
+const String trackedSelfieCaptureView = '/tracked-selfie-capture';
+const String trackedCheckInCompleteView = '/tracked-check-in-complete';
+const String trackedEditProfileView = '/tracked-edit-profile';
+const String trackedChoosePlanView = '/tracked-choose-plan';
+const String trackedMembershipView = '/tracked-membership';
+const String trackedAntiSpoofingView = '/tracked-anti-spoofing';
+const String trackedConfirmSubscriptionView = '/tracked-confirm-subscription';
+const String trackedSubscriptionActiveView = '/tracked-subscription-active';
 
+const String trackerUserDetailsView = '/tracker-user-details';
+
+const String trackerSecurityDetailsView = '/tracker-security-details';
+
+const String trackerTimelineView = '/tracker-timeline';
+
+const String trackerMapPlaybackView = '/tracker-map-playback';
+
+const String trackerLiveTrackingView = '/tracker-live-tracking';
+
+const String trackerCheckInsView = '/tracker-check-ins';
+
+const String trackerNotificationsView = '/tracker-notifications';
+
+const String trackerCaseDetailView = '/tracker-case-detail';
+
+const String trackerHelpSupportView = '/tracker-help-support';
+
+const String trackerPlanSubscriptionView = '/tracker-plan-subscription';
+
+const String trackerEditProfileView = '/tracker-edit-profile';
+
+const String trackerEmailSettingsView = '/tracker-email-settings';
+
+const String trackerPhoneNumberView = '/tracker-phone-number';
+
+const String trackerSecuritySettingsView = '/tracker-security-settings';
+
+const String trackerNotificationSettingsView = '/tracker-notification-settings';
+
+const String trackerDisplayThemeView = '/tracker-display-theme';
+
+const String trackerAiInsightsView = '/tracker-ai-insights';
+
+const String trackerLogDetailView = '/tracker-log-detail';
+
+const String trackerReportsView = '/tracker-reports';
+
+const String trackerSecureShareView = '/tracker-secure-share';

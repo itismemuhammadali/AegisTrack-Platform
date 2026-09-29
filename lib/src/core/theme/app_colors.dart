@@ -70,11 +70,7 @@ class AppColors {
     0xFF009639,
   ); // Green accent (used in logo)
 
-  //Colors For ZIM Sports
-  static const primaryTextColor = Color(0xff101828);
-  static const splashBackground = Color(0xFFF2ECE0);
   static const Color inactiveGray = Color(0xFF999999);
-  static const Color purple = Color(0xFFA36CF7);
 
   static const Color primaryWhite = Colors.white;
   static const Color primaryblack = Colors.black;
@@ -166,26 +162,7 @@ class AppColors {
   static const Color maleDialogBg = Color(0xFFF8F3EC);
   static const Color femaleDialogBg = Color(0xFFFAEBE1);
   static const Color rhino = Color(0xff32407B);
-  static const Color listenerActiveTab = Color(0xFFFFD426);
-  static const Color listenerDashboardBg = Color(0xFF0D121B);
-  static const Color artistHomeAppBarBg = Color(0xFF020C14);
-  static const Color listenerNavBorder = Color(0xFF1E2532);
-  static const Color listenerGradientTop = Color(0xFF1A2639);
-  static const Color listenerYellow = Color(0xFFFFD13B);
-  static const Color listenerChipBg = Color(0xFF121821);
-  static const Color listenerPopupMenuBg = Color(0xFF1C2535);
-  static const Color listenerPastBadgeBg = Color(0xFF1E2530);
-  static const Color listenerPendingBlue = Color(0xFF2B7FFF);
   static const Color deleteRed = Color(0xFFFF3B30);
-  static const Color listenerChipBorder = Color(0xFF2C3140);
-  static const Color listenerAvatarBg = Color(0xFF1A2233);
-  static const Color artistStatItemBg = Color(0xFF1F2937);
-  static const Color listenerDislikeRed = Color(0xFFE8445A);
-  static const Color listenerLiveRed = Color(0xFFE7000B);
-  static const Color artistLiveBadgeRed = Color(0xFFFB2C36);
-  static const Color artistEndSessionRed = Color(0xFFEF4444);
-  static const Color listenerBackButtonBorder = Color(0xFF1F2937);
-  static const Color listenerCursorDark = Color(0xFF202020);
   static const Color black50 = Color(0x80000000);
   static const Color shimmerBase = Color(0xFFEBEBF4);
   static const Color shimmerContainer = Color(0xFFF4F4F4);
@@ -206,12 +183,200 @@ class AppColors {
   static const Color onboardingScrimNavy = Color(0xFF0C1227);
   static const Color onboardingScrimWash = Color(0x99000414);
 
+  // Onboarding - Next button gradient (11 stops, per Figma)
+  static const List<Color> onboardingButtonGradientColors = [
+    Color(0xFF2F1D63),
+    Color(0xFF321F67),
+    Color(0xFF34206C),
+    Color(0xFF372270),
+    Color(0xFF3A2374),
+    Color(0xFF3C2579),
+    Color(0xFF3F267D),
+    Color(0xFF422882),
+    Color(0xFF442A86),
+    Color(0xFF472B8A),
+    Color(0xFF4A2D8F),
+  ];
+  static const List<double> onboardingButtonGradientStops = [
+    0.0,
+    0.1,
+    0.2,
+    0.3,
+    0.4,
+    0.5,
+    0.6,
+    0.7,
+    0.8,
+    0.9,
+    1.0,
+  ];
+
+  // Onboarding - Active page indicator gradient (10 stops, per Figma)
+  static const List<Color> onboardingIndicatorGradientColors = [
+    Color(0xFF2F1D63),
+    Color(0xFF321F68),
+    Color(0xFF35206D),
+    Color(0xFF382271),
+    Color(0xFF3B2476),
+    Color(0xFF3E267B),
+    Color(0xFF412880),
+    Color(0xFF442985),
+    Color(0xFF472B8A),
+    Color(0xFF4A2D8F),
+  ];
+  static const List<double> onboardingIndicatorGradientStops = [
+    0.0,
+    0.11111,
+    0.22222,
+    0.33333,
+    0.44444,
+    0.55556,
+    0.66667,
+    0.77778,
+    0.88889,
+    1.0,
+  ];
+
   // Sign in - dark mode
   static const Color signInDarkBackground = Color(0xFF0B0B0D);
   static const Color signInDarkSurface = Color(0xFF151516);
   static const Color signInDarkBorder = Color(0x1AFFFFFF);
   static const Color signInDarkSubtitle = Color(0xFFA0A7B8);
   static const Color signInDarkDivider = Color(0xFF1F2937);
+  // Tracker (viewer) dashboard
+  static const Color trackerSosRed = Color(0xFFC90000);
+  static const Color trackerOnlineGreen = Color(0xFF05DF72);
+  static const Color trackerAmber = Color(0xFFFFB900);
+  static const Color trackerOrange = Color(0xFFFF8904);
+  static const Color trackerAlertSubtitle = Color(0xFF8BA9A3);
+  static const Color trackerCardGlow = Color(0x4D2F1D63);
+
+  // Tracker (viewer) surfaces & text
+  static const Color trackerSurfaceFill = Color(0x0DFFFFFF);
+  static const Color trackerBorderSoft = Color(0x1AFFFFFF);
+  static const Color trackerMutedText = Color(0x99FFFFFF);
+  static const Color trackerFaintText = Color(0x61FFFFFF);
+  static const Color trackerPurpleDeep = Color(0xFF321F67);
+  static const Color trackerPurpleLight = Color(0xFF5B3A9E);
+  static const Color trackerAvatarPurple = Color(0xFF432980);
+  static const Color trackerExpertBadge = Color(0x4D5B3A9E);
+  static const Color trackerLinkLavender = Color(0xFFEDE9FE);
+
+  // Tracker (viewer) status accents
+  static const Color trackerSuccessGreen = Color(0xFF00C950);
+  static const Color trackerSuccessSurface = Color(0x3300C950);
+  static const Color trackerInfoBlue = Color(0xFF51A2FF);
+  static const Color trackerInfoBlueStrong = Color(0xFF2B7FFF);
+  static const Color trackerInfoBlueSurface = Color(0x332B7FFF);
+  static const Color trackerInfoBlueText = Color(0xFF8EC5FF);
+  static const Color trackerDangerRed = Color(0xFFFB2C36);
+  static const Color trackerDangerSurface = Color(0x33FB2C36);
+  static const Color trackerFlaggedRed = Color(0xFFFF6467);
+  static const Color trackerCriticalRed = Color(0xFFD4183D);
+  static const Color trackerWarningAmber = Color(0xFFFE9A00);
+  static const Color trackerWarningText = Color(0xFFFFD230);
+  static const Color trackerWarningSurface = Color(0x1AFE9A00);
+  static const Color trackerWarningBorder = Color(0x4DFE9A00);
+  static const Color trackerLegalHoldSurface = Color(0xFF513B22);
+
+  // Tracker (viewer) security details gradient
+  static const Color trackerSecurityScrimSlate = Color(0xFF2B2F3F);
+  static const Color trackerSecurityScrimNavy = Color(0xFF000414);
+
+  // Tracker (viewer) timeline
+  static const Color trackerOrangeSurface = Color(0x33FF6900);
+  static const Color trackerAmberSurface = Color(0x33FE9A00);
+  static const Color trackerNeutralSurface = Color(0x33FFFFFF);
+  static const Color trackerAcceptableSurface = Color(0x33F0B100);
+  static const Color trackerAcceptableText = Color(0xFFFDC700);
+  static const Color trackerMissingCardFill = Color(0x0DFE9A00);
+  static const Color trackerMissingCardBorder = Color(0x4DFE9A00);
+  static const Color trackerSosCardFill = Color(0x0DFB2C36);
+  static const Color trackerSosCardBorder = Color(0x66FB2C36);
+
+  // Tracker (viewer) map playback
+  static const Color trackerMapFill = Color(0xFF001420);
+  static const Color trackerMapMarkerBorder = Color(0xFF001A27);
+  static const Color trackerRouteGreen = Color(0xFF22C55E);
+  static const Color trackerRouteAmber = Color(0xFFF59E0B);
+  static const Color trackerZoneMarkerFill = Color(0x1A05DF72);
+
+  // Tracker (viewer) live tracking
+  static const Color trackerOnlinePillFill = Color(0x1A00C950);
+  static const Color trackerOnlinePillBorder = Color(0x4D00C950);
+
+  // Tracker (viewer) check-ins
+  static const Color trackerUpcomingPillFill = Color(0x1A2B7FFF);
+  static const Color trackerUpcomingPillBorder = Color(0x4D2B7FFF);
+  static const Color trackerDangerPillFill = Color(0x1AFB2C36);
+  static const Color trackerDangerPillBorder = Color(0x4DFB2C36);
+
+  // Tracker (viewer) alert center
+  static const Color trackerAlertCriticalRed = Color(0xFFE7000B);
+  static const Color trackerAlertRedCardFill = Color(0x1A82181A);
+  static const Color trackerAlertRedCardBorder = Color(0x80FB2C36);
+  static const Color trackerAlertOrangeCardFill = Color(0x1A7E2A0C);
+  static const Color trackerAlertOrangeCardBorder = Color(0x80FF6900);
+  static const Color trackerAlertAmberCardFill = Color(0x1A733E0A);
+  static const Color trackerAlertAmberCardBorder = Color(0x80F0B100);
+  static const Color trackerAlertRedIconFill = Color(0x33FB2C36);
+  static const Color trackerAlertOrangeIconFill = Color(0x33FF6900);
+  static const Color trackerAlertAmberIconFill = Color(0x33F0B100);
+  static const Color trackerAlertBlueIconFill = Color(0x332B7FFF);
+  static const Color trackerAlertUnreadDot = Color(0xFF51A2FF);
+
+  // Tracker (viewer) unidentified subject
+  static const Color trackerSuspectRed = Color(0xFFEF4444);
+  static const Color trackerSuspectFill = Color(0x1AEF4444);
+
+  // Tracker (viewer) case detail
+  static const Color trackerCaseLocationPurple = Color(0xFFC27AFF);
+  static const Color trackerCaseLocationSurface = Color(0x33AD46FF);
+
+  // Tracker (viewer) help & support
+  static const Color trackerHelpChatFill = Color(0x1AA684FF);
+  static const Color trackerHelpEmailFill = Color(0x1A2B7FFF);
+  static const Color trackerHelpDocsFill = Color(0x1A00C950);
+  static const Color trackerHelpStatusFill = Color(0x1A5B3A9E);
+
+  // Tracker (viewer) log detail
+  static const Color trackerLogBannerBorder = Color(0x33FE9A00);
+  static const Color trackerLogAcceptableFill = Color(0x1AF0B100);
+  static const Color trackerLogAcceptableBorder = Color(0x33F0B100);
+  static const Color trackerLogQuestionableFill = Color(0x1AFF6900);
+  static const Color trackerLogSuspectBorder = Color(0x33FB2C36);
+  static const Color trackerLogSecurityFill = Color(0x1A2B7FFF);
+  static const Color trackerLogSecurityBorder = Color(0x4D51A2FF);
+
+  // Tracker (viewer) secure share
+  static const Color trackerShareActiveFill = Color(0x1A00C950);
+  static const Color trackerShareActiveBorder = Color(0x4D00C950);
+  static const Color trackerShareRevokedFill = Color(0x1AFB2C36);
+  static const Color trackerShareRevokedBorder = Color(0x4DFB2C36);
+  static const Color trackerShareWarningFill = Color(0x0DFE9A00);
+  static const Color trackerShareExpertFill = Color(0x33FFFFFF);
+  static const Color trackerShareExpertBorder = Color(0x4DFFFFFF);
+
+  // Tracker (viewer) plan & subscription
+  static const Color trackerPlanCardTop = Color(0x335B3A9E);
+  static const Color trackerPlanCardBottom = Color(0x33321F67);
+  static const Color trackerPlanCardBorder = Color(0x665B3A9E);
+  static const Color trackerPlanBadgeFill = Color(0x335B3A9E);
+
+  // Tracker (viewer) edit profile
+  static const Color trackerEditAvatarTop = Color(0xFF321F67);
+  static const Color trackerEditAvatarBottom = Color(0xFF5B3A9E);
+
+  // Tracker (viewer) phone number
+  static const Color trackerPhoneHint = Color(0x80E5F4F0);
+
+  // Tracker (viewer) display & theme
+  static const Color trackerThemePreviewBar = Color(0x1AE5F4F0);
+
+  // Tracker (viewer) sign in
+  static const Color viewerSignInText = Color(0xFFE5F4F0);
+  static const Color authFocusedFieldBorder = Color(0x4070699F);
+  static const Color authToggleShadow = Color(0x1A000000);
 
   // Sign in - light mode
   static const Color signInLightBackground = Color(0xFFF8F8F8);
@@ -291,4 +456,76 @@ class AppColors {
   static const Color forgotPasswordDarkButtonBg = Color(0x4D2A2A2D);
   static const Color forgotPasswordLightButtonBg = Color(0x4D151516);
   static const Color forgotPasswordLightBorder = Color(0x1A151516);
+
+  // Two-factor authentication
+  static const Color twoFactorAccentPurple = Color(0xFF34206C);
+
+  // Tracked dashboard - home
+  static const Color trackedDashboardBackground = Color(0xFF2B2F3F);
+  static const Color trackedTrackingActiveGreen = Color(0xFF00F300);
+  static const Color trackedMapPreviewOverlay = Color(0x3312182E);
+  static const Color trackedBottomBarArc = Color(0xFF080C1C);
+  static const Color trackedSosRed = Color(0xFFEF4444);
+  static const Color trackedZoneAllowedGreen = Color(0xFF10B981);
+  static const Color trackedCheckInAmber = Color(0xFFF59E0B);
+  static const Color trackedCheckInStartText = Color(0xFF001A27);
+  static const Color trackedQuickActionShadow = Color(0x3334206C);
+  static const Color trackedAskAiBorder = Color(0x4D34206C);
+  static const Color trackedMembershipSheetBackground = Color(0xFF0A1824);
+
+  // Tracked home - quick action primary gradient (13 stops, per Figma)
+  static const List<Color> trackedQuickActionGradientColors = [
+    Color(0xFF34206C),
+    Color(0xFF372270),
+    Color(0xFF3A2374),
+    Color(0xFF3D2578),
+    Color(0xFF40277D),
+    Color(0xFF432981),
+    Color(0xFF472A85),
+    Color(0xFF4A2C89),
+    Color(0xFF4D2E8E),
+    Color(0xFF503092),
+    Color(0xFF533196),
+    Color(0xFF57339B),
+    Color(0xFF5A359F),
+  ];
+
+  // Tracked log capture - Joshua R Hughes (location tracking)
+  static const Color trackedLogCaptureHeaderBackdrop = Color(0xFF000414);
+
+  // Tracked logs - history list
+  static const Color trackedLogSyncedGreen = Color(0xFF10B981);
+  static const Color trackedLogPendingAmber = Color(0xFFF59E0B);
+  static const Color trackedLogFailedRed = Color(0xFFEF4444);
+  static const Color trackedLogTagText = Color(0xFF6B7280);
+  static const Color trackedLogDetailsMutedText = Color(0xFFA0A7B8);
+  static const Color trackedLogDetailsCardBackground = Color(0x0DFFFFFF);
+  static const Color trackedLogDetailsCardBorder = Color(0x1AFFFFFF);
+  static const Color trackedLogDetailsAccent = Color(0xFF8B5CF6);
+
+  // Tracked settings - Joshua R Hughes (location tracking)
+  static const Color trackedSettingsCardBorder = Color(0x1AFFFFFF);
+  static const Color trackedSettingsMutedText = Color(0xFFA0A7B8);
+  static const Color trackedSettingsIconBg = Color(0x4D34206C);
+  static const Color trackedSettingsLogoutRed = Color(0xFFEF4444);
+
+  // Tracked export center - Joshua R Hughes (location tracking)
+  static const Color trackedExportCenterCardBackground = Color(0x0DFFFFFF);
+  static const Color trackedExportCenterCardBorder = Color(0x1AFFFFFF);
+  static const Color trackedExportCenterMutedText = Color(0xFFA0A7B8);
+  static const Color trackedExportCenterPdfAccent = Color(0xFF34206C);
+  static const Color trackedExportCenterSpreadsheetAccent = Color(0xFF10B981);
+  static const Color trackedExportCenterSpreadsheetIconBackground =
+      Color(0x3310B981);
+  static const Color trackedExportCenterEmailAccent = Color(0xFFF59E0B);
+  static const Color trackedExportCenterEmailIconBackground = Color(0x33F59E0B);
+
+  // Tracked subscription - Joshua R Hughes (location tracking)
+  static const Color trackedPlanFreeAccent = Color(0xFF6B7280);
+  static const Color trackedPlanBasicAccent = Color(0xFF3B82F6);
+  static const Color trackedPlanExpertAccent = Color(0xFFF59E0B);
+  static const Color trackedPlanSelectedAccent = Color(0xFF34206C);
+  static const Color trackedPlanFeatureIncluded = Color(0xFF10B981);
+  static const Color trackedPlanMutedText = Color(0xFFA0A7B8);
+  static const Color trackedPlanFaintText = Color(0xFF6B7280);
 }

@@ -21,18 +21,23 @@ class OnboardingNextButton extends StatelessWidget {
         decoration: BoxDecoration(
           borderRadius: 16.circular,
           gradient: const LinearGradient(
-            colors: [
-              AppColors.onboardingPurpleGradientStart,
-              AppColors.onboardingPurpleGradientEnd,
-            ],
+            colors: AppColors.onboardingButtonGradientColors,
+            stops: AppColors.onboardingButtonGradientStops,
           ),
           boxShadow: [
             BoxShadow(
               color: AppColors.onboardingPurpleGradientStart.withValues(
                 alpha: 0.3,
               ),
-              blurRadius: 10,
+              blurRadius: 3,
               offset: Offset(0, 4.h),
+            ),
+            BoxShadow(
+              color: AppColors.onboardingPurpleGradientStart.withValues(
+                alpha: 0.3,
+              ),
+              blurRadius: 7.5,
+              offset: Offset(0, 10.h),
             ),
           ],
         ),
@@ -47,7 +52,7 @@ class OnboardingNextButton extends StatelessWidget {
                 fontWeight: FontWeight.w500,
               ),
             ),
-            8.pw,
+            10.pw,
             SvgPicture.asset(
               AppAssetsSvg.onboardingNextArrow,
               width: 20.sp,

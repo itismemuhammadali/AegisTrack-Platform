@@ -1,0 +1,123 @@
+import '../../../../../core/utils/app_exports.dart';
+import '../controller/tracked_settings_controller.dart';
+import '../widgets/tracked_settings_logout_button.dart';
+import '../widgets/tracked_settings_nav_row.dart';
+import '../widgets/tracked_settings_profile_card.dart';
+import '../widgets/tracked_settings_section_label.dart';
+import '../widgets/tracked_settings_settings_card.dart';
+import '../widgets/tracked_settings_toggle_row.dart';
+
+class TrackedSettingsView extends ConsumerWidget {
+  const TrackedSettingsView({super.key, this.onAntiSpoofing});
+
+  final VoidCallback? onAntiSpoofing;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final controller = ref.watch(trackedSettingsControllerProvider);
+
+    return Padding(
+      padding: AppInsets.only(left: 24, right: 24, top: 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            AppStrings.trackedSettingsTitle,
+            style: context.headlineSmallStyle?.copyWith(
+              fontSize: 24.sp,
+              fontWeight: FontWeight.w700,
+              color: AppColors.primaryWhite,
+            ),
+          ),
+          24.ph,
+          Expanded(
+            child: ListView(
+              padding: AppInsets.only(bottom: 24),
+              children: [
+                TrackedSettingsSectionLabel(
+                  AppStrings.trackedSettingsProfileSection,
+                ),
+                10.ph,
+                TrackedSettingsProfileCard(
+                  onTap: () => AppRouterGo.push(trackedEditProfileView),
+                ),
+                24.ph,
+                TrackedSettingsSectionLabel(
+                  AppStrings.trackedSettingsMembershipSection,
+                ),
+                10.ph,
+                TrackedSettingsSettingsCard(
+                  children: [
+                    TrackedSettingsNavRow(
+                      icon: AppAssetsSvg.trackedSubscriptionCardIcon,
+                      title: AppStrings.trackedSettingsManageMembership,
+                      subtitle:
+                          AppStrings.trackedSettingsManageMembershipSubtitle,
+                      titleWeight: FontWeight.w600,
+                      gap: 16,
+                      onTap: () => AppRouterGo.push(trackedMembershipView),
+                    ),
+                  ],
+                ),
+                24.ph,
+                TrackedSettingsSectionLabel(
+                  AppStrings.trackedSettingsTrackingSection,
+                ),
+                10.ph,
+                TrackedSettingsSettingsCard(
+                  children: [
+                    TrackedSettingsToggleRow(
+                      icon: AppAssetsSvg.trackedSettingsBackgroundTrackingIcon,
+                      title: AppStrings.trackedSettingsBackgroundTracking,
+                      subtitle:
+                          AppStrings.trackedSettingsBackgroundTrackingSubtitle,
+                      value: controller.backgroundTrackingEnabled,
+                      onChanged: controller.setBackgroundTracking,
+                    ),
+                    TrackedSettingsToggleRow(
+                      icon: AppAssetsSvg.trackedSettingsAutoSyncIcon,
+                      title: AppStrings.trackedSettingsAutoSync,
+                      subtitle: AppStrings.trackedSettingsAutoSyncSubtitle,
+                      value: controller.autoSyncEnabled,
+                      onChanged: controller.setAutoSync,
+                    ),
+                    TrackedSettingsNavRow(
+                      icon: AppAssetsSvg.trackedSettingsAntiSpoofingIcon,
+                      title: AppStrings.trackedSettingsAntiSpoofing,
+                      subtitle: AppStrings.trackedSettingsAntiSpoofingSubtitle,
+                      onTap: onAntiSpoofing ??
+                          () => AppRouterGo.push(trackedAntiSpoofingView),
+                    ),
+                  ],
+                ),
+                24.ph,
+                TrackedSettingsSectionLabel(
+                  AppStrings.trackedSettingsDataSection,
+                ),
+                12.ph,
+                TrackedSettingsSettingsCard(
+                  children: [
+                    TrackedSettingsNavRow(
+                      icon: AppAssetsSvg.trackedSettingsSyncStatusIcon,
+                      title: AppStrings.trackedSettingsSyncStatus,
+                      subtitle: AppStrings.trackedSettingsSyncStatusSubtitle,
+                      onTap: () => AppRouterGo.push(trackedSyncStatusView),
+                    ),
+                    TrackedSettingsNavRow(
+                      icon: AppAssetsSvg.trackedSettingsExportCenterIcon,
+                      title: AppStrings.trackedSettingsExportCenter,
+                      subtitle: AppStrings.trackedSettingsExportCenterSubtitle,
+                      onTap: () => AppRouterGo.push(trackedExportCenterView),
+                    ),
+                  ],
+                ),
+                24.ph,
+                TrackedSettingsLogoutButton(onTap: controller.logout),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
