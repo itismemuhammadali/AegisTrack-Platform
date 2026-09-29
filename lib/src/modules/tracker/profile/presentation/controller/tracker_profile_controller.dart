@@ -318,11 +318,11 @@ class TrackerProfileController extends ChangeNotifier with Buffers {
           label: AppStrings.trackerNotificationSettings,
           icon: AppAssetsSvg.trackerProfileNotifications,
         ),
-        TrackerProfileRowEntity(
-          label: AppStrings.trackerDarkMode,
-          icon: AppAssetsSvg.trackerProfileDarkMode,
-          value: 'Always on',
-        ),
+        // TrackerProfileRowEntity(
+        //   label: AppStrings.trackerDarkMode,
+        //   icon: AppAssetsSvg.trackerProfileDarkMode,
+        //   value: 'Always on',
+        // ),
       ],
     ),
     TrackerProfileSectionEntity(
