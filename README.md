@@ -1,4 +1,8 @@
-# AegisTrack — Secure Location Logging & Legal Monitoring Platform
+# 🛡️ AegisTrack — Secure Location Logging & Legal Monitoring Platform
+
+<p align=center>
+  <img src="assets/branding/logo.jpg" alt="AegisTrack Platform Logo" width="180" style="border-radius: 20px; box-shadow: 0 8px 32px rgba(30, 58, 138, 0.35);" />
+</p>
 
 > **Client:** AegisTrack  
 > **Architecture:** 4-Tier Tamper-Evident Legal Monitoring Ecosystem  
