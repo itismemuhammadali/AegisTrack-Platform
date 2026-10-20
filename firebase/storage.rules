@@ -1,0 +1,26 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    // Check-in selfies
+    match /check_ins/{userId}/{imageId} {
+      allow write: if isAuthenticated() && request.auth.uid == userId;
+      allow read: if isAuthenticated();
+    }
+
+    // User reference profile photos
+    match /reference_photos/{userId}/{imageId} {
+      allow write: if isAuthenticated() && request.auth.uid == userId;
+      allow read: if isAuthenticated();
+    }
+
+    // Exported legal reports
+    match /reports/{caseId}/{reportId} {
+      allow read, write: if isAuthenticated();
+    }
+  }
+}

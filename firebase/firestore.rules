@@ -1,0 +1,12 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Development & Web Admin Portal permissions
+    // In local emulator and for Web Admin operations, allow full read & write
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
+
